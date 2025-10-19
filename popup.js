@@ -368,20 +368,35 @@ async function loadSettings() {
  * @param {HTMLElement} button - 按钮元素
  * @param {string} successMessage - 成功消息
  * @param {string} errorMessage - 错误消息
+ * @param {boolean} waitForCompletion - 是否等待操作完成（默认true）
  */
-async function executeCleanup(cleanupFunction, button, successMessage, errorMessage) {
+async function executeCleanup(cleanupFunction, button, successMessage, errorMessage, waitForCompletion = true) {
     try {
-        // 设置按钮为加载状态
+        // 立即设置按钮为加载状态，提供即时反馈
         ButtonManager.setLoading(button);
 
-        // 执行清理操作
-        await cleanupFunction();
+        if (waitForCompletion) {
+            // 需要等待操作完成的情况（如清理缓存等需要确认完成的操作）
+            await cleanupFunction();
 
-        // 设置按钮为成功状态
-        ButtonManager.setSuccess(button);
+            // 设置按钮为成功状态
+            ButtonManager.setSuccess(button);
 
-        // 显示成功消息
-        showStatus(successMessage, 'success');
+            // 显示成功消息
+            showStatus(successMessage, 'success');
+        } else {
+            // 不需要等待操作完成的情况（如页面重载，立即给用户反馈）
+            // 立即显示成功消息
+            showStatus(successMessage, 'success');
+
+            // 立即设置按钮为成功状态
+            ButtonManager.setSuccess(button);
+
+            // 异步执行清理操作，不阻塞UI
+            cleanupFunction().catch(error => {
+                console.error('操作执行失败:', error);
+            });
+        }
     } catch (error) {
         // 设置按钮为错误状态
         ButtonManager.setError(button);
@@ -519,30 +534,109 @@ async function clearDownloadFiles() {
  * 正常重新加载
  */
 async function normalReload() {
-    await executeCleanup(async () => {
-        if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
-        await CleanerManager.normalReload(currentTab);
-    }, elements.normalReload, getMessage('pageReloading'), getMessage('reloadFailed'));
+    try {
+        // 立即检查tab
+        if (!currentTab || !currentTab.id) {
+            showStatus(getMessage('cannotGetCurrentTab'), 'error');
+            return;
+        }
+
+        // 立即更新UI
+        ButtonManager.setSuccess(elements.normalReload);
+        showStatus(getMessage('pageReloading'), 'success');
+
+        // 强制浏览器立即应用所有样式变化（通过读取布局属性触发重排）
+        // 这比requestAnimationFrame更可靠，因为popup关闭前确保UI已更新
+        if (elements.normalReload) {
+            elements.normalReload.offsetHeight;
+        }
+        if (elements.statusContainer) {
+            elements.statusContainer.offsetHeight;
+        }
+
+        // 立即执行重载
+        chrome.tabs.reload(currentTab.id);
+    } catch (error) {
+        ButtonManager.setError(elements.normalReload);
+        showStatus(getMessage('reloadFailed') + ': ' + error.message, 'error');
+    }
 }
 
 /**
  * 硬性重新加载（绕过缓存）
  */
 async function hardReloadOnly() {
-    await executeCleanup(async () => {
-        if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
-        await CleanerManager.hardReloadOnly(currentTab);
-    }, elements.hardReloadOnly, getMessage('pageHardReloading'), getMessage('hardReloadFailed'));
+    try {
+        // 立即检查tab
+        if (!currentTab || !currentTab.id) {
+            showStatus(getMessage('cannotGetCurrentTab'), 'error');
+            return;
+        }
+
+        // 立即更新UI
+        ButtonManager.setSuccess(elements.hardReloadOnly);
+        showStatus(getMessage('pageHardReloading'), 'success');
+
+        // 强制浏览器立即应用所有样式变化
+        if (elements.hardReloadOnly) {
+            elements.hardReloadOnly.offsetHeight;
+        }
+        if (elements.statusContainer) {
+            elements.statusContainer.offsetHeight;
+        }
+
+        // 立即执行重载（绕过缓存）
+        chrome.tabs.reload(currentTab.id, { bypassCache: true });
+    } catch (error) {
+        ButtonManager.setError(elements.hardReloadOnly);
+        showStatus(getMessage('hardReloadFailed') + ': ' + error.message, 'error');
+    }
 }
 
 /**
  * 清空缓存并硬性重新加载（保留登录状态）
  */
 async function hardReloadCacheOnly() {
-    await executeCleanup(async () => {
-        if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
-        await CleanerManager.hardReloadCacheOnly(currentTab);
-    }, elements.hardReloadCacheOnly, getMessage('cacheAndPageReloading'), getMessage('cacheAndReloadFailed'));
+    try {
+        // 立即检查tab
+        if (!currentTab || !currentTab.id || !currentTab.url) {
+            showStatus(getMessage('cannotGetCurrentTab'), 'error');
+            return;
+        }
+
+        // 立即更新UI
+        ButtonManager.setSuccess(elements.hardReloadCacheOnly);
+        showStatus(getMessage('cacheAndPageReloading'), 'success');
+
+        // 强制浏览器立即应用所有样式变化
+        // 这是关键：确保用户能看到UI变化
+        if (elements.hardReloadCacheOnly) {
+            elements.hardReloadCacheOnly.offsetHeight;
+        }
+        if (elements.statusContainer) {
+            elements.statusContainer.offsetHeight;
+        }
+
+        // 保存变量用于后续清理
+        const urlToClean = currentTab.url;
+        const tabId = currentTab.id;
+
+        // 🚀 立即触发重载（最高优先级，零延迟）
+        chrome.tabs.reload(tabId, { bypassCache: true });
+
+        // 🔄 异步清理缓存（不阻塞重载）
+        setTimeout(() => {
+            chrome.browsingData.removeCache({
+                since: 0,
+                origins: [urlToClean]
+            }).catch(error => {
+                console.warn('清理缓存失败:', error);
+            });
+        }, 0);
+    } catch (error) {
+        ButtonManager.setError(elements.hardReloadCacheOnly);
+        showStatus(getMessage('cacheAndReloadFailed') + ': ' + error.message, 'error');
+    }
 }
 
 /**
