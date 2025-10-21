@@ -287,14 +287,6 @@
     "message": "Cache-Reinigungsassistent",
     "description": "Titel des Kontextmenüs"
   },
-  "contextMenuOpenPanel": {
-    "message": "Reinigungspanel öffnen",
-    "description": "Kontextmenü-Option zum Öffnen des Panels"
-  },
-  "clickExtensionIcon": {
-    "message": "Bitte klicken Sie auf das Erweiterungssymbol in der Browser-Symbolleiste, um das Reinigungspanel zu öffnen",
-    "description": "Tipp zum Klicken auf das Erweiterungssymbol"
-  },
   "operationFailed": {
     "message": "Operation fehlgeschlagen",
     "description": "Allgemeine Fehlermeldung für Operation"

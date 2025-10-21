@@ -287,14 +287,6 @@
     "message": "清理缓存助手",
     "description": "右键菜单标题"
   },
-  "contextMenuOpenPanel": {
-    "message": "打开清理面板",
-    "description": "右键菜单打开面板选项"
-  },
-  "clickExtensionIcon": {
-    "message": "请点击浏览器工具栏中的扩展图标打开清理面板",
-    "description": "点击扩展图标提示"
-  },
   "operationFailed": {
     "message": "操作失败",
     "description": "操作失败通用消息"

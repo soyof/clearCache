@@ -287,14 +287,6 @@
     "message": "Assistant de Nettoyage de Cache",
     "description": "Titre du menu contextuel"
   },
-  "contextMenuOpenPanel": {
-    "message": "Ouvrir le panneau de nettoyage",
-    "description": "Option du menu contextuel pour ouvrir le panneau"
-  },
-  "clickExtensionIcon": {
-    "message": "Veuillez cliquer sur l'icône de l'extension dans la barre d'outils du navigateur pour ouvrir le panneau de nettoyage",
-    "description": "Conseil pour cliquer sur l'icône de l'extension"
-  },
   "operationFailed": {
     "message": "Échec de l'opération",
     "description": "Message générique d'échec d'opération"

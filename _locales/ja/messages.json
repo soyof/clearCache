@@ -287,14 +287,6 @@
     "message": "キャッシュクリーナーアシスタント",
     "description": "コンテキストメニュータイトル"
   },
-  "contextMenuOpenPanel": {
-    "message": "クリーニングパネルを開く",
-    "description": "コンテキストメニューパネル開くオプション"
-  },
-  "clickExtensionIcon": {
-    "message": "ブラウザツールバーの拡張機能アイコンをクリックしてクリーニングパネルを開いてください",
-    "description": "拡張機能アイコンクリックのヒント"
-  },
   "operationFailed": {
     "message": "操作に失敗しました",
     "description": "操作失敗汎用メッセージ"

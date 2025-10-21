@@ -287,14 +287,6 @@
     "message": "캐시 클리너 어시스턴트",
     "description": "컨텍스트 메뉴 제목"
   },
-  "contextMenuOpenPanel": {
-    "message": "정리 패널 열기",
-    "description": "컨텍스트 메뉴 패널 열기 옵션"
-  },
-  "clickExtensionIcon": {
-    "message": "브라우저 도구 모음의 확장 프로그램 아이콘을 클릭하여 정리 패널을 여세요",
-    "description": "확장 프로그램 아이콘 클릭 팁"
-  },
   "operationFailed": {
     "message": "작업에 실패했습니다",
     "description": "작업 실패 일반 메시지"

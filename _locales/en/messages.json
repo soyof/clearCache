@@ -287,14 +287,6 @@
     "message": "Cache Cleaner Assistant",
     "description": "Context menu title"
   },
-  "contextMenuOpenPanel": {
-    "message": "Open Cleaning Panel",
-    "description": "Context menu open panel option"
-  },
-  "clickExtensionIcon": {
-    "message": "Please click the extension icon in the browser toolbar to open the cleaning panel",
-    "description": "Click extension icon tip"
-  },
   "operationFailed": {
     "message": "Operation failed",
     "description": "Operation failed generic message"

@@ -287,14 +287,6 @@
     "message": "Asistente de Limpieza de Caché",
     "description": "Título del menú contextual"
   },
-  "contextMenuOpenPanel": {
-    "message": "Abrir panel de limpieza",
-    "description": "Opción del menú contextual para abrir el panel"
-  },
-  "clickExtensionIcon": {
-    "message": "Por favor, haga clic en el icono de la extensión en la barra de herramientas del navegador para abrir el panel de limpieza",
-    "description": "Consejo para hacer clic en el icono de la extensión"
-  },
   "operationFailed": {
     "message": "Operación fallida",
     "description": "Mensaje genérico de operación fallida"

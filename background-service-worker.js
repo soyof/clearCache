@@ -108,20 +108,6 @@ function createContextMenus() {
       contexts: ['page']
     });
 
-    chrome.contextMenus.create({
-      id: 'separator2',
-      parentId: 'clearCache',
-      type: 'separator',
-      contexts: ['page']
-    });
-
-    chrome.contextMenus.create({
-      id: 'openPopup',
-      parentId: 'clearCache',
-      title: getMessage('contextMenuOpenPanel'),
-      contexts: ['page']
-    });
-
     // 右键菜单创建成功
   });
 }
@@ -197,45 +183,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
         // 全部清空重载
         // 执行全部清空重载
         clearAllAndReload(tab);
-        break;
-
-      case 'openPopup':
-        // 打开清理面板
-        // 执行打开清理面板
-        try {
-          // 获取用户通知设置
-          chrome.storage.local.get(['enableNotifications'], async (settings) => {
-            // 方法1：尝试通过模拟点击扩展图标来打开弹窗
-            if (settings.enableNotifications !== false) {
-              // 只有在用户启用通知时才显示通知
-              await showNotification(getMessage('clickExtensionIcon'));
-            }
-
-            // 方法2：尝试通过编程方式激活扩展图标 (不受通知设置影响)
-            if (chrome.action) {
-              // 使扩展图标高亮显示，提示用户点击
-              chrome.action.setIcon({
-                path: {
-                  "16": "icons/icon16.png",
-                  "32": "icons/icon32.png",
-                  "48": "icons/icon48.png",
-                  "128": "icons/icon128.png"
-                }
-              });
-
-              // 设置徽章提醒用户点击
-              chrome.action.setBadgeText({ text: "点击" });
-              chrome.action.setBadgeBackgroundColor({ color: "#FF0000" });
-
-              // 3秒后清除徽章
-              setTimeout(() => {
-                chrome.action.setBadgeText({ text: "" });
-              }, 3000);
-            }
-          });
-        } catch (error) {
-          // 打开清理面板失败
-        }
         break;
 
       default:
