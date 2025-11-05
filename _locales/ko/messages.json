@@ -316,7 +316,7 @@
     "description": "언어 설정 제목"
   },
   "languageAuto": {
-    "message": "🌐 시스템 따라가기",
+    "message": "시스템 따라가기",
     "description": "자동 언어 옵션"
   },
   "languageChanged": {

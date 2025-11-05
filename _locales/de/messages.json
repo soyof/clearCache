@@ -316,7 +316,7 @@
     "description": "Titel der Spracheinstellungen"
   },
   "languageAuto": {
-    "message": "🌐 System folgen",
+    "message": "System folgen",
     "description": "Automatische Sprachoption"
   },
   "languageChanged": {

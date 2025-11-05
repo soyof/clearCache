@@ -316,7 +316,7 @@
     "description": "言語設定タイトル"
   },
   "languageAuto": {
-    "message": "🌐 システムに従う",
+    "message": "システムに従う",
     "description": "自動言語オプション"
   },
   "languageChanged": {

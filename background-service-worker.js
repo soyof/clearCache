@@ -33,79 +33,111 @@ self.addEventListener('activate', (event) => {
   createContextMenus();
 });
 
-// 创建右键菜单
+// 检查是否为受限制的页面
+function isRestrictedPage(url) {
+  if (!url) return true;
+  
+  const restrictedProtocols = [
+    'chrome://',
+    'chrome-extension://',
+    'edge://',
+    'about:',
+    'view-source:',
+    'data:',
+    'javascript:'
+  ];
+  
+  return restrictedProtocols.some(protocol => url.startsWith(protocol));
+}
+
+// 创建右键菜单（基础菜单，始终显示）
 function createContextMenus() {
   // 清除现有菜单
   chrome.contextMenus.removeAll(() => {
-    // 主菜单
+    // 定义允许显示右键菜单的页面URL模式（排除扩展程序自己的页面）
+    const allowedUrlPatterns = ['http://*/*', 'https://*/*', 'file:///*'];
+    
+    // 主菜单 - 只在普通网页中显示，不在扩展程序页面显示
     chrome.contextMenus.create({
       id: 'clearCache',
       title: getMessage('contextMenuTitle'),
-      contexts: ['page', 'frame', 'selection', 'link', 'editable', 'image', 'video', 'audio']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
-    // 子菜单 - 重载功能放在前面
+    // 刷新相关子菜单 - 在普通网页中显示
     chrome.contextMenus.create({
       id: 'normalReload',
       parentId: 'clearCache',
       title: getMessage('normalReload'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
     chrome.contextMenus.create({
       id: 'hardReloadOnly',
       parentId: 'clearCache',
       title: getMessage('hardReload'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
     chrome.contextMenus.create({
       id: 'hardReloadCacheOnly',
       parentId: 'clearCache',
       title: getMessage('clearCacheAndHardReload'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
+    // 分隔线 - 只在普通页面显示
     chrome.contextMenus.create({
       id: 'separator1',
       parentId: 'clearCache',
       type: 'separator',
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
+    // 清理相关子菜单 - 只在普通页面显示
     chrome.contextMenus.create({
       id: 'clearCurrentWebsiteCache',
       parentId: 'clearCache',
       title: getMessage('clearCache'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
     chrome.contextMenus.create({
       id: 'clearCookies',
       parentId: 'clearCache',
       title: getMessage('cookies'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
     chrome.contextMenus.create({
       id: 'clearLocalStorage',
       parentId: 'clearCache',
       title: getMessage('localStorage'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
     chrome.contextMenus.create({
       id: 'clearSessionStorage',
       parentId: 'clearCache',
       title: getMessage('sessionStorage'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
     chrome.contextMenus.create({
       id: 'hardReload',
       parentId: 'clearCache',
       title: getMessage('clearAllAndReload'),
-      contexts: ['page']
+      contexts: ['all'],
+      documentUrlPatterns: allowedUrlPatterns
     });
 
     // 右键菜单创建成功
@@ -117,6 +149,15 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   // 处理右键菜单点击
 
   try {
+    // 对于清理操作，检查是否为受限制的页面
+    const isRestricted = isRestrictedPage(tab.url);
+    const cleaningOperations = ['clearCurrentWebsiteCache', 'clearCookies', 'clearLocalStorage', 'clearSessionStorage', 'hardReload'];
+    
+    if (isRestricted && cleaningOperations.includes(info.menuItemId)) {
+      showNotification('此页面受浏览器保护，无法执行清理操作', 'error');
+      return;
+    }
+
     switch (info.menuItemId) {
       case 'normalReload':
         // 正常重新加载
@@ -134,17 +175,23 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
       case 'hardReloadCacheOnly':
         // 清空缓存并硬性重新加载
-        // 执行清空缓存并硬性重新加载
-        chrome.browsingData.removeCache({
-          since: 0,
-          origins: [tab.url]
-        }).then(() => {
-          chrome.tabs.reload(tab.id, { bypassCache: true });
-          showNotification(getMessage('cacheAndPageReloading'));
-        }).catch(error => {
-          // 清理缓存失败
-          showNotification(getMessage('cleaningFailed') + ': ' + error.message, 'error');
-        });
+        // 🚀 优化：先重载页面（立即响应），后清理缓存（异步进行）
+        // 这样可以避免在 macOS 等系统上因缓存清理导致的延迟
+        
+        // 立即重载页面，提供即时反馈
+        chrome.tabs.reload(tab.id, { bypassCache: true }); // bypassCache: true - 确保即使缓存还在，也会从服务器获取最新内容
+        showNotification(getMessage('cacheAndPageReloading'));
+        
+        // 异步清理缓存，不阻塞页面重载
+        setTimeout(() => {
+          chrome.browsingData.removeCache({
+            since: 0,
+            origins: [tab.url]
+          }).catch(error => {
+            // 缓存清理失败（静默处理，因为页面已经重载）
+            console.warn('Cache cleanup failed:', error);
+          });
+        }, 0);
         break;
 
       case 'clearCurrentWebsiteCache':
@@ -230,12 +277,20 @@ function clearCurrentWebsiteCache(tab) {
 
 // 清理LocalStorage
 function clearLocalStorage(tab, showNotif = true) {
+  // 检查是否为受限制的页面
+  if (isRestrictedPage(tab.url)) {
+    if (showNotif) {
+      showNotification('此页面受浏览器保护，无法清理LocalStorage', 'error');
+    }
+    return Promise.reject(new Error('受限制的页面'));
+  }
+
   return chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: () => {
       try {
         if (typeof localStorage === 'undefined') {
-          return { success: false, error: getMessage('localStorageUnavailable') };
+          return { success: false, error: 'LocalStorage不可用' };
         }
 
         const itemCount = localStorage.length;
@@ -255,7 +310,10 @@ function clearLocalStorage(tab, showNotif = true) {
   }).catch(error => {
     // 清理LocalStorage失败
     if (showNotif) {
-      showNotification(getMessage('localStorageClearFailed') + ': ' + error.message, 'error');
+      const errorMsg = error.message.includes('Cannot access') 
+        ? '无法访问此页面，可能是受保护的页面'
+        : error.message;
+      showNotification(getMessage('localStorageClearFailed') + ': ' + errorMsg, 'error');
     }
     throw error;
   });
@@ -263,12 +321,20 @@ function clearLocalStorage(tab, showNotif = true) {
 
 // 清理SessionStorage
 function clearSessionStorage(tab, showNotif = true) {
+  // 检查是否为受限制的页面
+  if (isRestrictedPage(tab.url)) {
+    if (showNotif) {
+      showNotification('此页面受浏览器保护，无法清理SessionStorage', 'error');
+    }
+    return Promise.reject(new Error('受限制的页面'));
+  }
+
   return chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: () => {
       try {
         if (typeof sessionStorage === 'undefined') {
-          return { success: false, error: getMessage('sessionStorageUnavailable') };
+          return { success: false, error: 'SessionStorage不可用' };
         }
 
         const itemCount = sessionStorage.length;
@@ -288,7 +354,10 @@ function clearSessionStorage(tab, showNotif = true) {
   }).catch(error => {
     // 清理SessionStorage失败
     if (showNotif) {
-      showNotification(getMessage('sessionStorageClearFailed') + ': ' + error.message, 'error');
+      const errorMsg = error.message.includes('Cannot access') 
+        ? '无法访问此页面，可能是受保护的页面'
+        : error.message;
+      showNotification(getMessage('sessionStorageClearFailed') + ': ' + errorMsg, 'error');
     }
     throw error;
   });

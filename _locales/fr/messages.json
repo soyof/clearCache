@@ -316,7 +316,7 @@
     "description": "Titre des paramètres de langue"
   },
   "languageAuto": {
-    "message": "🌐 Suivre le système",
+    "message": "Suivre le système",
     "description": "Option de langue automatique"
   },
   "languageChanged": {

@@ -316,7 +316,7 @@
     "description": "语言设置标题"
   },
   "languageAuto": {
-    "message": "🌐 跟随系统",
+    "message": "跟随系统",
     "description": "自动语言选项"
   },
   "languageChanged": {
