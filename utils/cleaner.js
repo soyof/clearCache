@@ -247,18 +247,33 @@ const CleanerManager = {
     /**
      * 清空所有数据并硬性重新加载（包括登录状态）
      * @param {Object} tab - 标签页对象
+     * @param {Object} settings - 清理选项设置（可选）
      * @returns {Promise<void>}
      */
-    async hardReloadPage(tab) {
+    async hardReloadPage(tab, settings) {
         try {
+            // 如果没有传递 settings，使用默认值
+            const defaultSettings = {
+                clearPasswords: true,
+                clearFormData: true,
+                includeProtected: false
+            };
+            const finalSettings = settings || defaultSettings;
+            
             // 先清理所有数据
-            await this.clearAllData(tab);
+            await this.clearAllData(tab, finalSettings);
             
             // 重新加载页面
             await chrome.tabs.reload(tab.id, { bypassCache: true });
             
             NotificationManager.info('所有数据已清空，页面正在重载');
         } catch (error) {
+            // 即使清理失败，也尝试重载页面
+            try {
+                await chrome.tabs.reload(tab.id, { bypassCache: true });
+            } catch (reloadError) {
+                // 忽略重载错误
+            }
             throw error;
         }
     },
