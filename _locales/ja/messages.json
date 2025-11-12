@@ -366,5 +366,37 @@
   "clearAllCacheDesc": {
     "message": "ブラウザのすべてのキャッシュデータをワンクリックでクリアします",
     "description": "すべてのキャッシュクリアボタンのツールチップ"
+  },
+  "storageUsage": {
+    "message": "ストレージ使用状況",
+    "description": "ストレージ使用状況タイトル"
+  },
+  "loadingStorage": {
+    "message": "ストレージ情報を読み込み中...",
+    "description": "ストレージ情報読み込み時のプロンプト"
+  },
+  "storageLoadFailed": {
+    "message": "ストレージ情報を読み込めません",
+    "description": "ストレージ情報読み込み失敗時のプロンプト"
+  },
+  "noStorageData": {
+    "message": "現在のウェブサイトにストレージデータがありません",
+    "description": "ストレージデータがない場合のプロンプト"
+  },
+  "totalStorage": {
+    "message": "合計ストレージ：",
+    "description": "合計ストレージラベル"
+  },
+  "items": {
+    "message": "項目",
+    "description": "ストレージ項目数の単位"
+  },
+  "cacheAPI": {
+    "message": "Cache API",
+    "description": "Cache APIストレージタイプ"
+  },
+  "restrictedPageStorage": {
+    "message": "このページはブラウザによって保護されており、ストレージ情報を取得できません",
+    "description": "制限されたページでストレージ情報を取得できない場合のプロンプト"
   }
 }

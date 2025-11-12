@@ -366,5 +366,37 @@
   "clearAllCacheDesc": {
     "message": "Limpiar todos los datos de caché del navegador con un clic",
     "description": "Tooltip del botón limpiar toda la caché"
+  },
+  "storageUsage": {
+    "message": "Uso de almacenamiento",
+    "description": "Título de uso de almacenamiento"
+  },
+  "loadingStorage": {
+    "message": "Cargando información de almacenamiento...",
+    "description": "Aviso al cargar información de almacenamiento"
+  },
+  "storageLoadFailed": {
+    "message": "No se puede cargar la información de almacenamiento",
+    "description": "Aviso cuando falla la carga de información de almacenamiento"
+  },
+  "noStorageData": {
+    "message": "No hay datos de almacenamiento para el sitio web actual",
+    "description": "Aviso cuando no hay datos de almacenamiento"
+  },
+  "totalStorage": {
+    "message": "Almacenamiento total:",
+    "description": "Etiqueta de almacenamiento total"
+  },
+  "items": {
+    "message": "elementos",
+    "description": "Unidad de conteo de elementos de almacenamiento"
+  },
+  "cacheAPI": {
+    "message": "Cache API",
+    "description": "Tipo de almacenamiento Cache API"
+  },
+  "restrictedPageStorage": {
+    "message": "Esta página está protegida por el navegador y no puede recuperar información de almacenamiento",
+    "description": "Aviso cuando una página restringida no puede recuperar información de almacenamiento"
   }
 }

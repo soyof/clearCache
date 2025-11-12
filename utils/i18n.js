@@ -12,28 +12,39 @@ let currentUserLanguage = null;
  * @param {string} languageCode - 语言代码
  * @returns {Promise<Object>} 消息包对象
  */
-async function loadLanguageMessages(languageCode) {
+async function loadLanguageMessages(languageCode, forceReload = false) {
   try {
-    // 如果已经缓存了该语言包，直接返回
-    if (cachedMessages[languageCode]) {
+    // 如果强制重新加载，清除现有缓存
+    if (forceReload) {
+      delete cachedMessages[languageCode];
+      const cacheKey = `i18n_cache_${languageCode}`;
+      try {
+        localStorage.removeItem(cacheKey);
+      } catch (e) {
+        // 忽略清除缓存的错误
+      }
+    } else if (cachedMessages[languageCode]) {
+      // 如果已经缓存了该语言包，直接返回
       return cachedMessages[languageCode];
     }
 
-    // 尝试从localStorage加载缓存的语言包
-    try {
-      const cacheKey = `i18n_cache_${languageCode}`;
-      const cachedData = localStorage.getItem(cacheKey);
-      if (cachedData) {
-        const parsed = JSON.parse(cachedData);
-        // 检查缓存是否过期（24小时）
-        const cacheAge = Date.now() - (parsed.timestamp || 0);
-        if (cacheAge < 24 * 60 * 60 * 1000) {
-          cachedMessages[languageCode] = parsed.messages;
-          return parsed.messages;
+    // 尝试从localStorage加载缓存的语言包（仅在非强制重新加载时）
+    if (!forceReload) {
+      try {
+        const cacheKey = `i18n_cache_${languageCode}`;
+        const cachedData = localStorage.getItem(cacheKey);
+        if (cachedData) {
+          const parsed = JSON.parse(cachedData);
+          // 检查缓存是否过期（24小时）
+          const cacheAge = Date.now() - (parsed.timestamp || 0);
+          if (cacheAge < 24 * 60 * 60 * 1000 && parsed.messages) {
+            cachedMessages[languageCode] = parsed.messages;
+            return parsed.messages;
+          }
         }
+      } catch (cacheError) {
+        // 缓存加载失败，继续从网络加载
       }
-    } catch (cacheError) {
-      // 缓存加载失败，继续从网络加载
     }
 
     // 构建语言包文件路径
@@ -61,7 +72,12 @@ async function loadLanguageMessages(languageCode) {
     // 转换格式：从 {key: {message: "value"}} 到 {key: "value"}
     const flatMessages = {};
     Object.keys(messages).forEach(key => {
-      flatMessages[key] = messages[key].message || key;
+      // 如果 message 属性存在（包括空字符串），使用它；否则使用 key
+      if (messages[key] && messages[key].hasOwnProperty('message')) {
+        flatMessages[key] = messages[key].message;
+      } else {
+        flatMessages[key] = key;
+      }
     });
 
     // 缓存语言包到内存
@@ -80,8 +96,7 @@ async function loadLanguageMessages(languageCode) {
 
     return flatMessages;
   } catch (error) {
-    console.warn('语言包加载失败:', languageCode, error);
-    // 返回空对象，使用Chrome的默认i18n API
+    // 语言包加载失败，返回空对象，使用Chrome的默认i18n API
     return {};
   }
 }
@@ -97,12 +112,16 @@ export function getMessage(key, substitutions = null) {
     // 如果有用户选择的语言且已加载消息包，使用用户语言
     if (currentUserLanguage && cachedMessages[currentUserLanguage]) {
       const message = cachedMessages[currentUserLanguage][key];
-      if (message) {
+      // 检查 message 是否存在（使用 !== undefined 检查，因为空字符串也是有效值）
+      // 如果 key 存在于缓存中，即使值是空字符串，也应该使用它而不是回退到 Chrome API
+      if (message !== undefined) {
         return formatMessageWithSubstitutions(message, substitutions);
       }
     }
 
     // 回退到 Chrome 默认的 i18n API
+    // 注意：Chrome 的 i18n API 会根据 manifest.json 中的 default_locale 返回翻译
+    // 所以如果用户选择了非默认语言，这里可能会返回错误的语言
     if (chrome && chrome.i18n && chrome.i18n.getMessage) {
       return chrome.i18n.getMessage(key, substitutions) || key;
     }
@@ -396,8 +415,8 @@ export async function switchLanguage(languageCode) {
       effectiveLanguage = await getEffectiveLanguage();
     }
 
-    // 加载目标语言的消息包
-    await loadLanguageMessages(effectiveLanguage);
+    // 强制重新加载目标语言的消息包（清除旧缓存）
+    await loadLanguageMessages(effectiveLanguage, true);
 
     // 设置当前用户语言
     currentUserLanguage = effectiveLanguage;

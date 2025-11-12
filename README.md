@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![版本](https://img.shields.io/badge/版本-1.6.1-blue.svg)
+![版本](https://img.shields.io/badge/版本-1.6.2-blue.svg)
 ![平台](https://img.shields.io/badge/平台-Chrome%20%7C%20Edge-lightgrey.svg)
 ![许可证](https://img.shields.io/badge/许可证-MIT-green.svg)
 [![GitHub](https://img.shields.io/badge/GitHub-项目地址-orange.svg)](https://github.com/soyof/clearCache)
@@ -49,6 +49,14 @@
 - **性能监控** - 优化的 Service Worker 生命周期管理，确保扩展稳定运行
 
 ### ⚡ 性能优化
+
+#### ⚡ v1.6.2 新特性
+
+- **✨ 存储使用情况可视化** - 新增存储使用情况展示功能，实时显示当前网站的存储数据
+- **🌍 完善多语言支持** - 修复日语翻译问题，优化语言包加载机制
+- **🐛 修复存储数量计算** - 修复 Cookies 和其他存储类型的数量统计准确性
+- **🎨 UI 优化** - 优化布局和字体大小，添加丰富的动画效果
+- **🔧 代码优化** - 重构代码结构，减少约 23% 的代码量
 
 #### ⚡ v1.6.1 新特性
 

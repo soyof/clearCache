@@ -366,5 +366,37 @@
   "clearAllCacheDesc": {
     "message": "One-click clear all browser cache data",
     "description": "Clear all cache button tooltip"
+  },
+  "storageUsage": {
+    "message": "Storage Usage",
+    "description": "Storage usage title"
+  },
+  "loadingStorage": {
+    "message": "Loading storage information...",
+    "description": "Loading storage information prompt"
+  },
+  "storageLoadFailed": {
+    "message": "Unable to load storage information",
+    "description": "Failed to load storage information prompt"
+  },
+  "noStorageData": {
+    "message": "No storage data for current website",
+    "description": "No storage data prompt"
+  },
+  "totalStorage": {
+    "message": "Total Storage:",
+    "description": "Total storage label"
+  },
+  "items": {
+    "message": "items",
+    "description": "Storage item count unit"
+  },
+  "cacheAPI": {
+    "message": "Cache API",
+    "description": "Cache API storage type"
+  },
+  "restrictedPageStorage": {
+    "message": "This page is protected by the browser and cannot retrieve storage information",
+    "description": "Restricted page cannot retrieve storage information prompt"
   }
 }

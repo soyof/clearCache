@@ -366,5 +366,37 @@
   "clearAllCacheDesc": {
     "message": "Alle Browser-Cache-Daten mit einem Klick löschen",
     "description": "Tooltip für Alle-Cache-löschen-Button"
+  },
+  "storageUsage": {
+    "message": "Speichernutzung",
+    "description": "Speichernutzung Titel"
+  },
+  "loadingStorage": {
+    "message": "Speicherinformationen werden geladen...",
+    "description": "Eingabeaufforderung beim Laden der Speicherinformationen"
+  },
+  "storageLoadFailed": {
+    "message": "Speicherinformationen konnten nicht geladen werden",
+    "description": "Eingabeaufforderung bei fehlgeschlagenem Laden der Speicherinformationen"
+  },
+  "noStorageData": {
+    "message": "Keine Speicherdaten für die aktuelle Website",
+    "description": "Eingabeaufforderung wenn keine Speicherdaten vorhanden sind"
+  },
+  "totalStorage": {
+    "message": "Gesamtspeicher:",
+    "description": "Gesamtspeicher Etikett"
+  },
+  "items": {
+    "message": "Elemente",
+    "description": "Einheit für die Anzahl der Speicherelemente"
+  },
+  "cacheAPI": {
+    "message": "Cache API",
+    "description": "Cache API Speichertyp"
+  },
+  "restrictedPageStorage": {
+    "message": "Diese Seite ist vom Browser geschützt und kann keine Speicherinformationen abrufen",
+    "description": "Eingabeaufforderung wenn eine eingeschränkte Seite keine Speicherinformationen abrufen kann"
   }
 }

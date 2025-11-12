@@ -366,5 +366,37 @@
   "clearAllCacheDesc": {
     "message": "Effacer en un clic toutes les données de cache du navigateur",
     "description": "Info-bulle du bouton effacer tout le cache"
+  },
+  "storageUsage": {
+    "message": "Utilisation du stockage",
+    "description": "Titre de l'utilisation du stockage"
+  },
+  "loadingStorage": {
+    "message": "Chargement des informations de stockage...",
+    "description": "Invite lors du chargement des informations de stockage"
+  },
+  "storageLoadFailed": {
+    "message": "Impossible de charger les informations de stockage",
+    "description": "Invite en cas d'échec du chargement des informations de stockage"
+  },
+  "noStorageData": {
+    "message": "Aucune donnée de stockage pour le site Web actuel",
+    "description": "Invite lorsqu'il n'y a pas de données de stockage"
+  },
+  "totalStorage": {
+    "message": "Stockage total :",
+    "description": "Étiquette du stockage total"
+  },
+  "items": {
+    "message": "éléments",
+    "description": "Unité de comptage des éléments de stockage"
+  },
+  "cacheAPI": {
+    "message": "Cache API",
+    "description": "Type de stockage Cache API"
+  },
+  "restrictedPageStorage": {
+    "message": "Cette page est protégée par le navigateur et ne peut pas récupérer les informations de stockage",
+    "description": "Invite lorsque la page restreinte ne peut pas récupérer les informations de stockage"
   }
 }
