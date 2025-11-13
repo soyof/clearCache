@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![版本](https://img.shields.io/badge/版本-1.6.3-blue.svg)
+![版本](https://img.shields.io/badge/版本-1.7.0-blue.svg)
 ![平台](https://img.shields.io/badge/平台-Chrome%20%7C%20Edge-lightgrey.svg)
 ![许可证](https://img.shields.io/badge/许可证-MIT-green.svg)
 [![GitHub](https://img.shields.io/badge/GitHub-项目地址-orange.svg)](https://github.com/soyof/clearCache)
@@ -49,6 +49,18 @@
 - **性能监控** - 优化的 Service Worker 生命周期管理，确保扩展稳定运行
 
 ### ⚡ 性能优化
+
+#### ⚡ v1.7.0 新特性
+
+- **🏗️ 代码架构重构** - popup.js 模块化重构，提升代码可维护性
+  - 将大型单文件拆分为多个功能模块（polyfills、domElements、state、uiHelpers 等）
+  - 按功能职责划分模块，统一代码风格和命名规范
+  - 便于后续功能扩展和测试
+- **🎨 存储详情视图优化** - 优化存储详情视图的交互体验
+  - 将控制按钮移至搜索框同一行，确保始终可见
+  - 图标化按钮设计，节省空间并提升视觉区分度
+  - 简化动画效果，提升交互响应速度
+- **🌍 国际化支持** - 新增"滚动到顶部"按钮的多语言支持
 
 #### ⚡ v1.6.2 新特性
 
@@ -455,6 +467,6 @@ git push origin feature/your-feature-name
     <i>如果这个项目对您有帮助，请给我们一个 ⭐ Star！</i>
   </p>
   <p>
-    版本 1.4.0 | 作者：soyof | © 2025
+    版本 1.7.0 | 作者：soyof | © 2025
   </p>
 </div>
