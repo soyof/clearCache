@@ -8,18 +8,22 @@ import {
     BrowsingDataManager,
     ButtonManager,
     CleanerManager,
-    SettingsManager,
-    StatusManager,
-    TabManager,
-    ThemeManager,
     estimateStorageSize,
     formatBytes,
     getCookiesInfo,
     getMessage,
+    getStorageUsageViaScript,
     getUserLanguage,
     initializePageI18n,
+    initStorageDetailView,
     isRestrictedPage,
+    SettingsManager,
+    showStorageDetail,
+    StatusManager,
+    StorageUsageView,
     switchLanguage,
+    TabManager,
+    ThemeManager,
     validateStorageCount
 } from './utils/index.js';
 
@@ -103,12 +107,30 @@ document.addEventListener('DOMContentLoaded', async () => {
             new Promise((_, reject) => setTimeout(() => reject(new Error('i18n超时')), 1000))
         ]).catch(err => console.warn('i18n初始化失败:', err));
 
+        // 初始化存储详情展示模块
+        initStorageDetailView(getMessage);
+
+        // 初始化存储使用情况视图
+        window.storageUsageView = new StorageUsageView({
+            container: elements.storageUsageContent,
+            getMessage,
+            getCurrentTab: () => currentTab,
+            getCurrentUrl: () => currentUrl,
+            showStorageDetail,
+            isRestrictedPage,
+            getStorageUsageViaScript,
+            getCookiesInfo,
+            estimateStorageSize,
+            validateStorageCount,
+            formatBytes
+        });
+
         // 第二步：立即获取当前标签页信息（用户最关心的）
         initializeCurrentTab().catch(err => console.warn('标签页初始化失败:', err));
 
         // 第二步半：加载存储使用情况（在获取标签页后，延迟执行避免阻塞）
         setTimeout(() => {
-            loadStorageUsage().catch(err => console.warn('加载存储使用情况失败:', err));
+            window.storageUsageView.loadStorageUsage().catch(err => console.warn('加载存储使用情况失败:', err));
         }, 300);
 
         // 第三步：并行执行其他初始化任务
@@ -236,7 +258,11 @@ function bindEventListeners() {
     // 创建清理后刷新存储使用情况的包装函数
     const withStorageRefresh = (fn) => async () => {
         await fn();
-        setTimeout(() => loadStorageUsage(), 500);
+        setTimeout(() => {
+            if (window.storageUsageView) {
+                window.storageUsageView.loadStorageUsage().catch(err => console.warn('加载存储使用情况失败:', err));
+            }
+        }, 500);
     };
 
     bindButtonEvent(elements.clearCurrentAll, withStorageRefresh(clearCurrentWebsiteData));
@@ -294,12 +320,14 @@ function bindEventListeners() {
         elements.refreshStorageBtn.addEventListener('click', () => {
             // 添加加载动画
             elements.refreshStorageBtn.classList.add('loading');
-            loadStorageUsage().finally(() => {
-                // 移除加载动画
-                setTimeout(() => {
-                    elements.refreshStorageBtn.classList.remove('loading');
-                }, 300);
-            });
+            if (window.storageUsageView) {
+                window.storageUsageView.loadStorageUsage().finally(() => {
+                    // 移除加载动画
+                    setTimeout(() => {
+                        elements.refreshStorageBtn.classList.remove('loading');
+                    }, 300);
+                });
+            }
         });
     }
 }
@@ -796,7 +824,9 @@ async function handleLanguageChange(event) {
             // 先调用 initializePageI18n 更新所有静态元素（包括标题）
             await initializePageI18n();
             // 然后更新动态生成的存储使用情况内容
-            updateStorageUsageI18n();
+            if (window.storageUsageView) {
+                window.storageUsageView.updateI18n();
+            }
 
             // 重新调整标签页文本大小
             setTimeout(() => {
@@ -895,323 +925,3 @@ async function saveAdvancedSettings() {
 }
 
 
-/**
- * 通过 executeScript 获取存储使用情况（备用方案）
- * @param {number} tabId - 标签页ID
- * @returns {Promise<Object>} 存储使用情况
- */
-async function getStorageUsageViaScript(tabId) {
-    try {
-        const results = await chrome.scripting.executeScript({
-            target: { tabId },
-            func: () => {
-                const usage = {};
-                
-                try {
-                    // LocalStorage
-                    if (typeof localStorage !== 'undefined') {
-                        usage.localStorage = {
-                            count: localStorage.length,
-                            keys: Object.keys(localStorage)
-                        };
-                    }
-                    
-                    // SessionStorage
-                    if (typeof sessionStorage !== 'undefined') {
-                        usage.sessionStorage = {
-                            count: sessionStorage.length,
-                            keys: Object.keys(sessionStorage)
-                        };
-                    }
-                    
-                    // IndexedDB
-                    if ('indexedDB' in window && indexedDB.databases) {
-                        // 注意：indexedDB.databases() 是异步的，但这里我们只能同步返回
-                        usage.indexedDB = {
-                            count: 0,
-                            databases: []
-                        };
-                    }
-                    
-                    // Cache API
-                    if ('caches' in window) {
-                        // caches.keys() 也是异步的
-                        usage.cacheAPI = {
-                            count: 0,
-                            names: []
-                        };
-                    }
-                    
-                    // Service Worker
-                    if ('serviceWorker' in navigator) {
-                        usage.serviceWorker = {
-                            count: 0,
-                            scopes: []
-                        };
-                    }
-                } catch (e) {
-                    return { error: e.message };
-                }
-                
-                return usage;
-            }
-        });
-        
-        return results[0]?.result || {};
-    } catch (error) {
-        throw new Error('无法执行脚本获取存储信息：' + error.message);
-    }
-}
-
-/**
- * 加载存储使用情况
- */
-async function loadStorageUsage() {
-    if (!elements.storageUsageContent || !currentTab || !currentTab.id) {
-        return;
-    }
-
-    // 检查是否为受限制的页面
-    if (isRestrictedPage(currentTab.url)) {
-        elements.storageUsageContent.innerHTML = `
-            <div class="storage-error" data-i18n="restrictedPageStorage">此页面受浏览器保护，无法获取存储信息</div>
-        `;
-        return;
-    }
-
-    try {
-        // 显示加载状态
-        elements.storageUsageContent.innerHTML = `
-            <div class="storage-loading" data-i18n="loadingStorage">${getMessage('loadingStorage') || '正在加载存储信息...'}</div>
-        `;
-        updateStorageUsageI18n();
-
-        let usage = {};
-        let response = null;
-
-        // 首先尝试通过消息传递获取（更准确）
-        try {
-            response = await chrome.tabs.sendMessage(currentTab.id, {
-                action: 'getStorageUsage'
-            });
-            
-            if (response && response.success && response.usage) {
-                usage = response.usage;
-            } else {
-                throw new Error('消息响应无效');
-            }
-        } catch (messageError) {
-            // 如果消息传递失败，使用备用方案：直接执行脚本
-            // 这是正常情况，当内容脚本未加载或页面刚加载时会发生
-            usage = await getStorageUsageViaScript(currentTab.id);
-            
-            // 如果备用方案也失败，尝试异步获取 IndexedDB、Cache API 和 Service Worker
-            if (usage && !usage.error) {
-                // 异步存储数据获取配置
-                const asyncStorageConfig = [
-                    {
-                        type: 'indexedDB',
-                        check: () => 'indexedDB' in window && indexedDB.databases,
-                        getData: async () => {
-                            const databases = await indexedDB.databases();
-                            return { count: databases.length, databases: databases.map(db => ({ name: db.name, version: db.version })) };
-                        }
-                    },
-                    {
-                        type: 'cacheAPI',
-                        check: () => 'caches' in window,
-                        getData: async () => {
-                            const cacheNames = await caches.keys();
-                            return { count: cacheNames.length, names: cacheNames };
-                        }
-                    },
-                    {
-                        type: 'serviceWorker',
-                        check: () => 'serviceWorker' in navigator,
-                        getData: async () => {
-                            const registrations = await navigator.serviceWorker.getRegistrations();
-                            return { count: registrations.length, scopes: registrations.map(reg => reg.scope) };
-                        }
-                    }
-                ];
-
-                // 并行获取所有异步存储数据
-                const asyncStoragePromises = asyncStorageConfig.map(config =>
-                    chrome.scripting.executeScript({
-                        target: { tabId: currentTab.id },
-                        func: async () => {
-                            if (config.check()) {
-                                try {
-                                    return { type: config.type, data: await config.getData() };
-                                } catch (e) {
-                                    return { type: config.type, data: { count: 0 } };
-                                }
-                            }
-                            return { type: config.type, data: { count: 0 } };
-                        }
-                    }).catch(() => ({ type: config.type, data: { count: 0 } }))
-                );
-
-                // 合并结果到 usage 对象
-                try {
-                    const asyncResults = await Promise.all(asyncStoragePromises);
-                    asyncResults.forEach(result => {
-                        const resultData = Array.isArray(result) && result[0]?.result ? result[0].result : result;
-                        if (resultData?.type && resultData.data) {
-                            usage[resultData.type] = resultData.data;
-                        }
-                    });
-                } catch (e) {
-                    // 忽略异步数据获取失败
-                }
-            }
-        }
-
-        // 如果获取失败，显示错误
-        if (usage.error) {
-            throw new Error(usage.error);
-        }
-        
-        // 获取 Cookies 大小和数量
-        const cookiesInfo = await getCookiesInfo(currentTab.url);
-        const cookiesSize = cookiesInfo.size;
-        const cookiesCount = cookiesInfo.count;
-
-        // 计算总大小
-        const estimatedSize = estimateStorageSize(usage) + cookiesSize;
-
-        // 准备存储数据
-        const storageTypes = ['localStorage', 'sessionStorage', 'indexedDB', 'cacheAPI'];
-        const storageData = {};
-        
-        storageTypes.forEach(type => {
-            storageData[type] = {
-                count: validateStorageCount(usage[type]?.count),
-                size: estimateStorageSize({ [type]: usage[type] })
-            };
-        });
-
-        storageData.cookies = {
-            count: validateStorageCount(cookiesCount),
-            size: cookiesSize
-        };
-        storageData.serviceWorker = {
-            count: validateStorageCount(usage.serviceWorker?.count)
-        };
-        storageData.total = { size: estimatedSize };
-
-        renderStorageUsage(storageData);
-
-    } catch (error) {
-        const errorKey = error.message.includes('Cannot access') ? 'restrictedPageStorage' : 'storageLoadFailed';
-        const errorMessage = getMessage(errorKey) || (errorKey === 'storageLoadFailed' ? `无法加载存储信息：${error.message}` : '此页面受浏览器保护，无法获取存储信息');
-        elements.storageUsageContent.innerHTML = `
-            <div class="storage-error" data-i18n="${errorKey}">${errorMessage}</div>
-        `;
-        updateStorageUsageI18n();
-    }
-}
-
-/**
- * 渲染存储使用情况
- * @param {Object} data - 存储数据
- */
-function renderStorageUsage(data) {
-    // 存储项配置
-    const storageConfig = [
-        { key: 'localStorage', icon: '💾', fallback: 'LocalStorage' },
-        { key: 'sessionStorage', icon: '📂', fallback: 'SessionStorage' },
-        { key: 'cookies', icon: '🍪', fallback: 'Cookies' },
-        { key: 'indexedDB', icon: '🗄️', fallback: 'IndexedDB' },
-        { key: 'cacheAPI', icon: '📋', fallback: 'Cache API' }
-    ];
-
-    const storageItems = storageConfig.map(config => ({
-        name: getMessage(config.key) || config.fallback,
-        icon: config.icon,
-        count: data[config.key].count,
-        size: data[config.key].size,
-        i18nKey: config.key
-    }));
-
-    // 过滤掉没有数据的项
-    const activeItems = storageItems.filter(item => item.count > 0 || item.size > 0);
-
-    if (activeItems.length === 0) {
-        elements.storageUsageContent.innerHTML = `
-            <div class="storage-empty" data-i18n="noStorageData">${getMessage('noStorageData') || '当前网站没有存储数据'}</div>
-        `;
-        updateStorageUsageI18n();
-        return;
-    }
-
-    const maxSize = Math.max(...activeItems.map(item => item.size), 1);
-    const itemsText = getMessage('items') || '项';
-    const totalStorageText = getMessage('totalStorage') || '总存储：';
-
-    // 生成 HTML
-    const html = `
-        <div class="storage-items">
-            ${activeItems.map(item => {
-                const percentage = (item.size / maxSize) * 100;
-                return `
-                    <div class="storage-item">
-                        <div class="storage-item-header">
-                            <span class="storage-item-icon">${item.icon}</span>
-                            <span class="storage-item-name" data-i18n="${item.i18nKey}">${item.name}</span>
-                            <span class="storage-item-count">${item.count} ${itemsText}</span>
-                        </div>
-                        <div class="storage-item-bar">
-                            <div class="storage-item-bar-fill" style="width: ${percentage}%"></div>
-                        </div>
-                        <div class="storage-item-size">${formatBytes(item.size)}</div>
-                    </div>
-                `;
-            }).join('')}
-        </div>
-        <div class="storage-total">
-            <span class="storage-total-label" data-i18n="totalStorage">${totalStorageText}</span>
-            <span class="storage-total-size">${formatBytes(data.total.size)}</span>
-        </div>
-    `;
-
-    elements.storageUsageContent.innerHTML = html;
-
-    // 更新国际化文本
-    updateStorageUsageI18n();
-}
-
-/**
- * 更新存储使用情况区域的国际化文本
- */
-function updateStorageUsageI18n() {
-    // 更新标题
-    const storageTitle = document.querySelector('.storage-title');
-    if (storageTitle?.hasAttribute('data-i18n')) {
-        const text = getMessage(storageTitle.getAttribute('data-i18n'));
-        if (text && text !== storageTitle.getAttribute('data-i18n')) {
-            storageTitle.textContent = text;
-        }
-    }
-
-    if (!elements.storageUsageContent) return;
-
-    // 更新所有带 data-i18n 属性的元素
-    elements.storageUsageContent.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (!key) return;
-        const text = getMessage(key);
-        if (text && text !== key) {
-            el.textContent = text;
-        }
-    });
-
-    // 更新存储项数量单位
-    const itemsText = getMessage('items') || '项';
-    elements.storageUsageContent.querySelectorAll('.storage-item-count').forEach(el => {
-        const match = el.textContent.match(/^(\d+)\s*/);
-        if (match) {
-            el.textContent = `${match[1]} ${itemsText}`;
-        }
-    });
-}

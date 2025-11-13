@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "Esta página está protegida por el navegador y no puede recuperar información de almacenamiento",
     "description": "Aviso cuando una página restringida no puede recuperar información de almacenamiento"
+  },
+  "clickToViewDetail": {
+    "message": "Haga clic para ver los detalles",
+    "description": "Aviso para hacer clic y ver los detalles"
+  },
+  "loadingDetail": {
+    "message": "Cargando detalles...",
+    "description": "Aviso de carga de detalles"
+  },
+  "detailLoadFailed": {
+    "message": "Error al cargar los detalles",
+    "description": "Aviso de error al cargar los detalles"
+  },
+  "noDetailData": {
+    "message": "Sin datos",
+    "description": "Aviso sin datos detallados"
+  },
+  "totalItems": {
+    "message": "Total",
+    "description": "Etiqueta total"
+  },
+  "key": {
+    "message": "Clave",
+    "description": "Etiqueta de clave"
+  },
+  "value": {
+    "message": "Valor",
+    "description": "Etiqueta de valor"
+  },
+  "size": {
+    "message": "Tamaño",
+    "description": "Etiqueta de tamaño"
+  },
+  "name": {
+    "message": "Nombre",
+    "description": "Etiqueta de nombre"
+  },
+  "domain": {
+    "message": "Dominio",
+    "description": "Etiqueta de dominio"
+  },
+  "path": {
+    "message": "Ruta",
+    "description": "Etiqueta de ruta"
+  },
+  "secure": {
+    "message": "Seguro",
+    "description": "Etiqueta segura"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "Etiqueta HttpOnly"
+  },
+  "expiration": {
+    "message": "Expiración",
+    "description": "Etiqueta de expiración"
+  },
+  "version": {
+    "message": "Versión",
+    "description": "Etiqueta de versión"
+  },
+  "count": {
+    "message": "Cantidad",
+    "description": "Etiqueta de cantidad"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "Etiqueta URLs"
+  },
+  "moreUrls": {
+    "message": "Más...",
+    "description": "Aviso de más URLs"
+  },
+  "expandAll": {
+    "message": "Expandir todo",
+    "description": "Botón expandir todo"
+  },
+  "collapseAll": {
+    "message": "Contraer todo",
+    "description": "Botón contraer todo"
+  },
+  "searchPlaceholder": {
+    "message": "Buscar clave o valor...",
+    "description": "Placeholder del campo de búsqueda"
+  },
+  "doubleClickToCopy": {
+    "message": "Doble clic para copiar",
+    "description": "Indicación para copiar con doble clic"
+  },
+  "keyCopied": {
+    "message": "Clave copiada",
+    "description": "Mensaje de éxito de copia de clave"
+  },
+  "valueCopied": {
+    "message": "Valor copiado",
+    "description": "Mensaje de éxito de copia de valor"
+  },
+  "copy": {
+    "message": "Copiar",
+    "description": "Texto del botón copiar"
   }
 }

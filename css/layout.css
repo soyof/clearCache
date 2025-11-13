@@ -1,0 +1,322 @@
+/**
+ * 布局样式（header、footer、current-site）
+ */
+
+/* 头部样式 */
+.header {
+    background: 
+        linear-gradient(135deg, 
+            rgba(120, 119, 198, 0.2) 0%, 
+            rgba(255, 119, 198, 0.2) 50%, 
+            rgba(120, 219, 255, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    box-shadow: 
+        0 4px 30px rgba(120, 119, 198, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    min-height: 50px;
+    flex-shrink: 0;
+    animation: fadeInDown 0.5s ease-out;
+}
+
+.header-icon {
+    font-size: 2rem;
+    animation: neonPulse 3s ease-in-out infinite alternate;
+    filter: 
+        drop-shadow(0 0 10px rgba(120, 219, 255, 0.8))
+        drop-shadow(0 0 20px rgba(120, 219, 255, 0.4))
+        drop-shadow(0 0 30px rgba(120, 219, 255, 0.2));
+    flex-shrink: 0;
+    line-height: 1;
+    text-shadow: 
+        0 0 5px rgba(120, 219, 255, 0.5),
+        0 0 10px rgba(120, 219, 255, 0.3),
+        0 0 15px rgba(120, 219, 255, 0.1);
+}
+
+@keyframes neonPulse {
+    0% {
+        filter: 
+            drop-shadow(0 0 5px rgba(120, 219, 255, 0.8))
+            drop-shadow(0 0 15px rgba(120, 219, 255, 0.4))
+            drop-shadow(0 0 25px rgba(120, 219, 255, 0.2));
+        text-shadow: 
+            0 0 5px rgba(120, 219, 255, 0.5),
+            0 0 10px rgba(120, 219, 255, 0.3);
+    }
+    100% {
+        filter: 
+            drop-shadow(0 0 15px rgba(120, 219, 255, 1))
+            drop-shadow(0 0 25px rgba(120, 219, 255, 0.6))
+            drop-shadow(0 0 35px rgba(120, 219, 255, 0.3));
+        text-shadow: 
+            0 0 10px rgba(120, 219, 255, 0.8),
+            0 0 20px rgba(120, 219, 255, 0.5),
+            0 0 30px rgba(120, 219, 255, 0.2);
+    }
+}
+
+@keyframes rainbowText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 
+            0 8px 35px rgba(120, 119, 198, 0.6),
+            0 0 30px rgba(120, 219, 255, 0.6),
+            0 0 50px rgba(255, 119, 198, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 
+            0 8px 35px rgba(120, 119, 198, 0.8),
+            0 0 40px rgba(120, 219, 255, 0.8),
+            0 0 70px rgba(255, 119, 198, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(45deg, #78dbff, #ff77c6, #78dbff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbowText 3s ease-in-out infinite;
+    text-shadow: 
+        0 0 10px rgba(120, 219, 255, 0.5),
+        0 0 20px rgba(255, 119, 198, 0.3);
+    line-height: 1.2;
+}
+
+.version {
+    font-size: 0.75rem;
+    background: rgba(120, 219, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(120, 219, 255, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #78dbff;
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.6);
+    box-shadow: 
+        0 0 10px rgba(120, 219, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 当前网站信息 */
+.current-site {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.site-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.site-label {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.site-url {
+    color: #78dbff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.5);
+    background: linear-gradient(45deg, #78dbff, #ff77c6);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbowText 4s ease-in-out infinite;
+}
+
+/* Service Worker 状态指示器 */
+.service-worker-status {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 2px 6px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: help;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-worker-status .status-icon {
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+.service-worker-status .status-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.service-worker-status.active {
+    background-color: rgba(46, 204, 113, 0.15);
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+.service-worker-status.active .status-text {
+    color: #2ecc71;
+}
+
+.service-worker-status.error {
+    background-color: rgba(231, 76, 60, 0.15);
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+.service-worker-status.error .status-text {
+    color: #e74c3c;
+}
+
+/* 操作容器 */
+.actions-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    max-height: 400px;
+}
+
+.actions-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.actions-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+}
+
+.actions-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(120, 219, 255, 0.6) 0%, rgba(255, 119, 198, 0.4) 100%);
+    border-radius: 4px;
+    border: 1px solid rgba(120, 219, 255, 0.3);
+    box-shadow: 0 0 10px rgba(120, 219, 255, 0.3);
+}
+
+.actions-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(120, 219, 255, 0.8) 0%, rgba(255, 119, 198, 0.6) 100%);
+    box-shadow: 0 0 15px rgba(120, 219, 255, 0.5);
+}
+
+/* 分割线 */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(120, 219, 255, 0.3) 20%, 
+        rgba(255, 119, 198, 0.3) 50%, 
+        rgba(120, 219, 255, 0.3) 80%, 
+        transparent 100%);
+    margin: 12px 20px;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(120, 219, 255, 0.1) 20%, 
+        rgba(255, 119, 198, 0.1) 50%, 
+        rgba(120, 219, 255, 0.1) 80%, 
+        transparent 100%);
+    filter: blur(1px);
+}
+
+/* 操作网格 */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 0;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* 第一个网格（重载功能）- 3列布局 */
+.actions-grid:first-child {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* 第二个网格（清理功能）- 2列布局 */
+.actions-grid:nth-child(3) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+/* 单按钮布局 */
+.actions-grid.single-button {
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* 底部 */
+.footer {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(25px);
+    padding: 12px 20px;
+    border-top: 1px solid rgba(120, 219, 255, 0.15);
+    box-shadow: 
+        0 -2px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.footer-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+

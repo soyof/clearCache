@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "このページはブラウザによって保護されており、ストレージ情報を取得できません",
     "description": "制限されたページでストレージ情報を取得できない場合のプロンプト"
+  },
+  "clickToViewDetail": {
+    "message": "クリックして詳細を表示",
+    "description": "詳細を表示するためのクリックプロンプト"
+  },
+  "loadingDetail": {
+    "message": "詳細を読み込み中...",
+    "description": "詳細を読み込む際のプロンプト"
+  },
+  "detailLoadFailed": {
+    "message": "詳細の読み込みに失敗しました",
+    "description": "詳細の読み込み失敗時のプロンプト"
+  },
+  "noDetailData": {
+    "message": "データなし",
+    "description": "詳細データがない場合のプロンプト"
+  },
+  "totalItems": {
+    "message": "合計",
+    "description": "合計ラベル"
+  },
+  "key": {
+    "message": "キー",
+    "description": "キーラベル"
+  },
+  "value": {
+    "message": "値",
+    "description": "値ラベル"
+  },
+  "size": {
+    "message": "サイズ",
+    "description": "サイズラベル"
+  },
+  "name": {
+    "message": "名前",
+    "description": "名前ラベル"
+  },
+  "domain": {
+    "message": "ドメイン",
+    "description": "ドメインラベル"
+  },
+  "path": {
+    "message": "パス",
+    "description": "パスラベル"
+  },
+  "secure": {
+    "message": "セキュア",
+    "description": "セキュアラベル"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnlyラベル"
+  },
+  "expiration": {
+    "message": "有効期限",
+    "description": "有効期限ラベル"
+  },
+  "version": {
+    "message": "バージョン",
+    "description": "バージョンラベル"
+  },
+  "count": {
+    "message": "数量",
+    "description": "数量ラベル"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLsラベル"
+  },
+  "moreUrls": {
+    "message": "さらに表示...",
+    "description": "さらにURLがある場合のプロンプト"
+  },
+  "expandAll": {
+    "message": "すべて展開",
+    "description": "すべて展開ボタン"
+  },
+  "collapseAll": {
+    "message": "すべて折りたたむ",
+    "description": "すべて折りたたむボタン"
+  },
+  "searchPlaceholder": {
+    "message": "キーまたは値を検索...",
+    "description": "検索入力のプレースホルダー"
+  },
+  "doubleClickToCopy": {
+    "message": "ダブルクリックでコピー",
+    "description": "ダブルクリックでコピーのヒント"
+  },
+  "keyCopied": {
+    "message": "キーをコピーしました",
+    "description": "キーコピー成功メッセージ"
+  },
+  "valueCopied": {
+    "message": "値をコピーしました",
+    "description": "値コピー成功メッセージ"
+  },
+  "copy": {
+    "message": "コピー",
+    "description": "コピーボタンのテキスト"
   }
 }

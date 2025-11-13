@@ -1,0 +1,273 @@
+/**
+ * 存储使用情况样式
+ */
+
+/* 存储使用情况样式 */
+.storage-usage-section {
+    padding: 16px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.3s ease-out;
+}
+
+/* fadeInUp 动画已由 animate.css 提供 */
+
+.storage-usage-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.storage-icon {
+    font-size: 16px;
+}
+
+.storage-title {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.refresh-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.refresh-btn:active {
+    transform: rotate(360deg);
+    animation: rotate 0.5s ease;
+}
+
+.refresh-btn.loading {
+    animation: rotate 1s linear infinite;
+}
+
+/* rotate 动画已由 animations.css 提供 */
+
+.storage-usage-content {
+    min-height: 40px;
+}
+
+.storage-loading,
+.storage-error,
+.storage-empty {
+    text-align: center;
+    padding: 12px 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.storage-loading::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #4facfe;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: spin 0.8s linear infinite;
+}
+
+/* spin 动画已由 animations.css 提供 */
+
+.storage-error {
+    color: #ff6b6b;
+}
+
+.storage-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.storage-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    padding: 6px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.storage-item.clickable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.storage-item.clickable:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(79, 172, 254, 0.3);
+    transform: translateX(2px);
+}
+
+.storage-item:nth-child(1) { animation-delay: 0.05s; }
+.storage-item:nth-child(2) { animation-delay: 0.1s; }
+.storage-item:nth-child(3) { animation-delay: 0.15s; }
+.storage-item:nth-child(4) { animation-delay: 0.2s; }
+.storage-item:nth-child(5) { animation-delay: 0.25s; }
+
+/* slideInLeft 动画已由 animate.css 提供 */
+
+.storage-item-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.storage-item-icon {
+    font-size: 14px;
+}
+
+.storage-item-name {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.storage-item-count {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 4px;
+}
+
+.storage-item-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.storage-item-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 3px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.storage-item-size {
+    font-size: 11px;
+    color: #78dbff;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.storage-total {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.storage-total-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.storage-total-size {
+    font-size: 13px;
+    font-weight: 700;
+    color: #4facfe;
+}
+
+/* 浅色主题下的存储使用情况样式 */
+.theme-light .storage-usage-section {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .storage-title {
+    color: #333333;
+}
+
+.theme-light .refresh-btn {
+    color: #333333;
+    opacity: 0.7;
+}
+
+.theme-light .refresh-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.theme-light .storage-loading,
+.theme-light .storage-error,
+.theme-light .storage-empty {
+    color: #666666;
+}
+
+.theme-light .storage-loading::before {
+    border-color: rgba(0, 0, 0, 0.2);
+    border-top-color: #2196f3;
+}
+
+.theme-light .storage-error {
+    color: #d32f2f;
+}
+
+.theme-light .storage-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .storage-item-name {
+    color: #333333;
+}
+
+.theme-light .storage-item-count {
+    color: #666666;
+}
+
+.theme-light .storage-item-bar {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .storage-item-bar-fill {
+    background: linear-gradient(90deg, #2196f3, #21cbf3);
+}
+
+.theme-light .storage-item-size {
+    color: #2196f3;
+    font-weight: 600;
+}
+
+.theme-light .storage-total {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .storage-total-label {
+    color: #333333;
+}
+
+.theme-light .storage-total-size {
+    color: #2196f3;
+    text-shadow: none;
+}
+

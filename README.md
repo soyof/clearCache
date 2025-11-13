@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![版本](https://img.shields.io/badge/版本-1.6.2-blue.svg)
+![版本](https://img.shields.io/badge/版本-1.6.3-blue.svg)
 ![平台](https://img.shields.io/badge/平台-Chrome%20%7C%20Edge-lightgrey.svg)
 ![许可证](https://img.shields.io/badge/许可证-MIT-green.svg)
 [![GitHub](https://img.shields.io/badge/GitHub-项目地址-orange.svg)](https://github.com/soyof/clearCache)
@@ -181,7 +181,19 @@
 ├── 用户界面
 │   ├── popup.html                    # 弹窗界面HTML
 │   ├── popup.js                      # 弹窗界面脚本
-│   └── popup.css                     # 弹窗界面样式
+│   └── css/                          # 弹窗界面样式（模块化）
+│       ├── animate.min.css           # Animate.css 动画库
+│       ├── base.css                  # 基础样式
+│       ├── animations.css            # 自定义动画
+│       ├── layout.css                # 布局样式
+│       ├── tabs.css                  # 标签页样式
+│       ├── buttons.css                # 按钮样式
+│       ├── storage-usage.css         # 存储使用情况样式
+│       ├── storage-detail.css        # 存储详情样式
+│       ├── settings.css              # 设置页面样式
+│       ├── status.css                # 状态消息样式
+│       ├── themes.css                # 主题样式
+│       └── responsive.css            # 响应式样式
 │
 ├── 工具模块
 │   ├── utils/

@@ -1,0 +1,122 @@
+/**
+ * 标签页样式
+ */
+
+/* Tab 导航样式 */
+.tab-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    position: relative;
+    flex-shrink: 0;
+    min-width: 0;
+    animation: fadeInDown 0.4s ease-out;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 8px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+    border-radius: 8px 8px 0 0;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.tab-btn:hover {
+    color: #78dbff;
+    background: rgba(120, 219, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transform: translateY(-1px);
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.5);
+}
+
+.tab-btn.active {
+    color: #78dbff;
+    background: rgba(120, 219, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid #78dbff;
+    box-shadow: 
+        0 -2px 15px rgba(120, 219, 255, 0.4),
+        0 0 20px rgba(120, 219, 255, 0.2);
+    text-shadow: 0 0 10px rgba(120, 219, 255, 0.6);
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #667eea;
+}
+
+.tab-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    display: inline-block;
+    line-height: 1;
+}
+
+.tab-text {
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* flex: 1; */
+    text-align: center;
+    min-width: 0;
+}
+
+/* 处理长文本的特殊情况 */
+@media (max-width: 520px) {
+    .tab-btn {
+        font-size: 0.7rem;
+        padding: 12px 4px;
+        gap: 3px;
+    }
+    
+    .tab-icon {
+        font-size: 0.9rem;
+    }
+    
+    .tab-text {
+        font-size: 0.7rem;
+    }
+}
+
+/* 针对特别长的文本进行字体缩放 */
+.tab-text:lang(es),
+.tab-text:lang(de),
+.tab-text:lang(fr) {
+    font-size: 0.75rem;
+}
+
+/* Tab 内容样式 */
+.tab-content {
+    display: none;
+    padding: 16px;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease, slideInUp 0.3s ease;
+}
+
+/* fadeIn 和 slideInUp 动画已由 animate.css 提供 */
+

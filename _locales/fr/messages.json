@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "Cette page est protégée par le navigateur et ne peut pas récupérer les informations de stockage",
     "description": "Invite lorsque la page restreinte ne peut pas récupérer les informations de stockage"
+  },
+  "clickToViewDetail": {
+    "message": "Cliquez pour voir les détails",
+    "description": "Invite pour cliquer et voir les détails"
+  },
+  "loadingDetail": {
+    "message": "Chargement des détails...",
+    "description": "Invite de chargement des détails"
+  },
+  "detailLoadFailed": {
+    "message": "Échec du chargement des détails",
+    "description": "Invite d'échec du chargement des détails"
+  },
+  "noDetailData": {
+    "message": "Aucune donnée",
+    "description": "Invite sans données détaillées"
+  },
+  "totalItems": {
+    "message": "Total",
+    "description": "Étiquette totale"
+  },
+  "key": {
+    "message": "Clé",
+    "description": "Étiquette de clé"
+  },
+  "value": {
+    "message": "Valeur",
+    "description": "Étiquette de valeur"
+  },
+  "size": {
+    "message": "Taille",
+    "description": "Étiquette de taille"
+  },
+  "name": {
+    "message": "Nom",
+    "description": "Étiquette de nom"
+  },
+  "domain": {
+    "message": "Domaine",
+    "description": "Étiquette de domaine"
+  },
+  "path": {
+    "message": "Chemin",
+    "description": "Étiquette de chemin"
+  },
+  "secure": {
+    "message": "Sécurisé",
+    "description": "Étiquette sécurisée"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "Étiquette HttpOnly"
+  },
+  "expiration": {
+    "message": "Expiration",
+    "description": "Étiquette d'expiration"
+  },
+  "version": {
+    "message": "Version",
+    "description": "Étiquette de version"
+  },
+  "count": {
+    "message": "Nombre",
+    "description": "Étiquette de nombre"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "Étiquette URLs"
+  },
+  "moreUrls": {
+    "message": "Plus...",
+    "description": "Invite de plus d'URLs"
+  },
+  "expandAll": {
+    "message": "Tout développer",
+    "description": "Bouton tout développer"
+  },
+  "collapseAll": {
+    "message": "Tout réduire",
+    "description": "Bouton tout réduire"
+  },
+  "searchPlaceholder": {
+    "message": "Rechercher une clé ou une valeur...",
+    "description": "Placeholder du champ de recherche"
+  },
+  "doubleClickToCopy": {
+    "message": "Double-cliquer pour copier",
+    "description": "Indication pour copier en double-cliquant"
+  },
+  "keyCopied": {
+    "message": "Clé copiée",
+    "description": "Message de succès de copie de clé"
+  },
+  "valueCopied": {
+    "message": "Valeur copiée",
+    "description": "Message de succès de copie de valeur"
+  },
+  "copy": {
+    "message": "Copier",
+    "description": "Texte du bouton copier"
   }
 }

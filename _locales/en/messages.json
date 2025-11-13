@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "This page is protected by the browser and cannot retrieve storage information",
     "description": "Restricted page cannot retrieve storage information prompt"
+  },
+  "clickToViewDetail": {
+    "message": "Click to view details",
+    "description": "Click to view details prompt"
+  },
+  "loadingDetail": {
+    "message": "Loading details...",
+    "description": "Loading details prompt"
+  },
+  "detailLoadFailed": {
+    "message": "Failed to load details",
+    "description": "Failed to load details prompt"
+  },
+  "noDetailData": {
+    "message": "No data",
+    "description": "No detail data prompt"
+  },
+  "totalItems": {
+    "message": "Total",
+    "description": "Total label"
+  },
+  "key": {
+    "message": "Key",
+    "description": "Key label"
+  },
+  "value": {
+    "message": "Value",
+    "description": "Value label"
+  },
+  "size": {
+    "message": "Size",
+    "description": "Size label"
+  },
+  "name": {
+    "message": "Name",
+    "description": "Name label"
+  },
+  "domain": {
+    "message": "Domain",
+    "description": "Domain label"
+  },
+  "path": {
+    "message": "Path",
+    "description": "Path label"
+  },
+  "secure": {
+    "message": "Secure",
+    "description": "Secure label"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnly label"
+  },
+  "expiration": {
+    "message": "Expiration",
+    "description": "Expiration label"
+  },
+  "version": {
+    "message": "Version",
+    "description": "Version label"
+  },
+  "count": {
+    "message": "Count",
+    "description": "Count label"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLs label"
+  },
+  "moreUrls": {
+    "message": "More...",
+    "description": "More URLs prompt"
+  },
+  "expandAll": {
+    "message": "Expand All",
+    "description": "Expand all button"
+  },
+  "collapseAll": {
+    "message": "Collapse All",
+    "description": "Collapse all button"
+  },
+  "searchPlaceholder": {
+    "message": "Search key or value...",
+    "description": "Search input placeholder"
+  },
+  "doubleClickToCopy": {
+    "message": "Double click to copy",
+    "description": "Double click to copy hint"
+  },
+  "keyCopied": {
+    "message": "Key copied",
+    "description": "Key copied success message"
+  },
+  "valueCopied": {
+    "message": "Value copied",
+    "description": "Value copied success message"
+  },
+  "copy": {
+    "message": "Copy",
+    "description": "Copy button text"
   }
 }

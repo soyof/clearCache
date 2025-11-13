@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "Diese Seite ist vom Browser geschützt und kann keine Speicherinformationen abrufen",
     "description": "Eingabeaufforderung wenn eine eingeschränkte Seite keine Speicherinformationen abrufen kann"
+  },
+  "clickToViewDetail": {
+    "message": "Klicken Sie, um Details anzuzeigen",
+    "description": "Eingabeaufforderung zum Anzeigen von Details"
+  },
+  "loadingDetail": {
+    "message": "Details werden geladen...",
+    "description": "Eingabeaufforderung beim Laden von Details"
+  },
+  "detailLoadFailed": {
+    "message": "Details konnten nicht geladen werden",
+    "description": "Eingabeaufforderung beim Fehlschlagen des Ladens von Details"
+  },
+  "noDetailData": {
+    "message": "Keine Daten",
+    "description": "Eingabeaufforderung ohne Detaildaten"
+  },
+  "totalItems": {
+    "message": "Gesamt",
+    "description": "Gesamt-Label"
+  },
+  "key": {
+    "message": "Schlüssel",
+    "description": "Schlüssel-Label"
+  },
+  "value": {
+    "message": "Wert",
+    "description": "Wert-Label"
+  },
+  "size": {
+    "message": "Größe",
+    "description": "Größe-Label"
+  },
+  "name": {
+    "message": "Name",
+    "description": "Name-Label"
+  },
+  "domain": {
+    "message": "Domäne",
+    "description": "Domäne-Label"
+  },
+  "path": {
+    "message": "Pfad",
+    "description": "Pfad-Label"
+  },
+  "secure": {
+    "message": "Sicher",
+    "description": "Sicher-Label"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnly-Label"
+  },
+  "expiration": {
+    "message": "Ablauf",
+    "description": "Ablauf-Label"
+  },
+  "version": {
+    "message": "Version",
+    "description": "Version-Label"
+  },
+  "count": {
+    "message": "Anzahl",
+    "description": "Anzahl-Label"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLs-Label"
+  },
+  "moreUrls": {
+    "message": "Mehr...",
+    "description": "Eingabeaufforderung für mehr URLs"
+  },
+  "expandAll": {
+    "message": "Alle aufklappen",
+    "description": "Alle aufklappen Button"
+  },
+  "collapseAll": {
+    "message": "Alle zuklappen",
+    "description": "Alle zuklappen Button"
+  },
+  "searchPlaceholder": {
+    "message": "Schlüssel oder Wert suchen...",
+    "description": "Suchfeld Platzhalter"
+  },
+  "doubleClickToCopy": {
+    "message": "Doppelklicken zum Kopieren",
+    "description": "Hinweis zum Kopieren durch Doppelklicken"
+  },
+  "keyCopied": {
+    "message": "Schlüssel kopiert",
+    "description": "Schlüssel kopiert Erfolgsmeldung"
+  },
+  "valueCopied": {
+    "message": "Wert kopiert",
+    "description": "Wert kopiert Erfolgsmeldung"
+  },
+  "copy": {
+    "message": "Kopieren",
+    "description": "Kopieren Button Text"
   }
 }

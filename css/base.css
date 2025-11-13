@@ -1,0 +1,81 @@
+/**
+ * 基础样式（reset、html、body、container）
+ */
+
+/* Chrome 插件弹窗固定尺寸 */
+html {
+    width: 520px !important;
+    min-width: 520px !important;
+    max-width: 520px !important;
+    max-height: 600px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(120, 219, 255, 0.3);
+    box-shadow: 
+        0 0 20px rgba(120, 219, 255, 0.2),
+        0 0 40px rgba(255, 119, 198, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 全局样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    width: 520px;
+    max-width: 520px;
+    max-height: 600px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(120, 219, 255, 0.2);
+    box-shadow: 
+        0 0 15px rgba(120, 219, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.container {
+    width: 520px;
+    max-width: 520px;
+    height: auto;
+    max-height: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 浅色主题容器样式 - 使用更高优先级 */
+.container.theme-light,
+body .container.theme-light,
+html .container.theme-light {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%) !important;
+    color: #333333 !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 浅色主题body背景 */
+body.theme-light,
+html body.theme-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
+}
+
+/* fade-in 动画已由 animate.css 提供，使用 animate__animated animate__fadeIn */
+

@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "此页面受浏览器保护，无法获取存储信息",
     "description": "受限制页面无法获取存储信息的提示"
+  },
+  "clickToViewDetail": {
+    "message": "点击查看详情",
+    "description": "点击查看详情的提示"
+  },
+  "loadingDetail": {
+    "message": "正在加载详情...",
+    "description": "加载详情时的提示"
+  },
+  "detailLoadFailed": {
+    "message": "加载详情失败",
+    "description": "加载详情失败时的提示"
+  },
+  "noDetailData": {
+    "message": "暂无数据",
+    "description": "没有详情数据时的提示"
+  },
+  "totalItems": {
+    "message": "总计",
+    "description": "总计标签"
+  },
+  "key": {
+    "message": "键",
+    "description": "键标签"
+  },
+  "value": {
+    "message": "值",
+    "description": "值标签"
+  },
+  "size": {
+    "message": "大小",
+    "description": "大小标签"
+  },
+  "name": {
+    "message": "名称",
+    "description": "名称标签"
+  },
+  "domain": {
+    "message": "域名",
+    "description": "域名标签"
+  },
+  "path": {
+    "message": "路径",
+    "description": "路径标签"
+  },
+  "secure": {
+    "message": "安全",
+    "description": "安全标签"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnly标签"
+  },
+  "expiration": {
+    "message": "过期时间",
+    "description": "过期时间标签"
+  },
+  "version": {
+    "message": "版本",
+    "description": "版本标签"
+  },
+  "count": {
+    "message": "数量",
+    "description": "数量标签"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLs标签"
+  },
+  "moreUrls": {
+    "message": "还有更多...",
+    "description": "还有更多URLs的提示"
+  },
+  "expandAll": {
+    "message": "全部展开",
+    "description": "全部展开按钮"
+  },
+  "collapseAll": {
+    "message": "全部折叠",
+    "description": "全部折叠按钮"
+  },
+  "searchPlaceholder": {
+    "message": "搜索键名或值...",
+    "description": "搜索框占位符"
+  },
+  "doubleClickToCopy": {
+    "message": "双击复制",
+    "description": "双击复制提示"
+  },
+  "keyCopied": {
+    "message": "键名已复制",
+    "description": "键名复制成功提示"
+  },
+  "valueCopied": {
+    "message": "值已复制",
+    "description": "值复制成功提示"
+  },
+  "copy": {
+    "message": "复制",
+    "description": "复制按钮文本"
   }
 }

@@ -7,6 +7,9 @@ export * from './cleaner.js';
 export * from './i18n.js';
 export * from './notification.js';
 export * from './storage.js';
+export * from './storageDetail.js';
+export * from './storageDetailView.js';
 export * from './storageUsage.js';
+export * from './storageUsageView.js';
 export * from './ui.js';
 

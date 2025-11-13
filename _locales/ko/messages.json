@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "이 페이지는 브라우저에 의해 보호되어 있어 저장소 정보를 가져올 수 없습니다",
     "description": "제한된 페이지에서 저장소 정보를 가져올 수 없을 때의 프롬프트"
+  },
+  "clickToViewDetail": {
+    "message": "클릭하여 세부 정보 보기",
+    "description": "세부 정보를 보기 위한 클릭 프롬프트"
+  },
+  "loadingDetail": {
+    "message": "세부 정보 로드 중...",
+    "description": "세부 정보 로드 중 프롬프트"
+  },
+  "detailLoadFailed": {
+    "message": "세부 정보 로드 실패",
+    "description": "세부 정보 로드 실패 프롬프트"
+  },
+  "noDetailData": {
+    "message": "데이터 없음",
+    "description": "세부 데이터 없음 프롬프트"
+  },
+  "totalItems": {
+    "message": "총계",
+    "description": "총계 레이블"
+  },
+  "key": {
+    "message": "키",
+    "description": "키 레이블"
+  },
+  "value": {
+    "message": "값",
+    "description": "값 레이블"
+  },
+  "size": {
+    "message": "크기",
+    "description": "크기 레이블"
+  },
+  "name": {
+    "message": "이름",
+    "description": "이름 레이블"
+  },
+  "domain": {
+    "message": "도메인",
+    "description": "도메인 레이블"
+  },
+  "path": {
+    "message": "경로",
+    "description": "경로 레이블"
+  },
+  "secure": {
+    "message": "보안",
+    "description": "보안 레이블"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnly 레이블"
+  },
+  "expiration": {
+    "message": "만료 시간",
+    "description": "만료 시간 레이블"
+  },
+  "version": {
+    "message": "버전",
+    "description": "버전 레이블"
+  },
+  "count": {
+    "message": "수량",
+    "description": "수량 레이블"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLs 레이블"
+  },
+  "moreUrls": {
+    "message": "더 보기...",
+    "description": "더 많은 URL 프롬프트"
+  },
+  "expandAll": {
+    "message": "모두 확장",
+    "description": "모두 확장 버튼"
+  },
+  "collapseAll": {
+    "message": "모두 접기",
+    "description": "모두 접기 버튼"
+  },
+  "searchPlaceholder": {
+    "message": "키 또는 값 검색...",
+    "description": "검색 입력 플레이스홀더"
+  },
+  "doubleClickToCopy": {
+    "message": "더블 클릭하여 복사",
+    "description": "더블 클릭하여 복사 힌트"
+  },
+  "keyCopied": {
+    "message": "키가 복사되었습니다",
+    "description": "키 복사 성공 메시지"
+  },
+  "valueCopied": {
+    "message": "값이 복사되었습니다",
+    "description": "값 복사 성공 메시지"
+  },
+  "copy": {
+    "message": "복사",
+    "description": "복사 버튼 텍스트"
   }
 }

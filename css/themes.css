@@ -1,0 +1,329 @@
+/**
+ * 主题样式
+ */
+
+/* 深色主题（默认） */
+.theme-dark {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: rgba(255, 255, 255, 0.9);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --accent-color: #78dbff;
+}
+
+/* 浅色主题 */
+.theme-light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --accent-color: #2196f3;
+}
+
+body .theme-light .container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%) !important;
+    color: #333333 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.container.theme-light {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%) !important;
+    color: #333333 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .header,
+body .theme-light .header {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #333333 !important;
+}
+
+.theme-light .header-title {
+    color: #333333 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .header-version {
+    color: #666666 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .header-icon {
+    filter: none !important;
+    color: #2196f3 !important;
+}
+
+.theme-light .site-info {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.theme-light .site-label {
+    color: #333333 !important;
+    font-weight: 600 !important;
+}
+
+.theme-light .site-url {
+    color: #1976d2 !important;
+    text-shadow: none !important;
+    font-weight: 500 !important;
+}
+
+.theme-light .tab-nav {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(20px);
+}
+
+.theme-light .tab-btn {
+    background: transparent !important;
+    color: #666666 !important;
+    border: none !important;
+}
+
+.theme-light .tab-btn:hover {
+    background: rgba(33, 150, 243, 0.1) !important;
+    color: #2196f3 !important;
+}
+
+.theme-light .tab-btn.active {
+    background: rgba(33, 150, 243, 0.15) !important;
+    color: #2196f3 !important;
+    border-bottom: 2px solid #2196f3 !important;
+}
+
+.theme-light .tab-icon {
+    filter: none;
+}
+
+.theme-light .btn {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #333333 !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .btn:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: #2196f3 !important;
+    box-shadow: 0 4px 16px rgba(33, 150, 243, 0.2) !important;
+    transform: translateY(-1px) !important;
+}
+
+.theme-light .btn-text {
+    color: #333333 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .btn-icon {
+    filter: none;
+}
+
+.theme-light .btn-reload {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-color: #2196f3;
+}
+
+.theme-light .btn-reload:hover {
+    background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+}
+
+.theme-light .btn-reload-cache {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+    border-color: #ff9800;
+}
+
+.theme-light .btn-reload-cache:hover {
+    background: linear-gradient(135deg, #ffcc02 0%, #ffa000 100%);
+}
+
+.theme-light .btn-clean {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-color: #9c27b0;
+}
+
+.theme-light .btn-clean:hover {
+    background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%);
+}
+
+.theme-light .btn-clean-primary {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    border-color: #4caf50;
+}
+
+.theme-light .btn-clean-primary:hover {
+    background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+}
+
+.theme-light .btn-clean-danger {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-color: #f44336;
+}
+
+.theme-light .btn-clean-danger:hover {
+    background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+}
+
+.theme-light .btn-danger {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-color: #f44336;
+    color: #d32f2f;
+}
+
+.theme-light .btn-danger:hover {
+    background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+}
+
+.theme-light .btn-primary {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-color: #2196f3;
+    color: #1976d2;
+}
+
+.theme-light .btn-primary:hover {
+    background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+}
+
+.theme-light .section-divider {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.1) 20%, 
+        rgba(0, 0, 0, 0.15) 50%, 
+        rgba(0, 0, 0, 0.1) 80%, 
+        transparent 100%);
+}
+
+.theme-light .settings-group {
+    background: rgba(255, 255, 255, 0.7) !important;
+    border-radius: 12px !important;
+    margin: 0 10px 16px 10px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .group-header .group-icon {
+    filter: none !important;
+    color: #2196f3 !important;
+}
+
+.theme-light .group-header .group-title {
+    color: #333333 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .setting-item {
+    color: #333333 !important;
+}
+
+.theme-light .setting-text {
+    color: #333333 !important;
+}
+
+.theme-light .setting-check {
+    border: 2px solid #ccc;
+    background: #ffffff;
+}
+
+.theme-light .setting-item input[type="checkbox"]:checked + .setting-check {
+    background: #2196f3;
+    border-color: #2196f3;
+}
+
+.theme-light .theme-option {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .theme-option:hover {
+    border-color: #2196f3 !important;
+    background: rgba(255, 255, 255, 1) !important;
+}
+
+.theme-light .theme-name {
+    color: #333333 !important;
+}
+
+.theme-light .status-container {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+}
+
+.theme-light .status-message {
+    color: #333333 !important;
+    text-shadow: 0 0 10px rgba(33, 150, 243, 0.2) !important;
+    font-weight: 600 !important;
+}
+
+.theme-light .progress-bar {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .progress-fill {
+    background: linear-gradient(90deg, #2196f3, #21cbf3) !important;
+}
+
+.theme-light .footer {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #666666 !important;
+}
+
+.theme-light .footer-text {
+    color: #666666 !important;
+}
+
+/* 亮色主题 - 语言选择器样式 */
+.theme-light .language-dropdown {
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #333333 !important;
+    backdrop-filter: blur(10px) !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 12px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px !important;
+}
+
+.theme-light .language-dropdown:hover {
+    border-color: rgba(33, 150, 243, 0.4) !important;
+    background-color: rgba(33, 150, 243, 0.1) !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 12px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px !important;
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.2) !important;
+}
+
+.theme-light .language-dropdown:focus {
+    border-color: rgba(33, 150, 243, 0.6) !important;
+    background-color: rgba(33, 150, 243, 0.1) !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 12px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px !important;
+    box-shadow: 0 0 25px rgba(33, 150, 243, 0.3) !important;
+}
+
+.theme-light .language-dropdown option {
+    background: #ffffff !important;
+    color: #333333 !important;
+}
+
+.theme-light .language-dropdown option:hover {
+    background: rgba(33, 150, 243, 0.1) !important;
+}
+
+/* 自动主题说明：
+   自动主题不需要独立的CSS样式，
+   它会根据系统时间自动应用 theme-light 或 theme-dark 的样式
+*/
+
+

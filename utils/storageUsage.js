@@ -154,3 +154,71 @@ export function isRestrictedPage(url) {
     return restrictedProtocols.some(protocol => url.startsWith(protocol));
 }
 
+/**
+ * 通过脚本获取存储使用情况（备用方案）
+ * @param {number} tabId - 标签页ID
+ * @returns {Promise<Object>} 存储使用情况数据
+ */
+export async function getStorageUsageViaScript(tabId) {
+    try {
+        const results = await chrome.scripting.executeScript({
+            target: { tabId },
+            func: () => {
+                const usage = {};
+                
+                try {
+                    // LocalStorage
+                    if (typeof localStorage !== 'undefined') {
+                        usage.localStorage = {
+                            count: localStorage.length,
+                            keys: Object.keys(localStorage)
+                        };
+                    }
+                    
+                    // SessionStorage
+                    if (typeof sessionStorage !== 'undefined') {
+                        usage.sessionStorage = {
+                            count: sessionStorage.length,
+                            keys: Object.keys(sessionStorage)
+                        };
+                    }
+                    
+                    // IndexedDB
+                    if ('indexedDB' in window && indexedDB.databases) {
+                        // 注意：indexedDB.databases() 是异步的，但这里我们只能同步返回
+                        usage.indexedDB = {
+                            count: 0,
+                            databases: []
+                        };
+                    }
+                    
+                    // Cache API
+                    if ('caches' in window) {
+                        // caches.keys() 也是异步的
+                        usage.cacheAPI = {
+                            count: 0,
+                            names: []
+                        };
+                    }
+                    
+                    // Service Worker
+                    if ('serviceWorker' in navigator) {
+                        usage.serviceWorker = {
+                            count: 0,
+                            scopes: []
+                        };
+                    }
+                } catch (e) {
+                    return { error: e.message };
+                }
+                
+                return usage;
+            }
+        });
+        
+        return results[0]?.result || {};
+    } catch (error) {
+        throw new Error('无法执行脚本获取存储信息：' + error.message);
+    }
+}
+

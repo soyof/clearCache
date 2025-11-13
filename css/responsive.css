@@ -1,0 +1,40 @@
+/**
+ * 响应式样式
+ */
+
+/* 响应式设计 */
+@media (max-width: 550px) and (min-height: 800px) {
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        padding: 10px 6px;
+        font-size: 0.75rem;
+        gap: 3px;
+    }
+    
+    .btn {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+    
+    .theme-selector {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+}

@@ -398,5 +398,105 @@
   "restrictedPageStorage": {
     "message": "Эта страница защищена браузером и не может получить информацию о хранилище",
     "description": "Подсказка когда ограниченная страница не может получить информацию о хранилище"
+  },
+  "clickToViewDetail": {
+    "message": "Нажмите, чтобы просмотреть детали",
+    "description": "Подсказка для просмотра деталей"
+  },
+  "loadingDetail": {
+    "message": "Загрузка деталей...",
+    "description": "Подсказка загрузки деталей"
+  },
+  "detailLoadFailed": {
+    "message": "Не удалось загрузить детали",
+    "description": "Подсказка об ошибке загрузки деталей"
+  },
+  "noDetailData": {
+    "message": "Нет данных",
+    "description": "Подсказка без детальных данных"
+  },
+  "totalItems": {
+    "message": "Всего",
+    "description": "Метка всего"
+  },
+  "key": {
+    "message": "Ключ",
+    "description": "Метка ключа"
+  },
+  "value": {
+    "message": "Значение",
+    "description": "Метка значения"
+  },
+  "size": {
+    "message": "Размер",
+    "description": "Метка размера"
+  },
+  "name": {
+    "message": "Имя",
+    "description": "Метка имени"
+  },
+  "domain": {
+    "message": "Домен",
+    "description": "Метка домена"
+  },
+  "path": {
+    "message": "Путь",
+    "description": "Метка пути"
+  },
+  "secure": {
+    "message": "Безопасный",
+    "description": "Метка безопасности"
+  },
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "Метка HttpOnly"
+  },
+  "expiration": {
+    "message": "Срок действия",
+    "description": "Метка срока действия"
+  },
+  "version": {
+    "message": "Версия",
+    "description": "Метка версии"
+  },
+  "count": {
+    "message": "Количество",
+    "description": "Метка количества"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "Метка URLs"
+  },
+  "moreUrls": {
+    "message": "Еще...",
+    "description": "Подсказка о большем количестве URLs"
+  },
+  "expandAll": {
+    "message": "Развернуть все",
+    "description": "Кнопка развернуть все"
+  },
+  "collapseAll": {
+    "message": "Свернуть все",
+    "description": "Кнопка свернуть все"
+  },
+  "searchPlaceholder": {
+    "message": "Поиск ключа или значения...",
+    "description": "Плейсхолдер поля поиска"
+  },
+  "doubleClickToCopy": {
+    "message": "Двойной клик для копирования",
+    "description": "Подсказка для копирования двойным кликом"
+  },
+  "keyCopied": {
+    "message": "Ключ скопирован",
+    "description": "Сообщение об успешном копировании ключа"
+  },
+  "valueCopied": {
+    "message": "Значение скопировано",
+    "description": "Сообщение об успешном копировании значения"
+  },
+  "copy": {
+    "message": "Копировать",
+    "description": "Текст кнопки копирования"
   }
 }
