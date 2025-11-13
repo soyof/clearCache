@@ -479,6 +479,10 @@
     "message": "Contraer todo",
     "description": "Botón contraer todo"
   },
+  "scrollToTop": {
+    "message": "Desplazar hacia arriba",
+    "description": "Botón desplazar hacia arriba"
+  },
   "searchPlaceholder": {
     "message": "Buscar clave o valor...",
     "description": "Placeholder del campo de búsqueda"

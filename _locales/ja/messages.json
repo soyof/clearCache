@@ -479,6 +479,10 @@
     "message": "すべて折りたたむ",
     "description": "すべて折りたたむボタン"
   },
+  "scrollToTop": {
+    "message": "トップにスクロール",
+    "description": "トップにスクロールボタン"
+  },
   "searchPlaceholder": {
     "message": "キーまたは値を検索...",
     "description": "検索入力のプレースホルダー"

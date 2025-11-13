@@ -479,6 +479,10 @@
     "message": "Alle zuklappen",
     "description": "Alle zuklappen Button"
   },
+  "scrollToTop": {
+    "message": "Nach oben scrollen",
+    "description": "Nach oben scrollen Button"
+  },
   "searchPlaceholder": {
     "message": "Schlüssel oder Wert suchen...",
     "description": "Suchfeld Platzhalter"

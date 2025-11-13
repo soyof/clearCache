@@ -479,6 +479,10 @@
     "message": "Collapse All",
     "description": "Collapse all button"
   },
+  "scrollToTop": {
+    "message": "Scroll to Top",
+    "description": "Scroll to top button"
+  },
   "searchPlaceholder": {
     "message": "Search key or value...",
     "description": "Search input placeholder"

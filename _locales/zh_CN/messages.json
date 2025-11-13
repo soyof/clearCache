@@ -479,6 +479,10 @@
     "message": "全部折叠",
     "description": "全部折叠按钮"
   },
+  "scrollToTop": {
+    "message": "滚动到顶部",
+    "description": "滚动到顶部按钮"
+  },
   "searchPlaceholder": {
     "message": "搜索键名或值...",
     "description": "搜索框占位符"

@@ -479,6 +479,10 @@
     "message": "Tout réduire",
     "description": "Bouton tout réduire"
   },
+  "scrollToTop": {
+    "message": "Défiler vers le haut",
+    "description": "Bouton défiler vers le haut"
+  },
   "searchPlaceholder": {
     "message": "Rechercher une clé ou une valeur...",
     "description": "Placeholder du champ de recherche"

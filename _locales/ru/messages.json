@@ -479,6 +479,10 @@
     "message": "Свернуть все",
     "description": "Кнопка свернуть все"
   },
+  "scrollToTop": {
+    "message": "Прокрутить вверх",
+    "description": "Кнопка прокрутки вверх"
+  },
   "searchPlaceholder": {
     "message": "Поиск ключа или значения...",
     "description": "Плейсхолдер поля поиска"

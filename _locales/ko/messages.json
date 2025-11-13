@@ -479,6 +479,10 @@
     "message": "모두 접기",
     "description": "모두 접기 버튼"
   },
+  "scrollToTop": {
+    "message": "맨 위로 스크롤",
+    "description": "맨 위로 스크롤 버튼"
+  },
   "searchPlaceholder": {
     "message": "키 또는 값 검색...",
     "description": "검색 입력 플레이스홀더"

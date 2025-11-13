@@ -47,13 +47,16 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
     z-index: 1;
 }
 
-.storage-detail-modal.visible .storage-detail-content {
-    transform: scale(1);
+/* 动画持续时间设置 */
+.storage-detail-content.animate__animated {
+    --animate-duration: 0.3s;
+}
+
+.storage-detail-overlay.animate__animated {
+    --animate-duration: 0.3s;
 }
 
 .storage-detail-header {
@@ -67,23 +70,47 @@
 }
 
 .storage-detail-search {
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 8px 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.03);
     flex-shrink: 0;
+    flex-wrap: nowrap;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
 }
 
 .search-input {
     width: 100%;
-    padding: 6px 30px 6px 10px;
+    height: 32px;
+    padding: 0 30px 0 10px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(79, 172, 254, 0.2);
     border-radius: 4px;
     color: #ffffff;
     font-size: 12px;
+    line-height: 32px;
     outline: none;
     transition: all 0.2s ease;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.search-controls {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    align-items: center;
+    height: 32px;
 }
 
 .search-input:focus {
@@ -98,7 +125,7 @@
 
 .search-icon {
     position: absolute;
-    right: 18px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -230,20 +257,12 @@
 .storage-detail-summary {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
     padding: 8px 10px;
     background: rgba(79, 172, 254, 0.15);
     border-radius: 4px;
     margin-bottom: 8px;
     border: 1px solid rgba(79, 172, 254, 0.3);
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.accordion-controls {
-    display: flex;
-    gap: 6px;
-    margin-left: auto;
 }
 
 .accordion-btn {
@@ -261,6 +280,14 @@
     gap: 4px;
 }
 
+.accordion-btn.icon-only {
+    padding: 6px;
+    min-width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
 .accordion-btn-icon {
     display: flex;
     align-items: center;
@@ -268,6 +295,11 @@
     width: 14px;
     height: 14px;
     flex-shrink: 0;
+}
+
+.accordion-btn.icon-only .accordion-btn-icon {
+    width: 16px;
+    height: 16px;
 }
 
 .accordion-btn-icon svg {
@@ -285,6 +317,20 @@
     border-color: rgba(79, 172, 254, 0.5);
     color: #ffffff;
     transform: translateY(-1px);
+}
+
+.accordion-btn.icon-only:hover {
+    background: rgba(79, 172, 254, 0.4);
+    transform: translateY(-1px) scale(1.1);
+}
+
+/* 按钮动画设置 */
+.accordion-btn.animate__animated {
+    --animate-duration: 0.6s;
+}
+
+.copy-btn.animate__animated {
+    --animate-duration: 0.8s;
 }
 
 .summary-label {
@@ -319,6 +365,17 @@
     transition: all 0.3s ease;
 }
 
+/* 列表项动画设置 */
+.accordion-item.animate__animated {
+    --animate-duration: 0.4s;
+    animation-fill-mode: both;
+}
+
+/* 确保动画延迟生效 */
+.accordion-item[style*="animation-delay"] {
+    animation-fill-mode: both;
+}
+
 .accordion-item:hover {
     border-color: rgba(79, 172, 254, 0.3);
 }
@@ -340,13 +397,14 @@
 
 .accordion-icon {
     color: #4facfe;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     width: 16px;
     height: 16px;
+    transform-origin: center;
 }
 
 .accordion-icon svg {
@@ -510,14 +568,16 @@
     z-index: 10001;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
     pointer-events: none;
 }
 
 .copy-toast.show {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.copy-toast.animate__animated {
+    --animate-duration: 0.5s;
 }
 
 .storage-detail-item {
@@ -779,6 +839,11 @@
     background: rgba(33, 150, 243, 0.25);
     border-color: rgba(33, 150, 243, 0.4);
     color: #000000;
+}
+
+.theme-light .accordion-btn.icon-only:hover {
+    background: rgba(33, 150, 243, 0.3);
+    transform: translateY(-1px) scale(1.1);
 }
 
 .theme-light .accordion-item {
@@ -2166,5 +2231,48 @@ body .theme-light .header {
     .theme-selector {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
+    }
+}
+
+/* 存储详情弹窗响应式设计 */
+@media (max-width: 600px) {
+    .storage-detail-search {
+        flex-wrap: nowrap;
+        gap: 6px;
+        padding: 6px 8px;
+    }
+    
+    .search-input-wrapper {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .search-input {
+        height: 28px;
+        line-height: 28px;
+        font-size: 11px;
+        padding: 0 28px 0 8px;
+    }
+    
+    .search-controls {
+        height: 28px;
+        gap: 4px;
+    }
+    
+    .accordion-btn.icon-only {
+        min-width: 28px;
+        height: 28px;
+        padding: 4px;
+    }
+    
+    .accordion-btn.icon-only .accordion-btn-icon {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .search-icon {
+        width: 12px;
+        height: 12px;
+        right: 10px;
     }
 }

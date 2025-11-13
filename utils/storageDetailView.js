@@ -22,18 +22,25 @@ class StorageDetailView {
         this.expandIconSvg = `<svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
-        // 全部展开图标 SVG（iconfont 风格：向下箭头）
-        this.expandAllIconSvg = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        // 全部展开图标 SVG（双向下箭头，表示展开所有）
+        this.expandAllIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 5L8 9L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M4 9L8 13L12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
-        // 全部折叠图标 SVG（iconfont 风格：向上箭头）
-        this.collapseAllIconSvg = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 10L8 6L12 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        // 全部折叠图标 SVG（双向上箭头，表示折叠所有）
+        this.collapseAllIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 11L8 7L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M4 7L8 3L12 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
         // 搜索图标 SVG
         this.searchIconSvg = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
             <path d="M10.5 10.5L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+        // 滚动到顶部图标 SVG（向上箭头+横线，表示回到顶部）
+        this.scrollToTopIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 4V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M4 8L8 4L12 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
     }
 
@@ -60,16 +67,32 @@ class StorageDetailView {
         modal.id = 'storage-detail-modal';
         modal.className = 'storage-detail-modal';
         const searchPlaceholder = this.getMessage ? this.getMessage('searchPlaceholder') || '搜索键名或值...' : '搜索键名或值...';
+        const expandAllText = this.getMessage ? this.getMessage('expandAll') || '全部展开' : '全部展开';
+        const collapseAllText = this.getMessage ? this.getMessage('collapseAll') || '全部折叠' : '全部折叠';
+        const scrollToTopText = this.getMessage ? this.getMessage('scrollToTop') || '滚动到顶部' : '滚动到顶部';
         modal.innerHTML = `
-            <div class="storage-detail-overlay"></div>
-            <div class="storage-detail-content">
-                <div class="storage-detail-header">
+            <div class="storage-detail-overlay animate__animated"></div>
+            <div class="storage-detail-content animate__animated">
+                <div class="storage-detail-header animate__animated animate__fadeInDown">
                     <h3 class="storage-detail-title"></h3>
                     <button class="storage-detail-close" aria-label="关闭">×</button>
                 </div>
-                <div class="storage-detail-search">
-                    <input type="text" class="search-input" placeholder="${searchPlaceholder}" />
-                    <span class="search-icon">${this.searchIconSvg}</span>
+                <div class="storage-detail-search animate__animated animate__fadeInDown">
+                    <div class="search-input-wrapper">
+                        <input type="text" class="search-input" placeholder="${searchPlaceholder}" />
+                        <span class="search-icon">${this.searchIconSvg}</span>
+                    </div>
+                    <div class="search-controls">
+                        <button class="accordion-btn icon-only expand-all animate__animated" data-action="expand-all" title="${expandAllText}" aria-label="${expandAllText}">
+                            <span class="accordion-btn-icon">${this.expandAllIconSvg}</span>
+                        </button>
+                        <button class="accordion-btn icon-only collapse-all animate__animated" data-action="collapse-all" title="${collapseAllText}" aria-label="${collapseAllText}">
+                            <span class="accordion-btn-icon">${this.collapseAllIconSvg}</span>
+                        </button>
+                        <button class="accordion-btn icon-only scroll-to-top animate__animated" data-action="scroll-to-top" title="${scrollToTopText}" aria-label="${scrollToTopText}">
+                            <span class="accordion-btn-icon">${this.scrollToTopIconSvg}</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="storage-detail-body">
                     <div class="storage-detail-loading">
@@ -77,20 +100,20 @@ class StorageDetailView {
                         <span class="loading-text"></span>
                     </div>
                 </div>
-                <div class="copy-toast" id="copy-toast"></div>
+                <div class="copy-toast animate__animated" id="copy-toast"></div>
             </div>
         `;
-        
+
         document.body.appendChild(modal);
         this.modal = modal;
 
         // 绑定关闭事件
         const closeBtn = modal.querySelector('.storage-detail-close');
         const overlay = modal.querySelector('.storage-detail-overlay');
-        
+
         closeBtn.addEventListener('click', () => this.hide());
         overlay.addEventListener('click', () => this.hide());
-        
+
         // ESC 键关闭
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.isVisible()) {
@@ -127,13 +150,26 @@ class StorageDetailView {
         // 显示加载状态
         this.showLoading();
 
-        // 显示弹窗
+        // 显示弹窗，添加动画
+        const content = this.modal.querySelector('.storage-detail-content');
+        const overlay = this.modal.querySelector('.storage-detail-overlay');
+
+        // 重置动画类
+        if (content) {
+            content.classList.remove('animate__zoomOut', 'animate__fadeOut');
+            content.classList.add('animate__zoomIn');
+        }
+        if (overlay) {
+            overlay.classList.remove('animate__fadeOut');
+            overlay.classList.add('animate__fadeIn');
+        }
+
         this.modal.classList.add('visible');
 
         try {
             // 获取详情数据
             const detailData = await getStorageDetail(storageType, tab, url);
-            
+
             // 渲染详情数据
             this.renderDetail(detailData);
         } catch (error) {
@@ -150,8 +186,8 @@ class StorageDetailView {
 
         const loadingText = this.getMessage ? this.getMessage('loadingDetail') || '正在加载详情...' : '正在加载详情...';
         body.innerHTML = `
-            <div class="storage-detail-loading">
-                <div class="loading-spinner"></div>
+            <div class="storage-detail-loading animate__animated animate__fadeIn">
+                <div class="loading-spinner animate__animated animate__rotateIn"></div>
                 <span class="loading-text">${loadingText}</span>
             </div>
         `;
@@ -167,8 +203,8 @@ class StorageDetailView {
 
         const errorText = this.getMessage ? this.getMessage('detailLoadFailed') || '加载详情失败' : '加载详情失败';
         body.innerHTML = `
-            <div class="storage-detail-error">
-                <span class="error-icon">⚠️</span>
+            <div class="storage-detail-error animate__animated animate__shakeX">
+                <span class="error-icon animate__animated animate__bounceIn">⚠️</span>
                 <span class="error-text">${errorText}: ${errorMessage}</span>
             </div>
         `;
@@ -187,8 +223,8 @@ class StorageDetailView {
         if (!items || items.length === 0) {
             const emptyText = this.getMessage ? this.getMessage('noDetailData') || '暂无数据' : '暂无数据';
             body.innerHTML = `
-                <div class="storage-detail-empty">
-                    <span class="empty-icon">📭</span>
+                <div class="storage-detail-empty animate__animated animate__fadeIn">
+                    <span class="empty-icon animate__animated animate__bounceIn">📭</span>
                     <span class="empty-text">${emptyText}</span>
                 </div>
             `;
@@ -197,7 +233,7 @@ class StorageDetailView {
 
         // 根据不同类型渲染不同的内容
         let html = '';
-        
+
         switch (type) {
             case 'localStorage':
             case 'sessionStorage':
@@ -217,23 +253,11 @@ class StorageDetailView {
         }
 
         const totalText = this.getMessage ? this.getMessage('totalItems') || '总计' : '总计';
-        const expandAllText = this.getMessage ? this.getMessage('expandAll') || '全部展开' : '全部展开';
-        const collapseAllText = this.getMessage ? this.getMessage('collapseAll') || '全部折叠' : '全部折叠';
-        
+
         html = `
-            <div class="storage-detail-summary">
+            <div class="storage-detail-summary animate__animated animate__fadeInDown">
                 <span class="summary-label">${totalText}:</span>
                 <span class="summary-value">${total} ${this.getMessage ? this.getMessage('items') || '项' : '项'}</span>
-                <div class="accordion-controls">
-                    <button class="accordion-btn expand-all" data-action="expand-all">
-                        <span class="accordion-btn-icon">${this.expandAllIconSvg}</span>
-                        <span class="accordion-btn-text">${expandAllText}</span>
-                    </button>
-                    <button class="accordion-btn collapse-all" data-action="collapse-all">
-                        <span class="accordion-btn-icon">${this.collapseAllIconSvg}</span>
-                        <span class="accordion-btn-text">${collapseAllText}</span>
-                    </button>
-                </div>
             </div>
             <div class="storage-detail-list accordion-list">
                 ${html}
@@ -241,17 +265,28 @@ class StorageDetailView {
         `;
 
         body.innerHTML = html;
-        
+
+        // 为列表项添加进入动画
+        setTimeout(() => {
+            const accordionItems = body.querySelectorAll('.accordion-item');
+            accordionItems.forEach((item, index) => {
+                // 添加动画类和延迟
+                item.classList.add('animate__animated', 'animate__fadeInUp');
+                item.style.setProperty('--animate-delay', `${index * 0.05}s`);
+                item.style.animationDelay = `${index * 0.05}s`;
+            });
+        }, 100);
+
         // 绑定折叠面板事件
         this.bindAccordionEvents();
-        
+
         // 绑定搜索事件
         this.bindSearchEvents();
-        
+
         // 绑定复制事件
         this.bindCopyEvents();
     }
-    
+
     /**
      * 绑定折叠面板事件
      */
@@ -259,10 +294,13 @@ class StorageDetailView {
         const accordionItems = this.modal.querySelectorAll('.accordion-item');
         const expandAllBtn = this.modal.querySelector('.expand-all');
         const collapseAllBtn = this.modal.querySelector('.collapse-all');
-        
+        const scrollToTopBtn = this.modal.querySelector('.scroll-to-top');
+        const body = this.modal.querySelector('.storage-detail-body');
+
         // 绑定单个面板的展开/折叠
         accordionItems.forEach(item => {
             const header = item.querySelector('.accordion-header');
+
             if (header) {
                 header.addEventListener('click', () => {
                     const isExpanded = item.classList.contains('expanded');
@@ -274,7 +312,7 @@ class StorageDetailView {
                 });
             }
         });
-        
+
         // 全部展开
         if (expandAllBtn) {
             expandAllBtn.addEventListener('click', () => {
@@ -283,7 +321,7 @@ class StorageDetailView {
                 });
             });
         }
-        
+
         // 全部折叠
         if (collapseAllBtn) {
             collapseAllBtn.addEventListener('click', () => {
@@ -292,69 +330,110 @@ class StorageDetailView {
                 });
             });
         }
+
+        // 滚动到顶部
+        if (scrollToTopBtn && body) {
+            scrollToTopBtn.addEventListener('click', () => {
+                // 添加点击动画
+                scrollToTopBtn.classList.remove('animate__bounce');
+                void scrollToTopBtn.offsetWidth; // 触发重排
+                scrollToTopBtn.classList.add('animate__bounce');
+
+                body.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     }
-    
+
     /**
      * 绑定搜索事件
      */
     bindSearchEvents() {
         const searchInput = this.modal.querySelector('.search-input');
         if (!searchInput) return;
-        
+
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase().trim();
             const accordionItems = this.modal.querySelectorAll('.accordion-item');
-            
+
             if (!searchTerm) {
-                // 清空搜索，显示所有项
-                accordionItems.forEach(item => {
+                // 清空搜索，显示所有项（带动画）
+                accordionItems.forEach((item, index) => {
                     item.style.display = '';
+                    item.classList.remove('animate__fadeOut');
+                    item.classList.add('animate__fadeInUp');
+                    item.style.animationDelay = `${index * 0.03}s`;
                 });
                 return;
             }
-            
+
             // 搜索过滤
-            accordionItems.forEach(item => {
+            accordionItems.forEach((item, index) => {
                 const title = item.querySelector('.accordion-title');
                 const valueContent = item.querySelector('.value-content');
                 const detailValues = item.querySelectorAll('.detail-value');
-                
+
                 const titleText = title ? title.textContent.toLowerCase() : '';
                 let valueText = valueContent ? valueContent.textContent.toLowerCase() : '';
-                
+
                 // 收集所有详情值
                 detailValues.forEach(dv => {
                     valueText += ' ' + dv.textContent.toLowerCase();
                 });
-                
+
                 if (titleText.includes(searchTerm) || valueText.includes(searchTerm)) {
                     item.style.display = '';
+                    // 添加显示动画
+                    item.classList.remove('animate__fadeInUp', 'animate__fadeOut');
+                    void item.offsetWidth;
+                    item.classList.add('animate__fadeInUp');
                     // 自动展开匹配的项
-                    item.classList.add('expanded');
+                    setTimeout(() => {
+                        item.classList.add('expanded');
+                    }, 100);
                 } else {
-                    item.style.display = 'none';
+                    // 添加隐藏动画
+                    item.classList.remove('animate__fadeInUp');
+                    item.classList.add('animate__fadeOut');
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                        item.classList.remove('animate__fadeOut');
+                    }, 300);
                 }
             });
         });
     }
-    
+
     /**
      * 绑定复制事件
      */
     bindCopyEvents() {
         const accordionItems = this.modal.querySelectorAll('.accordion-item');
-        
+
         accordionItems.forEach(item => {
             const copyBtn = item.querySelector('.copy-btn');
             if (copyBtn) {
                 copyBtn.addEventListener('click', async (e) => {
                     e.stopPropagation();
+
+                    // 添加点击动画
+                    copyBtn.classList.remove('animate__pulse', 'animate__rubberBand');
+                    void copyBtn.offsetWidth; // 触发重排
+                    copyBtn.classList.add('animate__rubberBand');
+
                     await this.copyItemValue(item);
+
+                    // 动画结束后移除类
+                    setTimeout(() => {
+                        copyBtn.classList.remove('animate__rubberBand');
+                    }, 1000);
                 });
             }
         });
     }
-    
+
     /**
      * 复制项目的值
      * @param {HTMLElement} item - 折叠面板项
@@ -364,9 +443,9 @@ class StorageDetailView {
         const detailValues = item.querySelectorAll('.detail-value');
         const urlItems = item.querySelectorAll('.url-item');
         const jsonContent = item.querySelector('.detail-item-json');
-        
+
         let textToCopy = '';
-        
+
         // LocalStorage/SessionStorage: 复制值内容
         if (valueContent) {
             textToCopy = valueContent.textContent.trim();
@@ -387,12 +466,12 @@ class StorageDetailView {
         else if (jsonContent) {
             textToCopy = jsonContent.textContent.trim();
         }
-        
+
         if (textToCopy) {
             await this.copyToClipboard(textToCopy, 'value');
         }
     }
-    
+
     /**
      * 复制到剪贴板
      * @param {string} text - 要复制的文本
@@ -419,7 +498,7 @@ class StorageDetailView {
             }
         }
     }
-    
+
     /**
      * 显示复制成功提示
      * @param {string} messageKey - 消息键
@@ -427,13 +506,25 @@ class StorageDetailView {
     showCopyToast(messageKey) {
         const toast = this.modal.querySelector('#copy-toast');
         if (!toast) return;
-        
+
         const message = this.getMessage ? this.getMessage(messageKey) || '复制成功' : '复制成功';
         toast.textContent = message;
-        toast.classList.add('show');
-        
+
+        // 重置动画类
+        toast.classList.remove('animate__bounceIn', 'animate__bounceOut', 'show');
+        void toast.offsetWidth; // 触发重排
+
+        // 添加进入动画
+        toast.classList.add('show', 'animate__bounceIn');
+
         setTimeout(() => {
-            toast.classList.remove('show');
+            // 添加退出动画
+            toast.classList.remove('animate__bounceIn');
+            toast.classList.add('animate__bounceOut');
+
+            setTimeout(() => {
+                toast.classList.remove('show', 'animate__bounceOut');
+            }, 500);
         }, 2000);
     }
 
@@ -447,7 +538,7 @@ class StorageDetailView {
         return items.map((item, index) => {
             const sizeDisplay = formatBytes(item.size || 0);
             const fullValue = this.escapeHtml(item.value || '');
-            
+
             return `
                 <div class="accordion-item expanded" data-index="${index}" data-key="${this.escapeHtml(item.key)}" data-value="${this.escapeHtml(item.value || '')}">
                     <div class="accordion-header">
@@ -485,7 +576,7 @@ class StorageDetailView {
         return items.map((item, index) => {
             const fullValue = this.escapeHtml(item.value || '');
             const expirationDisplay = item.expirationDate ? formatDate(item.expirationDate) : '-';
-            
+
             return `
                 <div class="accordion-item expanded" data-index="${index}" data-key="${this.escapeHtml(item.name)}" data-value="${this.escapeHtml(item.value || '')}">
                     <div class="accordion-header">
@@ -571,7 +662,7 @@ class StorageDetailView {
 
         const copyText = this.getMessage ? this.getMessage('copy') || '复制' : '复制';
         return items.map((item, index) => {
-            const urlsList = (item.urls || []).map(url => 
+            const urlsList = (item.urls || []).map(url =>
                 `<div class="url-item">${this.escapeHtml(url)}</div>`
             ).join('');
 
@@ -646,7 +737,23 @@ class StorageDetailView {
      */
     hide() {
         if (this.modal) {
-            this.modal.classList.remove('visible');
+            const content = this.modal.querySelector('.storage-detail-content');
+            const overlay = this.modal.querySelector('.storage-detail-overlay');
+
+            // 添加退出动画
+            if (content) {
+                content.classList.remove('animate__zoomIn');
+                content.classList.add('animate__zoomOut');
+            }
+            if (overlay) {
+                overlay.classList.remove('animate__fadeIn');
+                overlay.classList.add('animate__fadeOut');
+            }
+
+            // 等待动画完成后再隐藏
+            setTimeout(() => {
+                this.modal.classList.remove('visible');
+            }, 300);
         }
     }
 
