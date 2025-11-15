@@ -96,12 +96,18 @@ async function loadAdvancedSettings(elements) {
 
         // 设置主题
         const theme = settings.theme || 'dark'; // 默认使用深色主题
-        const themeRadio = document.querySelector(`input[name="theme"][value="${theme}"]`);
-        if (themeRadio) {
-            themeRadio.checked = true;
-            applyTheme(theme);
-            // 更新主题选择的视觉标识
-            updateThemeSelection(theme);
+        applyTheme(theme);
+
+        // 更新主题菜单的激活状态
+        if (elements.themeMenuItems) {
+            elements.themeMenuItems.forEach(item => {
+                const itemTheme = item.getAttribute('data-theme');
+                if (itemTheme === theme) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
         }
 
         // 设置其他选项
@@ -126,6 +132,17 @@ async function loadLanguageSettings(elements) {
         if (elements.languageSelect) {
             elements.languageSelect.value = userLanguage;
         }
+        // 更新语言菜单的激活状态
+        if (elements.languageMenuItems) {
+            elements.languageMenuItems.forEach(item => {
+                const lang = item.getAttribute('data-lang');
+                if (lang === userLanguage) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
     } catch (error) {
         // 加载语言设置失败，使用默认值
     }
@@ -142,15 +159,6 @@ export async function initializeAdvancedSettings(elements) {
             loadAdvancedSettings(elements).catch(err => console.warn('加载高级设置失败:', err)),
             loadLanguageSettings(elements).catch(err => console.warn('加载语言设置失败:', err))
         ]);
-
-        // 绑定主题切换事件（防御性检查）
-        if (elements.themeRadios && elements.themeRadios.length > 0) {
-            elements.themeRadios.forEach(radio => {
-                if (radio && radio.addEventListener) {
-                    radio.addEventListener('change', (e) => handleThemeChange(e, elements));
-                }
-            });
-        }
     } catch (error) {
         console.warn('初始化高级设置失败:', error);
     }

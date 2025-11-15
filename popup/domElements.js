@@ -41,10 +41,14 @@ export function getDOMElements() {
     includeProtected: document.getElementById('include-protected'),
 
     // 高级设置元素
-    themeRadios: document.querySelectorAll('input[name="theme"]'),
     enableNotifications: document.getElementById('enable-notifications'),
     notificationSound: document.getElementById('notification-sound'),
-    languageSelect: document.getElementById('language-select'),
+    languageBtn: document.getElementById('language-btn'),
+    languageMenu: document.getElementById('language-menu'),
+    languageMenuItems: document.querySelectorAll('.language-menu-item'),
+    themeBtn: document.getElementById('theme-btn'),
+    themeMenu: document.getElementById('theme-menu'),
+    themeMenuItems: document.querySelectorAll('.theme-menu-item'),
 
     // 存储使用情况元素
     storageUsageContent: document.getElementById('storage-usage-content'),

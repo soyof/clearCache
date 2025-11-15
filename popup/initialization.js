@@ -17,7 +17,7 @@ import {
   validateStorageCount
 } from '../utils/index.js';
 import { getCurrentTab, getCurrentUrl, setCurrentTab, setCurrentUrl } from './state.js';
-import { formatUrl, loadVersionInfo } from './uiHelpers.js';
+import { formatUrl } from './uiHelpers.js';
 import { loadSettings, initializeAdvancedSettings } from './settingsHandlers.js';
 import { restoreTabState } from './eventHandlers.js';
 
@@ -123,7 +123,6 @@ export async function initialize(elements) {
 
     // 第三步：并行执行其他初始化任务
     const otherInitPromises = [
-      loadVersionInfo().catch(err => console.warn('版本信息加载失败:', err)),
       loadSettings(elements).catch(err => console.warn('设置加载失败:', err)),
       restoreTabState().catch(err => console.warn('标签页状态恢复失败:', err)),
       initializeAdvancedSettings(elements).catch(err => console.warn('高级设置初始化失败:', err))

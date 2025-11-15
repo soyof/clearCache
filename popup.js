@@ -41,6 +41,23 @@ import { adjustTabTextSize } from './popup/uiHelpers.js';
 // 初始化 polyfill
 initRequestIdleCallbackPolyfill();
 
+// 立即加载版本信息（在模块加载时立即执行，不等待DOMContentLoaded）
+(function loadVersionInfoSync() {
+    try {
+        const manifest = chrome.runtime.getManifest();
+        // 使用 requestAnimationFrame 确保 DOM 已准备好
+        requestAnimationFrame(() => {
+            const versionElement = document.querySelector('.version');
+            if (versionElement && manifest && manifest.version) {
+                versionElement.textContent = 'v' + manifest.version;
+            }
+        });
+    } catch (e) {
+        // 静默失败，稍后在 DOMContentLoaded 时重试
+        console.warn('加载版本信息失败:', e);
+    }
+})();
+
 // 获取 DOM 元素
 const elements = getDOMElements();
 

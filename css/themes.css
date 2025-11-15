@@ -42,14 +42,25 @@ body .theme-light .header {
     color: #333333 !important;
 }
 
-.theme-light .header-title {
-    color: #333333 !important;
+.theme-light .header-title,
+.theme-light .title {
+    background: linear-gradient(45deg, #1976d2, #2196f3, #1976d2) !important;
+    background-size: 200% 200% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
     text-shadow: none !important;
 }
 
-.theme-light .header-version {
-    color: #666666 !important;
+.theme-light .header-version,
+.theme-light .version {
+    background: rgba(33, 150, 243, 0.15) !important;
+    border: 1px solid rgba(33, 150, 243, 0.3) !important;
+    color: #1976d2 !important;
     text-shadow: none !important;
+    box-shadow: 
+        0 0 10px rgba(33, 150, 243, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
 }
 
 .theme-light .header-icon {
@@ -319,6 +330,137 @@ body .theme-light .header {
 
 .theme-light .language-dropdown option:hover {
     background: rgba(33, 150, 243, 0.1) !important;
+}
+
+/* 浅色主题 - 语言和主题按钮样式 */
+.theme-light .language-icon-btn,
+.theme-light .theme-icon-btn {
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .language-icon-btn:hover,
+.theme-light .theme-icon-btn:hover {
+    border-color: rgba(33, 150, 243, 0.4) !important;
+    background-color: rgba(33, 150, 243, 0.1) !important;
+    box-shadow: 0 0 12px rgba(33, 150, 243, 0.25) !important;
+}
+
+.theme-light .language-icon {
+    color: #333333 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .theme-icon {
+    color: #333333 !important;
+    filter: none !important;
+}
+
+/* 浅色主题 - 语言菜单样式 */
+.theme-light .language-menu {
+    background: 
+        linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.98) 50%,
+            rgba(255, 255, 255, 0.95) 100%),
+        linear-gradient(135deg, 
+            rgba(33, 150, 243, 0.1) 0%, 
+            rgba(33, 150, 243, 0.15) 50%, 
+            rgba(33, 150, 243, 0.1) 100%) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(33, 150, 243, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.theme-light .language-menu-item {
+    color: #333333 !important;
+}
+
+.theme-light .language-menu-item:hover {
+    background: rgba(33, 150, 243, 0.15) !important;
+    color: #1976d2 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .language-menu-item.active {
+    background: rgba(33, 150, 243, 0.2) !important;
+    color: #1976d2 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .language-menu-item.active::before {
+    color: #1976d2 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .language-menu::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light .language-menu::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.4) !important;
+}
+
+.theme-light .language-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.6) !important;
+}
+
+/* 浅色主题 - 主题菜单样式 */
+.theme-light .theme-menu {
+    background: 
+        linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.98) 50%,
+            rgba(255, 255, 255, 0.95) 100%),
+        linear-gradient(135deg, 
+            rgba(33, 150, 243, 0.1) 0%, 
+            rgba(33, 150, 243, 0.15) 50%, 
+            rgba(33, 150, 243, 0.1) 100%) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(33, 150, 243, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.theme-light .theme-menu-item {
+    color: #333333 !important;
+}
+
+.theme-light .theme-menu-item:hover {
+    background: rgba(33, 150, 243, 0.15) !important;
+    color: #1976d2 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .theme-menu-item.active {
+    background: rgba(33, 150, 243, 0.2) !important;
+    color: #1976d2 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .theme-menu-item.active::before {
+    color: #1976d2 !important;
+    text-shadow: none !important;
+}
+
+.theme-light .theme-menu-icon {
+    color: inherit !important;
+}
+
+.theme-light .theme-menu::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light .theme-menu::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.4) !important;
+}
+
+.theme-light .theme-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.6) !important;
 }
 
 /* 自动主题说明：

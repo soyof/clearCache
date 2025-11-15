@@ -429,7 +429,260 @@
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* 语言选择器 */
+/* Header中的图标按钮通用样式 */
+.language-icon-btn,
+.theme-icon-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.language-icon-btn svg,
+.theme-icon-btn svg {
+    display: block;
+}
+
+.language-icon-btn:hover,
+.theme-icon-btn:hover {
+    border-color: rgba(120, 219, 255, 0.4);
+    background-color: rgba(120, 219, 255, 0.1);
+    box-shadow: 0 0 12px rgba(120, 219, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.language-icon-btn:active,
+.theme-icon-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-icon {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    text-shadow: 0 0 5px rgba(120, 219, 255, 0.5);
+}
+
+.language-icon sub {
+    font-size: 0.6em;
+    margin-left: 1px;
+    vertical-align: baseline;
+}
+
+.theme-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+    color: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0 0 3px rgba(120, 219, 255, 0.5));
+    flex-shrink: 0;
+}
+
+
+/* 语言菜单 */
+.language-menu {
+    position: fixed;
+    background: 
+        linear-gradient(135deg, 
+            rgba(26, 26, 46, 0.95) 0%,
+            rgba(26, 26, 46, 0.98) 50%,
+            rgba(26, 26, 46, 0.95) 100%),
+        linear-gradient(135deg, 
+            rgba(120, 119, 198, 0.3) 0%, 
+            rgba(255, 119, 198, 0.3) 50%, 
+            rgba(120, 219, 255, 0.3) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    box-shadow: 
+        0 4px 30px rgba(120, 119, 198, 0.4),
+        0 0 20px rgba(120, 219, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    min-width: 140px;
+    max-height: 300px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 99999;
+    padding: 4px;
+    pointer-events: none;
+}
+
+.language-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.language-menu-item {
+    padding: 8px 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.language-menu-item:hover {
+    background: rgba(120, 219, 255, 0.15);
+    color: #78dbff;
+    transform: translateX(2px);
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.5);
+}
+
+.language-menu-item.active {
+    background: rgba(120, 219, 255, 0.2);
+    color: #78dbff;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.6);
+}
+
+.language-menu-item.active::before {
+    content: '✓';
+    margin-right: 6px;
+    color: #78dbff;
+    text-shadow: 0 0 5px rgba(120, 219, 255, 0.8);
+}
+
+.language-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.language-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.language-menu::-webkit-scrollbar-thumb {
+    background: rgba(120, 219, 255, 0.4);
+    border-radius: 2px;
+}
+
+.language-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 219, 255, 0.6);
+}
+
+/* 主题菜单 */
+.theme-menu {
+    position: fixed;
+    background: 
+        linear-gradient(135deg, 
+            rgba(26, 26, 46, 0.95) 0%,
+            rgba(26, 26, 46, 0.98) 50%,
+            rgba(26, 26, 46, 0.95) 100%),
+        linear-gradient(135deg, 
+            rgba(120, 119, 198, 0.3) 0%, 
+            rgba(255, 119, 198, 0.3) 50%, 
+            rgba(120, 219, 255, 0.3) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    box-shadow: 
+        0 4px 30px rgba(120, 119, 198, 0.4),
+        0 0 20px rgba(120, 219, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    min-width: 140px;
+    max-height: 300px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 99999;
+    padding: 4px;
+    pointer-events: none;
+}
+
+.theme-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.theme-menu-item {
+    padding: 8px 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-menu-item:hover {
+    background: rgba(120, 219, 255, 0.15);
+    color: #78dbff;
+    transform: translateX(2px);
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.5);
+}
+
+.theme-menu-item.active {
+    background: rgba(120, 219, 255, 0.2);
+    color: #78dbff;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.6);
+}
+
+.theme-menu-item.active::before {
+    content: '✓';
+    margin-right: -4px;
+    color: #78dbff;
+    text-shadow: 0 0 5px rgba(120, 219, 255, 0.8);
+    font-weight: bold;
+}
+
+.theme-menu-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+    color: inherit;
+    flex-shrink: 0;
+}
+
+.theme-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.theme-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.theme-menu::-webkit-scrollbar-thumb {
+    background: rgba(120, 219, 255, 0.4);
+    border-radius: 2px;
+}
+
+.theme-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 219, 255, 0.6);
+}
+
+/* 保留原有的语言选择器样式（用于其他地方，如果有的话） */
 .language-selector {
     display: flex;
     justify-content: center;

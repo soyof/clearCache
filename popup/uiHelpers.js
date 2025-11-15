@@ -77,20 +77,3 @@ export function adjustTabTextSize() {
     }
 }
 
-/**
- * 加载版本信息
- */
-export async function loadVersionInfo() {
-    try {
-        const manifest = chrome.runtime.getManifest();
-        const versionElement = document.querySelector('.version');
-        if (versionElement && manifest && manifest.version) {
-            versionElement.textContent = 'v' + manifest.version;
-        }
-    } catch (error) {
-        // 忽略版本加载错误
-        console.warn('加载版本信息失败:', error);
-    }
-}
-
-

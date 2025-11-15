@@ -72,18 +72,49 @@ export async function executeCleanup(
  * @param {Object} elements - DOM元素对象
  */
 export async function clearCurrentWebsiteData(elements) {
-    await executeCleanup(
-        async () => {
-            const currentTab = getCurrentTab();
-            if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
-            await CleanerManager.clearCurrentWebsiteData(currentTab);
-        },
-        elements.clearCurrentAll,
-        getMessage('currentSiteCacheCleared'),
-        getMessage('currentSiteCacheClearFailed'),
-        elements.status,
-        elements.statusContainer
-    );
+    try {
+        const currentTab = getCurrentTab();
+        if (!currentTab) {
+            StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
+            return;
+        }
+
+        // 立即更新UI，提供即时反馈
+        ButtonManager.setLoading(elements.clearCurrentAll);
+        StatusManager.show(elements.status, elements.statusContainer, '正在清理...', 'info');
+
+        // 强制浏览器立即应用所有样式变化
+        if (elements.clearCurrentAll) {
+            elements.clearCurrentAll.offsetHeight;
+        }
+        if (elements.statusContainer) {
+            elements.statusContainer.offsetHeight;
+        }
+
+        // 异步执行清理操作，不阻塞UI
+        // 使用立即执行的异步函数确保清理操作一定会执行
+        (async () => {
+            try {
+                await CleanerManager.clearCurrentWebsiteData(currentTab);
+                // 检查元素是否还存在（popup可能已关闭）
+                if (elements.clearCurrentAll && elements.status && elements.statusContainer) {
+                    ButtonManager.setSuccess(elements.clearCurrentAll);
+                    StatusManager.show(elements.status, elements.statusContainer, getMessage('currentSiteCacheCleared'), 'success');
+                }
+            } catch (error) {
+                // 检查元素是否还存在（popup可能已关闭）
+                if (elements.clearCurrentAll && elements.status && elements.statusContainer) {
+                    ButtonManager.setError(elements.clearCurrentAll);
+                    StatusManager.show(elements.status, elements.statusContainer, getMessage('currentSiteCacheClearFailed') + ': ' + error.message, 'error');
+                }
+                // 即使popup关闭，也记录错误
+                console.error('清理当前网站数据失败:', error);
+            }
+        })();
+    } catch (error) {
+        ButtonManager.setError(elements.clearCurrentAll);
+        StatusManager.show(elements.status, elements.statusContainer, getMessage('currentSiteCacheClearFailed') + ': ' + error.message, 'error');
+    }
 }
 
 /**
@@ -91,26 +122,57 @@ export async function clearCurrentWebsiteData(elements) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearAllData(elements) {
-    await executeCleanup(
-        async () => {
-            const currentTab = getCurrentTab();
-            if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
+    try {
+        const currentTab = getCurrentTab();
+        if (!currentTab) {
+            StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
+            return;
+        }
 
-            // 获取清理选项设置
-            const settings = await SettingsManager.get([
-                'clearPasswords',
-                'clearFormData',
-                'includeProtected'
-            ]);
+        // 立即更新UI，提供即时反馈
+        ButtonManager.setLoading(elements.clearAll);
+        StatusManager.show(elements.status, elements.statusContainer, '正在清理...', 'info');
 
-            await CleanerManager.clearAllData(currentTab, settings);
-        },
-        elements.clearAll,
-        getMessage('allCacheCleared'),
-        getMessage('allCacheClearFailed'),
-        elements.status,
-        elements.statusContainer
-    );
+        // 强制浏览器立即应用所有样式变化
+        if (elements.clearAll) {
+            elements.clearAll.offsetHeight;
+        }
+        if (elements.statusContainer) {
+            elements.statusContainer.offsetHeight;
+        }
+
+        // 异步获取设置并执行清理操作，不阻塞UI
+        // 使用立即执行的异步函数确保清理操作一定会执行
+        (async () => {
+            try {
+                // 获取清理选项设置
+                const settings = await SettingsManager.get([
+                    'clearPasswords',
+                    'clearFormData',
+                    'includeProtected'
+                ]);
+
+                await CleanerManager.clearAllData(currentTab, settings);
+
+                // 检查元素是否还存在（popup可能已关闭）
+                if (elements.clearAll && elements.status && elements.statusContainer) {
+                    ButtonManager.setSuccess(elements.clearAll);
+                    StatusManager.show(elements.status, elements.statusContainer, getMessage('allCacheCleared'), 'success');
+                }
+            } catch (error) {
+                // 检查元素是否还存在（popup可能已关闭）
+                if (elements.clearAll && elements.status && elements.statusContainer) {
+                    ButtonManager.setError(elements.clearAll);
+                    StatusManager.show(elements.status, elements.statusContainer, getMessage('allCacheClearFailed') + ': ' + error.message, 'error');
+                }
+                // 即使popup关闭，也记录错误
+                console.error('清理所有数据失败:', error);
+            }
+        })();
+    } catch (error) {
+        ButtonManager.setError(elements.clearAll);
+        StatusManager.show(elements.status, elements.statusContainer, getMessage('allCacheClearFailed') + ': ' + error.message, 'error');
+    }
 }
 
 /**

@@ -23,26 +23,36 @@ const CleanerManager = {
                 since: 0,
                 origins: [url]
             };
-            
-            // 并行清理浏览器数据
+
+            // 先并行清理主要数据（缓存、Cookies、IndexedDB），这些操作通常很快
             await Promise.all([
                 BrowsingDataManager.clearCache(apiOptions),
                 BrowsingDataManager.clearCookies(apiOptions),
                 BrowsingDataManager.clearIndexedDB(apiOptions)
             ]);
-            
-            // 清理localStorage
-            await LocalStorageManager.clearInTab(tab.id);
-            
-            // 清理sessionStorage
-            await SessionStorageManager.clearInTab(tab.id);
-            
+
+            // localStorage和sessionStorage在后台继续清理，不阻塞
+            Promise.all([
+                // 尝试使用API清理localStorage（更快）
+                BrowsingDataManager.clearLocalStorage(apiOptions).catch(() => {
+                    // 如果API失败，回退到脚本注入方式
+                    return LocalStorageManager.clearInTab(tab.id);
+                }),
+                // sessionStorage只能通过脚本清理
+                SessionStorageManager.clearInTab(tab.id).catch(() => {
+                    // 忽略sessionStorage清理失败
+                    return { success: true };
+                })
+            ]).catch(() => {
+                // 静默处理后台清理错误
+            });
+
             NotificationManager.success('当前网站缓存已清空');
         } catch (error) {
             throw error;
         }
     },
-    
+
     /**
      * 清理所有数据
      * @param {Object} tab - 标签页对象
@@ -52,45 +62,55 @@ const CleanerManager = {
     async clearAllData(tab, settings) {
         try {
             const url = tab.url;
-            
+
             // 定义清理选项
             const apiOptions = {
                 since: 0,
                 origins: settings.includeProtected ? undefined : [url]
             };
-            
-            // 定义要清理的数据类型
-            const dataTypes = [
+
+            // 先并行清理主要数据（缓存、Cookies、IndexedDB），这些操作通常很快
+            const mainDataTypes = [
                 BrowsingDataManager.clearCache(apiOptions),
                 BrowsingDataManager.clearCookies(apiOptions),
                 BrowsingDataManager.clearIndexedDB(apiOptions)
             ];
-            
+
             // 根据设置决定是否清理密码 (clearPasswords为true表示保留密码)
             if (!settings.clearPasswords) {
-                dataTypes.push(BrowsingDataManager.clearPasswords(apiOptions));
+                mainDataTypes.push(BrowsingDataManager.clearPasswords(apiOptions));
             }
-            
+
             // 根据设置决定是否清理表单数据 (clearFormData为true表示保留表单数据)
             if (!settings.clearFormData) {
-                dataTypes.push(BrowsingDataManager.clearFormData(apiOptions));
+                mainDataTypes.push(BrowsingDataManager.clearFormData(apiOptions));
             }
-            
-            // 并行执行所有清理操作
-            await Promise.all(dataTypes);
-            
-            // 清理localStorage
-            await LocalStorageManager.clearInTab(tab.id);
-            
-            // 清理sessionStorage
-            await SessionStorageManager.clearInTab(tab.id);
-            
+
+            // 执行主要清理操作
+            await Promise.all(mainDataTypes);
+
+            // localStorage和sessionStorage在后台继续清理，不阻塞
+            Promise.all([
+                // 尝试使用API清理localStorage（更快）
+                BrowsingDataManager.clearLocalStorage(apiOptions).catch(() => {
+                    // 如果API失败，回退到脚本注入方式
+                    return LocalStorageManager.clearInTab(tab.id);
+                }),
+                // sessionStorage只能通过脚本清理
+                SessionStorageManager.clearInTab(tab.id).catch(() => {
+                    // 忽略sessionStorage清理失败
+                    return { success: true };
+                })
+            ]).catch(() => {
+                // 静默处理后台清理错误
+            });
+
             NotificationManager.success('所有缓存已清空');
         } catch (error) {
             throw error;
         }
     },
-    
+
     /**
      * 清理Cookies
      * @param {Object} tab - 标签页对象
@@ -102,13 +122,13 @@ const CleanerManager = {
                 since: 0,
                 origins: [tab.url]
             });
-            
+
             NotificationManager.success('Cookies 已清空');
         } catch (error) {
             throw error;
         }
     },
-    
+
     /**
      * 清理LocalStorage
      * @param {Object} tab - 标签页对象
@@ -122,7 +142,7 @@ const CleanerManager = {
             throw error;
         }
     },
-    
+
     /**
      * 清理SessionStorage
      * @param {Object} tab - 标签页对象
@@ -136,7 +156,7 @@ const CleanerManager = {
             throw error;
         }
     },
-    
+
     /**
      * 清理IndexedDB
      * @param {Object} tab - 标签页对象
@@ -148,13 +168,13 @@ const CleanerManager = {
                 since: 0,
                 origins: [tab.url]
             });
-            
+
             NotificationManager.success('IndexedDB 已清空');
         } catch (error) {
             throw error;
         }
     },
-    
+
     /**
      * 清理历史记录
      * @returns {Promise<void>}
@@ -167,7 +187,7 @@ const CleanerManager = {
             throw error;
         }
     },
-    
+
     /**
      * 清理下载记录
      * @returns {Promise<void>}
@@ -180,7 +200,7 @@ const CleanerManager = {
             throw error;
         }
     },
-    
+
     /**
      * 清理下载文件
      * @returns {Promise<void>}
@@ -189,7 +209,7 @@ const CleanerManager = {
         try {
             // 获取所有下载项
             const downloads = await chrome.downloads.search({});
-            
+
             // 删除每个下载文件
             for (const download of downloads) {
                 if (download.exists) {
@@ -200,16 +220,16 @@ const CleanerManager = {
                     }
                 }
             }
-            
+
             // 清除下载记录
             await chrome.downloads.erase({});
-            
+
             NotificationManager.success('下载文件已清除');
         } catch (error) {
             throw error;
         }
     },
-    
+
     /**
      * 清空缓存并硬性重新加载（保留登录状态）
      * @param {Object} tab - 标签页对象
@@ -218,13 +238,13 @@ const CleanerManager = {
     async hardReloadCacheOnly(tab) {
         try {
             const url = tab.url;
-            
+
             // 只清理文件缓存，不清理 Cookies 和用户数据
             await BrowsingDataManager.clearCache({
                 since: 0,
                 origins: [url]
             });
-            
+
             // 清理 Service Worker 缓存和 Cache API
             try {
                 await chrome.tabs.sendMessage(tab.id, {
@@ -234,16 +254,16 @@ const CleanerManager = {
             } catch (error) {
                 // 忽略错误
             }
-            
+
             // 重新加载页面（绕过缓存）
             await chrome.tabs.reload(tab.id, { bypassCache: true });
-            
+
             NotificationManager.success('缓存已清空，页面正在重载');
         } catch (error) {
             throw error;
         }
     },
-    
+
     /**
      * 清空所有数据并硬性重新加载（包括登录状态）
      * @param {Object} tab - 标签页对象
@@ -259,13 +279,13 @@ const CleanerManager = {
                 includeProtected: false
             };
             const finalSettings = settings || defaultSettings;
-            
+
             // 先清理所有数据
             await this.clearAllData(tab, finalSettings);
-            
+
             // 重新加载页面
             await chrome.tabs.reload(tab.id, { bypassCache: true });
-            
+
             NotificationManager.info('所有数据已清空，页面正在重载');
         } catch (error) {
             // 即使清理失败，也尝试重载页面
@@ -277,7 +297,7 @@ const CleanerManager = {
             throw error;
         }
     },
-    
+
     /**
      * 正常重新加载
      * @param {Object} tab - 标签页对象
@@ -292,7 +312,7 @@ const CleanerManager = {
             throw error;
         }
     },
-    
+
     /**
      * 硬性重新加载（绕过缓存）
      * @param {Object} tab - 标签页对象

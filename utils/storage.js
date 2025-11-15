@@ -9,7 +9,7 @@ const LocalStorageManager = {
      * 清理localStorage
      * @returns {Promise<Object>} 清理结果
      */
-    clear: async function() {
+    clear: async function () {
         try {
             // 直接执行脚本清理localStorage
             const result = await chrome.scripting.executeScript({
@@ -19,15 +19,15 @@ const LocalStorageManager = {
                         if (typeof localStorage === 'undefined') {
                             return { success: false, error: 'LocalStorage不可用' };
                         }
-                        
+
                         const itemCount = localStorage.length;
                         localStorage.clear();
-                        
+
                         // 确认sessionStorage没有被清理
                         if (typeof sessionStorage !== 'undefined') {
                             // sessionStorage未被清理
                         }
-                        
+
                         return { success: true, count: itemCount };
                     } catch (error) {
                         // 清理localStorage时出错
@@ -35,19 +35,19 @@ const LocalStorageManager = {
                     }
                 }
             });
-            
+
             return result[0]?.result || { success: false, error: '执行脚本失败' };
         } catch (error) {
             return { success: false, error: error.message };
         }
     },
-    
+
     /**
      * 在特定标签页中清理localStorage
      * @param {number} tabId - 标签页ID
      * @returns {Promise<Object>} 清理结果
      */
-    clearInTab: async function(tabId) {
+    clearInTab: async function (tabId) {
         try {
             // 直接执行脚本清理localStorage
             const result = await chrome.scripting.executeScript({
@@ -57,15 +57,15 @@ const LocalStorageManager = {
                         if (typeof localStorage === 'undefined') {
                             return { success: false, error: 'LocalStorage不可用' };
                         }
-                        
+
                         const itemCount = localStorage.length;
                         localStorage.clear();
-                        
+
                         // 确认sessionStorage没有被清理
                         if (typeof sessionStorage !== 'undefined') {
                             // sessionStorage未被清理
                         }
-                        
+
                         return { success: true, count: itemCount };
                     } catch (error) {
                         // 清理localStorage时出错
@@ -73,7 +73,7 @@ const LocalStorageManager = {
                     }
                 }
             });
-            
+
             return result[0]?.result || { success: false, error: '执行脚本失败' };
         } catch (error) {
             // 如果直接执行脚本失败，尝试通过内容脚本清理
@@ -82,20 +82,20 @@ const LocalStorageManager = {
                     action: 'clearPageStorage',
                     types: ['localStorage']
                 });
-                
+
                 return response?.results?.localStorage || { success: false, error: '内容脚本未响应' };
             } catch (msgError) {
                 return { success: false, error: msgError.message };
             }
         }
     },
-    
+
     /**
      * 使用browsingData API清理localStorage
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearWithAPI: async function(options = {}) {
+    clearWithAPI: async function (options = {}) {
         await chrome.browsingData.removeLocalStorage(options);
     }
 };
@@ -107,7 +107,7 @@ const SessionStorageManager = {
      * @param {number} tabId - 标签页ID
      * @returns {Promise<Object>} 清理结果
      */
-    clearInTab: async function(tabId) {
+    clearInTab: async function (tabId) {
         try {
             // 直接执行脚本清理sessionStorage
             const result = await chrome.scripting.executeScript({
@@ -117,7 +117,7 @@ const SessionStorageManager = {
                         if (typeof sessionStorage === 'undefined') {
                             return { success: false, error: 'SessionStorage不可用' };
                         }
-                        
+
                         // 检查sessionStorage是否可写
                         try {
                             const testKey = '_test_session_storage_' + Date.now();
@@ -126,15 +126,15 @@ const SessionStorageManager = {
                         } catch (writeError) {
                             return { success: false, error: '无法写入SessionStorage: ' + writeError.message };
                         }
-                        
+
                         const itemCount = sessionStorage.length;
                         sessionStorage.clear();
-                        
+
                         // 确认localStorage没有被清理
                         if (typeof localStorage !== 'undefined') {
                             // localStorage未被清理
                         }
-                        
+
                         return { success: true, count: itemCount };
                     } catch (error) {
                         // 清理sessionStorage时出错
@@ -142,7 +142,7 @@ const SessionStorageManager = {
                     }
                 }
             });
-            
+
             return result[0]?.result || { success: false, error: '执行脚本失败' };
         } catch (error) {
             // 如果直接执行脚本失败，尝试通过内容脚本清理
@@ -151,7 +151,7 @@ const SessionStorageManager = {
                     action: 'clearPageStorage',
                     types: ['sessionStorage']
                 });
-                
+
                 return response?.results?.sessionStorage || { success: false, error: '内容脚本未响应' };
             } catch (msgError) {
                 return { success: false, error: msgError.message };
@@ -167,61 +167,70 @@ const BrowsingDataManager = {
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearCache: async function(options = {}) {
+    clearCache: async function (options = {}) {
         await chrome.browsingData.removeCache(options);
     },
-    
+
     /**
      * 清理Cookies
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearCookies: async function(options = {}) {
+    clearCookies: async function (options = {}) {
         await chrome.browsingData.removeCookies(options);
     },
-    
+
     /**
      * 清理IndexedDB
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearIndexedDB: async function(options = {}) {
+    clearIndexedDB: async function (options = {}) {
         await chrome.browsingData.removeIndexedDB(options);
     },
-    
+
+    /**
+     * 清理LocalStorage
+     * @param {Object} options - 清理选项
+     * @returns {Promise<void>}
+     */
+    clearLocalStorage: async function (options = {}) {
+        await chrome.browsingData.removeLocalStorage(options);
+    },
+
     /**
      * 清理历史记录
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearHistory: async function(options = {}) {
+    clearHistory: async function (options = {}) {
         await chrome.browsingData.removeHistory(options);
     },
-    
+
     /**
      * 清理下载记录
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearDownloads: async function(options = {}) {
+    clearDownloads: async function (options = {}) {
         await chrome.browsingData.removeDownloads(options);
     },
-    
+
     /**
      * 清理表单数据
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearFormData: async function(options = {}) {
+    clearFormData: async function (options = {}) {
         await chrome.browsingData.removeFormData(options);
     },
-    
+
     /**
      * 清理密码
      * @param {Object} options - 清理选项
      * @returns {Promise<void>}
      */
-    clearPasswords: async function(options = {}) {
+    clearPasswords: async function (options = {}) {
         await chrome.browsingData.removePasswords(options);
     }
 };
@@ -233,24 +242,24 @@ const SettingsManager = {
      * @param {Array<string>} keys - 要获取的设置键
      * @returns {Promise<Object>} 设置值
      */
-    get: async function(keys) {
+    get: async function (keys) {
         return await chrome.storage.local.get(keys);
     },
-    
+
     /**
      * 保存设置
      * @param {Object} settings - 要保存的设置
      * @returns {Promise<void>}
      */
-    save: async function(settings) {
+    save: async function (settings) {
         await chrome.storage.local.set(settings);
     },
-    
+
     /**
      * 获取默认设置
      * @returns {Object} 默认设置
      */
-    getDefaults: function() {
+    getDefaults: function () {
         return {
             clearPasswords: true,       // 默认保留密码
             clearFormData: true,        // 默认保留表单数据

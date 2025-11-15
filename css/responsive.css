@@ -38,3 +38,61 @@
         gap: 8px;
     }
 }
+
+/* Header响应式设计 */
+@media (max-width: 480px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 10px 15px;
+    }
+    
+    .header-content {
+        flex: 1 1 100%;
+        order: 2;
+        margin-top: 8px;
+        padding-right: 80px;
+    }
+    
+    .header-actions {
+        top: 8px;
+        right: 8px;
+        gap: 6px;
+    }
+    
+    .language-icon-btn,
+    .theme-icon-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .theme-icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .theme-menu-icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .language-menu,
+    .theme-menu {
+        min-width: 120px;
+        z-index: 99999;
+    }
+    
+    .language-menu-item,
+    .theme-menu-item {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .title {
+        font-size: 1rem;
+    }
+    
+    .version {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+}

@@ -17,6 +17,7 @@
     align-items: center;
     gap: 10px;
     position: relative;
+    z-index: 1000;
     box-shadow: 
         0 4px 30px rgba(120, 119, 198, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -97,6 +98,26 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
+    padding-right: 100px;
+    min-width: 0;
+}
+
+.header-actions {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10001;
+}
+
+.header-language {
+    position: relative;
+}
+
+.header-theme {
+    position: relative;
 }
 
 .title {
@@ -113,6 +134,9 @@
         0 0 10px rgba(120, 219, 255, 0.5),
         0 0 20px rgba(255, 119, 198, 0.3);
     line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .version {

@@ -33,6 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: auto;
 }
 
 .status-container::before {
@@ -90,8 +91,9 @@
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.95);
     text-align: center;
-    margin-bottom: 12px;
-    min-height: 24px;
+    margin: 0;
+    padding: 0;
+    min-height: auto;
     font-weight: 600;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     letter-spacing: 0.5px;
@@ -101,6 +103,18 @@
     justify-content: center;
     align-items: center;
     animation: fadeInUp 0.4s ease-out;
+}
+
+.status-message.info {
+    color: rgba(120, 219, 255, 0.95);
+    text-shadow: 
+        0 0 10px rgba(120, 219, 255, 0.6),
+        0 0 20px rgba(120, 219, 255, 0.3);
+}
+
+.status-message.info::before {
+    content: "⏳ ";
+    margin-right: 5px;
 }
 
 .status-message.success {
