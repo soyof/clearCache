@@ -3,7 +3,7 @@
  * 提供存储详情数据的展示功能，包括弹窗显示、数据渲染等
  */
 
-import { formatDate, getStorageDetail } from './storageDetail.js';
+import { deleteStorageItem, formatDate, getStorageDetail } from './storageDetail.js';
 import { formatBytes } from './storageUsage.js';
 
 /**
@@ -22,15 +22,15 @@ class StorageDetailView {
         this.expandIconSvg = `<svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
-        // 全部展开图标 SVG（双向下箭头，表示展开所有）
+        // 全部展开图标 SVG（向下双箭头，表示展开所有）
         this.expandAllIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 5L8 9L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M4 9L8 13L12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M4 3L8 7L12 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M4 9L8 13L12 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
-        // 全部折叠图标 SVG（双向上箭头，表示折叠所有）
+        // 全部折叠图标 SVG（向上双箭头，表示折叠所有）
         this.collapseAllIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 11L8 7L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M4 7L8 3L12 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M4 13L8 9L12 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M4 7L8 3L12 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
         // 搜索图标 SVG
         this.searchIconSvg = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,6 +42,14 @@ class StorageDetailView {
             <path d="M8 4V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M4 8L8 4L12 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>`;
+        // 删除图标 SVG
+        this.deleteIconSvg = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+        // 当前存储类型和标签页信息（用于删除后刷新）
+        this.currentStorageType = null;
+        this.currentTab = null;
+        this.currentUrl = null;
     }
 
     /**
@@ -101,6 +109,17 @@ class StorageDetailView {
                     </div>
                 </div>
                 <div class="copy-toast animate__animated" id="copy-toast"></div>
+                <div class="confirm-dialog" id="confirm-dialog">
+                    <div class="confirm-dialog-content">
+                        <div class="confirm-dialog-icon">⚠️</div>
+                        <div class="confirm-dialog-title"></div>
+                        <div class="confirm-dialog-message"></div>
+                        <div class="confirm-dialog-buttons">
+                            <button class="confirm-dialog-btn confirm-dialog-btn-cancel"></button>
+                            <button class="confirm-dialog-btn confirm-dialog-btn-confirm"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
 
@@ -132,6 +151,11 @@ class StorageDetailView {
         if (!this.modal) {
             this.createModal();
         }
+
+        // 保存当前信息，用于删除后刷新
+        this.currentStorageType = storageType;
+        this.currentTab = tab;
+        this.currentUrl = url;
 
         const titleMap = {
             localStorage: 'localStorage',
@@ -218,7 +242,7 @@ class StorageDetailView {
         const body = this.modal.querySelector('.storage-detail-body');
         if (!body) return;
 
-        const { type, items, total } = detailData;
+        const { type, items, total, totalSize } = detailData;
 
         if (!items || items.length === 0) {
             const emptyText = this.getMessage ? this.getMessage('noDetailData') || '暂无数据' : '暂无数据';
@@ -253,11 +277,13 @@ class StorageDetailView {
         }
 
         const totalText = this.getMessage ? this.getMessage('totalItems') || '总计' : '总计';
+        const itemsText = this.getMessage ? this.getMessage('items') || '项' : '项';
+        const totalSizeDisplay = totalSize ? formatBytes(totalSize) : '';
 
         html = `
             <div class="storage-detail-summary animate__animated animate__fadeInDown">
                 <span class="summary-label">${totalText}:</span>
-                <span class="summary-value">${total} ${this.getMessage ? this.getMessage('items') || '项' : '项'}</span>
+                <span class="summary-value">${total} ${itemsText}${totalSizeDisplay ? ` <span class="summary-size">(${totalSizeDisplay})</span>` : ''}</span>
             </div>
             <div class="storage-detail-list accordion-list">
                 ${html}
@@ -285,6 +311,9 @@ class StorageDetailView {
 
         // 绑定复制事件
         this.bindCopyEvents();
+
+        // 绑定删除事件
+        this.bindDeleteEvents();
     }
 
     /**
@@ -435,6 +464,204 @@ class StorageDetailView {
     }
 
     /**
+     * 绑定删除事件
+     */
+    bindDeleteEvents() {
+        const accordionItems = this.modal.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const deleteBtn = item.querySelector('.delete-btn');
+            if (deleteBtn) {
+                deleteBtn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    await this.deleteItem(item);
+                });
+            }
+        });
+    }
+
+    /**
+     * 获取国际化文本（带回退值）
+     * @param {string} key - 消息键
+     * @param {string} fallback - 回退值
+     * @returns {string} 翻译后的文本或回退值
+     */
+    getI18nText(key, fallback) {
+        if (!this.getMessage) {
+            return fallback;
+        }
+        const result = this.getMessage(key);
+        // 如果返回的是 key 本身，说明没有找到翻译，使用回退值
+        if (result === key || !result) {
+            return fallback;
+        }
+        return result;
+    }
+
+    /**
+     * 显示确认对话框
+     * @param {string} title - 标题
+     * @param {string} message - 消息内容
+     * @returns {Promise<boolean>} 用户确认结果
+     */
+    async showConfirmDialog(title, message) {
+        return new Promise((resolve) => {
+            const dialog = this.modal.querySelector('#confirm-dialog');
+            const titleEl = dialog.querySelector('.confirm-dialog-title');
+            const messageEl = dialog.querySelector('.confirm-dialog-message');
+            const cancelBtn = dialog.querySelector('.confirm-dialog-btn-cancel');
+            const confirmBtn = dialog.querySelector('.confirm-dialog-btn-confirm');
+
+            const cancelText = this.getI18nText('cancel', '取消');
+            const confirmText = this.getI18nText('confirm', '确定');
+
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+            cancelBtn.textContent = cancelText;
+            confirmBtn.textContent = confirmText;
+
+            // 显示对话框（使用 CSS transition，不使用 animate.css）
+            dialog.classList.add('show');
+
+            // 绑定事件处理函数
+            const handleConfirm = () => {
+                cleanup();
+                resolve(true);
+            };
+
+            const handleCancel = () => {
+                cleanup();
+                resolve(false);
+            };
+
+            const handleKeyDown = (e) => {
+                if (e.key === 'Escape') {
+                    handleCancel();
+                } else if (e.key === 'Enter') {
+                    handleConfirm();
+                }
+            };
+
+            const cleanup = () => {
+                // 直接隐藏对话框（使用 CSS transition）
+                dialog.classList.remove('show');
+                
+                // 等待 transition 完成后再清理
+                setTimeout(() => {
+                    confirmBtn.removeEventListener('click', handleConfirm);
+                    cancelBtn.removeEventListener('click', handleCancel);
+                    document.removeEventListener('keydown', handleKeyDown);
+                }, 300);
+            };
+
+            confirmBtn.addEventListener('click', handleConfirm);
+            cancelBtn.addEventListener('click', handleCancel);
+            document.addEventListener('keydown', handleKeyDown);
+        });
+    }
+
+    /**
+     * 删除存储项
+     * @param {HTMLElement} item - 折叠面板项
+     */
+    async deleteItem(item) {
+        const deleteBtn = item.querySelector('.delete-btn');
+        const itemKey = item.getAttribute('data-key');
+        const itemData = this.getItemDataFromElement(item);
+
+        // 确认删除
+        const titleText = this.getI18nText('confirmDeleteTitle', '确认删除');
+        const confirmText = this.getI18nText('confirmDelete', '确定要删除此项吗？');
+        const confirmed = await this.showConfirmDialog(titleText, confirmText);
+        if (!confirmed) {
+            return;
+        }
+
+        // 添加删除动画
+        deleteBtn.classList.add('loading');
+        deleteBtn.disabled = true;
+
+        try {
+            // 执行删除
+            await deleteStorageItem(
+                this.currentStorageType,
+                itemData,
+                this.currentTab,
+                this.currentUrl
+            );
+
+            // 添加删除成功动画
+            item.classList.add('animate__fadeOut');
+            setTimeout(() => {
+                item.remove();
+                // 刷新显示
+                this.refreshDetail();
+            }, 300);
+
+            // 显示成功提示
+            this.showCopyToast('itemDeleted');
+        } catch (error) {
+            // 显示错误提示
+            const errorText = this.getMessage ? this.getMessage('deleteFailed') || '删除失败' : '删除失败';
+            this.showCopyToast(errorText + ': ' + error.message);
+            deleteBtn.classList.remove('loading');
+            deleteBtn.disabled = false;
+        }
+    }
+
+    /**
+     * 从元素中获取项数据
+     * @param {HTMLElement} item - 折叠面板项
+     * @returns {Object} 项数据
+     */
+    getItemDataFromElement(item) {
+        const key = item.getAttribute('data-key');
+        const value = item.getAttribute('data-value');
+        const index = parseInt(item.getAttribute('data-index') || '0');
+
+        // 根据存储类型返回不同的数据结构
+        if (this.currentStorageType === 'localStorage' || this.currentStorageType === 'sessionStorage') {
+            return { key, value };
+        } else if (this.currentStorageType === 'cookies') {
+            // 从data属性中提取cookie信息
+            const domain = item.getAttribute('data-domain') || '';
+            const path = item.getAttribute('data-path') || '/';
+            const secure = item.getAttribute('data-secure') === 'true';
+            const httpOnly = item.getAttribute('data-httpOnly') === 'true';
+            return { name: key, domain, path, secure, httpOnly };
+        } else if (this.currentStorageType === 'indexedDB' || this.currentStorageType === 'cacheAPI') {
+            return { name: key };
+        }
+        return { key };
+    }
+
+    /**
+     * 刷新存储详情显示
+     */
+    async refreshDetail() {
+        if (!this.currentStorageType || !this.currentTab || !this.currentUrl) {
+            return;
+        }
+
+        try {
+            // 显示加载状态
+            this.showLoading();
+
+            // 获取最新详情数据
+            const detailData = await getStorageDetail(
+                this.currentStorageType,
+                this.currentTab,
+                this.currentUrl
+            );
+
+            // 重新渲染
+            this.renderDetail(detailData);
+        } catch (error) {
+            this.showError(error.message);
+        }
+    }
+
+    /**
      * 复制项目的值
      * @param {HTMLElement} item - 折叠面板项
      */
@@ -535,6 +762,7 @@ class StorageDetailView {
      */
     renderKeyValueItems(items) {
         const copyText = this.getMessage ? this.getMessage('copy') || '复制' : '复制';
+        const deleteText = this.getMessage ? this.getMessage('delete') || '删除' : '删除';
         return items.map((item, index) => {
             const sizeDisplay = formatBytes(item.size || 0);
             const fullValue = this.escapeHtml(item.value || '');
@@ -547,6 +775,7 @@ class StorageDetailView {
                         <div class="accordion-header-right">
                             <span class="accordion-size">${sizeDisplay}</span>
                             <button class="copy-btn" title="${copyText}">${this.copyIconSvg}</button>
+                            <button class="delete-btn" title="${deleteText}">${this.deleteIconSvg}</button>
                         </div>
                     </div>
                     <div class="accordion-content">
@@ -573,17 +802,21 @@ class StorageDetailView {
         const expirationText = this.getMessage ? this.getMessage('expiration') || '过期时间' : '过期时间';
 
         const copyText = this.getMessage ? this.getMessage('copy') || '复制' : '复制';
+        const deleteText = this.getMessage ? this.getMessage('delete') || '删除' : '删除';
         return items.map((item, index) => {
             const fullValue = this.escapeHtml(item.value || '');
             const expirationDisplay = item.expirationDate ? formatDate(item.expirationDate) : '-';
+            const sizeDisplay = formatBytes(item.size || 0);
 
             return `
-                <div class="accordion-item expanded" data-index="${index}" data-key="${this.escapeHtml(item.name)}" data-value="${this.escapeHtml(item.value || '')}">
+                <div class="accordion-item expanded" data-index="${index}" data-key="${this.escapeHtml(item.name)}" data-value="${this.escapeHtml(item.value || '')}" data-domain="${this.escapeHtml(item.domain)}" data-path="${this.escapeHtml(item.path)}" data-secure="${item.secure}" data-httpOnly="${item.httpOnly}">
                     <div class="accordion-header">
                         <span class="accordion-icon">${this.expandIconSvg}</span>
                         <span class="accordion-title">${this.escapeHtml(item.name)}</span>
                         <div class="accordion-header-right">
+                            <span class="accordion-size">${sizeDisplay}</span>
                             <button class="copy-btn" title="${copyText}">${this.copyIconSvg}</button>
+                            <button class="delete-btn" title="${deleteText}">${this.deleteIconSvg}</button>
                         </div>
                     </div>
                     <div class="accordion-content">
@@ -628,14 +861,21 @@ class StorageDetailView {
         const versionText = this.getMessage ? this.getMessage('version') || '版本' : '版本';
 
         const copyText = this.getMessage ? this.getMessage('copy') || '复制' : '复制';
+        const deleteText = this.getMessage ? this.getMessage('delete') || '删除' : '删除';
         return items.map((item, index) => {
+            // IndexedDB 大小估算（每个数据库约5KB）
+            const estimatedSize = 5000;
+            const sizeDisplay = formatBytes(estimatedSize);
+            
             return `
                 <div class="accordion-item expanded" data-index="${index}" data-key="${this.escapeHtml(item.name)}">
                     <div class="accordion-header">
                         <span class="accordion-icon">${this.expandIconSvg}</span>
                         <span class="accordion-title">${this.escapeHtml(item.name)}</span>
                         <div class="accordion-header-right">
+                            <span class="accordion-size">${sizeDisplay}</span>
                             <button class="copy-btn" title="${copyText}">${this.copyIconSvg}</button>
+                            <button class="delete-btn" title="${deleteText}">${this.deleteIconSvg}</button>
                         </div>
                     </div>
                     <div class="accordion-content">
@@ -661,10 +901,14 @@ class StorageDetailView {
         const urlsText = this.getMessage ? this.getMessage('urls') || 'URLs' : 'URLs';
 
         const copyText = this.getMessage ? this.getMessage('copy') || '复制' : '复制';
+        const deleteText = this.getMessage ? this.getMessage('delete') || '删除' : '删除';
         return items.map((item, index) => {
             const urlsList = (item.urls || []).map(url =>
                 `<div class="url-item">${this.escapeHtml(url)}</div>`
             ).join('');
+            // Cache API 大小估算（每个缓存约10KB）
+            const estimatedSize = (item.count || 0) * 10000;
+            const sizeDisplay = formatBytes(estimatedSize);
 
             return `
                 <div class="accordion-item expanded" data-index="${index}" data-key="${this.escapeHtml(item.name)}">
@@ -672,12 +916,17 @@ class StorageDetailView {
                         <span class="accordion-icon">${this.expandIconSvg}</span>
                         <span class="accordion-title">${this.escapeHtml(item.name)}</span>
                         <div class="accordion-header-right">
-                            <span class="accordion-size">${countText}: ${item.count || 0}</span>
+                            <span class="accordion-size">${sizeDisplay}</span>
                             <button class="copy-btn" title="${copyText}">${this.copyIconSvg}</button>
+                            <button class="delete-btn" title="${deleteText}">${this.deleteIconSvg}</button>
                         </div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-content-inner">
+                            <div class="detail-item-row">
+                                <span class="detail-label">${countText}:</span>
+                                <span class="detail-value">${item.count || 0}</span>
+                            </div>
                             <div class="detail-item-row">
                                 <span class="detail-label">${urlsText}:</span>
                             </div>

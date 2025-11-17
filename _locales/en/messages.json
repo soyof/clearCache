@@ -502,5 +502,33 @@
   "copy": {
     "message": "Copy",
     "description": "Copy button text"
+  },
+  "delete": {
+    "message": "Delete",
+    "description": "Delete button text"
+  },
+  "confirmDeleteTitle": {
+    "message": "Confirm Delete",
+    "description": "Delete confirmation dialog title"
+  },
+  "confirmDelete": {
+    "message": "Are you sure you want to delete this item?",
+    "description": "Delete confirmation prompt"
+  },
+  "confirm": {
+    "message": "Confirm",
+    "description": "Confirm button text"
+  },
+  "cancel": {
+    "message": "Cancel",
+    "description": "Cancel button text"
+  },
+  "itemDeleted": {
+    "message": "Item deleted",
+    "description": "Delete success message"
+  },
+  "deleteFailed": {
+    "message": "Delete failed",
+    "description": "Delete failed message"
   }
 }

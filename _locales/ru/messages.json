@@ -502,5 +502,33 @@
   "copy": {
     "message": "Копировать",
     "description": "Текст кнопки копирования"
+  },
+  "delete": {
+    "message": "Удалить",
+    "description": "Текст кнопки удаления"
+  },
+  "confirmDeleteTitle": {
+    "message": "Подтвердить удаление",
+    "description": "Заголовок диалогового окна подтверждения удаления"
+  },
+  "confirmDelete": {
+    "message": "Вы уверены, что хотите удалить этот элемент?",
+    "description": "Запрос подтверждения удаления"
+  },
+  "confirm": {
+    "message": "Подтвердить",
+    "description": "Текст кнопки подтверждения"
+  },
+  "cancel": {
+    "message": "Отмена",
+    "description": "Текст кнопки отмены"
+  },
+  "itemDeleted": {
+    "message": "Элемент удален",
+    "description": "Сообщение об успешном удалении"
+  },
+  "deleteFailed": {
+    "message": "Ошибка удаления",
+    "description": "Сообщение об ошибке удаления"
   }
 }

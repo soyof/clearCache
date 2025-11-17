@@ -502,5 +502,33 @@
   "copy": {
     "message": "복사",
     "description": "복사 버튼 텍스트"
+  },
+  "delete": {
+    "message": "삭제",
+    "description": "삭제 버튼 텍스트"
+  },
+  "confirmDeleteTitle": {
+    "message": "삭제 확인",
+    "description": "삭제 확인 대화상자 제목"
+  },
+  "confirmDelete": {
+    "message": "이 항목을 삭제하시겠습니까?",
+    "description": "삭제 확인 프롬프트"
+  },
+  "confirm": {
+    "message": "확인",
+    "description": "확인 버튼 텍스트"
+  },
+  "cancel": {
+    "message": "취소",
+    "description": "취소 버튼 텍스트"
+  },
+  "itemDeleted": {
+    "message": "항목이 삭제되었습니다",
+    "description": "삭제 성공 메시지"
+  },
+  "deleteFailed": {
+    "message": "삭제 실패",
+    "description": "삭제 실패 메시지"
   }
 }

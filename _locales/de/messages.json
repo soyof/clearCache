@@ -502,5 +502,33 @@
   "copy": {
     "message": "Kopieren",
     "description": "Kopieren Button Text"
+  },
+  "delete": {
+    "message": "Löschen",
+    "description": "Löschen Button Text"
+  },
+  "confirmDeleteTitle": {
+    "message": "Löschen bestätigen",
+    "description": "Löschbestätigungsdialog Titel"
+  },
+  "confirmDelete": {
+    "message": "Möchten Sie diesen Eintrag wirklich löschen?",
+    "description": "Löschbestätigungsaufforderung"
+  },
+  "confirm": {
+    "message": "Bestätigen",
+    "description": "Bestätigen Button Text"
+  },
+  "cancel": {
+    "message": "Abbrechen",
+    "description": "Abbrechen Button Text"
+  },
+  "itemDeleted": {
+    "message": "Eintrag gelöscht",
+    "description": "Löschen Erfolgsmeldung"
+  },
+  "deleteFailed": {
+    "message": "Löschen fehlgeschlagen",
+    "description": "Löschen Fehlermeldung"
   }
 }

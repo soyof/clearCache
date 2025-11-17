@@ -502,5 +502,33 @@
   "copy": {
     "message": "Copiar",
     "description": "Texto del botón copiar"
+  },
+  "delete": {
+    "message": "Eliminar",
+    "description": "Texto del botón eliminar"
+  },
+  "confirmDeleteTitle": {
+    "message": "Confirmar eliminación",
+    "description": "Título del diálogo de confirmación de eliminación"
+  },
+  "confirmDelete": {
+    "message": "¿Está seguro de que desea eliminar este elemento?",
+    "description": "Solicitud de confirmación de eliminación"
+  },
+  "confirm": {
+    "message": "Confirmar",
+    "description": "Texto del botón confirmar"
+  },
+  "cancel": {
+    "message": "Cancelar",
+    "description": "Texto del botón cancelar"
+  },
+  "itemDeleted": {
+    "message": "Elemento eliminado",
+    "description": "Mensaje de éxito de eliminación"
+  },
+  "deleteFailed": {
+    "message": "Error al eliminar",
+    "description": "Mensaje de error de eliminación"
   }
 }

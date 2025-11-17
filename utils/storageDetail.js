@@ -60,10 +60,12 @@ async function getLocalStorageDetail(tabId) {
         });
         
         const items = results[0]?.result || [];
+        const totalSize = items.reduce((sum, item) => sum + (item.size || 0), 0);
         return {
             type: 'localStorage',
             items: items,
-            total: items.length
+            total: items.length,
+            totalSize: totalSize
         };
     } catch (error) {
         throw new Error(`获取LocalStorage详情失败: ${error.message}`);
@@ -95,10 +97,12 @@ async function getSessionStorageDetail(tabId) {
         });
         
         const items = results[0]?.result || [];
+        const totalSize = items.reduce((sum, item) => sum + (item.size || 0), 0);
         return {
             type: 'sessionStorage',
             items: items,
-            total: items.length
+            total: items.length,
+            totalSize: totalSize
         };
     } catch (error) {
         throw new Error(`获取SessionStorage详情失败: ${error.message}`);
@@ -145,11 +149,13 @@ async function getCookiesDetail(url) {
             size: (cookie.name?.length || 0) + (cookie.value?.length || 0) + 
                   (cookie.domain?.length || 0) + (cookie.path?.length || 0)
         }));
+        const totalSize = items.reduce((sum, item) => sum + (item.size || 0), 0);
         
         return {
             type: 'cookies',
             items: items,
-            total: items.length
+            total: items.length,
+            totalSize: totalSize
         };
     } catch (error) {
         throw new Error(`获取Cookies详情失败: ${error.message}`);
@@ -178,10 +184,13 @@ async function getIndexedDBDetail(tabId) {
         });
         
         const databases = results[0]?.result || [];
+        // IndexedDB 大小估算（每个数据库约5KB）
+        const totalSize = databases.length * 5000;
         return {
             type: 'indexedDB',
             items: databases,
-            total: databases.length
+            total: databases.length,
+            totalSize: totalSize
         };
     } catch (error) {
         throw new Error(`获取IndexedDB详情失败: ${error.message}`);
@@ -229,10 +238,13 @@ async function getCacheAPIDetail(tabId) {
         });
         
         const caches = results[0]?.result || [];
+        // Cache API 大小估算（每个缓存项约10KB）
+        const totalSize = caches.reduce((sum, cache) => sum + ((cache.count || 0) * 10000), 0);
         return {
             type: 'cacheAPI',
             items: caches,
-            total: caches.length
+            total: caches.length,
+            totalSize: totalSize
         };
     } catch (error) {
         throw new Error(`获取Cache API详情失败: ${error.message}`);
@@ -277,5 +289,225 @@ export function formatDate(timestamp) {
     if (!timestamp) return '-';
     const date = new Date(timestamp * 1000);
     return date.toLocaleString('zh-CN');
+}
+
+/**
+ * 删除单个存储项
+ * @param {string} storageType - 存储类型
+ * @param {Object} item - 要删除的项
+ * @param {Object} tab - 当前标签页对象
+ * @param {string} url - 当前页面URL
+ * @returns {Promise<Object>} 删除结果
+ */
+export async function deleteStorageItem(storageType, item, tab, url) {
+    if (!tab || !tab.id) {
+        throw new Error('无法获取当前标签页');
+    }
+
+    try {
+        switch (storageType) {
+            case 'localStorage':
+                return await deleteLocalStorageItem(tab.id, item.key);
+            case 'sessionStorage':
+                return await deleteSessionStorageItem(tab.id, item.key);
+            case 'cookies':
+                return await deleteCookieItem(url, item);
+            case 'indexedDB':
+                return await deleteIndexedDBItem(tab.id, item.name);
+            case 'cacheAPI':
+                return await deleteCacheAPIItem(tab.id, item.name);
+            default:
+                throw new Error(`不支持的存储类型: ${storageType}`);
+        }
+    } catch (error) {
+        throw new Error(`删除${storageType}项失败: ${error.message}`);
+    }
+}
+
+/**
+ * 删除 LocalStorage 项
+ * @param {number} tabId - 标签页ID
+ * @param {string} key - 键名
+ * @returns {Promise<Object>} 删除结果
+ */
+async function deleteLocalStorageItem(tabId, key) {
+    try {
+        const results = await chrome.scripting.executeScript({
+            target: { tabId },
+            func: (keyToDelete) => {
+                try {
+                    if (typeof localStorage === 'undefined') {
+                        return { success: false, error: 'LocalStorage不可用' };
+                    }
+                    if (localStorage.getItem(keyToDelete) === null) {
+                        return { success: false, error: '项不存在' };
+                    }
+                    localStorage.removeItem(keyToDelete);
+                    return { success: true };
+                } catch (error) {
+                    return { success: false, error: error.message };
+                }
+            },
+            args: [key]
+        });
+        
+        const result = results[0]?.result || { success: false, error: '未知错误' };
+        if (!result.success) {
+            throw new Error(result.error || '删除失败');
+        }
+        return result;
+    } catch (error) {
+        throw new Error(`删除LocalStorage项失败: ${error.message}`);
+    }
+}
+
+/**
+ * 删除 SessionStorage 项
+ * @param {number} tabId - 标签页ID
+ * @param {string} key - 键名
+ * @returns {Promise<Object>} 删除结果
+ */
+async function deleteSessionStorageItem(tabId, key) {
+    try {
+        const results = await chrome.scripting.executeScript({
+            target: { tabId },
+            func: (keyToDelete) => {
+                try {
+                    if (typeof sessionStorage === 'undefined') {
+                        return { success: false, error: 'SessionStorage不可用' };
+                    }
+                    if (sessionStorage.getItem(keyToDelete) === null) {
+                        return { success: false, error: '项不存在' };
+                    }
+                    sessionStorage.removeItem(keyToDelete);
+                    return { success: true };
+                } catch (error) {
+                    return { success: false, error: error.message };
+                }
+            },
+            args: [key]
+        });
+        
+        const result = results[0]?.result || { success: false, error: '未知错误' };
+        if (!result.success) {
+            throw new Error(result.error || '删除失败');
+        }
+        return result;
+    } catch (error) {
+        throw new Error(`删除SessionStorage项失败: ${error.message}`);
+    }
+}
+
+/**
+ * 删除 Cookie 项
+ * @param {string} url - 当前页面URL
+ * @param {Object} item - Cookie项
+ * @returns {Promise<Object>} 删除结果
+ */
+async function deleteCookieItem(url, item) {
+    try {
+        // 构建cookie的URL，优先使用原始URL的协议
+        let cookieUrl;
+        if (url) {
+            try {
+                const urlObj = new URL(url);
+                cookieUrl = `${urlObj.protocol}//${item.domain}${item.path || '/'}`;
+            } catch (e) {
+                // 如果URL解析失败，使用默认协议
+                cookieUrl = `http${item.secure ? 's' : ''}://${item.domain}${item.path || '/'}`;
+            }
+        } else {
+            cookieUrl = `http${item.secure ? 's' : ''}://${item.domain}${item.path || '/'}`;
+        }
+        
+        await chrome.cookies.remove({
+            url: cookieUrl,
+            name: item.name
+        });
+        return { success: true };
+    } catch (error) {
+        throw new Error(`删除Cookie失败: ${error.message}`);
+    }
+}
+
+/**
+ * 删除 IndexedDB 数据库
+ * @param {number} tabId - 标签页ID
+ * @param {string} dbName - 数据库名称
+ * @returns {Promise<Object>} 删除结果
+ */
+async function deleteIndexedDBItem(tabId, dbName) {
+    try {
+        const results = await chrome.scripting.executeScript({
+            target: { tabId },
+            func: (databaseName) => {
+                return new Promise((resolve) => {
+                    try {
+                        if (!('indexedDB' in window)) {
+                            resolve({ success: false, error: 'IndexedDB不可用' });
+                            return;
+                        }
+                        const deleteRequest = indexedDB.deleteDatabase(databaseName);
+                        deleteRequest.onsuccess = () => {
+                            resolve({ success: true });
+                        };
+                        deleteRequest.onerror = () => {
+                            resolve({ success: false, error: deleteRequest.error?.message || '删除失败' });
+                        };
+                        deleteRequest.onblocked = () => {
+                            resolve({ success: false, error: '数据库正在使用中，无法删除' });
+                        };
+                    } catch (error) {
+                        resolve({ success: false, error: error.message });
+                    }
+                });
+            },
+            args: [dbName]
+        });
+        
+        const result = results[0]?.result || { success: false, error: '未知错误' };
+        if (!result.success) {
+            throw new Error(result.error || '删除失败');
+        }
+        return result;
+    } catch (error) {
+        throw new Error(`删除IndexedDB失败: ${error.message}`);
+    }
+}
+
+/**
+ * 删除 Cache API 缓存
+ * @param {number} tabId - 标签页ID
+ * @param {string} cacheName - 缓存名称
+ * @returns {Promise<Object>} 删除结果
+ */
+async function deleteCacheAPIItem(tabId, cacheName) {
+    try {
+        const results = await chrome.scripting.executeScript({
+            target: { tabId },
+            func: (name) => {
+                return (async () => {
+                    try {
+                        if (!('caches' in window)) {
+                            return { success: false, error: 'Cache API不可用' };
+                        }
+                        const deleted = await caches.delete(name);
+                        return { success: deleted };
+                    } catch (error) {
+                        return { success: false, error: error.message };
+                    }
+                })();
+            },
+            args: [cacheName]
+        });
+        
+        const result = await results[0]?.result || { success: false, error: '未知错误' };
+        if (!result.success) {
+            throw new Error(result.error || '删除失败');
+        }
+        return result;
+    } catch (error) {
+        throw new Error(`删除Cache API失败: ${error.message}`);
+    }
 }
 

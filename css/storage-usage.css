@@ -45,19 +45,41 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 28px;
+    height: 28px;
 }
 
 .refresh-btn:hover {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+}
+
+.refresh-btn:hover .refresh-icon {
+    transform: rotate(180deg);
+    opacity: 1;
 }
 
 .refresh-btn:active {
+    transform: scale(0.95);
+}
+
+.refresh-btn:active .refresh-icon {
     transform: rotate(360deg);
-    animation: rotate 0.5s ease;
 }
 
 .refresh-btn.loading {
+    animation: rotate 1s linear infinite;
+}
+
+.refresh-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.refresh-btn.loading .refresh-icon {
     animation: rotate 1s linear infinite;
 }
 
