@@ -391,10 +391,6 @@
     "message": "项",
     "description": "存储项数量单位"
   },
-  "cacheAPI": {
-    "message": "Cache API",
-    "description": "Cache API 存储类型"
-  },
   "restrictedPageStorage": {
     "message": "此页面受浏览器保护，无法获取存储信息",
     "description": "受限制页面无法获取存储信息的提示"
@@ -554,5 +550,85 @@
   "confirmDangerousTitle": {
     "message": "确认执行当前操作？",
     "description": "危险操作确认标题"
+  },
+  "analysisTitle": {
+    "message": "全局存储分析",
+    "description": "全局分析页面标题"
+  },
+  "analysisDesc": {
+    "message": "按域名汇总 Local/Session/IndexedDB/Cache/Cookies 的数量与估算大小",
+    "description": "全局分析页面描述"
+  },
+  "analysisRescan": {
+    "message": "重新扫描",
+    "description": "重新扫描按钮"
+  },
+  "analysisClearAll": {
+    "message": "清除所有域",
+    "description": "清除所有域按钮"
+  },
+  "analysisDomainCount": {
+    "message": "域名数",
+    "description": "域名数量标签"
+  },
+  "analysisTotalItems": {
+    "message": "条目总数",
+    "description": "条目总数标签"
+  },
+  "analysisTotalSize": {
+    "message": "估算大小",
+    "description": "总大小标签"
+  },
+  "analysisClearDomain": {
+    "message": "清除此域",
+    "description": "清理域按钮文本"
+  },
+  "analysisLoading": {
+    "message": "正在扫描...",
+    "description": "扫描中提示"
+  },
+  "analysisEmpty": {
+    "message": "暂无数据",
+    "description": "全局存储分析空数据提示"
+  },
+  "openAnalysis": {
+    "message": "全局存储分析",
+    "description": "打开全局存储分析入口按钮"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API 标签"
+  },
+  "action": {
+    "message": "操作",
+    "description": "操作列标签"
+  },
+  "cleaning": {
+    "message": "正在清理...",
+    "description": "清理进度提示"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "搜索域名...",
+    "description": "分析页搜索输入占位"
+  },
+  "exportJSON": {
+    "message": "导出 JSON",
+    "description": "导出为 JSON 按钮"
+  },
+  "exportCSV": {
+    "message": "导出 CSV",
+    "description": "导出为 CSV 按钮"
+  },
+  "exportFilteredOnly": {
+    "message": "仅导出筛选结果",
+    "description": "导出筛选开关"
+  },
+  "exportSuccess": {
+    "message": "导出成功",
+    "description": "导出成功提示"
+  },
+  "exportFailed": {
+    "message": "导出失败",
+    "description": "导出失败提示"
   }
 }

@@ -13,6 +13,8 @@ class StorageDetailView {
     constructor() {
         this.modal = null;
         this.getMessage = null; // 国际化函数，由外部注入
+        this.currentDetailData = null;
+        this.exportFiltered = true;
         // 复制图标 SVG
         this.copyIconSvg = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.5 2C4.67157 2 4 2.67157 4 3.5V11.5C4 12.3284 4.67157 13 5.5 13H11.5C12.3284 13 13 12.3284 13 11.5V3.5C13 2.67157 12.3284 2 11.5 2H5.5Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
@@ -78,6 +80,9 @@ class StorageDetailView {
         const expandAllText = this.getMessage ? this.getMessage('expandAll') || '全部展开' : '全部展开';
         const collapseAllText = this.getMessage ? this.getMessage('collapseAll') || '全部折叠' : '全部折叠';
         const scrollToTopText = this.getMessage ? this.getMessage('scrollToTop') || '滚动到顶部' : '滚动到顶部';
+        const exportJsonText = this.getMessage ? this.getMessage('exportJSON') || '导出 JSON' : '导出 JSON';
+        const exportCsvText = this.getMessage ? this.getMessage('exportCSV') || '导出 CSV' : '导出 CSV';
+        const exportFilteredText = this.getMessage ? this.getMessage('exportFilteredOnly') || '仅导出筛选结果' : '仅导出筛选结果';
         modal.innerHTML = `
             <div class="storage-detail-overlay animate__animated"></div>
             <div class="storage-detail-content animate__animated">
@@ -86,20 +91,32 @@ class StorageDetailView {
                     <button class="storage-detail-close" aria-label="关闭">×</button>
                 </div>
                 <div class="storage-detail-search animate__animated animate__fadeInDown">
-                    <div class="search-input-wrapper">
-                        <input type="text" class="search-input" placeholder="${searchPlaceholder}" />
-                        <span class="search-icon">${this.searchIconSvg}</span>
+                    <div class="toolbar-row">
+                        <div class="search-input-wrapper">
+                            <input type="text" class="search-input" placeholder="${searchPlaceholder}" />
+                            <span class="search-icon">${this.searchIconSvg}</span>
+                        </div>
+                        <div class="search-controls">
+                            <button class="accordion-btn icon-only expand-all animate__animated" data-action="expand-all" title="${expandAllText}" aria-label="${expandAllText}">
+                                <span class="accordion-btn-icon">${this.expandAllIconSvg}</span>
+                            </button>
+                            <button class="accordion-btn icon-only collapse-all animate__animated" data-action="collapse-all" title="${collapseAllText}" aria-label="${collapseAllText}">
+                                <span class="accordion-btn-icon">${this.collapseAllIconSvg}</span>
+                            </button>
+                            <button class="accordion-btn icon-only scroll-to-top animate__animated" data-action="scroll-to-top" title="${scrollToTopText}" aria-label="${scrollToTopText}">
+                                <span class="accordion-btn-icon">${this.scrollToTopIconSvg}</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="search-controls">
-                        <button class="accordion-btn icon-only expand-all animate__animated" data-action="expand-all" title="${expandAllText}" aria-label="${expandAllText}">
-                            <span class="accordion-btn-icon">${this.expandAllIconSvg}</span>
-                        </button>
-                        <button class="accordion-btn icon-only collapse-all animate__animated" data-action="collapse-all" title="${collapseAllText}" aria-label="${collapseAllText}">
-                            <span class="accordion-btn-icon">${this.collapseAllIconSvg}</span>
-                        </button>
-                        <button class="accordion-btn icon-only scroll-to-top animate__animated" data-action="scroll-to-top" title="${scrollToTopText}" aria-label="${scrollToTopText}">
-                            <span class="accordion-btn-icon">${this.scrollToTopIconSvg}</span>
-                        </button>
+                    <div class="export-row">
+                        <label class="export-filter-toggle">
+                            <input type="checkbox" class="export-filter-checkbox" checked>
+                            <span>${exportFilteredText}</span>
+                        </label>
+                        <div class="export-buttons">
+                            <button class="accordion-btn export-btn export-json" data-action="export-json">${exportJsonText}</button>
+                            <button class="accordion-btn export-btn export-csv" data-action="export-csv">${exportCsvText}</button>
+                        </div>
                     </div>
                 </div>
                 <div class="storage-detail-body">
@@ -174,6 +191,9 @@ class StorageDetailView {
         // 显示加载状态
         this.showLoading();
 
+        // 重置导出数据
+        this.currentDetailData = null;
+
         // 显示弹窗，添加动画
         const content = this.modal.querySelector('.storage-detail-content');
         const overlay = this.modal.querySelector('.storage-detail-overlay');
@@ -193,6 +213,7 @@ class StorageDetailView {
         try {
             // 获取详情数据
             const detailData = await getStorageDetail(storageType, tab, url);
+            this.currentDetailData = detailData;
 
             // 渲染详情数据
             this.renderDetail(detailData);
@@ -314,6 +335,9 @@ class StorageDetailView {
 
         // 绑定删除事件
         this.bindDeleteEvents();
+
+        // 绑定导出事件
+        this.bindExportEvents();
     }
 
     /**
@@ -381,6 +405,7 @@ class StorageDetailView {
      */
     bindSearchEvents() {
         const searchInput = this.modal.querySelector('.search-input');
+        const exportFilterCheckbox = this.modal.querySelector('.export-filter-checkbox');
         if (!searchInput) return;
 
         searchInput.addEventListener('input', (e) => {
@@ -433,6 +458,13 @@ class StorageDetailView {
                 }
             });
         });
+
+        if (exportFilterCheckbox) {
+            exportFilterCheckbox.addEventListener('change', (e) => {
+                this.exportFiltered = e.target.checked;
+            });
+            this.exportFiltered = exportFilterCheckbox.checked;
+        }
     }
 
     /**
@@ -478,6 +510,138 @@ class StorageDetailView {
                 });
             }
         });
+    }
+
+    /**
+     * 绑定导出事件
+     */
+    bindExportEvents() {
+        const exportJsonBtn = this.modal.querySelector('.export-json');
+        const exportCsvBtn = this.modal.querySelector('.export-csv');
+
+        if (exportJsonBtn) {
+            exportJsonBtn.addEventListener('click', () => this.exportData('json'));
+        }
+        if (exportCsvBtn) {
+            exportCsvBtn.addEventListener('click', () => this.exportData('csv'));
+        }
+    }
+
+    /**
+     * 收集导出数据（支持筛选）
+     */
+    collectExportData() {
+        if (!this.currentDetailData || !this.currentDetailData.items) return null;
+        const { type, items } = this.currentDetailData;
+
+        let indexes = items.map((_, idx) => idx);
+        if (this.exportFiltered) {
+            const accordionItems = this.modal.querySelectorAll('.accordion-item');
+            indexes = Array.from(accordionItems)
+                .filter(item => item.style.display !== 'none')
+                .map(item => Number(item.getAttribute('data-index')))
+                .filter(idx => !Number.isNaN(idx));
+        }
+
+        const exportItems = Array.from(new Set(indexes)).map(idx => items[idx]).filter(Boolean);
+        return { type, items: exportItems };
+    }
+
+    /**
+     * 导出数据
+     * @param {'json'|'csv'} format
+     */
+    exportData(format = 'json') {
+        const data = this.collectExportData();
+        if (!data || !data.items || data.items.length === 0) {
+            this.showCopyToast('noDetailData');
+            return;
+        }
+
+        try {
+            let content = '';
+            let mime = 'application/json';
+            const filename = `${data.type || 'storage'}-${Date.now()}.${format === 'csv' ? 'csv' : 'json'}`;
+
+            if (format === 'csv') {
+                const rows = this.toCsvRows(data.type, data.items);
+                content = rows.map(r => r.map(this.escapeCsv).join(',')).join('\n');
+                mime = 'text/csv';
+            } else {
+                content = JSON.stringify(data.items, null, 2);
+            }
+
+            const blob = new Blob([content], { type: mime });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+            this.showCopyToast('exportSuccess');
+        } catch (e) {
+            console.error('导出失败', e);
+            this.showCopyToast('exportFailed');
+        }
+    }
+
+    /**
+     * 转换为 CSV 行
+     */
+    toCsvRows(type, items) {
+        const header = [];
+        const rows = [];
+
+        const add = (keys, mapper) => {
+            if (!header.length) header.push(...keys);
+            items.forEach(it => rows.push(mapper(it)));
+        };
+
+        switch (type) {
+            case 'localStorage':
+            case 'sessionStorage':
+                add(['key', 'value', 'size'], it => [it.key || '', it.value || '', it.size || 0]);
+                break;
+            case 'cookies':
+                add(['name', 'value', 'domain', 'path', 'secure', 'httpOnly', 'expiration', 'size'], it => [
+                    it.name || '',
+                    it.value || '',
+                    it.domain || '',
+                    it.path || '',
+                    it.secure ? 'true' : 'false',
+                    it.httpOnly ? 'true' : 'false',
+                    it.expirationDate ? formatDate(it.expirationDate) : '',
+                    it.size || 0
+                ]);
+                break;
+            case 'indexedDB':
+                add(['name', 'version'], it => [it.name || '', it.version || '']);
+                break;
+            case 'cacheAPI':
+                add(['name', 'count', 'urls'], it => [
+                    it.name || '',
+                    it.count || 0,
+                    (it.urls || []).join(' | ')
+                ]);
+                break;
+            default:
+                // 通用结构：扁平化键值
+                const keys = new Set();
+                items.forEach(it => Object.keys(it || {}).forEach(k => keys.add(k)));
+                const allKeys = Array.from(keys);
+                add(allKeys, it => allKeys.map(k => (it && it[k] !== undefined ? it[k] : '')));
+        }
+
+        rows.unshift(header);
+        return rows;
+    }
+
+    escapeCsv(value) {
+        const str = value === undefined || value === null ? '' : String(value);
+        if (/[",\n]/.test(str)) {
+            return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
     }
 
     /**
@@ -1013,6 +1177,79 @@ class StorageDetailView {
     isVisible() {
         return this.modal && this.modal.classList.contains('visible');
     }
+
+    /**
+     * 更新国际化文本
+     */
+    updateI18n() {
+        if (!this.modal || !this.getMessage) {
+            return;
+        }
+
+        // 更新搜索框占位符
+        const searchInput = this.modal.querySelector('.search-input');
+        if (searchInput) {
+            const searchPlaceholder = this.getMessage('searchPlaceholder') || '搜索键名或值...';
+            searchInput.placeholder = searchPlaceholder;
+        }
+
+        // 更新按钮文本和标题
+        const expandAllBtn = this.modal.querySelector('.expand-all');
+        if (expandAllBtn) {
+            const expandAllText = this.getMessage('expandAll') || '全部展开';
+            expandAllBtn.setAttribute('title', expandAllText);
+            expandAllBtn.setAttribute('aria-label', expandAllText);
+        }
+
+        const collapseAllBtn = this.modal.querySelector('.collapse-all');
+        if (collapseAllBtn) {
+            const collapseAllText = this.getMessage('collapseAll') || '全部折叠';
+            collapseAllBtn.setAttribute('title', collapseAllText);
+            collapseAllBtn.setAttribute('aria-label', collapseAllText);
+        }
+
+        const scrollToTopBtn = this.modal.querySelector('.scroll-to-top');
+        if (scrollToTopBtn) {
+            const scrollToTopText = this.getMessage('scrollToTop') || '滚动到顶部';
+            scrollToTopBtn.setAttribute('title', scrollToTopText);
+            scrollToTopBtn.setAttribute('aria-label', scrollToTopText);
+        }
+
+        // 更新导出相关文本
+        const exportFilteredLabel = this.modal.querySelector('.export-filter-toggle span');
+        if (exportFilteredLabel && this.getMessage) {
+            const exportFilteredText = this.getMessage('exportFilteredOnly') || '仅导出筛选结果';
+            exportFilteredLabel.textContent = exportFilteredText;
+        }
+
+        const exportJsonBtn = this.modal.querySelector('.export-json');
+        if (exportJsonBtn && this.getMessage) {
+            const exportJsonText = this.getMessage('exportJSON') || '导出 JSON';
+            exportJsonBtn.textContent = exportJsonText;
+        }
+
+        const exportCsvBtn = this.modal.querySelector('.export-csv');
+        if (exportCsvBtn && this.getMessage) {
+            const exportCsvText = this.getMessage('exportCSV') || '导出 CSV';
+            exportCsvBtn.textContent = exportCsvText;
+        }
+
+        // 更新标题（如果弹窗已显示）
+        if (this.isVisible() && this.currentStorageType) {
+            const titleMap = {
+                localStorage: 'localStorage',
+                sessionStorage: 'sessionStorage',
+                cookies: 'cookies',
+                indexedDB: 'indexedDB',
+                cacheAPI: 'cacheAPI'
+            };
+            const title = this.getMessage(titleMap[this.currentStorageType]) || this.currentStorageType;
+            const titleEl = this.modal.querySelector('.storage-detail-title');
+            if (titleEl) {
+                titleEl.textContent = title;
+            }
+        }
+    }
 }
 
 // 创建单例实例
@@ -1041,5 +1278,17 @@ export function showStorageDetail(storageType, tab, url) {
  */
 export function hideStorageDetail() {
     storageDetailView.hide();
+}
+
+/**
+ * 更新存储详情展示模块的国际化文本
+ * @param {Function} getMessage - 国际化消息获取函数（可选，如果不提供则使用已保存的）
+ */
+export function updateStorageDetailViewI18n(getMessage) {
+    // 如果提供了新的 getMessage 函数，更新它
+    if (getMessage) {
+        storageDetailView.getMessage = getMessage;
+    }
+    storageDetailView.updateI18n();
 }
 

@@ -391,10 +391,6 @@
     "message": "elementos",
     "description": "Unidad de conteo de elementos de almacenamiento"
   },
-  "cacheAPI": {
-    "message": "Cache API",
-    "description": "Tipo de almacenamiento Cache API"
-  },
   "restrictedPageStorage": {
     "message": "Esta página está protegida por el navegador y no puede recuperar información de almacenamiento",
     "description": "Aviso cuando una página restringida no puede recuperar información de almacenamiento"
@@ -554,5 +550,85 @@
   "confirmDangerousTitle": {
     "message": "¿Confirmar la acción actual?",
     "description": "Título de confirmación de acción peligrosa"
+  },
+  "analysisTitle": {
+    "message": "Análisis global de almacenamiento",
+    "description": "Título de la página de análisis"
+  },
+  "analysisDesc": {
+    "message": "Agrupa por dominio Local/Session/IndexedDB/Cache/Cookies",
+    "description": "Descripción de la página de análisis"
+  },
+  "analysisRescan": {
+    "message": "Volver a escanear",
+    "description": "Botón de reescaneo"
+  },
+  "analysisClearAll": {
+    "message": "Borrar todos los dominios",
+    "description": "Botón borrar todos los dominios"
+  },
+  "analysisDomainCount": {
+    "message": "Dominios",
+    "description": "Etiqueta recuento de dominios"
+  },
+  "analysisTotalItems": {
+    "message": "Total de ítems",
+    "description": "Etiqueta total ítems"
+  },
+  "analysisTotalSize": {
+    "message": "Tamaño estimado",
+    "description": "Etiqueta tamaño total"
+  },
+  "analysisClearDomain": {
+    "message": "Borrar dominio",
+    "description": "Texto botón borrar dominio"
+  },
+  "analysisLoading": {
+    "message": "Escaneando...",
+    "description": "Aviso de escaneo"
+  },
+  "analysisEmpty": {
+    "message": "Sin datos",
+    "description": "Aviso vacío"
+  },
+  "openAnalysis": {
+    "message": "Análisis global de almacenamiento",
+    "description": "Botón abrir análisis"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Etiqueta Cache API"
+  },
+  "action": {
+    "message": "Acción",
+    "description": "Etiqueta columna acción"
+  },
+  "cleaning": {
+    "message": "Limpiando...",
+    "description": "Aviso de limpieza"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Buscar dominio...",
+    "description": "Placeholder de búsqueda de dominio"
+  },
+  "exportJSON": {
+    "message": "Exportar JSON",
+    "description": "Botón exportar JSON"
+  },
+  "exportCSV": {
+    "message": "Exportar CSV",
+    "description": "Botón exportar CSV"
+  },
+  "exportFilteredOnly": {
+    "message": "Sólo filtrar exportación",
+    "description": "Toggle exportar filtrados"
+  },
+  "exportSuccess": {
+    "message": "Exportado",
+    "description": "Aviso de exportación exitosa"
+  },
+  "exportFailed": {
+    "message": "Exportación fallida",
+    "description": "Aviso de exportación fallida"
   }
 }

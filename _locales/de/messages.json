@@ -391,10 +391,6 @@
     "message": "Elemente",
     "description": "Einheit für die Anzahl der Speicherelemente"
   },
-  "cacheAPI": {
-    "message": "Cache API",
-    "description": "Cache API Speichertyp"
-  },
   "restrictedPageStorage": {
     "message": "Diese Seite ist vom Browser geschützt und kann keine Speicherinformationen abrufen",
     "description": "Eingabeaufforderung wenn eine eingeschränkte Seite keine Speicherinformationen abrufen kann"
@@ -554,5 +550,85 @@
   "confirmDangerousTitle": {
     "message": "Aktuelle Aktion ausführen?",
     "description": "Titel für gefährliche Aktion"
+  },
+  "analysisTitle": {
+    "message": "Globale Speicheranalyse",
+    "description": "Titel der Analyse-Seite"
+  },
+  "analysisDesc": {
+    "message": "Fasst Local/Session/IndexedDB/Cache/Cookies pro Domain zusammen",
+    "description": "Beschreibung der Analyse-Seite"
+  },
+  "analysisRescan": {
+    "message": "Neu scannen",
+    "description": "Neu scannen Button"
+  },
+  "analysisClearAll": {
+    "message": "Alle Domains löschen",
+    "description": "Alle Domains löschen Button"
+  },
+  "analysisDomainCount": {
+    "message": "Domain-Anzahl",
+    "description": "Domain Anzahl Label"
+  },
+  "analysisTotalItems": {
+    "message": "Gesamtanzahl",
+    "description": "Gesamtitems Label"
+  },
+  "analysisTotalSize": {
+    "message": "Geschätzte Größe",
+    "description": "Gesamtgröße Label"
+  },
+  "analysisClearDomain": {
+    "message": "Diese Domain löschen",
+    "description": "Domain löschen Button"
+  },
+  "analysisLoading": {
+    "message": "Scannen...",
+    "description": "Scan Hinweis"
+  },
+  "analysisEmpty": {
+    "message": "Keine Daten",
+    "description": "Leer Hinweis"
+  },
+  "openAnalysis": {
+    "message": "Globale Speicheranalyse",
+    "description": "Analyse öffnen Button"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API Label"
+  },
+  "action": {
+    "message": "Aktion",
+    "description": "Aktionsspalte Label"
+  },
+  "cleaning": {
+    "message": "Wird bereinigt...",
+    "description": "Bereinigungs-Hinweis"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Domain suchen...",
+    "description": "Platzhalter für Domainsuche"
+  },
+  "exportJSON": {
+    "message": "JSON exportieren",
+    "description": "JSON Export Button"
+  },
+  "exportCSV": {
+    "message": "CSV exportieren",
+    "description": "CSV Export Button"
+  },
+  "exportFilteredOnly": {
+    "message": "Nur gefilterte exportieren",
+    "description": "Export Toggle gefiltert"
+  },
+  "exportSuccess": {
+    "message": "Exportiert",
+    "description": "Export Erfolg Hinweis"
+  },
+  "exportFailed": {
+    "message": "Export fehlgeschlagen",
+    "description": "Export Fehler Hinweis"
   }
 }

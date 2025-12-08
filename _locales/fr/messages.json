@@ -391,10 +391,6 @@
     "message": "éléments",
     "description": "Unité de comptage des éléments de stockage"
   },
-  "cacheAPI": {
-    "message": "Cache API",
-    "description": "Type de stockage Cache API"
-  },
   "restrictedPageStorage": {
     "message": "Cette page est protégée par le navigateur et ne peut pas récupérer les informations de stockage",
     "description": "Invite lorsque la page restreinte ne peut pas récupérer les informations de stockage"
@@ -554,5 +550,85 @@
   "confirmDangerousTitle": {
     "message": "Confirmer l'action en cours ?",
     "description": "Titre de confirmation d'action risquée"
+  },
+  "analysisTitle": {
+    "message": "Analyse globale du stockage",
+    "description": "Titre de la page d'analyse"
+  },
+  "analysisDesc": {
+    "message": "Agrège Local/Session/IndexedDB/Cache/Cookies par domaine",
+    "description": "Description de la page d'analyse"
+  },
+  "analysisRescan": {
+    "message": "Rescanner",
+    "description": "Bouton rescanner"
+  },
+  "analysisClearAll": {
+    "message": "Tout effacer",
+    "description": "Bouton effacer tous les domaines"
+  },
+  "analysisDomainCount": {
+    "message": "Nombre de domaines",
+    "description": "Libellé nombre de domaines"
+  },
+  "analysisTotalItems": {
+    "message": "Total d'éléments",
+    "description": "Libellé total éléments"
+  },
+  "analysisTotalSize": {
+    "message": "Taille estimée",
+    "description": "Libellé taille totale"
+  },
+  "analysisClearDomain": {
+    "message": "Effacer ce domaine",
+    "description": "Bouton effacer domaine"
+  },
+  "analysisLoading": {
+    "message": "Analyse en cours...",
+    "description": "Indication de scan"
+  },
+  "analysisEmpty": {
+    "message": "Aucune donnée",
+    "description": "Etat vide"
+  },
+  "openAnalysis": {
+    "message": "Analyse globale du stockage",
+    "description": "Bouton ouvrir l'analyse"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Libellé Cache API"
+  },
+  "action": {
+    "message": "Action",
+    "description": "Libellé colonne action"
+  },
+  "cleaning": {
+    "message": "Nettoyage...",
+    "description": "Indication de nettoyage"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Rechercher un domaine...",
+    "description": "Placeholder de recherche domaine"
+  },
+  "exportJSON": {
+    "message": "Exporter en JSON",
+    "description": "Bouton export JSON"
+  },
+  "exportCSV": {
+    "message": "Exporter en CSV",
+    "description": "Bouton export CSV"
+  },
+  "exportFilteredOnly": {
+    "message": "Exporter le filtré seulement",
+    "description": "Bascule export filtré"
+  },
+  "exportSuccess": {
+    "message": "Export réussi",
+    "description": "Indication succès export"
+  },
+  "exportFailed": {
+    "message": "Échec de l'export",
+    "description": "Indication échec export"
   }
 }

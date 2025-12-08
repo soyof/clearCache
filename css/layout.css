@@ -312,14 +312,15 @@
 }
 
 /* 第二个网格（清理功能）- 2列布局 */
-.actions-grid:nth-child(3) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
 /* 单按钮布局 */
 .actions-grid.single-button {
     grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* 全局浏览器顶部双按钮（clear-all + analysis）单独一行 */
+.actions-grid.all-browser-top {
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px;
 }
 

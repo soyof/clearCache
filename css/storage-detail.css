@@ -71,12 +71,18 @@
 
 .storage-detail-search {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 6px;
     padding: 8px 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.03);
     flex-shrink: 0;
+}
+
+.toolbar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     flex-wrap: nowrap;
 }
 
@@ -111,6 +117,39 @@
     flex-shrink: 0;
     align-items: center;
     height: 32px;
+}
+
+.export-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.export-btn {
+    padding: 4px 10px;
+    min-width: 72px;
+    height: 32px;
+}
+
+.export-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.export-filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-secondary-color, #b3b8c4);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.export-filter-toggle input {
+    accent-color: #78dbff;
 }
 
 .search-input:focus {

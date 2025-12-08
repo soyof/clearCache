@@ -391,10 +391,6 @@
     "message": "項目",
     "description": "ストレージ項目数の単位"
   },
-  "cacheAPI": {
-    "message": "Cache API",
-    "description": "Cache APIストレージタイプ"
-  },
   "restrictedPageStorage": {
     "message": "このページはブラウザによって保護されており、ストレージ情報を取得できません",
     "description": "制限されたページでストレージ情報を取得できない場合のプロンプト"
@@ -554,5 +550,85 @@
   "confirmDangerousTitle": {
     "message": "現在の操作を実行しますか？",
     "description": "危険操作確認タイトル"
+  },
+  "analysisTitle": {
+    "message": "グローバルストレージ分析",
+    "description": "分析ページのタイトル"
+  },
+  "analysisDesc": {
+    "message": "ドメインごとに Local/Session/IndexedDB/Cache/Cookies を集計",
+    "description": "分析ページの説明"
+  },
+  "analysisRescan": {
+    "message": "再スキャン",
+    "description": "再スキャンボタン"
+  },
+  "analysisClearAll": {
+    "message": "全ドメインを削除",
+    "description": "全ドメイン削除ボタン"
+  },
+  "analysisDomainCount": {
+    "message": "ドメイン数",
+    "description": "ドメイン数ラベル"
+  },
+  "analysisTotalItems": {
+    "message": "項目合計",
+    "description": "項目合計ラベル"
+  },
+  "analysisTotalSize": {
+    "message": "推定サイズ",
+    "description": "合計サイズラベル"
+  },
+  "analysisClearDomain": {
+    "message": "このドメインを削除",
+    "description": "ドメイン削除ボタンテキスト"
+  },
+  "analysisLoading": {
+    "message": "スキャン中...",
+    "description": "スキャン中のヒント"
+  },
+  "analysisEmpty": {
+    "message": "データなし",
+    "description": "空データのヒント"
+  },
+  "openAnalysis": {
+    "message": "グローバルストレージ分析",
+    "description": "分析ページを開くボタン"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API ラベル"
+  },
+  "action": {
+    "message": "操作",
+    "description": "操作列ラベル"
+  },
+  "cleaning": {
+    "message": "削除中...",
+    "description": "削除進行中のヒント"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "ドメインを検索...",
+    "description": "分析ページ検索プレースホルダー"
+  },
+  "exportJSON": {
+    "message": "JSON をエクスポート",
+    "description": "JSON 書き出しボタン"
+  },
+  "exportCSV": {
+    "message": "CSV をエクスポート",
+    "description": "CSV 書き出しボタン"
+  },
+  "exportFilteredOnly": {
+    "message": "フィルター結果のみ",
+    "description": "フィルター書き出し切替"
+  },
+  "exportSuccess": {
+    "message": "エクスポートしました",
+    "description": "書き出し成功ヒント"
+  },
+  "exportFailed": {
+    "message": "エクスポートに失敗しました",
+    "description": "書き出し失敗ヒント"
   }
 }

@@ -34,6 +34,7 @@ export function getDOMElements() {
     clearHistory: document.getElementById('clear-history'),
     clearDownloads: document.getElementById('clear-downloads'),
     clearDownloadsFiles: document.getElementById('clear-downloads-files'),
+    openAnalysis: document.getElementById('open-analysis'),
 
     // 复选框
     clearPasswords: document.getElementById('clear-passwords'),

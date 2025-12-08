@@ -4,6 +4,7 @@
  */
 
 import { getMessage, getUserLanguage, initializePageI18n, SettingsManager, StatusManager, switchLanguage, TabManager, ThemeManager } from '../utils/index.js';
+import { updateStorageDetailViewI18n } from '../utils/storageDetailView.js';
 import { getCurrentTab } from './state.js';
 import { adjustTabTextSize, formatUrl } from './uiHelpers.js';
 
@@ -133,6 +134,8 @@ export async function handleLanguageIconChange(languageCode, elements) {
             if (window.storageUsageView) {
                 window.storageUsageView.updateI18n();
             }
+            // 更新存储详情弹窗的国际化文本
+            updateStorageDetailViewI18n(getMessage);
 
             // 更新菜单中的激活状态
             updateLanguageMenuActive(elements);
@@ -249,6 +252,8 @@ export async function handleLanguageChange(event, elements) {
             if (window.storageUsageView) {
                 window.storageUsageView.updateI18n();
             }
+            // 更新存储详情弹窗的国际化文本
+            updateStorageDetailViewI18n(getMessage);
 
             // 重新调整标签页文本大小
             setTimeout(() => {
@@ -334,6 +339,14 @@ export function bindEventListeners(elements, handlers) {
     bindDangerousAction(elements.clearHistory, handlers.clearHistory, { labelKey: 'clearHistory' });
     bindDangerousAction(elements.clearDownloads, handlers.clearDownloads, { labelKey: 'downloadHistory' });
     bindDangerousAction(elements.clearDownloadsFiles, handlers.clearDownloadFiles, { labelKey: 'deleteDownloadFiles' });
+
+    // 全局存储分析入口
+    if (elements.openAnalysis) {
+        elements.openAnalysis.addEventListener('click', () => {
+            const url = chrome.runtime.getURL('analysis.html');
+            chrome.tabs.create({ url });
+        });
+    }
 
     // Tab切换
     const tabButtons = document.querySelectorAll('.tab-btn');

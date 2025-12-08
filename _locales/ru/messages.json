@@ -391,10 +391,6 @@
     "message": "элементов",
     "description": "Единица подсчета элементов хранилища"
   },
-  "cacheAPI": {
-    "message": "Cache API",
-    "description": "Тип хранилища Cache API"
-  },
   "restrictedPageStorage": {
     "message": "Эта страница защищена браузером и не может получить информацию о хранилище",
     "description": "Подсказка когда ограниченная страница не может получить информацию о хранилище"
@@ -554,5 +550,85 @@
   "confirmDangerousTitle": {
     "message": "Выполнить текущее действие?",
     "description": "Заголовок подтверждения опасного действия"
+  },
+  "analysisTitle": {
+    "message": "Глобальный анализ хранилищ",
+    "description": "Заголовок страницы анализа"
+  },
+  "analysisDesc": {
+    "message": "Сводит Local/Session/IndexedDB/Cache/Cookies по доменам",
+    "description": "Описание страницы анализа"
+  },
+  "analysisRescan": {
+    "message": "Сканировать снова",
+    "description": "Кнопка повторного сканирования"
+  },
+  "analysisClearAll": {
+    "message": "Очистить все домены",
+    "description": "Кнопка очистки всех доменов"
+  },
+  "analysisDomainCount": {
+    "message": "Количество доменов",
+    "description": "Метка количества доменов"
+  },
+  "analysisTotalItems": {
+    "message": "Всего элементов",
+    "description": "Метка общего количества"
+  },
+  "analysisTotalSize": {
+    "message": "Оценочный размер",
+    "description": "Метка общего размера"
+  },
+  "analysisClearDomain": {
+    "message": "Очистить домен",
+    "description": "Текст кнопки очистки домена"
+  },
+  "analysisLoading": {
+    "message": "Сканирование...",
+    "description": "Подсказка сканирования"
+  },
+  "analysisEmpty": {
+    "message": "Нет данных",
+    "description": "Подсказка пустого состояния"
+  },
+  "openAnalysis": {
+    "message": "Глобальный анализ хранилищ",
+    "description": "Кнопка открытия анализа"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Метка Cache API"
+  },
+  "action": {
+    "message": "Действие",
+    "description": "Метка столбца действий"
+  },
+  "cleaning": {
+    "message": "Очистка...",
+    "description": "Подсказка очистки"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Поиск домена...",
+    "description": "Плейсхолдер поиска домена"
+  },
+  "exportJSON": {
+    "message": "Экспорт JSON",
+    "description": "Кнопка экспорта JSON"
+  },
+  "exportCSV": {
+    "message": "Экспорт CSV",
+    "description": "Кнопка экспорта CSV"
+  },
+  "exportFilteredOnly": {
+    "message": "Только отфильтрованные",
+    "description": "Переключатель экспорта фильтра"
+  },
+  "exportSuccess": {
+    "message": "Экспорт выполнен",
+    "description": "Подсказка об успехе экспорта"
+  },
+  "exportFailed": {
+    "message": "Экспорт не удался",
+    "description": "Подсказка об ошибке экспорта"
   }
 }

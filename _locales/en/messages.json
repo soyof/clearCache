@@ -391,10 +391,6 @@
     "message": "items",
     "description": "Storage item count unit"
   },
-  "cacheAPI": {
-    "message": "Cache API",
-    "description": "Cache API storage type"
-  },
   "restrictedPageStorage": {
     "message": "This page is protected by the browser and cannot retrieve storage information",
     "description": "Restricted page cannot retrieve storage information prompt"
@@ -554,5 +550,85 @@
   "confirmDangerousTitle": {
     "message": "Confirm current action?",
     "description": "Dangerous action confirmation title"
+  },
+  "analysisTitle": {
+    "message": "Global Storage Analysis",
+    "description": "Analysis page title"
+  },
+  "analysisDesc": {
+    "message": "Aggregate Local/Session/IndexedDB/Cache/Cookies usage by domain",
+    "description": "Analysis page description"
+  },
+  "analysisRescan": {
+    "message": "Rescan",
+    "description": "Rescan button"
+  },
+  "analysisClearAll": {
+    "message": "Clear all domains",
+    "description": "Clear all domains button"
+  },
+  "analysisDomainCount": {
+    "message": "Domains",
+    "description": "Domain count label"
+  },
+  "analysisTotalItems": {
+    "message": "Total items",
+    "description": "Total items label"
+  },
+  "analysisTotalSize": {
+    "message": "Estimated size",
+    "description": "Total size label"
+  },
+  "analysisClearDomain": {
+    "message": "Clear domain",
+    "description": "Clear domain button text"
+  },
+  "analysisLoading": {
+    "message": "Scanning...",
+    "description": "Scanning hint"
+  },
+  "analysisEmpty": {
+    "message": "No data",
+    "description": "Empty state hint"
+  },
+  "openAnalysis": {
+    "message": "Global Storage Analysis",
+    "description": "Open analysis entry button"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API label"
+  },
+  "action": {
+    "message": "Action",
+    "description": "Action column label"
+  },
+  "cleaning": {
+    "message": "Cleaning...",
+    "description": "Cleaning progress hint"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Search domain...",
+    "description": "Analysis search placeholder"
+  },
+  "exportJSON": {
+    "message": "Export JSON",
+    "description": "Export as JSON button"
+  },
+  "exportCSV": {
+    "message": "Export CSV",
+    "description": "Export as CSV button"
+  },
+  "exportFilteredOnly": {
+    "message": "Export filtered only",
+    "description": "Export filtered toggle"
+  },
+  "exportSuccess": {
+    "message": "Exported",
+    "description": "Export success hint"
+  },
+  "exportFailed": {
+    "message": "Export failed",
+    "description": "Export failed hint"
   }
 }

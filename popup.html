@@ -177,11 +177,15 @@
 
             <!-- 整个浏览器 Tab 内容 -->
             <div class="tab-content" id="all-browser-tab">
-                <!-- 一键清理区域 -->
-                <div class="actions-grid single-button">
+                <!-- 一键清理 + 全局分析 -->
+                <div class="actions-grid all-browser-top">
                     <button id="clear-all" class="btn btn-primary" data-i18n-title="clearAllCacheDesc">
                         <span class="btn-icon">🗑️</span>
                         <span class="btn-text" data-i18n="clearAllCache">一键清空所有缓存</span>
+                    </button>
+                    <button id="open-analysis" class="btn btn-success">
+                        <span class="btn-icon">📈</span>
+                        <span class="btn-text" data-i18n="openAnalysis">全局存储分析</span>
                     </button>
                 </div>
                 
@@ -207,7 +211,7 @@
                         <span class="btn-text" data-i18n="clearHistory">清空历史记录</span>
                     </button>
                 </div>
-                
+
                 <!-- 分割线 -->
                 <div class="section-divider"></div>
                 

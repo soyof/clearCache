@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="analysisTitle">全局存储分析</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/analysis.css">
+</head>
+<body class="analysis-body">
+    <div class="analysis-container">
+        <header class="analysis-header">
+            <div>
+                <h1 class="analysis-title" data-i18n="analysisTitle">全局存储分析</h1>
+                <p class="analysis-desc" data-i18n="analysisDesc">按域名汇总 Local/Session/IndexedDB/Cache/Cookies 的数量与估算大小</p>
+            </div>
+            <div class="analysis-actions">
+                <input id="analysis-search" type="search" class="analysis-search" data-i18n-placeholder="analysisSearchPlaceholder" placeholder="搜索域名...">
+                <button id="rescan" class="btn btn-clean" data-i18n="analysisRescan">重新扫描</button>
+                <button id="clear-all-domains" class="btn btn-danger" data-i18n="analysisClearAll">清除所有域</button>
+            </div>
+        </header>
+
+        <section class="summary">
+            <div class="summary-item">
+                <div class="summary-label" data-i18n="analysisDomainCount">域名数</div>
+                <div id="summary-domains" class="summary-value">-</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label" data-i18n="analysisTotalItems">条目总数</div>
+                <div id="summary-items" class="summary-value">-</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label" data-i18n="analysisTotalSize">估算大小</div>
+                <div id="summary-size" class="summary-value">-</div>
+            </div>
+        </section>
+
+        <section class="table-wrapper">
+            <div class="table-head">
+                <div class="col domain" data-i18n="domain">域名</div>
+                <div class="col" data-i18n="localStorage">LocalStorage</div>
+                <div class="col" data-i18n="sessionStorage">SessionStorage</div>
+                <div class="col" data-i18n="indexedDB">IndexedDB</div>
+                <div class="col" data-i18n="cacheAPI">Cache</div>
+                <div class="col" data-i18n="cookies">Cookies</div>
+                <div class="col" data-i18n="total">总计</div>
+                <div class="col action" data-i18n="action">操作</div>
+            </div>
+            <div id="table-body" class="table-body">
+                <div class="empty" data-i18n="analysisLoading">正在扫描...</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="service-worker-bridge.js"></script>
+    <script type="module" src="utils/analysis.js"></script>
+</body>
+</html>
+
