@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "Error al eliminar",
     "description": "Mensaje de error de eliminación"
+  },
+  "confirmDangerous": {
+    "message": "Doble confirmación para acciones peligrosas",
+    "description": "Alternar confirmación para acciones peligrosas"
+  },
+  "silentMode": {
+    "message": "Modo silencioso (sin avisos)",
+    "description": "Alternar modo silencioso"
+  },
+  "confirmDangerousMessage": {
+    "message": "Esta operación no se puede deshacer. ¿Continuar?",
+    "description": "Mensaje de respaldo cuando no hay destino"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "Borrar ",
+    "description": "Prefijo para confirmación de acción peligrosa"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": " no se puede deshacer. ¿Continuar?",
+    "description": "Sufijo para confirmación de acción peligrosa"
+  },
+  "confirmDangerousTitle": {
+    "message": "¿Confirmar la acción actual?",
+    "description": "Título de confirmación de acción peligrosa"
   }
 }

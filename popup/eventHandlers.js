@@ -3,9 +3,9 @@
  * 处理各种用户交互事件
  */
 
-import { TabManager, StatusManager, getMessage, initializePageI18n, getUserLanguage, switchLanguage, ThemeManager } from '../utils/index.js';
+import { getMessage, getUserLanguage, initializePageI18n, SettingsManager, StatusManager, switchLanguage, TabManager, ThemeManager } from '../utils/index.js';
 import { getCurrentTab } from './state.js';
-import { formatUrl, adjustTabTextSize } from './uiHelpers.js';
+import { adjustTabTextSize, formatUrl } from './uiHelpers.js';
 
 /**
  * 绑定按钮事件
@@ -16,6 +16,56 @@ export function bindButtonEvent(button, handler) {
     if (button) {
         button.addEventListener('click', handler);
     }
+}
+
+/**
+ * 显示危险操作确认弹窗
+ * @param {Object} elements - DOM 元素集合
+ * @param {string} actionText - 操作描述
+ * @returns {Promise<boolean>} 是否确认
+ */
+async function showDangerConfirm(elements, actionText) {
+    return new Promise((resolve) => {
+        const modal = elements.dangerConfirm;
+        const okBtn = elements.dangerConfirmOk;
+        const cancelBtn = elements.dangerConfirmCancel;
+        const messageEl = elements.dangerConfirmMessage;
+
+        if (!modal || !okBtn || !cancelBtn) {
+            resolve(true);
+            return;
+        }
+
+        const titleText = getMessage('confirmDangerousTitle') || '确认执行当前操作？';
+        const prefix = getMessage('confirmDangerousMessagePrefix') || '清空';
+        const suffix = getMessage('confirmDangerousMessageSuffix') || '不可恢复，是否继续？';
+        const combined = actionText ? `${prefix}${actionText}${suffix}` : (getMessage('confirmDangerousMessage') || '此操作不可恢复，是否继续？');
+
+        modal.querySelector('.danger-confirm-title').textContent = titleText;
+        if (messageEl) {
+            messageEl.textContent = combined;
+        }
+
+        modal.classList.add('show');
+
+        const cleanup = () => {
+            modal.classList.remove('show');
+            okBtn.removeEventListener('click', handleOk);
+            cancelBtn.removeEventListener('click', handleCancel);
+        };
+
+        const handleOk = () => {
+            cleanup();
+            resolve(true);
+        };
+        const handleCancel = () => {
+            cleanup();
+            resolve(false);
+        };
+
+        okBtn.addEventListener('click', handleOk);
+        cancelBtn.addEventListener('click', handleCancel);
+    });
 }
 
 /**
@@ -227,32 +277,63 @@ export function bindEventListeners(elements, handlers) {
     bindButtonEvent(elements.normalReload, handlers.normalReload);
     bindButtonEvent(elements.hardReloadOnly, handlers.hardReloadOnly);
 
-    // 创建清理后刷新存储使用情况的包装函数
-    const withStorageRefresh = (fn) => async () => {
-        await fn();
+    const reloadStorageUsage = (delay = 500) => {
         setTimeout(() => {
             if (window.storageUsageView) {
                 window.storageUsageView.loadStorageUsage().catch(err => console.warn('加载存储使用情况失败:', err));
             }
-        }, 500);
+        }, delay);
     };
 
-    bindButtonEvent(elements.clearCurrentAll, withStorageRefresh(handlers.clearCurrentWebsiteData));
+    const bindDangerousAction = (button, handler, { labelKey, withRefresh = false } = {}) => {
+        if (!button) return;
+        button.addEventListener('click', async () => {
+            try {
+                const settings = await SettingsManager.get(['confirmDangerous', 'silentMode']);
+                const needConfirm = settings.confirmDangerous !== false;
+                const silentMode = settings.silentMode === true;
+                const actionText = getMessage(labelKey) || labelKey || '';
+
+                const run = async () => {
+                    await handler({ silent: silentMode });
+                    if (withRefresh && !silentMode) {
+                        reloadStorageUsage();
+                    }
+                };
+
+                if (silentMode) {
+                    await run();
+                    return;
+                }
+
+                if (needConfirm) {
+                    const ok = await showDangerConfirm(elements, actionText);
+                    if (!ok) return;
+                }
+
+                await run();
+            } catch (error) {
+                console.warn('危险操作处理失败:', error);
+            }
+        });
+    };
+
+    bindDangerousAction(elements.clearCurrentAll, handlers.clearCurrentWebsiteData, { labelKey: 'clearCache', withRefresh: true });
     bindButtonEvent(elements.hardReloadCacheOnly, handlers.hardReloadCacheOnly);
-    bindButtonEvent(elements.hardReload, handlers.hardReloadPage);
-    bindButtonEvent(elements.clearCurrentCookies, withStorageRefresh(handlers.clearCookies));
-    bindButtonEvent(elements.clearLocalStorage, withStorageRefresh(handlers.clearLocalStorage));
-    bindButtonEvent(elements.clearSessionStorage, withStorageRefresh(handlers.clearSessionStorage));
-    bindButtonEvent(elements.clearCurrentIndexedDB, withStorageRefresh(handlers.clearCurrentIndexedDB));
+    bindDangerousAction(elements.hardReload, handlers.hardReloadPage, { labelKey: 'clearAllAndReload' });
+    bindDangerousAction(elements.clearCurrentCookies, handlers.clearCookies, { labelKey: 'cookies', withRefresh: true });
+    bindDangerousAction(elements.clearLocalStorage, handlers.clearLocalStorage, { labelKey: 'localStorage', withRefresh: true });
+    bindDangerousAction(elements.clearSessionStorage, handlers.clearSessionStorage, { labelKey: 'sessionStorage', withRefresh: true });
+    bindDangerousAction(elements.clearCurrentIndexedDB, handlers.clearCurrentIndexedDB, { labelKey: 'indexedDB', withRefresh: true });
 
     // 整个浏览器标签页按钮
-    bindButtonEvent(elements.clearAll, handlers.clearAllData);
-    bindButtonEvent(elements.clearCache, handlers.clearCache);
-    bindButtonEvent(elements.clearCookies, handlers.clearCookies);
-    bindButtonEvent(elements.clearIndexedDB, handlers.clearIndexedDB);
-    bindButtonEvent(elements.clearHistory, handlers.clearHistory);
-    bindButtonEvent(elements.clearDownloads, handlers.clearDownloads);
-    bindButtonEvent(elements.clearDownloadsFiles, handlers.clearDownloadFiles);
+    bindDangerousAction(elements.clearAll, handlers.clearAllData, { labelKey: 'clearAllCache' });
+    bindDangerousAction(elements.clearCache, handlers.clearCache, { labelKey: 'browserCache' });
+    bindDangerousAction(elements.clearCookies, handlers.clearCookies, { labelKey: 'allCookies' });
+    bindDangerousAction(elements.clearIndexedDB, handlers.clearIndexedDB, { labelKey: 'allIndexedDB' });
+    bindDangerousAction(elements.clearHistory, handlers.clearHistory, { labelKey: 'clearHistory' });
+    bindDangerousAction(elements.clearDownloads, handlers.clearDownloads, { labelKey: 'downloadHistory' });
+    bindDangerousAction(elements.clearDownloadsFiles, handlers.clearDownloadFiles, { labelKey: 'deleteDownloadFiles' });
 
     // Tab切换
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -312,6 +393,12 @@ export function bindEventListeners(elements, handlers) {
     }
     if (elements.includeProtected) {
         elements.includeProtected.addEventListener('change', () => handlers.saveAdvancedSettings(elements));
+    }
+    if (elements.confirmDangerous) {
+        elements.confirmDangerous.addEventListener('change', () => handlers.saveAdvancedSettings(elements));
+    }
+    if (elements.silentMode) {
+        elements.silentMode.addEventListener('change', () => handlers.saveAdvancedSettings(elements));
     }
     if (elements.enableNotifications) {
         elements.enableNotifications.addEventListener('change', () => handlers.saveAdvancedSettings(elements));

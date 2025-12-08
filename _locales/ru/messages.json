@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "Ошибка удаления",
     "description": "Сообщение об ошибке удаления"
+  },
+  "confirmDangerous": {
+    "message": "Двойное подтверждение опасных действий",
+    "description": "Переключатель подтверждения опасных действий"
+  },
+  "silentMode": {
+    "message": "Тихий режим (без подсказок)",
+    "description": "Переключатель тихого режима"
+  },
+  "confirmDangerousMessage": {
+    "message": "Действие необратимо. Продолжить?",
+    "description": "Резерв при отсутствии конкретной цели"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "Очистка ",
+    "description": "Префикс подтверждения опасного действия"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": " необратима. Продолжить?",
+    "description": "Суффикс подтверждения опасного действия"
+  },
+  "confirmDangerousTitle": {
+    "message": "Выполнить текущее действие?",
+    "description": "Заголовок подтверждения опасного действия"
   }
 }

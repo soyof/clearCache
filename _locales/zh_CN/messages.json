@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "删除失败",
     "description": "删除失败提示"
+  },
+  "confirmDangerous": {
+    "message": "危险操作二次确认",
+    "description": "危险操作二次确认开关"
+  },
+  "silentMode": {
+    "message": "静默模式（无提示）",
+    "description": "静默模式开关"
+  },
+  "confirmDangerousMessage": {
+    "message": "此操作不可恢复，是否继续？",
+    "description": "危险操作确认文案（无具体对象时使用）"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "清空",
+    "description": "危险操作确认文案前缀"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": "不可恢复，是否继续？",
+    "description": "危险操作确认文案后缀"
+  },
+  "confirmDangerousTitle": {
+    "message": "确认执行当前操作？",
+    "description": "危险操作确认标题"
   }
 }

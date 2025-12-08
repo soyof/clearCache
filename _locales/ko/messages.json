@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "삭제 실패",
     "description": "삭제 실패 메시지"
+  },
+  "confirmDangerous": {
+    "message": "위험 작업 재확인",
+    "description": "위험 작업 이중 확인 토글"
+  },
+  "silentMode": {
+    "message": "사일런트 모드(알림 없음)",
+    "description": "사일런트 모드 토글"
+  },
+  "confirmDangerousMessage": {
+    "message": "이 작업은 되돌릴 수 없습니다. 계속하시겠습니까?",
+    "description": "대상이 없을 때의 폴백"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "이 정리 작업: ",
+    "description": "위험 작업 확인 앞부분"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": " 은(는) 되돌릴 수 없습니다. 계속하시겠습니까?",
+    "description": "위험 작업 확인 뒷부분"
+  },
+  "confirmDangerousTitle": {
+    "message": "현재 작업을 실행하시겠습니까?",
+    "description": "위험 작업 확인 제목"
   }
 }

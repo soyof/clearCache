@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "Delete failed",
     "description": "Delete failed message"
+  },
+  "confirmDangerous": {
+    "message": "Double confirm for dangerous actions",
+    "description": "Toggle for dangerous action confirmation"
+  },
+  "silentMode": {
+    "message": "Silent mode (no prompts)",
+    "description": "Toggle for silent mode"
+  },
+  "confirmDangerousMessage": {
+    "message": "This operation cannot be undone. Continue?",
+    "description": "Fallback when no specific target is provided"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "Clearing ",
+    "description": "Dangerous action confirmation prefix"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": " cannot be undone. Continue?",
+    "description": "Dangerous action confirmation suffix"
+  },
+  "confirmDangerousTitle": {
+    "message": "Confirm current action?",
+    "description": "Dangerous action confirmation title"
   }
 }

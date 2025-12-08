@@ -124,8 +124,9 @@ export async function hardReloadCacheOnly(elements) {
 /**
  * 清空所有数据并硬性重新加载（包括登录状态）
  * @param {Object} elements - DOM元素对象
+ * @param {Object} options - 额外选项
  */
-export async function hardReloadPage(elements) {
+export async function hardReloadPage(elements, options = {}) {
     // 导入 executeCleanup 函数
     const { executeCleanup } = await import('./cleanupHandlers.js');
     await executeCleanup(
@@ -138,7 +139,9 @@ export async function hardReloadPage(elements) {
         getMessage('allDataAndPageReloading'),
         getMessage('allDataAndReloadFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 

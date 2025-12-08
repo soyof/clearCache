@@ -843,6 +843,73 @@
     background: #ffffff;
 }
 
+/* 危险操作确认弹窗 */
+.danger-confirm {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    z-index: 99999;
+}
+
+.danger-confirm.show {
+    display: flex;
+}
+
+.danger-confirm-content {
+    width: 320px;
+    max-width: 90%;
+    background: var(--card-bg-color, #1f1f1f);
+    color: var(--text-primary-color, #f5f5f5);
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeInScale 0.2s ease;
+}
+
+.danger-confirm-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--warning-color, #faad14);
+}
+
+.danger-confirm-message {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-secondary-color, #bfbfbf);
+}
+
+.danger-confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.danger-confirm .btn {
+    min-width: 90px;
+    height: 32px;
+    font-size: 13px;
+    padding: 0 12px;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .theme-name {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.8);

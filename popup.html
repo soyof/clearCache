@@ -248,6 +248,16 @@
                             <span class="setting-check"></span>
                             <span class="setting-text" data-i18n="includeProtectedData">包含受保护数据</span>
                         </label>
+                        <label class="setting-item">
+                            <input type="checkbox" id="confirm-dangerous" checked>
+                            <span class="setting-check"></span>
+                            <span class="setting-text" data-i18n="confirmDangerous">危险操作二次确认</span>
+                        </label>
+                        <label class="setting-item">
+                            <input type="checkbox" id="silent-mode">
+                            <span class="setting-check"></span>
+                            <span class="setting-text" data-i18n="silentMode">静默模式（无提示）</span>
+                        </label>
                     </div>
                 </div>
                 
@@ -281,6 +291,18 @@
             <div id="status" class="status-message"></div>
             <div id="progress" class="progress-bar">
                 <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- 危险操作确认弹窗 -->
+        <div id="danger-confirm" class="danger-confirm">
+            <div class="danger-confirm-content">
+                <div class="danger-confirm-title" data-i18n="confirmDangerousTitle">确认执行危险操作？</div>
+                <div class="danger-confirm-message" data-i18n="confirmDangerousMessage">此操作不可恢复，是否继续？</div>
+                <div class="danger-confirm-actions">
+                    <button id="danger-cancel" class="btn btn-clean" data-i18n="cancel">取消</button>
+                    <button id="danger-ok" class="btn btn-primary" data-i18n="confirm">确认</button>
+                </div>
             </div>
         </div>
 

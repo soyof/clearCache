@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "Échec de la suppression",
     "description": "Message d'erreur de suppression"
+  },
+  "confirmDangerous": {
+    "message": "Double confirmation des actions risquées",
+    "description": "Bascule de confirmation pour actions risquées"
+  },
+  "silentMode": {
+    "message": "Mode silencieux (aucune invite)",
+    "description": "Bascule du mode silencieux"
+  },
+  "confirmDangerousMessage": {
+    "message": "Cette opération est irréversible. Continuer ?",
+    "description": "Message de secours lorsqu'aucune cible n'est fournie"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "Effacer ",
+    "description": "Préfixe pour confirmation d'action risquée"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": " est irréversible. Continuer ?",
+    "description": "Suffixe pour confirmation d'action risquée"
+  },
+  "confirmDangerousTitle": {
+    "message": "Confirmer l'action en cours ?",
+    "description": "Titre de confirmation d'action risquée"
   }
 }

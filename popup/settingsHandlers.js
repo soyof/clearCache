@@ -3,7 +3,7 @@
  * 处理应用设置相关逻辑
  */
 
-import { SettingsManager, ThemeManager, StatusManager, getMessage, getUserLanguage } from '../utils/index.js';
+import { SettingsManager, StatusManager, ThemeManager, getMessage, getUserLanguage } from '../utils/index.js';
 
 /**
  * 加载设置
@@ -15,7 +15,9 @@ export async function loadSettings(elements) {
         const settingsPromise = SettingsManager.get([
             'clearPasswords',
             'clearFormData',
-            'includeProtected'
+            'includeProtected',
+            'confirmDangerous',
+            'silentMode'
         ]);
         const timeoutPromise = new Promise((_, reject) =>
             setTimeout(() => reject(new Error('加载设置超时')), 1000)
@@ -34,6 +36,14 @@ export async function loadSettings(elements) {
         if (elements.includeProtected) {
             elements.includeProtected.checked = settings.includeProtected !== false;
         }
+
+        if (elements.confirmDangerous) {
+            elements.confirmDangerous.checked = settings.confirmDangerous !== false;
+        }
+
+        if (elements.silentMode) {
+            elements.silentMode.checked = settings.silentMode === true;
+        }
     } catch (error) {
         console.warn('加载设置失败:', error);
         // 使用默认设置
@@ -45,6 +55,12 @@ export async function loadSettings(elements) {
         }
         if (elements.includeProtected) {
             elements.includeProtected.checked = true;
+        }
+        if (elements.confirmDangerous) {
+            elements.confirmDangerous.checked = true;
+        }
+        if (elements.silentMode) {
+            elements.silentMode.checked = false;
         }
     }
 }
@@ -175,7 +191,9 @@ export async function saveAdvancedSettings(elements) {
             notificationSound: elements.notificationSound?.checked === true,
             clearPasswords: elements.clearPasswords?.checked !== false,
             clearFormData: elements.clearFormData?.checked !== false,
-            includeProtected: elements.includeProtected?.checked !== false
+            includeProtected: elements.includeProtected?.checked !== false,
+            confirmDangerous: elements.confirmDangerous?.checked !== false,
+            silentMode: elements.silentMode?.checked === true
         };
 
         await SettingsManager.save(settings);

@@ -39,6 +39,8 @@ export function getDOMElements() {
     clearPasswords: document.getElementById('clear-passwords'),
     clearFormData: document.getElementById('clear-formdata'),
     includeProtected: document.getElementById('include-protected'),
+    confirmDangerous: document.getElementById('confirm-dangerous'),
+    silentMode: document.getElementById('silent-mode'),
 
     // 高级设置元素
     enableNotifications: document.getElementById('enable-notifications'),
@@ -53,6 +55,12 @@ export function getDOMElements() {
     // 存储使用情况元素
     storageUsageContent: document.getElementById('storage-usage-content'),
     refreshStorageBtn: document.getElementById('refresh-storage'),
+
+    // 危险操作确认弹窗
+    dangerConfirm: document.getElementById('danger-confirm'),
+    dangerConfirmOk: document.getElementById('danger-ok'),
+    dangerConfirmCancel: document.getElementById('danger-cancel'),
+    dangerConfirmMessage: document.querySelector('.danger-confirm-message'),
   };
 }
 

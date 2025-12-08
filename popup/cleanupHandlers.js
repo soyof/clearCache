@@ -22,6 +22,8 @@ import { getCurrentTab } from './state.js';
  * @param {HTMLElement} statusElement - 状态元素
  * @param {HTMLElement} statusContainer - 状态容器元素
  * @param {boolean} waitForCompletion - 是否等待操作完成（默认true）
+ * @param {Object} options - 额外选项
+ * @param {boolean} options.silent - 静默模式（不更新UI）
  */
 export async function executeCleanup(
     cleanupFunction,
@@ -30,9 +32,18 @@ export async function executeCleanup(
     errorMessage,
     statusElement,
     statusContainer,
-    waitForCompletion = true
+    waitForCompletion = true,
+    options = {}
 ) {
     try {
+        const isSilent = options.silent === true;
+
+        if (isSilent) {
+            await cleanupFunction();
+            console.log('[silent] cleanup done:', successMessage || '');
+            return;
+        }
+
         // 立即设置按钮为加载状态，提供即时反馈
         ButtonManager.setLoading(button);
 
@@ -71,11 +82,19 @@ export async function executeCleanup(
  * 清空当前网站所有数据
  * @param {Object} elements - DOM元素对象
  */
-export async function clearCurrentWebsiteData(elements) {
+export async function clearCurrentWebsiteData(elements, options = {}) {
     try {
         const currentTab = getCurrentTab();
         if (!currentTab) {
-            StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
+            if (!options.silent) {
+                StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
+            }
+            return;
+        }
+
+        if (options.silent) {
+            await CleanerManager.clearCurrentWebsiteData(currentTab);
+            console.log('[silent] clearCurrentWebsiteData done');
             return;
         }
 
@@ -112,8 +131,10 @@ export async function clearCurrentWebsiteData(elements) {
             }
         })();
     } catch (error) {
-        ButtonManager.setError(elements.clearCurrentAll);
-        StatusManager.show(elements.status, elements.statusContainer, getMessage('currentSiteCacheClearFailed') + ': ' + error.message, 'error');
+        if (!options.silent) {
+            ButtonManager.setError(elements.clearCurrentAll);
+            StatusManager.show(elements.status, elements.statusContainer, getMessage('currentSiteCacheClearFailed') + ': ' + error.message, 'error');
+        }
     }
 }
 
@@ -121,11 +142,24 @@ export async function clearCurrentWebsiteData(elements) {
  * 清空所有数据
  * @param {Object} elements - DOM元素对象
  */
-export async function clearAllData(elements) {
+export async function clearAllData(elements, options = {}) {
     try {
         const currentTab = getCurrentTab();
         if (!currentTab) {
-            StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
+            if (!options.silent) {
+                StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
+            }
+            return;
+        }
+
+        if (options.silent) {
+            const settings = await SettingsManager.get([
+                'clearPasswords',
+                'clearFormData',
+                'includeProtected'
+            ]);
+            await CleanerManager.clearAllData(currentTab, settings);
+            console.log('[silent] clearAllData done');
             return;
         }
 
@@ -170,8 +204,10 @@ export async function clearAllData(elements) {
             }
         })();
     } catch (error) {
-        ButtonManager.setError(elements.clearAll);
-        StatusManager.show(elements.status, elements.statusContainer, getMessage('allCacheClearFailed') + ': ' + error.message, 'error');
+        if (!options.silent) {
+            ButtonManager.setError(elements.clearAll);
+            StatusManager.show(elements.status, elements.statusContainer, getMessage('allCacheClearFailed') + ': ' + error.message, 'error');
+        }
     }
 }
 
@@ -179,7 +215,7 @@ export async function clearAllData(elements) {
  * 清空缓存
  * @param {Object} elements - DOM元素对象
  */
-export async function clearCache(elements) {
+export async function clearCache(elements, options = {}) {
     await executeCleanup(
         async () => {
             await BrowsingDataManager.clearCache({ since: 0 });
@@ -188,7 +224,9 @@ export async function clearCache(elements) {
         getMessage('cacheCleared'),
         getMessage('cacheClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -196,7 +234,7 @@ export async function clearCache(elements) {
  * 清空 Cookies
  * @param {Object} elements - DOM元素对象
  */
-export async function clearCookies(elements) {
+export async function clearCookies(elements, options = {}) {
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
@@ -207,7 +245,9 @@ export async function clearCookies(elements) {
         getMessage('cookiesCleared'),
         getMessage('cookiesClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -215,7 +255,7 @@ export async function clearCookies(elements) {
  * 清空 LocalStorage
  * @param {Object} elements - DOM元素对象
  */
-export async function clearLocalStorage(elements) {
+export async function clearLocalStorage(elements, options = {}) {
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
@@ -226,7 +266,9 @@ export async function clearLocalStorage(elements) {
         getMessage('localStorageCleared'),
         getMessage('localStorageClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -234,7 +276,7 @@ export async function clearLocalStorage(elements) {
  * 清空 SessionStorage
  * @param {Object} elements - DOM元素对象
  */
-export async function clearSessionStorage(elements) {
+export async function clearSessionStorage(elements, options = {}) {
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
@@ -245,7 +287,9 @@ export async function clearSessionStorage(elements) {
         getMessage('sessionStorageCleared'),
         getMessage('sessionStorageClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -253,7 +297,7 @@ export async function clearSessionStorage(elements) {
  * 清空 IndexedDB
  * @param {Object} elements - DOM元素对象
  */
-export async function clearCurrentIndexedDB(elements) {
+export async function clearCurrentIndexedDB(elements, options = {}) {
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
@@ -264,7 +308,9 @@ export async function clearCurrentIndexedDB(elements) {
         getMessage('indexedDBCleared'),
         getMessage('indexedDBClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -272,7 +318,7 @@ export async function clearCurrentIndexedDB(elements) {
  * 清空所有 IndexedDB
  * @param {Object} elements - DOM元素对象
  */
-export async function clearIndexedDB(elements) {
+export async function clearIndexedDB(elements, options = {}) {
     await executeCleanup(
         async () => {
             await BrowsingDataManager.clearIndexedDB({ since: 0 });
@@ -281,7 +327,9 @@ export async function clearIndexedDB(elements) {
         getMessage('allIndexedDBCleared'),
         getMessage('indexedDBClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -289,7 +337,7 @@ export async function clearIndexedDB(elements) {
  * 清空历史记录
  * @param {Object} elements - DOM元素对象
  */
-export async function clearHistory(elements) {
+export async function clearHistory(elements, options = {}) {
     await executeCleanup(
         async () => {
             await CleanerManager.clearHistoryData();
@@ -298,7 +346,9 @@ export async function clearHistory(elements) {
         getMessage('historyCleared'),
         getMessage('historyClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -306,7 +356,7 @@ export async function clearHistory(elements) {
  * 清空下载记录
  * @param {Object} elements - DOM元素对象
  */
-export async function clearDownloads(elements) {
+export async function clearDownloads(elements, options = {}) {
     await executeCleanup(
         async () => {
             await CleanerManager.clearDownloadsData();
@@ -315,7 +365,9 @@ export async function clearDownloads(elements) {
         getMessage('downloadsCleared'),
         getMessage('downloadsClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 
@@ -323,7 +375,7 @@ export async function clearDownloads(elements) {
  * 清空下载文件
  * @param {Object} elements - DOM元素对象
  */
-export async function clearDownloadFiles(elements) {
+export async function clearDownloadFiles(elements, options = {}) {
     await executeCleanup(
         async () => {
             await CleanerManager.clearDownloadFiles();
@@ -332,7 +384,9 @@ export async function clearDownloadFiles(elements) {
         getMessage('downloadFilesCleared'),
         getMessage('downloadFilesClearFailed'),
         elements.status,
-        elements.statusContainer
+        elements.statusContainer,
+        true,
+        options
     );
 }
 

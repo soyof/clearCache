@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "Löschen fehlgeschlagen",
     "description": "Löschen Fehlermeldung"
+  },
+  "confirmDangerous": {
+    "message": "Gefährliche Aktionen doppelt bestätigen",
+    "description": "Schalter für gefährliche Aktionen Bestätigung"
+  },
+  "silentMode": {
+    "message": "Stiller Modus (keine Hinweise)",
+    "description": "Schalter für stillen Modus"
+  },
+  "confirmDangerousMessage": {
+    "message": "Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?",
+    "description": "Fallback wenn kein Ziel angegeben ist"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "Das Löschen von ",
+    "description": "Präfix für gefährliche Aktion"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": " kann nicht rückgängig gemacht werden. Fortfahren?",
+    "description": "Suffix für gefährliche Aktion"
+  },
+  "confirmDangerousTitle": {
+    "message": "Aktuelle Aktion ausführen?",
+    "description": "Titel für gefährliche Aktion"
   }
 }

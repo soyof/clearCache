@@ -9,28 +9,28 @@ import {
 } from './utils/index.js';
 
 // 导入 popup 模块
-import { initRequestIdleCallbackPolyfill } from './popup/polyfills.js';
-import { getDOMElements } from './popup/domElements.js';
-import { initialize } from './popup/initialization.js';
-import { bindEventListeners } from './popup/eventHandlers.js';
 import {
-    clearCurrentWebsiteData,
     clearAllData,
     clearCache,
     clearCookies,
-    clearLocalStorage,
-    clearSessionStorage,
     clearCurrentIndexedDB,
-    clearIndexedDB,
-    clearHistory,
+    clearCurrentWebsiteData,
+    clearDownloadFiles,
     clearDownloads,
-    clearDownloadFiles
+    clearHistory,
+    clearIndexedDB,
+    clearLocalStorage,
+    clearSessionStorage
 } from './popup/cleanupHandlers.js';
+import { getDOMElements } from './popup/domElements.js';
+import { bindEventListeners } from './popup/eventHandlers.js';
+import { initialize } from './popup/initialization.js';
+import { initRequestIdleCallbackPolyfill } from './popup/polyfills.js';
 import {
-    normalReload,
-    hardReloadOnly,
     hardReloadCacheOnly,
-    hardReloadPage
+    hardReloadOnly,
+    hardReloadPage,
+    normalReload
 } from './popup/reloadHandlers.js';
 import {
     handleThemeChange,
@@ -69,23 +69,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 立即绑定事件监听器，避免等待异步操作
         bindEventListeners(elements, {
             // 清理操作
-            clearCurrentWebsiteData: () => clearCurrentWebsiteData(elements),
-            clearAllData: () => clearAllData(elements),
-            clearCache: () => clearCache(elements),
-            clearCookies: () => clearCookies(elements),
-            clearLocalStorage: () => clearLocalStorage(elements),
-            clearSessionStorage: () => clearSessionStorage(elements),
-            clearCurrentIndexedDB: () => clearCurrentIndexedDB(elements),
-            clearIndexedDB: () => clearIndexedDB(elements),
-            clearHistory: () => clearHistory(elements),
-            clearDownloads: () => clearDownloads(elements),
-            clearDownloadFiles: () => clearDownloadFiles(elements),
+            clearCurrentWebsiteData: (opts) => clearCurrentWebsiteData(elements, opts),
+            clearAllData: (opts) => clearAllData(elements, opts),
+            clearCache: (opts) => clearCache(elements, opts),
+            clearCookies: (opts) => clearCookies(elements, opts),
+            clearLocalStorage: (opts) => clearLocalStorage(elements, opts),
+            clearSessionStorage: (opts) => clearSessionStorage(elements, opts),
+            clearCurrentIndexedDB: (opts) => clearCurrentIndexedDB(elements, opts),
+            clearIndexedDB: (opts) => clearIndexedDB(elements, opts),
+            clearHistory: (opts) => clearHistory(elements, opts),
+            clearDownloads: (opts) => clearDownloads(elements, opts),
+            clearDownloadFiles: (opts) => clearDownloadFiles(elements, opts),
 
             // 重载操作
             normalReload: () => normalReload(elements),
             hardReloadOnly: () => hardReloadOnly(elements),
             hardReloadCacheOnly: () => hardReloadCacheOnly(elements),
-            hardReloadPage: () => hardReloadPage(elements),
+            hardReloadPage: (opts) => hardReloadPage(elements, opts),
 
             // 设置操作
             handleThemeChange,

@@ -530,5 +530,29 @@
   "deleteFailed": {
     "message": "削除に失敗しました",
     "description": "削除失敗メッセージ"
+  },
+  "confirmDangerous": {
+    "message": "危険な操作の再確認",
+    "description": "危険操作の二重確認トグル"
+  },
+  "silentMode": {
+    "message": "サイレントモード（通知なし）",
+    "description": "サイレントモードトグル"
+  },
+  "confirmDangerousMessage": {
+    "message": "この操作は元に戻せません。続行しますか？",
+    "description": "対象がない場合のフォールバック"
+  },
+  "confirmDangerousMessagePrefix": {
+    "message": "このクリア処理：",
+    "description": "危険操作確認メッセージの前半"
+  },
+  "confirmDangerousMessageSuffix": {
+    "message": " は元に戻せません。続行しますか？",
+    "description": "危険操作確認メッセージの後半"
+  },
+  "confirmDangerousTitle": {
+    "message": "現在の操作を実行しますか？",
+    "description": "危険操作確認タイトル"
   }
 }
