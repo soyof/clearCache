@@ -62,6 +62,15 @@ export function getDOMElements() {
     dangerConfirmOk: document.getElementById('danger-ok'),
     dangerConfirmCancel: document.getElementById('danger-cancel'),
     dangerConfirmMessage: document.querySelector('.danger-confirm-message'),
+
+    // 域名过滤元素
+    filterModeSelect: document.getElementById('filter-mode-select'),
+    whitelistContainer: document.getElementById('whitelist-container'),
+    blacklistContainer: document.getElementById('blacklist-container'),
+    addWhitelistBtn: document.getElementById('add-whitelist-btn'),
+    addBlacklistBtn: document.getElementById('add-blacklist-btn'),
+    whitelistList: document.getElementById('whitelist-list'),
+    blacklistList: document.getElementById('blacklist-list'),
   };
 }
 

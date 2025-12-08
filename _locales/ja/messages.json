@@ -147,6 +147,10 @@
     "message": "💡 ヒント：削除機能は慎重に使用してください。削除されたデータは復元できません",
     "description": "フッターのヒント"
   },
+  "save": {
+    "message": "保存",
+    "description": "保存ボタン"
+  },
   "settingsSaved": {
     "message": "設定が保存されました",
     "description": "設定保存成功メッセージ"
@@ -154,6 +158,10 @@
   "settingsSaveFailed": {
     "message": "設定の保存に失敗しました",
     "description": "設定保存失敗メッセージ"
+  },
+  "saveFailed": {
+    "message": "保存に失敗しました",
+    "description": "保存失敗汎用メッセージ"
   },
   "currentSiteCacheCleared": {
     "message": "🌐 現在のサイトのキャッシュがクリアされました",
@@ -511,6 +519,10 @@
     "message": "この項目を削除してもよろしいですか？",
     "description": "削除確認プロンプト"
   },
+  "confirmDeleteDomain": {
+    "message": "ドメイン \"${domain}\" を削除してもよろしいですか？この操作は元に戻せません。",
+    "description": "ドメイン削除確認プロンプト"
+  },
   "confirm": {
     "message": "確認",
     "description": "確認ボタンのテキスト"
@@ -630,5 +642,89 @@
   "exportFailed": {
     "message": "エクスポートに失敗しました",
     "description": "書き出し失敗ヒント"
+  },
+  "domainFilter": {
+    "message": "ドメインフィルター",
+    "description": "ドメインフィルタータイトル"
+  },
+  "filterMode": {
+    "message": "フィルターモード：",
+    "description": "フィルターモードラベル"
+  },
+  "filterModeDisabled": {
+    "message": "無効",
+    "description": "無効フィルターモード"
+  },
+  "filterModeWhitelist": {
+    "message": "ホワイトリスト",
+    "description": "ホワイトリストフィルターモード"
+  },
+  "filterModeBlacklist": {
+    "message": "ブラックリスト",
+    "description": "ブラックリストフィルターモード"
+  },
+  "whitelist": {
+    "message": "ホワイトリスト",
+    "description": "ホワイトリストタイトル"
+  },
+  "blacklist": {
+    "message": "ブラックリスト",
+    "description": "ブラックリストタイトル"
+  },
+  "add": {
+    "message": "追加",
+    "description": "追加ボタン"
+  },
+  "addDomain": {
+    "message": "ドメインを追加",
+    "description": "ドメイン追加モーダルタイトル"
+  },
+  "addedDomains": {
+    "message": "追加済みドメイン",
+    "description": "追加済みドメインリストタイトル"
+  },
+  "domainAdded": {
+    "message": "ドメインをリストに追加しました",
+    "description": "単一ドメイン追加成功メッセージ"
+  },
+  "domainsAddedSuccess": {
+    "message": "%d 個のドメインを正常に追加しました",
+    "description": "ドメイン一括追加成功メッセージ"
+  },
+  "domainsAddedPartial": {
+    "message": "%d 個のドメインを正常に追加し、%d 個をスキップしました",
+    "description": "ドメイン一括追加部分成功メッセージ"
+  },
+  "domainsAddedFailed": {
+    "message": "すべてのドメインが既に存在するか、無効です",
+    "description": "ドメイン一括追加全失敗メッセージ"
+  },
+  "remove": {
+    "message": "削除",
+    "description": "削除ボタン"
+  },
+  "domainInputPlaceholder": {
+    "message": "ドメインを入力（例：example.com または *.example.com）",
+    "description": "ドメイン入力プレースホルダー"
+  },
+  "domainFilterHint": {
+    "message": "ホワイトリストモード：リスト内のドメインのみクリーンアップ操作を許可；ブラックリストモード：リスト内のドメインのクリーンアップ操作をブロック",
+    "description": "ドメインフィルターヒント"
+  },
+  "domainBlocked": {
+    "message": "このドメインはフィルターされており、この操作を実行できません",
+    "description": "ドメインブロックメッセージ"
+  },
+  "invalidDomain": {
+    "message": "無効なドメイン形式",
+    "description": "無効なドメインメッセージ"
+  },
+  "domainExists": {
+    "message": "ドメインは既に存在します",
+    "description": "ドメイン存在メッセージ"
+  },
+  "noDomains": {
+    "message": "ドメインなし",
+    "description": "空リストメッセージ"
   }
 }

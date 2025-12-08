@@ -136,6 +136,10 @@ export async function handleLanguageIconChange(languageCode, elements) {
             }
             // 更新存储详情弹窗的国际化文本
             updateStorageDetailViewI18n(getMessage);
+            // 更新域名过滤UI的国际化文本
+            if (window.domainFilterUI) {
+                window.domainFilterUI.updateI18n();
+            }
 
             // 更新菜单中的激活状态
             updateLanguageMenuActive(elements);
@@ -254,6 +258,10 @@ export async function handleLanguageChange(event, elements) {
             }
             // 更新存储详情弹窗的国际化文本
             updateStorageDetailViewI18n(getMessage);
+            // 更新域名过滤UI的国际化文本
+            if (window.domainFilterUI) {
+                window.domainFilterUI.updateI18n();
+            }
 
             // 重新调整标签页文本大小
             setTimeout(() => {

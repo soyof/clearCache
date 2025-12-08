@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/storage-usage.css">
     <link rel="stylesheet" href="css/storage-detail.css">
+    <link rel="stylesheet" href="css/domain-add-modal.css">
     <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/status.css">
     <link rel="stylesheet" href="css/themes.css">
@@ -285,6 +286,50 @@
                             <span class="setting-check"></span>
                             <span class="setting-text" data-i18n="notificationSound">通知声音</span>
                         </label>
+                    </div>
+                </div>
+                
+                <!-- 分割线 -->
+                <div class="section-divider"></div>
+                
+                <!-- 域名过滤设置 -->
+                <div class="settings-group">
+                    <div class="group-header">
+                        <span class="group-icon">🛡️</span>
+                        <span class="group-title" data-i18n="domainFilter">域名过滤</span>
+                    </div>
+                    <div class="settings-options">
+                        <div class="filter-mode-selector">
+                            <label class="setting-label" data-i18n="filterMode">过滤模式：</label>
+                            <select id="filter-mode-select" class="filter-mode-select">
+                                <option value="disabled" data-i18n="filterModeDisabled">禁用</option>
+                                <option value="whitelist" data-i18n="filterModeWhitelist">白名单</option>
+                                <option value="blacklist" data-i18n="filterModeBlacklist">黑名单</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 白名单区域 -->
+                        <div id="whitelist-container" class="domain-list-container" style="display: none;">
+                            <div class="domain-list-header">
+                                <span class="domain-list-title" data-i18n="whitelist">白名单</span>
+                                <button id="add-whitelist-btn" class="btn-add-domain" data-i18n="add">添加</button>
+                            </div>
+                            <div id="whitelist-list" class="domain-list"></div>
+                        </div>
+                        
+                        <!-- 黑名单区域 -->
+                        <div id="blacklist-container" class="domain-list-container" style="display: none;">
+                            <div class="domain-list-header">
+                                <span class="domain-list-title" data-i18n="blacklist">黑名单</span>
+                                <button id="add-blacklist-btn" class="btn-add-domain" data-i18n="add">添加</button>
+                            </div>
+                            <div id="blacklist-list" class="domain-list"></div>
+                        </div>
+                        
+                        <div class="filter-hint" data-i18n="domainFilterHint">
+                            白名单模式：仅允许列表中的域名执行清理、右键菜单和存储扫描操作<br>
+                            黑名单模式：阻止列表中的域名执行上述操作
+                        </div>
                     </div>
                 </div>
                 

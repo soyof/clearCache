@@ -4,22 +4,23 @@
  */
 
 import {
-  getMessage,
-  initializePageI18n,
-  initStorageDetailView,
-  StorageUsageView,
-  estimateStorageSize,
-  formatBytes,
-  getCookiesInfo,
-  getStorageUsageViaScript,
-  isRestrictedPage,
-  showStorageDetail,
-  validateStorageCount
+    estimateStorageSize,
+    formatBytes,
+    getCookiesInfo,
+    getMessage,
+    getStorageUsageViaScript,
+    initializePageI18n,
+    initStorageDetailView,
+    isRestrictedPage,
+    showStorageDetail,
+    StorageUsageView,
+    validateStorageCount
 } from '../utils/index.js';
+import domainFilterUI from './domainFilterUI.js';
+import { restoreTabState } from './eventHandlers.js';
+import { initializeAdvancedSettings, loadSettings } from './settingsHandlers.js';
 import { getCurrentTab, getCurrentUrl, setCurrentTab, setCurrentUrl } from './state.js';
 import { formatUrl } from './uiHelpers.js';
-import { loadSettings, initializeAdvancedSettings } from './settingsHandlers.js';
-import { restoreTabState } from './eventHandlers.js';
 
 /**
  * 初始化当前标签页信息
@@ -121,7 +122,12 @@ export async function initialize(elements) {
       }
     }, 300);
 
-    // 第三步：并行执行其他初始化任务
+    // 第三步：初始化域名过滤UI（需要国际化支持）
+    await domainFilterUI.init(elements).catch(err => console.warn('域名过滤UI初始化失败:', err));
+    // 暴露到 window 对象，供其他模块使用
+    window.domainFilterUI = domainFilterUI;
+
+    // 第四步：并行执行其他初始化任务
     const otherInitPromises = [
       loadSettings(elements).catch(err => console.warn('设置加载失败:', err)),
       restoreTabState().catch(err => console.warn('标签页状态恢复失败:', err)),

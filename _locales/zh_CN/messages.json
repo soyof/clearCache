@@ -147,6 +147,10 @@
     "message": "💡 提示：请谨慎使用删除功能，删除的数据无法恢复",
     "description": "页脚提示"
   },
+  "save": {
+    "message": "保存",
+    "description": "保存按钮"
+  },
   "settingsSaved": {
     "message": "设置已保存",
     "description": "设置保存成功消息"
@@ -154,6 +158,10 @@
   "settingsSaveFailed": {
     "message": "保存设置失败",
     "description": "设置保存失败消息"
+  },
+  "saveFailed": {
+    "message": "保存失败",
+    "description": "保存失败通用提示"
   },
   "currentSiteCacheCleared": {
     "message": "🌐 当前网站缓存已清空",
@@ -511,6 +519,10 @@
     "message": "确定要删除此项吗？",
     "description": "删除确认提示"
   },
+  "confirmDeleteDomain": {
+    "message": "确定要删除域名 \"${domain}\" 吗？此操作不可恢复。",
+    "description": "删除域名确认提示"
+  },
   "confirm": {
     "message": "确定",
     "description": "确认按钮文本"
@@ -630,5 +642,89 @@
   "exportFailed": {
     "message": "导出失败",
     "description": "导出失败提示"
+  },
+  "domainFilter": {
+    "message": "域名过滤",
+    "description": "域名过滤标题"
+  },
+  "filterMode": {
+    "message": "过滤模式：",
+    "description": "过滤模式标签"
+  },
+  "filterModeDisabled": {
+    "message": "禁用",
+    "description": "禁用过滤模式"
+  },
+  "filterModeWhitelist": {
+    "message": "白名单",
+    "description": "白名单过滤模式"
+  },
+  "filterModeBlacklist": {
+    "message": "黑名单",
+    "description": "黑名单过滤模式"
+  },
+  "whitelist": {
+    "message": "白名单",
+    "description": "白名单标题"
+  },
+  "blacklist": {
+    "message": "黑名单",
+    "description": "黑名单标题"
+  },
+  "add": {
+    "message": "添加",
+    "description": "添加按钮"
+  },
+  "addDomain": {
+    "message": "添加域名",
+    "description": "添加域名弹窗标题"
+  },
+  "addedDomains": {
+    "message": "已添加域名",
+    "description": "已添加域名列表标题"
+  },
+  "domainAdded": {
+    "message": "域名已添加到列表",
+    "description": "单个域名添加成功提示"
+  },
+  "domainsAddedSuccess": {
+    "message": "成功添加 %d 个域名",
+    "description": "批量添加域名成功提示"
+  },
+  "domainsAddedPartial": {
+    "message": "成功添加 %d 个域名，跳过 %d 个",
+    "description": "批量添加域名部分成功提示"
+  },
+  "domainsAddedFailed": {
+    "message": "所有域名都已存在或格式无效",
+    "description": "批量添加域名全部失败提示"
+  },
+  "remove": {
+    "message": "删除",
+    "description": "删除按钮"
+  },
+  "domainInputPlaceholder": {
+    "message": "输入域名，如 example.com 或 *.example.com",
+    "description": "域名输入框占位符"
+  },
+  "domainFilterHint": {
+    "message": "白名单模式：仅允许列表中的域名执行清理操作；黑名单模式：阻止列表中的域名执行清理操作",
+    "description": "域名过滤提示"
+  },
+  "domainBlocked": {
+    "message": "该域名已被过滤，无法执行此操作",
+    "description": "域名被阻止提示"
+  },
+  "invalidDomain": {
+    "message": "无效的域名格式",
+    "description": "无效域名提示"
+  },
+  "domainExists": {
+    "message": "域名已存在",
+    "description": "域名已存在提示"
+  },
+  "noDomains": {
+    "message": "暂无域名",
+    "description": "空列表提示"
   }
 }

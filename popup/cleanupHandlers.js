@@ -12,6 +12,7 @@ import {
     getMessage
 } from '../utils/index.js';
 import { getCurrentTab } from './state.js';
+import domainFilter from '../utils/domainFilter.js';
 
 /**
  * 执行清理操作
@@ -36,6 +37,22 @@ export async function executeCleanup(
     options = {}
 ) {
     try {
+        // 检查域名过滤（仅对当前网站的操作）
+        if (options.checkDomainFilter !== false) {
+            const currentTab = getCurrentTab();
+            if (currentTab && currentTab.url) {
+                const isAllowed = await domainFilter.isAllowed(currentTab.url, 'cleanup');
+                if (!isAllowed) {
+                    const blockedMessage = getMessage('domainBlocked') || '该域名已被过滤，无法执行清理操作';
+                    if (button) ButtonManager.setError(button);
+                    if (statusElement && statusContainer) {
+                        StatusManager.show(statusElement, statusContainer, blockedMessage, 'warning');
+                    }
+                    return;
+                }
+            }
+        }
+
         const isSilent = options.silent === true;
 
         if (isSilent) {
@@ -88,6 +105,17 @@ export async function clearCurrentWebsiteData(elements, options = {}) {
         if (!currentTab) {
             if (!options.silent) {
                 StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
+            }
+            return;
+        }
+
+        // 检查域名过滤
+        const isAllowed = await domainFilter.isAllowed(currentTab.url, 'cleanup');
+        if (!isAllowed) {
+            const blockedMessage = getMessage('domainBlocked') || '该域名已被过滤，无法执行清理操作';
+            if (!options.silent) {
+                ButtonManager.setError(elements.clearCurrentAll);
+                StatusManager.show(elements.status, elements.statusContainer, blockedMessage, 'warning');
             }
             return;
         }
@@ -151,6 +179,9 @@ export async function clearAllData(elements, options = {}) {
             }
             return;
         }
+
+        // 检查域名过滤（全局清理不受域名过滤限制，但当前网站的清理受限制）
+        // 注意：clearAllData 是全局清理，这里不检查域名过滤
 
         if (options.silent) {
             const settings = await SettingsManager.get([

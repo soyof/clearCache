@@ -50,6 +50,65 @@ function isRestrictedPage(url) {
   return restrictedProtocols.some(protocol => url.startsWith(protocol));
 }
 
+// 从URL提取域名
+function extractDomain(url) {
+  if (!url) return '';
+  try {
+    const urlObj = new URL(url);
+    return urlObj.hostname;
+  } catch (e) {
+    const match = url.match(/^(?:https?:\/\/)?([^\/]+)/);
+    return match ? match[1] : '';
+  }
+}
+
+// 检查域名是否匹配规则
+function matchesDomain(domain, list) {
+  if (!domain || !list || list.length === 0) return false;
+  const normalizedDomain = domain.toLowerCase().trim();
+  return list.some(rule => {
+    const normalizedRule = rule.toLowerCase().trim();
+    if (!normalizedRule) return false;
+    if (normalizedRule === normalizedDomain) return true;
+    if (normalizedRule.startsWith('*.')) {
+      const suffix = normalizedRule.slice(2);
+      return normalizedDomain === suffix || normalizedDomain.endsWith('.' + suffix);
+    }
+    if (normalizedDomain.endsWith('.' + normalizedRule)) return true;
+    return false;
+  });
+}
+
+// 检查域名是否被允许（异步）
+async function isDomainAllowed(url, operation = 'cleanup') {
+  try {
+    const result = await chrome.storage.local.get([
+      'domainWhitelist',
+      'domainBlacklist',
+      'domainFilterMode'
+    ]);
+    
+    const mode = result.domainFilterMode || 'disabled';
+    if (mode === 'disabled') return true;
+    
+    const domain = extractDomain(url);
+    if (!domain) return true;
+    
+    if (mode === 'whitelist') {
+      const whitelist = result.domainWhitelist || [];
+      return matchesDomain(domain, whitelist);
+    } else if (mode === 'blacklist') {
+      const blacklist = result.domainBlacklist || [];
+      return !matchesDomain(domain, blacklist);
+    }
+    
+    return true;
+  } catch (error) {
+    console.warn('检查域名过滤失败:', error);
+    return true; // 出错时默认允许
+  }
+}
+
 // 创建右键菜单（基础菜单，始终显示）
 function createContextMenus() {
   // 清除现有菜单
@@ -145,7 +204,7 @@ function createContextMenus() {
 }
 
 // 处理右键菜单点击
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   // 处理右键菜单点击
 
   try {
@@ -156,6 +215,15 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (isRestricted && cleaningOperations.includes(info.menuItemId)) {
       showNotification('此页面受浏览器保护，无法执行清理操作', 'error');
       return;
+    }
+
+    // 检查域名过滤（仅对清理操作）
+    if (cleaningOperations.includes(info.menuItemId)) {
+      const isAllowed = await isDomainAllowed(tab.url, 'contextMenu');
+      if (!isAllowed) {
+        showNotification(getMessage('domainBlocked') || '该域名已被过滤，无法执行清理操作', 'warning');
+        return;
+      }
     }
 
     switch (info.menuItemId) {

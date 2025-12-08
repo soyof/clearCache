@@ -54,6 +54,22 @@ export class StorageUsageView {
             return;
         }
 
+        // 检查域名过滤（存储扫描）
+        try {
+            // 动态导入域名过滤模块（避免循环依赖）
+            const { default: domainFilter } = await import('./domainFilter.js');
+            const isAllowed = await domainFilter.isAllowed(currentUrl, 'storageScan');
+            if (!isAllowed) {
+                this.container.innerHTML = `
+                    <div class="storage-error" data-i18n="domainBlocked">${this.getMessage('domainBlocked') || '该域名已被过滤，无法执行存储扫描'}</div>
+                `;
+                return;
+            }
+        } catch (error) {
+            // 如果域名过滤模块加载失败，继续执行（避免阻塞功能）
+            console.warn('域名过滤检查失败:', error);
+        }
+
         try {
             // 显示加载状态
             this.container.innerHTML = `

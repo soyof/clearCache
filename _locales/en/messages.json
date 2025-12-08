@@ -147,6 +147,10 @@
     "message": "💡 Tip: Use delete functions carefully, deleted data cannot be recovered",
     "description": "Footer tip"
   },
+  "save": {
+    "message": "Save",
+    "description": "Save button"
+  },
   "settingsSaved": {
     "message": "Settings saved",
     "description": "Settings saved success message"
@@ -154,6 +158,10 @@
   "settingsSaveFailed": {
     "message": "Failed to save settings",
     "description": "Settings save failed message"
+  },
+  "saveFailed": {
+    "message": "Save failed",
+    "description": "Generic save failed message"
   },
   "currentSiteCacheCleared": {
     "message": "🌐 Current site cache cleared",
@@ -511,6 +519,10 @@
     "message": "Are you sure you want to delete this item?",
     "description": "Delete confirmation prompt"
   },
+  "confirmDeleteDomain": {
+    "message": "Are you sure you want to delete domain \"${domain}\"? This action cannot be undone.",
+    "description": "Delete domain confirmation prompt"
+  },
   "confirm": {
     "message": "Confirm",
     "description": "Confirm button text"
@@ -630,5 +642,89 @@
   "exportFailed": {
     "message": "Export failed",
     "description": "Export failed hint"
+  },
+  "domainFilter": {
+    "message": "Domain Filter",
+    "description": "Domain filter title"
+  },
+  "filterMode": {
+    "message": "Filter Mode:",
+    "description": "Filter mode label"
+  },
+  "filterModeDisabled": {
+    "message": "Disabled",
+    "description": "Disabled filter mode"
+  },
+  "filterModeWhitelist": {
+    "message": "Whitelist",
+    "description": "Whitelist filter mode"
+  },
+  "filterModeBlacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist filter mode"
+  },
+  "whitelist": {
+    "message": "Whitelist",
+    "description": "Whitelist title"
+  },
+  "blacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist title"
+  },
+  "add": {
+    "message": "Add",
+    "description": "Add button"
+  },
+  "addDomain": {
+    "message": "Add Domain",
+    "description": "Add domain modal title"
+  },
+  "addedDomains": {
+    "message": "Added Domains",
+    "description": "Added domains list title"
+  },
+  "domainAdded": {
+    "message": "Domain added to list",
+    "description": "Single domain added success message"
+  },
+  "domainsAddedSuccess": {
+    "message": "Successfully added %d domains",
+    "description": "Batch add domains success message"
+  },
+  "domainsAddedPartial": {
+    "message": "Successfully added %d domains, skipped %d",
+    "description": "Batch add domains partial success message"
+  },
+  "domainsAddedFailed": {
+    "message": "All domains already exist or are invalid",
+    "description": "Batch add domains all failed message"
+  },
+  "remove": {
+    "message": "Remove",
+    "description": "Remove button"
+  },
+  "domainInputPlaceholder": {
+    "message": "Enter domain, e.g. example.com or *.example.com",
+    "description": "Domain input placeholder"
+  },
+  "domainFilterHint": {
+    "message": "Whitelist mode: Only allow cleanup operations on listed domains; Blacklist mode: Block cleanup operations on listed domains",
+    "description": "Domain filter hint"
+  },
+  "domainBlocked": {
+    "message": "This domain is filtered and cannot perform this operation",
+    "description": "Domain blocked message"
+  },
+  "invalidDomain": {
+    "message": "Invalid domain format",
+    "description": "Invalid domain message"
+  },
+  "domainExists": {
+    "message": "Domain already exists",
+    "description": "Domain exists message"
+  },
+  "noDomains": {
+    "message": "No domains",
+    "description": "Empty list message"
   }
 }

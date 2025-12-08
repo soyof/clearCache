@@ -147,6 +147,10 @@
     "message": "💡 Consejo: Use las funciones de eliminación con cuidado, los datos eliminados no se pueden recuperar",
     "description": "Consejo del pie de página"
   },
+  "save": {
+    "message": "Guardar",
+    "description": "Botón guardar"
+  },
   "settingsSaved": {
     "message": "Configuración guardada",
     "description": "Mensaje de éxito de configuración guardada"
@@ -511,6 +515,10 @@
     "message": "¿Está seguro de que desea eliminar este elemento?",
     "description": "Solicitud de confirmación de eliminación"
   },
+  "confirmDeleteDomain": {
+    "message": "¿Está seguro de que desea eliminar el dominio \"${domain}\"? Esta acción no se puede deshacer.",
+    "description": "Solicitud de confirmación de eliminación de dominio"
+  },
   "confirm": {
     "message": "Confirmar",
     "description": "Texto del botón confirmar"
@@ -630,5 +638,89 @@
   "exportFailed": {
     "message": "Exportación fallida",
     "description": "Aviso de exportación fallida"
+  },
+  "domainFilter": {
+    "message": "Filtro de dominio",
+    "description": "Título filtro dominio"
+  },
+  "filterMode": {
+    "message": "Modo de filtrado:",
+    "description": "Etiqueta modo filtrado"
+  },
+  "filterModeDisabled": {
+    "message": "Desactivado",
+    "description": "Modo filtrado desactivado"
+  },
+  "filterModeWhitelist": {
+    "message": "Lista blanca",
+    "description": "Modo filtrado lista blanca"
+  },
+  "filterModeBlacklist": {
+    "message": "Lista negra",
+    "description": "Modo filtrado lista negra"
+  },
+  "whitelist": {
+    "message": "Lista blanca",
+    "description": "Título lista blanca"
+  },
+  "blacklist": {
+    "message": "Lista negra",
+    "description": "Título lista negra"
+  },
+  "add": {
+    "message": "Añadir",
+    "description": "Botón añadir"
+  },
+  "addDomain": {
+    "message": "Añadir dominio",
+    "description": "Título del modal de añadir dominio"
+  },
+  "addedDomains": {
+    "message": "Dominios añadidos",
+    "description": "Título de la lista de dominios añadidos"
+  },
+  "domainAdded": {
+    "message": "Dominio añadido a la lista",
+    "description": "Mensaje de éxito de añadir un solo dominio"
+  },
+  "domainsAddedSuccess": {
+    "message": "%d dominios añadidos con éxito",
+    "description": "Mensaje de éxito de añadir dominios en lote"
+  },
+  "domainsAddedPartial": {
+    "message": "%d dominios añadidos con éxito, %d omitidos",
+    "description": "Mensaje de éxito parcial de añadir dominios en lote"
+  },
+  "domainsAddedFailed": {
+    "message": "Todos los dominios ya existen o son inválidos",
+    "description": "Mensaje de fallo completo de añadir dominios en lote"
+  },
+  "remove": {
+    "message": "Eliminar",
+    "description": "Botón eliminar"
+  },
+  "domainInputPlaceholder": {
+    "message": "Ingrese dominio, ej. example.com o *.example.com",
+    "description": "Placeholder entrada dominio"
+  },
+  "domainFilterHint": {
+    "message": "Modo lista blanca: Permitir operaciones de limpieza solo en dominios listados; Modo lista negra: Bloquear operaciones de limpieza en dominios listados",
+    "description": "Indicación filtro dominio"
+  },
+  "domainBlocked": {
+    "message": "Este dominio está filtrado y no puede realizar esta operación",
+    "description": "Mensaje dominio bloqueado"
+  },
+  "invalidDomain": {
+    "message": "Formato de dominio inválido",
+    "description": "Mensaje dominio inválido"
+  },
+  "domainExists": {
+    "message": "El dominio ya existe",
+    "description": "Mensaje dominio existente"
+  },
+  "noDomains": {
+    "message": "Sin dominios",
+    "description": "Mensaje lista vacía"
   }
 }

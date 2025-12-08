@@ -147,6 +147,10 @@
     "message": "💡 Tipp: Verwenden Sie Löschfunktionen vorsichtig, gelöschte Daten können nicht wiederhergestellt werden",
     "description": "Fußzeilen-Tipp"
   },
+  "save": {
+    "message": "Speichern",
+    "description": "Speichern Button"
+  },
   "settingsSaved": {
     "message": "Einstellungen gespeichert",
     "description": "Erfolgsmeldung für gespeicherte Einstellungen"
@@ -511,6 +515,10 @@
     "message": "Möchten Sie diesen Eintrag wirklich löschen?",
     "description": "Löschbestätigungsaufforderung"
   },
+  "confirmDeleteDomain": {
+    "message": "Möchten Sie die Domain \"${domain}\" wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "description": "Domain-Löschbestätigungsaufforderung"
+  },
   "confirm": {
     "message": "Bestätigen",
     "description": "Bestätigen Button Text"
@@ -630,5 +638,89 @@
   "exportFailed": {
     "message": "Export fehlgeschlagen",
     "description": "Export Fehler Hinweis"
+  },
+  "domainFilter": {
+    "message": "Domain-Filter",
+    "description": "Domain-Filter Titel"
+  },
+  "filterMode": {
+    "message": "Filtermodus:",
+    "description": "Filtermodus Label"
+  },
+  "filterModeDisabled": {
+    "message": "Deaktiviert",
+    "description": "Deaktivierter Filtermodus"
+  },
+  "filterModeWhitelist": {
+    "message": "Whitelist",
+    "description": "Whitelist Filtermodus"
+  },
+  "filterModeBlacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist Filtermodus"
+  },
+  "whitelist": {
+    "message": "Whitelist",
+    "description": "Whitelist Titel"
+  },
+  "blacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist Titel"
+  },
+  "add": {
+    "message": "Hinzufügen",
+    "description": "Hinzufügen Button"
+  },
+  "addDomain": {
+    "message": "Domain hinzufügen",
+    "description": "Domain hinzufügen Modal-Titel"
+  },
+  "addedDomains": {
+    "message": "Hinzugefügte Domains",
+    "description": "Titel der Liste hinzugefügter Domains"
+  },
+  "domainAdded": {
+    "message": "Domain zur Liste hinzugefügt",
+    "description": "Erfolgsmeldung für einzelne Domain"
+  },
+  "domainsAddedSuccess": {
+    "message": "%d Domains erfolgreich hinzugefügt",
+    "description": "Erfolgsmeldung für Batch-Hinzufügen von Domains"
+  },
+  "domainsAddedPartial": {
+    "message": "%d Domains erfolgreich hinzugefügt, %d übersprungen",
+    "description": "Teilweise Erfolgsmeldung für Batch-Hinzufügen von Domains"
+  },
+  "domainsAddedFailed": {
+    "message": "Alle Domains existieren bereits oder sind ungültig",
+    "description": "Fehlermeldung für vollständiges Versagen beim Batch-Hinzufügen von Domains"
+  },
+  "remove": {
+    "message": "Entfernen",
+    "description": "Entfernen Button"
+  },
+  "domainInputPlaceholder": {
+    "message": "Domain eingeben, z.B. example.com oder *.example.com",
+    "description": "Domain Eingabe Platzhalter"
+  },
+  "domainFilterHint": {
+    "message": "Whitelist-Modus: Nur Bereinigungsvorgänge auf gelisteten Domains zulassen; Blacklist-Modus: Bereinigungsvorgänge auf gelisteten Domains blockieren",
+    "description": "Domain-Filter Hinweis"
+  },
+  "domainBlocked": {
+    "message": "Diese Domain ist gefiltert und kann diese Operation nicht ausführen",
+    "description": "Domain blockiert Nachricht"
+  },
+  "invalidDomain": {
+    "message": "Ungültiges Domain-Format",
+    "description": "Ungültige Domain Nachricht"
+  },
+  "domainExists": {
+    "message": "Domain existiert bereits",
+    "description": "Domain existiert Nachricht"
+  },
+  "noDomains": {
+    "message": "Keine Domains",
+    "description": "Leere Liste Nachricht"
   }
 }

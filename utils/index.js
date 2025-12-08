@@ -12,4 +12,5 @@ export * from './storageDetailView.js';
 export * from './storageUsage.js';
 export * from './storageUsageView.js';
 export * from './ui.js';
+export { default as domainFilter } from './domainFilter.js';
 
