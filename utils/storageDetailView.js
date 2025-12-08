@@ -566,7 +566,9 @@ class StorageDetailView {
             if (format === 'csv') {
                 const rows = this.toCsvRows(data.type, data.items);
                 content = rows.map(r => r.map(this.escapeCsv).join(',')).join('\n');
-                mime = 'text/csv';
+                // 添加 UTF-8 BOM 以支持 Excel 正确识别中文编码
+                content = '\uFEFF' + content;
+                mime = 'text/csv;charset=utf-8';
             } else {
                 content = JSON.stringify(data.items, null, 2);
             }
