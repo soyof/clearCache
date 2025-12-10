@@ -1,0 +1,56 @@
+name: Tag On Version Change
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Detect version change and tag
+        env:
+          FILE: manifest.json
+        run: |
+          set -euo pipefail
+
+          if [ ! -f "$FILE" ]; then
+            echo "版本文件 $FILE 不存在，跳过。"
+            exit 0
+          fi
+
+          current_version=$(node -e "const fs=require('fs'); const d=fs.readFileSync('$FILE','utf8'); console.log(JSON.parse(d).version)")
+          echo "当前版本: $current_version"
+
+          prev_version=$(git show HEAD~1:"$FILE" 2>/dev/null | node -e "const fs=require('fs'); const d=fs.readFileSync(0,'utf8'); try{console.log(JSON.parse(d).version || '')} catch{console.log('')}" || true)
+          echo "上一提交版本: ${prev_version:-<无>}"
+
+          if [ "$current_version" = "$prev_version" ]; then
+            echo "版本未变化，跳过。"
+            exit 0
+          fi
+
+          tag="缓存清理助手-${current_version}"
+
+          if git rev-parse "$tag" >/dev/null 2>&1; then
+            echo "标签 $tag 已存在，跳过。"
+            exit 0
+          fi
+
+          git tag -a "$tag" -m "Release $tag"
+          git push origin "$tag"
+          echo "已创建并推送标签: $tag"
