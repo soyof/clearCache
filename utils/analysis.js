@@ -5,6 +5,10 @@ const summaryDomains = () => document.getElementById('summary-domains');
 const summaryItems = () => document.getElementById('summary-items');
 const summarySize = () => document.getElementById('summary-size');
 const searchInput = () => document.getElementById('analysis-search');
+const chartTypesCanvas = () => document.getElementById('chart-types');
+const chartTopCanvas = () => document.getElementById('chart-top-domains');
+const chartTypesLegend = () => document.getElementById('chart-types-legend');
+const chartTopLegend = () => document.getElementById('chart-top-domains-legend');
 
 let cachedDomains = [];
 
@@ -95,7 +99,7 @@ async function collectData() {
     try {
       const url = new URL(tab.url || '');
       hostToTab.set(url.hostname, tab.id);
-    } catch (_) {}
+    } catch (_) { }
   });
 
   // 扫描已打开标签页的存储
@@ -177,11 +181,11 @@ async function clearDomain(domain) {
             func: async () => {
               try {
                 sessionStorage.clear();
-              } catch (_) {}
+              } catch (_) { }
               try {
                 const names = await caches.keys();
                 await Promise.all(names.map((n) => caches.delete(n)));
-              } catch (_) {}
+              } catch (_) { }
             },
           })
           .catch(() => null)
@@ -288,6 +292,8 @@ function applyFilter() {
     ? cachedDomains.filter((d) => d.domain.toLowerCase().includes(kw))
     : cachedDomains;
   render(filtered);
+  // 图表始终基于全量数据，不受搜索过滤影响
+  renderCharts(cachedDomains);
 }
 
 async function init() {
@@ -329,4 +335,173 @@ async function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+const chartColors = {
+  local: '#78dbff',
+  session: '#9dd0ff',
+  indexed: '#ffbf80',
+  cache: '#c0b2ff',
+  cookies: '#ff9bbb',
+  total: '#78dbff',
+};
+
+function prepareCanvas(canvas) {
+  if (!canvas) return null;
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  // 记录 CSS 尺寸后将画布按 DPR 放大，避免高分屏模糊
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return null;
+  if (ctx.resetTransform) ctx.resetTransform();
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, rect.width, rect.height);
+  return { ctx, width: rect.width, height: rect.height };
+}
+
+function buildLegend(container, items) {
+  if (!container) return;
+  container.innerHTML = items
+    .map(
+      (item) => `
+        <div class="legend-item">
+          <span class="legend-dot" style="background:${item.color}"></span>
+          <span class="legend-label">${item.label}</span>
+          <span class="legend-value">${item.value}</span>
+        </div>
+      `
+    )
+    .join('');
+}
+
+function drawDonut(canvas, data) {
+  const prep = prepareCanvas(canvas);
+  if (!prep) return;
+  const { ctx, width, height } = prep;
+  const total = data.reduce((s, d) => s + d.value, 0);
+  if (!total) return;
+
+  const centerX = width / 2;
+  const centerY = height / 2;
+  const outerR = Math.min(centerX, centerY) - 10;
+  const innerR = outerR * 0.6;
+
+  let start = -Math.PI / 2;
+  data.forEach((d) => {
+    const angle = (d.value / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY);
+    ctx.arc(centerX, centerY, outerR, start, start + angle);
+    ctx.closePath();
+    ctx.fillStyle = d.color;
+    ctx.fill();
+    start += angle;
+  });
+
+  ctx.globalCompositeOperation = 'destination-out';
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, innerR, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalCompositeOperation = 'source-over';
+
+  ctx.fillStyle = '#e8f4ff';
+  ctx.font = '600 14px "Segoe UI", Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText(getMessage('total') || '总计', centerX, centerY - 4);
+  ctx.font = '700 16px "Segoe UI", Arial';
+  ctx.fillText(formatBytes(total), centerX, centerY + 18);
+}
+
+function drawHorizontalBars(canvas, items) {
+  const prep = prepareCanvas(canvas);
+  if (!prep) return;
+  const { ctx, width, height } = prep;
+  if (!items.length) return;
+
+  const padding = 20;
+  const barHeight = 28;
+  const gap = 8;
+  const max = Math.max(...items.map((i) => i.value), 1);
+
+  items.forEach((item, index) => {
+    const y = padding + index * (barHeight + gap);
+    // 确保不超出画布高度
+    if (y + barHeight > height - padding) return;
+
+    const w = ((width - padding * 2) * item.value) / max;
+    ctx.fillStyle = chartColors.total;
+    ctx.globalAlpha = 0.28;
+    ctx.fillRect(padding, y, width - padding * 2, barHeight);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = chartColors.total;
+    ctx.fillRect(padding, y, w, barHeight);
+
+    ctx.fillStyle = '#e8f4ff';
+    ctx.font = '600 13px "Segoe UI", Arial';
+    ctx.textAlign = 'left';
+    ctx.fillText(item.label, padding + 8, y + barHeight / 2 + 5);
+
+    ctx.fillStyle = '#ffd9a6';
+    ctx.font = '700 13px "Segoe UI", Arial';
+    ctx.textAlign = 'right';
+    ctx.fillText(formatBytes(item.value), width - padding - 8, y + barHeight / 2 + 5);
+  });
+}
+
+function renderCharts(domains) {
+  if (!domains || !domains.length) return;
+
+  const typesData = [
+    {
+      key: 'local',
+      label: getMessage('localStorage') || 'LocalStorage',
+      value: domains.reduce((s, d) => s + d.local.size, 0),
+      color: chartColors.local,
+    },
+    {
+      key: 'session',
+      label: getMessage('sessionStorage') || 'SessionStorage',
+      value: domains.reduce((s, d) => s + d.session.size, 0),
+      color: chartColors.session,
+    },
+    {
+      key: 'indexed',
+      label: getMessage('indexedDB') || 'IndexedDB',
+      value: domains.reduce((s, d) => s + d.indexed.size, 0),
+      color: chartColors.indexed,
+    },
+    {
+      key: 'cache',
+      label: getMessage('cacheAPI') || 'Cache',
+      value: domains.reduce((s, d) => s + d.cache.size, 0),
+      color: chartColors.cache,
+    },
+    {
+      key: 'cookies',
+      label: getMessage('cookies') || 'Cookies',
+      value: domains.reduce((s, d) => s + d.cookies.size, 0),
+      color: chartColors.cookies,
+    },
+  ].filter((item) => item.value > 0);
+
+  const typesCanvasEl = chartTypesCanvas();
+  drawDonut(typesCanvasEl, typesData);
+  buildLegend(
+    chartTypesLegend(),
+    typesData.map((d) => ({ color: d.color, label: d.label, value: formatBytes(d.value) }))
+  );
+
+  const topDomains = [...domains]
+    .map((d) => ({
+      label: d.domain,
+      value: d.local.size + d.session.size + d.indexed.size + d.cache.size + d.cookies.size,
+    }))
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 10); // 展示前十
+
+  const topCanvasEl = chartTopCanvas();
+  if (!topCanvasEl) return;
+  drawHorizontalBars(topCanvasEl, topDomains);
+}
 

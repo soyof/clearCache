@@ -587,6 +587,14 @@
     "message": "Taille estimée",
     "description": "Libellé taille totale"
   },
+  "analysisChartTypes": {
+    "message": "Par type de stockage",
+    "description": "Titre du graphique répartition par type"
+  },
+  "analysisChartTopDomains": {
+    "message": "Top domaines (par taille)",
+    "description": "Titre du graphique top domaines par taille"
+  },
   "analysisClearDomain": {
     "message": "Effacer ce domaine",
     "description": "Bouton effacer domaine"

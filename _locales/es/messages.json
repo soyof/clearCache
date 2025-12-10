@@ -587,6 +587,14 @@
     "message": "Tamaño estimado",
     "description": "Etiqueta tamaño total"
   },
+  "analysisChartTypes": {
+    "message": "Por tipo de almacenamiento",
+    "description": "Título de gráfica por tipo de almacenamiento"
+  },
+  "analysisChartTopDomains": {
+    "message": "Dominios principales (por tamaño)",
+    "description": "Título de gráfica de dominios principales por tamaño"
+  },
   "analysisClearDomain": {
     "message": "Borrar dominio",
     "description": "Texto botón borrar dominio"

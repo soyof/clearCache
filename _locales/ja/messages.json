@@ -591,6 +591,14 @@
     "message": "推定サイズ",
     "description": "合計サイズラベル"
   },
+  "analysisChartTypes": {
+    "message": "ストレージ種別別",
+    "description": "ストレージ種別の分布グラフタイトル"
+  },
+  "analysisChartTopDomains": {
+    "message": "トップドメイン（サイズ順）",
+    "description": "トップドメイン（サイズ順）グラフタイトル"
+  },
   "analysisClearDomain": {
     "message": "このドメインを削除",
     "description": "ドメイン削除ボタンテキスト"

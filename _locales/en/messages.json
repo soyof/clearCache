@@ -591,6 +591,14 @@
     "message": "Estimated size",
     "description": "Total size label"
   },
+  "analysisChartTypes": {
+    "message": "By storage type",
+    "description": "Chart title for storage type distribution"
+  },
+  "analysisChartTopDomains": {
+    "message": "Top domains (by size)",
+    "description": "Chart title for top domains by size"
+  },
   "analysisClearDomain": {
     "message": "Clear domain",
     "description": "Clear domain button text"

@@ -587,6 +587,14 @@
     "message": "Оценочный размер",
     "description": "Метка общего размера"
   },
+  "analysisChartTypes": {
+    "message": "По типам хранилищ",
+    "description": "Заголовок графика распределения по типам"
+  },
+  "analysisChartTopDomains": {
+    "message": "Топ доменов (по размеру)",
+    "description": "Заголовок графика топ доменов по размеру"
+  },
   "analysisClearDomain": {
     "message": "Очистить домен",
     "description": "Текст кнопки очистки домена"

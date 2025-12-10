@@ -230,7 +230,8 @@ export async function initializePageI18n() {
       }
 
       // 加载语言包
-      await loadLanguageMessages(effectiveLanguage);
+      // 强制重新加载，确保新增文案及时生效（避免本地缓存旧版本导致缺词）
+      await loadLanguageMessages(effectiveLanguage, true);
       currentUserLanguage = effectiveLanguage;
     }
 

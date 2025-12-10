@@ -131,6 +131,89 @@ body.analysis-body {
   color: var(--text-primary-color, #f5f7fa);
 }
 
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 12px;
+}
+
+.chart-card {
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(120, 219, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chart-card canvas {
+  width: 100%;
+  display: block;
+  height: auto;
+  min-height: 260px;
+}
+
+/* Top 域名画布高度调整为 10 条：10*(28+8)+40=400 */
+#chart-top-domains {
+  height: 400px !important;
+}
+
+.chart-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary-color, #f5f7fa);
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+/* 仅隐藏 Top 域名图例 */
+#chart-top-domains-legend {
+  display: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  flex: 0 1 220px;
+  min-width: 200px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+}
+
+.legend-label {
+  flex: 1 0 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.legend-value {
+  color: #ffd9a6;
+  font-weight: 650;
+  white-space: nowrap;
+  margin-left: 2px;
+}
+
 .table-wrapper {
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);

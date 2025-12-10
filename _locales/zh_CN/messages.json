@@ -591,6 +591,14 @@
     "message": "估算大小",
     "description": "总大小标签"
   },
+  "analysisChartTypes": {
+    "message": "按存储类型分布",
+    "description": "分析页存储类型分布图标题"
+  },
+  "analysisChartTopDomains": {
+    "message": "Top 域名（按估算大小）",
+    "description": "分析页 Top 域名图表标题"
+  },
   "analysisClearDomain": {
     "message": "清除此域",
     "description": "清理域按钮文本"

@@ -587,6 +587,14 @@
     "message": "Geschätzte Größe",
     "description": "Gesamtgröße Label"
   },
+  "analysisChartTypes": {
+    "message": "Nach Speicher-Typ",
+    "description": "Diagrammtitel für Speicher-Typ Verteilung"
+  },
+  "analysisChartTopDomains": {
+    "message": "Top-Domains (nach Größe)",
+    "description": "Diagrammtitel für Top-Domains nach Größe"
+  },
   "analysisClearDomain": {
     "message": "Diese Domain löschen",
     "description": "Domain löschen Button"

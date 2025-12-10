@@ -587,6 +587,14 @@
     "message": "추정 크기",
     "description": "총 크기 라벨"
   },
+  "analysisChartTypes": {
+    "message": "저장소 유형별",
+    "description": "저장소 유형 분포 차트 제목"
+  },
+  "analysisChartTopDomains": {
+    "message": "상위 도메인(크기 기준)",
+    "description": "크기 기준 상위 도메인 차트 제목"
+  },
   "analysisClearDomain": {
     "message": "이 도메인 삭제",
     "description": "도메인 삭제 버튼 텍스트"
