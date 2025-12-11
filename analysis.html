@@ -6,8 +6,26 @@
     <title data-i18n="analysisTitle">全局存储分析</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/analysis.css">
+    <script src="plugins/chart.umd.min.js"></script>
 </head>
 <body class="analysis-body">
+    <!-- 右下角浮动按钮和导航菜单 -->
+    <div class="chart-nav-container hidden">
+        <button id="chart-scroll-top" class="chart-scroll-top" aria-label="滚动到顶部" title="滚动到顶部">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </button>
+        <button id="chart-nav-toggle" class="chart-nav-toggle" aria-label="图表导航">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div id="chart-nav" class="chart-navigation"></div>
+    </div>
+
     <div class="analysis-container">
         <header class="analysis-header">
             <div>
@@ -20,6 +38,11 @@
                 <button id="clear-all-domains" class="btn btn-danger" data-i18n="analysisClearAll">清除所有域</button>
             </div>
         </header>
+
+        <div class="analysis-tabs">
+            <button class="tab-btn active" data-tab="table" data-i18n="analysisTabTable">表格</button>
+            <button class="tab-btn" data-tab="charts" data-i18n="analysisTabCharts">图表</button>
+        </div>
 
         <section class="summary">
             <div class="summary-item">
@@ -36,7 +59,7 @@
             </div>
         </section>
 
-        <section class="table-wrapper">
+        <section class="table-wrapper tab-content" data-tab-content="table">
             <div class="table-head">
                 <div class="col domain" data-i18n="domain">域名</div>
                 <div class="col" data-i18n="localStorage">LocalStorage</div>
@@ -52,16 +75,147 @@
             </div>
         </section>
 
-        <section class="chart-grid">
+        <section class="chart-grid tab-content hidden" data-tab-content="charts">
+            <div id="section-types" class="chart-divider" data-i18n="analysisSectionTypes">存储类型视角</div>
             <div class="chart-card">
                 <div class="chart-title" data-i18n="analysisChartTypes">按存储类型分布</div>
                 <canvas id="chart-types" aria-label="storage types chart"></canvas>
-                <div class="chart-legend" id="chart-types-legend"></div>
             </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartTypesCount">按存储类型条目数分布</div>
+                <canvas id="chart-types-count" aria-label="storage types count chart"></canvas>
+            </div>
+
+            <div id="section-domains" class="chart-divider" data-i18n="analysisSectionDomains">域名视角</div>
             <div class="chart-card">
                 <div class="chart-title" data-i18n="analysisChartTopDomains">Top 域名（按估算大小）</div>
                 <canvas id="chart-top-domains" aria-label="top domains chart"></canvas>
-                <div class="chart-legend" id="chart-top-domains-legend"></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartTopDomainsCount">Top 域名（按条目数）</div>
+                <canvas id="chart-top-domains-count" aria-label="top domains by items chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartTopCookies">Top 域名（按 Cookies 大小）</div>
+                <canvas id="chart-top-cookies" aria-label="top cookies chart"></canvas>
+            </div>
+
+            <div id="section-stacks" class="chart-divider" data-i18n="analysisSectionStacks">域名 × 类型视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartDomainTypeSize">Top 域名存储类型堆叠（大小）</div>
+                <canvas id="chart-domain-type-size" aria-label="domain type stacked size"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartDomainTypeCount">Top 域名存储类型堆叠（条目数）</div>
+                <canvas id="chart-domain-type-count" aria-label="domain type stacked count"></canvas>
+            </div>
+
+            <div id="section-quality" class="chart-divider" data-i18n="analysisSectionQuality">存储质量与风险</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartSizeBuckets">存储条目大小分布</div>
+                <canvas id="chart-size-buckets" aria-label="size buckets chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartCookiesSecurity">Cookies 安全属性</div>
+                <canvas id="chart-cookies-security" aria-label="cookies security chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartCookiesExpiry">Cookies 过期分布</div>
+                <canvas id="chart-cookies-expiry" aria-label="cookies expiry chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartCookiesExpiringSoon">7 天内即将过期的 Cookies 域名 Top</div>
+                <canvas id="chart-cookies-expiring-soon" aria-label="cookies expiring soon chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartQuality">存储质量/风险</div>
+                <div id="quality-list" class="quality-list"></div>
+            </div>
+
+            <div id="section-efficiency" class="chart-divider" data-i18n="analysisSectionEfficiency">效率与密度视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartAvgItemSize">各存储类型平均条目大小</div>
+                <canvas id="chart-avg-item-size" aria-label="average item size chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartStorageDensity">域名存储密度分布</div>
+                <canvas id="chart-storage-density" aria-label="storage density chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartSizeItemScatter">域名大小与条目数散点图</div>
+                <canvas id="chart-size-item-scatter" aria-label="size item scatter chart"></canvas>
+            </div>
+
+            <div id="section-concentration" class="chart-divider" data-i18n="analysisSectionConcentration">集中度视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartConcentration">存储集中度分析（帕累托图）</div>
+                <canvas id="chart-concentration" aria-label="concentration chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartTopDomainRatio">Top 域名占比分析</div>
+                <canvas id="chart-top-domain-ratio" aria-label="top domain ratio chart"></canvas>
+            </div>
+
+            <div id="section-distribution" class="chart-divider" data-i18n="analysisSectionDistribution">分布视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartSizeDistribution">域名大小分布直方图</div>
+                <canvas id="chart-size-distribution" aria-label="size distribution chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartItemDistribution">域名条目数分布直方图</div>
+                <canvas id="chart-item-distribution" aria-label="item distribution chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartStorageUsage">存储类型使用率</div>
+                <canvas id="chart-storage-usage" aria-label="storage usage chart"></canvas>
+            </div>
+
+            <div id="section-comparison" class="chart-divider" data-i18n="analysisSectionComparison">对比视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartTypeEfficiency">存储类型效率对比</div>
+                <canvas id="chart-type-efficiency" aria-label="type efficiency chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartDomainPreference">域名存储类型偏好</div>
+                <canvas id="chart-domain-preference" aria-label="domain preference chart"></canvas>
+            </div>
+
+            <div id="section-security" class="chart-divider" data-i18n="analysisSectionSecurity">安全与风险视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartInsecureCookies">不安全 Cookies 域名 Top</div>
+                <canvas id="chart-insecure-cookies" aria-label="insecure cookies chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartExpiredCookies">过期 Cookies 域名分布</div>
+                <canvas id="chart-expired-cookies" aria-label="expired cookies chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartSecurityCombination">Cookies 安全属性组合分析</div>
+                <canvas id="chart-security-combination" aria-label="security combination chart"></canvas>
+            </div>
+
+            <div id="section-segmentation" class="chart-divider" data-i18n="analysisSectionSegmentation">细分视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartTLDDistribution">按顶级域名（TLD）分组统计</div>
+                <canvas id="chart-tld-distribution" aria-label="tld distribution chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartDomainLength">按域名长度分组统计</div>
+                <canvas id="chart-domain-length" aria-label="domain length chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartStorageCombination">按存储类型组合分组</div>
+                <canvas id="chart-storage-combination" aria-label="storage combination chart"></canvas>
+            </div>
+
+            <div id="section-statistics" class="chart-divider" data-i18n="analysisSectionStatistics">统计摘要视角</div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartStatistics">存储统计摘要</div>
+                <div id="statistics-list" class="quality-list"></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title" data-i18n="analysisChartBoxPlot">存储类型大小分布箱线图</div>
+                <canvas id="chart-box-plot" aria-label="box plot chart"></canvas>
             </div>
         </section>
     </div>
@@ -70,4 +224,3 @@
     <script type="module" src="utils/analysis.js"></script>
 </body>
 </html>
-

@@ -595,9 +595,417 @@
     "message": "By storage type",
     "description": "Chart title for storage type distribution"
   },
+  "analysisChartTypesCount": {
+    "message": "By storage type (items)",
+    "description": "Chart title for storage type count distribution"
+  },
   "analysisChartTopDomains": {
     "message": "Top domains (by size)",
     "description": "Chart title for top domains by size"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Top domains (by items)",
+    "description": "Chart title for top domains by item count"
+  },
+  "analysisChartTopCookies": {
+    "message": "Top domains (by Cookies size)",
+    "description": "Chart title for top domains by cookies size"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Top domains by storage type (size)",
+    "description": "Stacked size by storage type"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Top domains by storage type (items)",
+    "description": "Stacked count by storage type"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "Storage item size distribution",
+    "description": "Size bucket chart"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies security attributes",
+    "description": "Cookies secure/HttpOnly/SameSite chart"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies expiry distribution",
+    "description": "Cookies expiry bucket chart"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "Top domains with cookies expiring in 7 days",
+    "description": "Expiring soon cookies top domains"
+  },
+  "analysisTabTable": {
+    "message": "Table",
+    "description": "Tab label"
+  },
+  "analysisTabCharts": {
+    "message": "Charts",
+    "description": "Tab label"
+  },
+  "analysisChartQuality": {
+    "message": "Storage quality / risk",
+    "description": "Chart title for quality metrics"
+  },
+  "qualityLocalJsonFail": {
+    "message": "LocalStorage JSON parse fails",
+    "description": "Metric label"
+  },
+  "qualitySessionJsonFail": {
+    "message": "SessionStorage JSON parse fails",
+    "description": "Metric label"
+  },
+  "qualityLocalLarge": {
+    "message": "LocalStorage oversized keys (>100KB)",
+    "description": "Metric label"
+  },
+  "qualitySessionLarge": {
+    "message": "SessionStorage oversized keys (>100KB)",
+    "description": "Metric label"
+  },
+  "analysisSectionStacks": {
+    "message": "Domain and storage type view",
+    "description": "Section title for stacked charts"
+  },
+  "analysisSectionQuality": {
+    "message": "Quality & risk",
+    "description": "Section title for quality and risk charts"
+  },
+  "analysisSectionEfficiency": {
+    "message": "Efficiency & density view",
+    "description": "Section title for efficiency and density charts"
+  },
+  "analysisSectionConcentration": {
+    "message": "Concentration view",
+    "description": "Section title for concentration charts"
+  },
+  "analysisSectionDistribution": {
+    "message": "Distribution view",
+    "description": "Section title for distribution charts"
+  },
+  "analysisSectionComparison": {
+    "message": "Comparison view",
+    "description": "Section title for comparison charts"
+  },
+  "analysisSectionSecurity": {
+    "message": "Security & risk view",
+    "description": "Section title for security and risk charts"
+  },
+  "analysisSectionSegmentation": {
+    "message": "Segmentation view",
+    "description": "Section title for segmentation charts"
+  },
+  "analysisSectionStatistics": {
+    "message": "Statistics summary view",
+    "description": "Section title for statistics summary charts"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "Average item size by storage type",
+    "description": "Average item size chart title"
+  },
+  "analysisChartStorageDensity": {
+    "message": "Domain storage density distribution",
+    "description": "Storage density chart title"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "Domain size vs item count scatter plot",
+    "description": "Scatter plot chart title"
+  },
+  "analysisChartConcentration": {
+    "message": "Storage concentration analysis (Pareto chart)",
+    "description": "Concentration chart title"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Top domain ratio analysis",
+    "description": "Ratio analysis chart title"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "Domain size distribution histogram",
+    "description": "Size distribution chart title"
+  },
+  "analysisChartItemDistribution": {
+    "message": "Domain item count distribution histogram",
+    "description": "Item count distribution chart title"
+  },
+  "analysisChartStorageUsage": {
+    "message": "Storage type usage rate",
+    "description": "Usage rate chart title"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "Storage type efficiency comparison",
+    "description": "Efficiency comparison chart title"
+  },
+  "analysisChartDomainPreference": {
+    "message": "Domain storage type preference",
+    "description": "Preference chart title"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "Top domains with insecure cookies",
+    "description": "Insecure cookies chart title"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "Expired cookies domain distribution",
+    "description": "Expired cookies chart title"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies security attribute combination analysis",
+    "description": "Security combination chart title"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "Grouped statistics by top-level domain (TLD)",
+    "description": "TLD distribution chart title"
+  },
+  "analysisChartDomainLength": {
+    "message": "Grouped statistics by domain length",
+    "description": "Domain length chart title"
+  },
+  "analysisChartStorageCombination": {
+    "message": "Grouped by storage type combination",
+    "description": "Storage combination chart title"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON parse failure rate (by domain)",
+    "description": "JSON failure rate chart title"
+  },
+  "analysisChartLargeKeys": {
+    "message": "Oversized keys distribution (by domain)",
+    "description": "Large keys distribution chart title"
+  },
+  "analysisChartQualityComparison": {
+    "message": "Storage type quality comparison",
+    "description": "Quality comparison chart title"
+  },
+  "analysisChartStatistics": {
+    "message": "Storage statistics summary",
+    "description": "Statistics summary chart title"
+  },
+  "analysisChartBoxPlot": {
+    "message": "Storage type size distribution box plot",
+    "description": "Box plot chart title"
+  },
+  "avgSize": {
+    "message": "Average size",
+    "description": "Average size label"
+  },
+  "perItem": {
+    "message": "Per item",
+    "description": "Per item label"
+  },
+  "concentration": {
+    "message": "Concentration",
+    "description": "Concentration label"
+  },
+  "cumulativeRatio": {
+    "message": "Cumulative ratio",
+    "description": "Cumulative ratio label"
+  },
+  "domainCount": {
+    "message": "Domain count",
+    "description": "Domain count label"
+  },
+  "sizeRange": {
+    "message": "Size range",
+    "description": "Size range label"
+  },
+  "itemRange": {
+    "message": "Item count range",
+    "description": "Item count range label"
+  },
+  "usageRate": {
+    "message": "Usage rate",
+    "description": "Usage rate label"
+  },
+  "efficiency": {
+    "message": "Efficiency",
+    "description": "Efficiency label"
+  },
+  "preference": {
+    "message": "Preference",
+    "description": "Preference label"
+  },
+  "insecure": {
+    "message": "Insecure",
+    "description": "Insecure label"
+  },
+  "expired": {
+    "message": "Expired",
+    "description": "Expired label"
+  },
+  "securityCombination": {
+    "message": "Security attribute combination",
+    "description": "Security attribute combination label"
+  },
+  "topLevelDomain": {
+    "message": "Top-level domain",
+    "description": "Top-level domain label"
+  },
+  "domainLength": {
+    "message": "Domain length",
+    "description": "Domain length label"
+  },
+  "storageCombination": {
+    "message": "Storage type combination",
+    "description": "Storage type combination label"
+  },
+  "jsonFailRate": {
+    "message": "JSON failure rate",
+    "description": "JSON failure rate label"
+  },
+  "largeKeys": {
+    "message": "Large keys",
+    "description": "Large keys label"
+  },
+  "qualityComparison": {
+    "message": "Quality comparison",
+    "description": "Quality comparison label"
+  },
+  "statistics": {
+    "message": "Statistics",
+    "description": "Statistics label"
+  },
+  "min": {
+    "message": "Min",
+    "description": "Min label"
+  },
+  "max": {
+    "message": "Max",
+    "description": "Max label"
+  },
+  "median": {
+    "message": "Median",
+    "description": "Median label"
+  },
+  "average": {
+    "message": "Average",
+    "description": "Average label"
+  },
+  "avgItemSize": {
+    "message": "Average item size",
+    "description": "Average item size label"
+  },
+  "domains": {
+    "message": "domains",
+    "description": "Domain unit"
+  },
+  "itemCount": {
+    "message": "Item count",
+    "description": "Item count label"
+  },
+  "ratio": {
+    "message": "Ratio",
+    "description": "Ratio label"
+  },
+  "localOnly": {
+    "message": "LocalStorage only",
+    "description": "LocalStorage only label"
+  },
+  "cookiesOnly": {
+    "message": "Cookies only",
+    "description": "Cookies only label"
+  },
+  "mixed": {
+    "message": "Mixed usage",
+    "description": "Mixed usage label"
+  },
+  "insecureCookies": {
+    "message": "Insecure cookies",
+    "description": "Insecure cookies label"
+  },
+  "expiredCookies": {
+    "message": "Expired cookies",
+    "description": "Expired cookies label"
+  },
+  "cookieCount": {
+    "message": "Cookie count",
+    "description": "Cookie count label"
+  },
+  "short": {
+    "message": "Short (<10)",
+    "description": "Short domain label"
+  },
+  "medium": {
+    "message": "Medium (10-20)",
+    "description": "Medium domain label"
+  },
+  "long": {
+    "message": "Long (20-30)",
+    "description": "Long domain label"
+  },
+  "veryLong": {
+    "message": "Very long (>30)",
+    "description": "Very long domain label"
+  },
+  "none": {
+    "message": "None",
+    "description": "None label"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorage and Cookies combination label"
+  },
+  "all": {
+    "message": "All types",
+    "description": "All types label"
+  },
+  "other": {
+    "message": "Other combinations",
+    "description": "Other combinations label"
+  },
+  "minSize": {
+    "message": "Min size",
+    "description": "Min size label"
+  },
+  "maxSize": {
+    "message": "Max size",
+    "description": "Max size label"
+  },
+  "medianSize": {
+    "message": "Median size",
+    "description": "Median size label"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "First quartile label"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "Third quartile label"
+  },
+  "totalSize": {
+    "message": "Total size",
+    "description": "Total size label"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7 days",
+    "description": "Cookies expiry bucket"
+  },
+  "cookiesExpiryLt30d": {
+    "message": "≤30 days",
+    "description": "Cookies expiry bucket"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180 days",
+    "description": "Cookies expiry bucket"
+  },
+  "cookiesExpiryGt180d": {
+    "message": "≥180 days",
+    "description": "Cookies expiry bucket"
+  },
+  "cookiesExpiryNo": {
+    "message": "No expiry",
+    "description": "Cookies expiry bucket"
+  },
+  "cookiesExpiryExpired": {
+    "message": "Expired",
+    "description": "Cookies expiry bucket"
+  },
+  "analysisSectionTypes": {
+    "message": "Storage type view",
+    "description": "Section label for storage type charts"
+  },
+  "analysisSectionDomains": {
+    "message": "Domain view",
+    "description": "Section label for domain top charts"
   },
   "analysisClearDomain": {
     "message": "Clear domain",

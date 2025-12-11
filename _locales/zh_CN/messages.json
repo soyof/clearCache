@@ -595,9 +595,413 @@
     "message": "按存储类型分布",
     "description": "分析页存储类型分布图标题"
   },
+  "analysisChartTypesCount": {
+    "message": "按存储类型条目数分布",
+    "description": "分析页存储类型条目分布图标题"
+  },
   "analysisChartTopDomains": {
     "message": "Top 域名（按估算大小）",
     "description": "分析页 Top 域名图表标题"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Top 域名（按条目数）",
+    "description": "分析页 Top 域名（按条目数）图表标题"
+  },
+  "analysisChartTopCookies": {
+    "message": "Top 域名（按 Cookies 大小）",
+    "description": "分析页 Top Cookies 域名图表标题"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Top 域名存储类型堆叠（大小）",
+    "description": "域名存储类型堆叠大小图"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Top 域名存储类型堆叠（条目数）",
+    "description": "域名存储类型堆叠条目数图"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "存储条目大小分布",
+    "description": "存储大小分桶图"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies 安全属性",
+    "description": "Cookies 安全属性图"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies 过期分布",
+    "description": "Cookies 过期分布图"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "7 天内即将过期的 Cookies 域名 Top",
+    "description": "Cookies 即将过期域名 Top 图"
+  },
+  "analysisTabTable": {
+    "message": "表格",
+    "description": "Tab 标签"
+  },
+  "analysisTabCharts": {
+    "message": "图表",
+    "description": "Tab 标签"
+  },
+  "analysisChartQuality": {
+    "message": "存储质量 / 风险",
+    "description": "存储质量指标卡片标题"
+  },
+  "qualityLocalJsonFail": {
+    "message": "LocalStorage JSON 解析失败数",
+    "description": "质量指标"
+  },
+  "qualitySessionJsonFail": {
+    "message": "SessionStorage JSON 解析失败数",
+    "description": "质量指标"
+  },
+  "qualityLocalLarge": {
+    "message": "LocalStorage 超大键 (>100KB)",
+    "description": "质量指标"
+  },
+  "qualitySessionLarge": {
+    "message": "SessionStorage 超大键 (>100KB)",
+    "description": "质量指标"
+  },
+  "analysisSectionStacks": {
+    "message": "域名与类型视角",
+    "description": "域名类型分组小标题"
+  },
+  "analysisSectionQuality": {
+    "message": "存储质量与风险",
+    "description": "质量风险分组小标题"
+  },
+  "analysisSectionEfficiency": {
+    "message": "效率与密度视角",
+    "description": "效率密度分组小标题"
+  },
+  "analysisSectionConcentration": {
+    "message": "集中度视角",
+    "description": "集中度分组小标题"
+  },
+  "analysisSectionDistribution": {
+    "message": "分布视角",
+    "description": "分布分组小标题"
+  },
+  "analysisSectionComparison": {
+    "message": "对比视角",
+    "description": "对比分组小标题"
+  },
+  "analysisSectionSecurity": {
+    "message": "安全与风险视角",
+    "description": "安全风险分组小标题"
+  },
+  "analysisSectionSegmentation": {
+    "message": "细分视角",
+    "description": "细分分组小标题"
+  },
+  "analysisSectionStatistics": {
+    "message": "统计摘要视角",
+    "description": "统计摘要分组小标题"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "各存储类型平均条目大小",
+    "description": "平均条目大小图表标题"
+  },
+  "analysisChartStorageDensity": {
+    "message": "域名存储密度分布",
+    "description": "存储密度图表标题"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "域名大小与条目数散点图",
+    "description": "散点图标题"
+  },
+  "analysisChartConcentration": {
+    "message": "存储集中度分析（帕累托图）",
+    "description": "集中度图表标题"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Top 域名占比分析",
+    "description": "占比分析图表标题"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "域名大小分布直方图",
+    "description": "大小分布图表标题"
+  },
+  "analysisChartItemDistribution": {
+    "message": "域名条目数分布直方图",
+    "description": "条目数分布图表标题"
+  },
+  "analysisChartStorageUsage": {
+    "message": "存储类型使用率",
+    "description": "使用率图表标题"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "存储类型效率对比",
+    "description": "效率对比图表标题"
+  },
+  "analysisChartDomainPreference": {
+    "message": "域名存储类型偏好",
+    "description": "偏好图表标题"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "不安全 Cookies 域名 Top",
+    "description": "不安全Cookies图表标题"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "过期 Cookies 域名分布",
+    "description": "过期Cookies图表标题"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies 安全属性组合分析",
+    "description": "安全组合图表标题"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "按顶级域名（TLD）分组统计",
+    "description": "TLD分布图表标题"
+  },
+  "analysisChartDomainLength": {
+    "message": "按域名长度分组统计",
+    "description": "域名长度图表标题"
+  },
+  "analysisChartStorageCombination": {
+    "message": "按存储类型组合分组",
+    "description": "存储组合图表标题"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON 解析失败率（按域名）",
+    "description": "JSON失败率图表标题"
+  },
+  "analysisChartLargeKeys": {
+    "message": "超大键分布（按域名）",
+    "description": "超大键分布图表标题"
+  },
+  "analysisChartQualityComparison": {
+    "message": "存储类型质量对比",
+    "description": "质量对比图表标题"
+  },
+  "analysisChartStatistics": {
+    "message": "存储统计摘要",
+    "description": "统计摘要图表标题"
+  },
+  "analysisChartBoxPlot": {
+    "message": "存储类型大小分布箱线图",
+    "description": "箱线图标题"
+  },
+  "avgSize": {
+    "message": "平均大小",
+    "description": "平均大小标签"
+  },
+  "perItem": {
+    "message": "每项",
+    "description": "每项标签"
+  },
+  "concentration": {
+    "message": "集中度",
+    "description": "集中度标签"
+  },
+  "cumulativeRatio": {
+    "message": "累计占比",
+    "description": "累计占比标签"
+  },
+  "domainCount": {
+    "message": "域名数量",
+    "description": "域名数量标签"
+  },
+  "sizeRange": {
+    "message": "大小区间",
+    "description": "大小区间标签"
+  },
+  "itemRange": {
+    "message": "条目数区间",
+    "description": "条目数区间标签"
+  },
+  "usageRate": {
+    "message": "使用率",
+    "description": "使用率标签"
+  },
+  "efficiency": {
+    "message": "效率",
+    "description": "效率标签"
+  },
+  "preference": {
+    "message": "偏好",
+    "description": "偏好标签"
+  },
+  "insecure": {
+    "message": "不安全",
+    "description": "不安全标签"
+  },
+  "expired": {
+    "message": "已过期",
+    "description": "已过期标签"
+  },
+  "securityCombination": {
+    "message": "安全属性组合",
+    "description": "安全属性组合标签"
+  },
+  "topLevelDomain": {
+    "message": "顶级域名",
+    "description": "顶级域名标签"
+  },
+  "domainLength": {
+    "message": "域名长度",
+    "description": "域名长度标签"
+  },
+  "storageCombination": {
+    "message": "存储类型组合",
+    "description": "存储类型组合标签"
+  },
+  "jsonFailRate": {
+    "message": "JSON 失败率",
+    "description": "JSON失败率标签"
+  },
+  "largeKeys": {
+    "message": "超大键",
+    "description": "超大键标签"
+  },
+  "qualityComparison": {
+    "message": "质量对比",
+    "description": "质量对比标签"
+  },
+  "statistics": {
+    "message": "统计",
+    "description": "统计标签"
+  },
+  "min": {
+    "message": "最小值",
+    "description": "最小值标签"
+  },
+  "max": {
+    "message": "最大值",
+    "description": "最大值标签"
+  },
+  "median": {
+    "message": "中位数",
+    "description": "中位数标签"
+  },
+  "average": {
+    "message": "平均值",
+    "description": "平均值标签"
+  },
+  "avgItemSize": {
+    "message": "平均条目大小",
+    "description": "平均条目大小标签"
+  },
+  "domains": {
+    "message": "个域名",
+    "description": "域名单位"
+  },
+  "itemCount": {
+    "message": "条目数",
+    "description": "条目数标签"
+  },
+  "ratio": {
+    "message": "占比",
+    "description": "占比标签"
+  },
+  "localOnly": {
+    "message": "仅 LocalStorage",
+    "description": "仅LocalStorage标签"
+  },
+  "cookiesOnly": {
+    "message": "仅 Cookies",
+    "description": "仅Cookies标签"
+  },
+  "mixed": {
+    "message": "混合使用",
+    "description": "混合使用标签"
+  },
+  "insecureCookies": {
+    "message": "不安全 Cookies",
+    "description": "不安全Cookies标签"
+  },
+  "expiredCookies": {
+    "message": "过期 Cookies",
+    "description": "过期Cookies标签"
+  },
+  "cookieCount": {
+    "message": "Cookies 数量",
+    "description": "Cookies数量标签"
+  },
+  "short": {
+    "message": "短 (<10)",
+    "description": "短域名标签"
+  },
+  "medium": {
+    "message": "中 (10-20)",
+    "description": "中等域名标签"
+  },
+  "long": {
+    "message": "长 (20-30)",
+    "description": "长域名标签"
+  },
+  "veryLong": {
+    "message": "很长 (>30)",
+    "description": "很长域名标签"
+  },
+  "none": {
+    "message": "无",
+    "description": "无标签"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorage和Cookies组合标签"
+  },
+  "all": {
+    "message": "全部类型",
+    "description": "全部类型标签"
+  },
+  "other": {
+    "message": "其他组合",
+    "description": "其他组合标签"
+  },
+  "minSize": {
+    "message": "最小大小",
+    "description": "最小大小标签"
+  },
+  "maxSize": {
+    "message": "最大大小",
+    "description": "最大大小标签"
+  },
+  "medianSize": {
+    "message": "中位数大小",
+    "description": "中位数大小标签"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "第一四分位数标签"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "第三四分位数标签"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7天",
+    "description": "Cookies 过期分桶"
+  },
+  "cookiesExpiryLt30d": {
+    "message": "≤30天",
+    "description": "Cookies 过期分桶"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180天",
+    "description": "Cookies 过期分桶"
+  },
+  "cookiesExpiryGt180d": {
+    "message": "≥180天",
+    "description": "Cookies 过期分桶"
+  },
+  "cookiesExpiryNo": {
+    "message": "无过期",
+    "description": "Cookies 过期分桶"
+  },
+  "cookiesExpiryExpired": {
+    "message": "已过期",
+    "description": "Cookies 过期分桶"
+  },
+  "analysisSectionTypes": {
+    "message": "存储类型视角",
+    "description": "存储类型分组小标题"
+  },
+  "analysisSectionDomains": {
+    "message": "域名视角",
+    "description": "域名分组小标题"
   },
   "analysisClearDomain": {
     "message": "清除此域",

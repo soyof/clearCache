@@ -9,11 +9,18 @@
  * @returns {string} 格式化后的大小
  */
 export function formatBytes(bytes) {
-    if (bytes === 0) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    try {
+        if (typeof bytes !== 'number' || isNaN(bytes) || bytes < 0) return '0 B';
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB', 'GB'];
+        const i = Math.min(Math.floor(Math.log(bytes) / Math.log(k)), sizes.length - 1);
+        const value = bytes / Math.pow(k, i);
+        const unit = sizes[i] || 'B';
+        return Math.round(value * 100) / 100 + ' ' + unit;
+    } catch (e) {
+        return '0 B';
+    }
 }
 
 /**

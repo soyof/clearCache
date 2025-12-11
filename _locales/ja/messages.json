@@ -595,9 +595,421 @@
     "message": "ストレージ種別別",
     "description": "ストレージ種別の分布グラフタイトル"
   },
+  "analysisChartTypesCount": {
+    "message": "ストレージ種別別（項目数）",
+    "description": "ストレージ種別の項目数分布グラフタイトル"
+  },
   "analysisChartTopDomains": {
     "message": "トップドメイン（サイズ順）",
     "description": "トップドメイン（サイズ順）グラフタイトル"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "トップドメイン（項目数順）",
+    "description": "トップドメイン（項目数順）グラフタイトル"
+  },
+  "analysisChartTopCookies": {
+    "message": "トップドメイン（Cookies サイズ順）",
+    "description": "トップドメイン（Cookies サイズ順）グラフタイトル"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "トップドメインのストレージ種別（サイズ）",
+    "description": "ストレージ種別別サイズ積み上げグラフ"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "トップドメインのストレージ種別（項目数）",
+    "description": "ストレージ種別別項目数積み上げグラフ"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "ストレージ項目サイズ分布",
+    "description": "サイズバケットグラフ"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies セキュリティ属性",
+    "description": "Cookies Secure/HttpOnly/SameSite グラフ"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies 有効期限分布",
+    "description": "Cookies 有効期限バケットグラフ"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "7日以内に期限切れになる Cookies のトップドメイン",
+    "description": "まもなく期限切れ Cookies トップドメイン"
+  },
+  "analysisTabTable": {
+    "message": "テーブル",
+    "description": "タブラベル"
+  },
+  "analysisTabCharts": {
+    "message": "グラフ",
+    "description": "タブラベル"
+  },
+  "analysisChartQuality": {
+    "message": "ストレージ品質 / リスク",
+    "description": "品質指標グラフタイトル"
+  },
+  "qualityLocalJsonFail": {
+    "message": "LocalStorage JSON 解析失敗数",
+    "description": "指標ラベル"
+  },
+  "qualitySessionJsonFail": {
+    "message": "SessionStorage JSON 解析失敗数",
+    "description": "指標ラベル"
+  },
+  "qualityLocalLarge": {
+    "message": "LocalStorage 超大キー (>100KB)",
+    "description": "指標ラベル"
+  },
+  "qualitySessionLarge": {
+    "message": "SessionStorage 超大キー (>100KB)",
+    "description": "指標ラベル"
+  },
+  "analysisSectionStacks": {
+    "message": "ドメインとストレージ種別ビュー",
+    "description": "積み上げチャートのセクション見出し"
+  },
+  "analysisSectionQuality": {
+    "message": "ストレージ品質とリスク",
+    "description": "品質リスクグループ小見出し"
+  },
+  "analysisSectionEfficiency": {
+    "message": "効率と密度ビュー",
+    "description": "効率密度グループ小見出し"
+  },
+  "analysisSectionConcentration": {
+    "message": "集中度ビュー",
+    "description": "集中度グループ小見出し"
+  },
+  "analysisSectionDistribution": {
+    "message": "分布ビュー",
+    "description": "分布グループ小見出し"
+  },
+  "analysisSectionComparison": {
+    "message": "比較ビュー",
+    "description": "比較グループ小見出し"
+  },
+  "analysisSectionSecurity": {
+    "message": "セキュリティとリスクビュー",
+    "description": "セキュリティリスクグループ小見出し"
+  },
+  "analysisSectionSegmentation": {
+    "message": "セグメンテーションビュー",
+    "description": "セグメンテーショングループ小見出し"
+  },
+  "analysisSectionStatistics": {
+    "message": "統計サマリービュー",
+    "description": "統計サマリーグループ小見出し"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "ストレージ種別別平均項目サイズ",
+    "description": "平均項目サイズグラフタイトル"
+  },
+  "analysisChartStorageDensity": {
+    "message": "ドメインストレージ密度分布",
+    "description": "ストレージ密度グラフタイトル"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "ドメインサイズと項目数散布図",
+    "description": "散布図タイトル"
+  },
+  "analysisChartConcentration": {
+    "message": "ストレージ集中度分析（パレート図）",
+    "description": "集中度グラフタイトル"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "トップドメイン比率分析",
+    "description": "比率分析グラフタイトル"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "ドメインサイズ分布ヒストグラム",
+    "description": "サイズ分布グラフタイトル"
+  },
+  "analysisChartItemDistribution": {
+    "message": "ドメイン項目数分布ヒストグラム",
+    "description": "項目数分布グラフタイトル"
+  },
+  "analysisChartStorageUsage": {
+    "message": "ストレージ種別使用率",
+    "description": "使用率グラフタイトル"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "ストレージ種別効率比較",
+    "description": "効率比較グラフタイトル"
+  },
+  "analysisChartDomainPreference": {
+    "message": "ドメインストレージ種別選好",
+    "description": "選好グラフタイトル"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "安全でない Cookies のトップドメイン",
+    "description": "安全でないCookiesグラフタイトル"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "期限切れ Cookies ドメイン分布",
+    "description": "期限切れCookiesグラフタイトル"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies セキュリティ属性組み合わせ分析",
+    "description": "セキュリティ組み合わせグラフタイトル"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "トップレベルドメイン（TLD）別グループ統計",
+    "description": "TLD分布グラフタイトル"
+  },
+  "analysisChartDomainLength": {
+    "message": "ドメイン長別グループ統計",
+    "description": "ドメイン長グラフタイトル"
+  },
+  "analysisChartStorageCombination": {
+    "message": "ストレージ種別組み合わせ別グループ",
+    "description": "ストレージ組み合わせグラフタイトル"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON 解析失敗率（ドメイン別）",
+    "description": "JSON失敗率グラフタイトル"
+  },
+  "analysisChartLargeKeys": {
+    "message": "超大キー分布（ドメイン別）",
+    "description": "超大キー分布グラフタイトル"
+  },
+  "analysisChartQualityComparison": {
+    "message": "ストレージ種別品質比較",
+    "description": "品質比較グラフタイトル"
+  },
+  "analysisChartStatistics": {
+    "message": "ストレージ統計サマリー",
+    "description": "統計サマリーグラフタイトル"
+  },
+  "analysisChartBoxPlot": {
+    "message": "ストレージ種別サイズ分布ボックスプロット",
+    "description": "ボックスプロットタイトル"
+  },
+  "avgSize": {
+    "message": "平均サイズ",
+    "description": "平均サイズラベル"
+  },
+  "perItem": {
+    "message": "項目あたり",
+    "description": "項目あたりラベル"
+  },
+  "concentration": {
+    "message": "集中度",
+    "description": "集中度ラベル"
+  },
+  "cumulativeRatio": {
+    "message": "累積比率",
+    "description": "累積比率ラベル"
+  },
+  "domainCount": {
+    "message": "ドメイン数",
+    "description": "ドメイン数ラベル"
+  },
+  "sizeRange": {
+    "message": "サイズ範囲",
+    "description": "サイズ範囲ラベル"
+  },
+  "itemRange": {
+    "message": "項目数範囲",
+    "description": "項目数範囲ラベル"
+  },
+  "usageRate": {
+    "message": "使用率",
+    "description": "使用率ラベル"
+  },
+  "efficiency": {
+    "message": "効率",
+    "description": "効率ラベル"
+  },
+  "preference": {
+    "message": "選好",
+    "description": "選好ラベル"
+  },
+  "insecure": {
+    "message": "安全でない",
+    "description": "安全でないラベル"
+  },
+  "expired": {
+    "message": "期限切れ",
+    "description": "期限切れラベル"
+  },
+  "securityCombination": {
+    "message": "セキュリティ属性組み合わせ",
+    "description": "セキュリティ属性組み合わせラベル"
+  },
+  "topLevelDomain": {
+    "message": "トップレベルドメイン",
+    "description": "トップレベルドメインラベル"
+  },
+  "domainLength": {
+    "message": "ドメイン長",
+    "description": "ドメイン長ラベル"
+  },
+  "storageCombination": {
+    "message": "ストレージ種別組み合わせ",
+    "description": "ストレージ種別組み合わせラベル"
+  },
+  "jsonFailRate": {
+    "message": "JSON 失敗率",
+    "description": "JSON失敗率ラベル"
+  },
+  "largeKeys": {
+    "message": "超大キー",
+    "description": "超大キーラベル"
+  },
+  "qualityComparison": {
+    "message": "品質比較",
+    "description": "品質比較ラベル"
+  },
+  "statistics": {
+    "message": "統計",
+    "description": "統計ラベル"
+  },
+  "min": {
+    "message": "最小",
+    "description": "最小ラベル"
+  },
+  "max": {
+    "message": "最大",
+    "description": "最大ラベル"
+  },
+  "median": {
+    "message": "中央値",
+    "description": "中央値ラベル"
+  },
+  "average": {
+    "message": "平均",
+    "description": "平均ラベル"
+  },
+  "avgItemSize": {
+    "message": "平均項目サイズ",
+    "description": "平均項目サイズラベル"
+  },
+  "domains": {
+    "message": "ドメイン",
+    "description": "ドメイン単位"
+  },
+  "itemCount": {
+    "message": "項目数",
+    "description": "項目数ラベル"
+  },
+  "ratio": {
+    "message": "比率",
+    "description": "比率ラベル"
+  },
+  "localOnly": {
+    "message": "LocalStorage のみ",
+    "description": "LocalStorageのみラベル"
+  },
+  "cookiesOnly": {
+    "message": "Cookies のみ",
+    "description": "Cookiesのみラベル"
+  },
+  "mixed": {
+    "message": "混合使用",
+    "description": "混合使用ラベル"
+  },
+  "insecureCookies": {
+    "message": "安全でない Cookies",
+    "description": "安全でないCookiesラベル"
+  },
+  "expiredCookies": {
+    "message": "期限切れ Cookies",
+    "description": "期限切れCookiesラベル"
+  },
+  "cookieCount": {
+    "message": "Cookies 数",
+    "description": "Cookies数ラベル"
+  },
+  "short": {
+    "message": "短い (<10)",
+    "description": "短いドメインラベル"
+  },
+  "medium": {
+    "message": "中 (10-20)",
+    "description": "中程度ドメインラベル"
+  },
+  "long": {
+    "message": "長い (20-30)",
+    "description": "長いドメインラベル"
+  },
+  "veryLong": {
+    "message": "非常に長い (>30)",
+    "description": "非常に長いドメインラベル"
+  },
+  "none": {
+    "message": "なし",
+    "description": "なしラベル"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorageとCookies組み合わせラベル"
+  },
+  "all": {
+    "message": "すべてのタイプ",
+    "description": "すべてのタイプラベル"
+  },
+  "other": {
+    "message": "その他の組み合わせ",
+    "description": "その他の組み合わせラベル"
+  },
+  "minSize": {
+    "message": "最小サイズ",
+    "description": "最小サイズラベル"
+  },
+  "maxSize": {
+    "message": "最大サイズ",
+    "description": "最大サイズラベル"
+  },
+  "medianSize": {
+    "message": "中央値サイズ",
+    "description": "中央値サイズラベル"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "第一四分位数ラベル"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "第三四分位数ラベル"
+  },
+  "totalSize": {
+    "message": "合計サイズ",
+    "description": "合計サイズラベル"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7日",
+    "description": "Cookies 有効期限バケット"
+  },
+  "cookiesExpiryLt30d": {
+    "message": "≤30日",
+    "description": "Cookies 有効期限バケット"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180日",
+    "description": "Cookies 有効期限バケット"
+  },
+  "cookiesExpiryGt180d": {
+    "message": "≥180日",
+    "description": "Cookies 有効期限バケット"
+  },
+  "cookiesExpiryNo": {
+    "message": "有効期限なし",
+    "description": "Cookies 有効期限バケット"
+  },
+  "cookiesExpiryExpired": {
+    "message": "期限切れ",
+    "description": "Cookies 有効期限バケット"
+  },
+  "analysisSectionTypes": {
+    "message": "ストレージ種別ビュー",
+    "description": "ストレージ種別チャートのセクション見出し"
+  },
+  "analysisSectionDomains": {
+    "message": "ドメインビュー",
+    "description": "ドメインチャートのセクション見出し"
+  },
+  "analysisSectionStacks": {
+    "message": "ドメインとストレージ種別ビュー",
+    "description": "積み上げチャートのセクション見出し"
   },
   "analysisClearDomain": {
     "message": "このドメインを削除",

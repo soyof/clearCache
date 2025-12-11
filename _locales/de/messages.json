@@ -591,9 +591,389 @@
     "message": "Nach Speicher-Typ",
     "description": "Diagrammtitel für Speicher-Typ Verteilung"
   },
+  "analysisChartTypesCount": {
+    "message": "Nach Speicher-Typ (Anzahl)",
+    "description": "Diagrammtitel für Speicher-Typ Verteilung nach Anzahl"
+  },
   "analysisChartTopDomains": {
     "message": "Top-Domains (nach Größe)",
     "description": "Diagrammtitel für Top-Domains nach Größe"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Top-Domains (nach Anzahl)",
+    "description": "Diagrammtitel für Top-Domains nach Anzahl"
+  },
+  "analysisChartTopCookies": {
+    "message": "Top-Domains (nach Cookie-Größe)",
+    "description": "Diagrammtitel für Top-Domains nach Cookie-Größe"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Top-Domains nach Speichertyp (Größe)",
+    "description": "Gestapelte Größe nach Speichertyp"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Top-Domains nach Speichertyp (Anzahl)",
+    "description": "Gestapelte Anzahl nach Speichertyp"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "Verteilung der Speichergrößen",
+    "description": "Größen-Bucket-Diagramm"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies Sicherheitsattribute",
+    "description": "Secure/HttpOnly/SameSite Diagramm"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies Ablaufverteilung",
+    "description": "Ablauf-Bucket-Diagramm"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "Top-Domains mit Cookies, die in 7 Tagen ablaufen",
+    "description": "Bald ablaufende Cookies Top-Domains"
+  },
+  "analysisSectionStacks": {
+    "message": "Domain und Speichertyp",
+    "description": "Abschnittstitel für gestapelte Diagramme"
+  },
+  "analysisSectionQuality": {
+    "message": "Qualität & Risiko",
+    "description": "Abschnittstitel für Qualitäts-/Risikodiagramme"
+  },
+  "analysisSectionEfficiency": {
+    "message": "Effizienz & Dichte",
+    "description": "Abschnittstitel für Effizienz-/Dichtediagramme"
+  },
+  "analysisSectionConcentration": {
+    "message": "Konzentration",
+    "description": "Abschnittstitel für Konzentrationsdiagramme"
+  },
+  "analysisSectionDistribution": {
+    "message": "Verteilung",
+    "description": "Abschnittstitel für Verteilungsdiagramme"
+  },
+  "analysisSectionComparison": {
+    "message": "Vergleich",
+    "description": "Abschnittstitel für Vergleichsdiagramme"
+  },
+  "analysisSectionSecurity": {
+    "message": "Sicherheit & Risiko",
+    "description": "Abschnittstitel für Sicherheits-/Risikodiagramme"
+  },
+  "analysisSectionSegmentation": {
+    "message": "Segmentierung",
+    "description": "Abschnittstitel für Segmentierungsdiagramme"
+  },
+  "analysisSectionStatistics": {
+    "message": "Statistik-Zusammenfassung",
+    "description": "Abschnittstitel für Statistik-Zusammenfassungsdiagramme"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "Durchschnittliche Eintragsgröße nach Speichertyp",
+    "description": "Durchschnittliche Eintragsgröße Diagrammtitel"
+  },
+  "analysisChartStorageDensity": {
+    "message": "Domain-Speicherdichteverteilung",
+    "description": "Speicherdichte Diagrammtitel"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "Domain-Größe vs. Eintragsanzahl Streudiagramm",
+    "description": "Streudiagramm Titel"
+  },
+  "analysisChartConcentration": {
+    "message": "Speicherkonzentrationsanalyse (Pareto-Diagramm)",
+    "description": "Konzentrationsdiagramm Titel"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Top-Domain-Verhältnisanalyse",
+    "description": "Verhältnisanalyse Diagrammtitel"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "Domain-Größenverteilung Histogramm",
+    "description": "Größenverteilung Diagrammtitel"
+  },
+  "analysisChartItemDistribution": {
+    "message": "Domain-Eintragsanzahlverteilung Histogramm",
+    "description": "Eintragsanzahlverteilung Diagrammtitel"
+  },
+  "analysisChartStorageUsage": {
+    "message": "Speichertyp-Nutzungsrate",
+    "description": "Nutzungsrate Diagrammtitel"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "Speichertyp-Effizienzvergleich",
+    "description": "Effizienzvergleich Diagrammtitel"
+  },
+  "analysisChartDomainPreference": {
+    "message": "Domain-Speichertyp-Präferenz",
+    "description": "Präferenz Diagrammtitel"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "Top-Domains mit unsicheren Cookies",
+    "description": "Unsichere Cookies Diagrammtitel"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "Abgelaufene Cookies Domain-Verteilung",
+    "description": "Abgelaufene Cookies Diagrammtitel"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies-Sicherheitsattribut-Kombinationsanalyse",
+    "description": "Sicherheitskombination Diagrammtitel"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "Gruppierte Statistiken nach Top-Level-Domain (TLD)",
+    "description": "TLD-Verteilung Diagrammtitel"
+  },
+  "analysisChartDomainLength": {
+    "message": "Gruppierte Statistiken nach Domain-Länge",
+    "description": "Domain-Länge Diagrammtitel"
+  },
+  "analysisChartStorageCombination": {
+    "message": "Gruppiert nach Speichertyp-Kombination",
+    "description": "Speicherkombination Diagrammtitel"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON-Parse-Fehlrate (nach Domain)",
+    "description": "JSON-Fehlrate Diagrammtitel"
+  },
+  "analysisChartLargeKeys": {
+    "message": "Übergroße Schlüssel-Verteilung (nach Domain)",
+    "description": "Große Schlüssel-Verteilung Diagrammtitel"
+  },
+  "analysisChartQualityComparison": {
+    "message": "Speichertyp-Qualitätsvergleich",
+    "description": "Qualitätsvergleich Diagrammtitel"
+  },
+  "analysisChartStatistics": {
+    "message": "Speicher-Statistik-Zusammenfassung",
+    "description": "Statistik-Zusammenfassung Diagrammtitel"
+  },
+  "analysisChartBoxPlot": {
+    "message": "Speichertyp-Größenverteilung Box-Plot",
+    "description": "Box-Plot Diagrammtitel"
+  },
+  "avgSize": {
+    "message": "Durchschnittliche Größe",
+    "description": "Durchschnittliche Größe Label"
+  },
+  "perItem": {
+    "message": "Pro Eintrag",
+    "description": "Pro Eintrag Label"
+  },
+  "concentration": {
+    "message": "Konzentration",
+    "description": "Konzentration Label"
+  },
+  "cumulativeRatio": {
+    "message": "Kumulatives Verhältnis",
+    "description": "Kumulatives Verhältnis Label"
+  },
+  "domainCount": {
+    "message": "Domain-Anzahl",
+    "description": "Domain-Anzahl Label"
+  },
+  "sizeRange": {
+    "message": "Größenbereich",
+    "description": "Größenbereich Label"
+  },
+  "itemRange": {
+    "message": "Eintragsanzahlbereich",
+    "description": "Eintragsanzahlbereich Label"
+  },
+  "usageRate": {
+    "message": "Nutzungsrate",
+    "description": "Nutzungsrate Label"
+  },
+  "efficiency": {
+    "message": "Effizienz",
+    "description": "Effizienz Label"
+  },
+  "preference": {
+    "message": "Präferenz",
+    "description": "Präferenz Label"
+  },
+  "insecure": {
+    "message": "Unsicher",
+    "description": "Unsicher Label"
+  },
+  "expired": {
+    "message": "Abgelaufen",
+    "description": "Abgelaufen Label"
+  },
+  "securityCombination": {
+    "message": "Sicherheitsattribut-Kombination",
+    "description": "Sicherheitsattribut-Kombination Label"
+  },
+  "topLevelDomain": {
+    "message": "Top-Level-Domain",
+    "description": "Top-Level-Domain Label"
+  },
+  "domainLength": {
+    "message": "Domain-Länge",
+    "description": "Domain-Länge Label"
+  },
+  "storageCombination": {
+    "message": "Speichertyp-Kombination",
+    "description": "Speichertyp-Kombination Label"
+  },
+  "jsonFailRate": {
+    "message": "JSON-Fehlrate",
+    "description": "JSON-Fehlrate Label"
+  },
+  "largeKeys": {
+    "message": "Große Schlüssel",
+    "description": "Große Schlüssel Label"
+  },
+  "qualityComparison": {
+    "message": "Qualitätsvergleich",
+    "description": "Qualitätsvergleich Label"
+  },
+  "statistics": {
+    "message": "Statistik",
+    "description": "Statistik Label"
+  },
+  "min": {
+    "message": "Min",
+    "description": "Min Label"
+  },
+  "max": {
+    "message": "Max",
+    "description": "Max Label"
+  },
+  "median": {
+    "message": "Median",
+    "description": "Median Label"
+  },
+  "average": {
+    "message": "Durchschnitt",
+    "description": "Durchschnitt Label"
+  },
+  "avgItemSize": {
+    "message": "Durchschnittliche Eintragsgröße",
+    "description": "Durchschnittliche Eintragsgröße Label"
+  },
+  "domains": {
+    "message": "Domains",
+    "description": "Domain-Einheit"
+  },
+  "itemCount": {
+    "message": "Eintragsanzahl",
+    "description": "Eintragsanzahl Label"
+  },
+  "ratio": {
+    "message": "Verhältnis",
+    "description": "Verhältnis Label"
+  },
+  "localOnly": {
+    "message": "Nur LocalStorage",
+    "description": "Nur LocalStorage Label"
+  },
+  "cookiesOnly": {
+    "message": "Nur Cookies",
+    "description": "Nur Cookies Label"
+  },
+  "mixed": {
+    "message": "Gemischte Nutzung",
+    "description": "Gemischte Nutzung Label"
+  },
+  "insecureCookies": {
+    "message": "Unsichere Cookies",
+    "description": "Unsichere Cookies Label"
+  },
+  "expiredCookies": {
+    "message": "Abgelaufene Cookies",
+    "description": "Abgelaufene Cookies Label"
+  },
+  "cookieCount": {
+    "message": "Cookie-Anzahl",
+    "description": "Cookie-Anzahl Label"
+  },
+  "short": {
+    "message": "Kurz (<10)",
+    "description": "Kurze Domain Label"
+  },
+  "medium": {
+    "message": "Mittel (10-20)",
+    "description": "Mittlere Domain Label"
+  },
+  "long": {
+    "message": "Lang (20-30)",
+    "description": "Lange Domain Label"
+  },
+  "veryLong": {
+    "message": "Sehr lang (>30)",
+    "description": "Sehr lange Domain Label"
+  },
+  "none": {
+    "message": "Keine",
+    "description": "Keine Label"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorage und Cookies Kombination Label"
+  },
+  "all": {
+    "message": "Alle Typen",
+    "description": "Alle Typen Label"
+  },
+  "other": {
+    "message": "Andere Kombinationen",
+    "description": "Andere Kombinationen Label"
+  },
+  "minSize": {
+    "message": "Min Größe",
+    "description": "Min Größe Label"
+  },
+  "maxSize": {
+    "message": "Max Größe",
+    "description": "Max Größe Label"
+  },
+  "medianSize": {
+    "message": "Median Größe",
+    "description": "Median Größe Label"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "Erstes Quartil Label"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "Drittes Quartil Label"
+  },
+  "totalSize": {
+    "message": "Gesamtgröße",
+    "description": "Gesamtgröße Label"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7 Tage",
+    "description": "Cookies Ablaufbucket"
+  },
+  "cookiesExpiryLt30d": {
+    "message": "≤30 Tage",
+    "description": "Cookies Ablaufbucket"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180 Tage",
+    "description": "Cookies Ablaufbucket"
+  },
+  "cookiesExpiryGt180d": {
+    "message": "≥180 Tage",
+    "description": "Cookies Ablaufbucket"
+  },
+  "cookiesExpiryNo": {
+    "message": "Kein Ablauf",
+    "description": "Cookies Ablaufbucket"
+  },
+  "cookiesExpiryExpired": {
+    "message": "Abgelaufen",
+    "description": "Cookies Ablaufbucket"
+  },
+  "analysisSectionTypes": {
+    "message": "Speichertyp-Sicht",
+    "description": "Abschnittstitel für Speichertyp-Charts"
+  },
+  "analysisSectionDomains": {
+    "message": "Domain-Sicht",
+    "description": "Abschnittstitel für Domain-Top-Charts"
   },
   "analysisClearDomain": {
     "message": "Diese Domain löschen",

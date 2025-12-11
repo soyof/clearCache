@@ -1,12 +1,17 @@
 /* 覆盖 popup 固定尺寸，填满页面 */
+html {
+  scroll-behavior: smooth;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
 html, body.analysis-body {
   width: 100% !important;
   min-width: 0 !important;
   max-width: none !important;
-  max-height: none !important;
-  height: auto !important;
-  min-height: 100vh;
-  overflow: auto !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
   border: none !important;
   box-shadow: none !important;
 }
@@ -16,6 +21,9 @@ body.analysis-body {
   color: var(--text-primary-color, #f5f7fa);
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   min-width: 1200px;
+  position: static !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .analysis-container {
@@ -23,10 +31,13 @@ body.analysis-body {
   max-width: none;
   min-width: 1200px;
   margin: 0 auto;
-  padding: 24px 32px 32px;
+  padding: 24px 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0; /* 允许 flex 子元素缩小 */
 }
 
 .analysis-header {
@@ -34,6 +45,57 @@ body.analysis-body {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0; /* 防止 header 被压缩 */
+}
+
+.analysis-tabs {
+  display: flex;
+  gap: 0;
+  margin: 8px 0 0;
+  border-bottom: 1px solid rgba(120, 219, 255, 0.2);
+  flex-shrink: 0; /* 防止 tabs 被压缩 */
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: rgba(245, 247, 250, 0.6);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease, background 0.2s ease, font-weight 0.2s ease;
+  position: relative;
+  margin-bottom: -1px;
+}
+
+.tab-btn:hover {
+  color: rgba(245, 247, 250, 0.9);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn.active {
+  color: #78dbff;
+  background: transparent;
+  border-bottom-color: #78dbff;
+  font-weight: 700;
+  animation: tabActivate 0.3s ease;
+}
+
+@keyframes tabActivate {
+  0% {
+    border-bottom-color: transparent;
+    color: rgba(245, 247, 250, 0.6);
+  }
+  50% {
+    border-bottom-width: 3px;
+  }
+  100% {
+    border-bottom-color: #78dbff;
+    border-bottom-width: 2px;
+    color: #78dbff;
+  }
 }
 
 .analysis-title {
@@ -63,7 +125,7 @@ body.analysis-body {
   color: #f5f7fa;
   outline: none;
   width: 220px;
-  transition: all 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, all 0.2s ease;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -109,6 +171,7 @@ body.analysis-body {
   display: grid;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 12px;
+  flex-shrink: 0; /* 防止 summary 被压缩 */
 }
 
 .summary-item {
@@ -132,9 +195,19 @@ body.analysis-body {
 }
 
 .chart-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
   gap: 12px;
+  /* 图表网格本身不需要滚动，由父容器 tab-content 处理滚动 */
+  padding-right: 8px; /* 为滚动条留出空间 */
+  align-items: start; /* 确保图表卡片顶部对齐 */
+  width: 100%; /* 确保网格填满容器 */
+}
+
+@media (max-width: 1100px) {
+  .chart-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 保持一行两个 */
+  }
 }
 
 .chart-card {
@@ -146,6 +219,10 @@ body.analysis-body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%; /* 确保卡片填满网格单元格 */
+  min-width: 0; /* 允许卡片缩小 */
+  max-width: none; /* 移除最大宽度限制 */
+  box-sizing: border-box; /* 确保 padding 包含在宽度内 */
 }
 
 .chart-card canvas {
@@ -153,6 +230,22 @@ body.analysis-body {
   display: block;
   height: auto;
   min-height: 260px;
+}
+
+/* 环形图（doughnut chart）设置更小的高度，但不强制固定尺寸 */
+.chart-card canvas#chart-types,
+.chart-card canvas#chart-types-count,
+.chart-card canvas#chart-cookies-security,
+.chart-card canvas#chart-cookies-expiry,
+.chart-card canvas#chart-storage-usage {
+  max-height: 280px;
+  min-height: 200px;
+}
+
+.chart-card canvas#chart-domain-type-size,
+.chart-card canvas#chart-domain-type-count,
+.chart-card canvas#chart-cookies-expiring-soon {
+  min-height: 320px;
 }
 
 /* Top 域名画布高度调整为 10 条：10*(28+8)+40=400 */
@@ -179,6 +272,334 @@ body.analysis-body {
 /* 仅隐藏 Top 域名图例 */
 #chart-top-domains-legend {
   display: none;
+}
+
+/* 隐藏条目数 Top 域名图例 */
+#chart-top-domains-count-legend {
+  display: none;
+}
+
+#chart-top-cookies-legend {
+  display: none;
+}
+
+#chart-top-domains-count {
+  height: 400px !important;
+}
+
+#chart-types-count {
+  min-height: 260px;
+}
+
+#chart-top-cookies {
+  height: 320px !important;
+}
+
+
+/* 右下角导航容器 */
+.chart-nav-container {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  left: auto !important;
+  top: auto !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 44px !important;
+  max-width: none !important;
+  min-height: 44px !important;
+  max-height: none !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+.chart-nav-container.hidden {
+  display: none;
+}
+
+/* 滚动到顶部按钮 */
+.chart-scroll-top {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  background: rgba(120, 219, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(120, 219, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+.chart-scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.chart-scroll-top:hover {
+  background: rgba(120, 219, 255, 0.25);
+  border-color: rgba(120, 219, 255, 0.5);
+  color: #fff;
+  transform: translateY(0) scale(1.05);
+  box-shadow: 0 4px 20px rgba(120, 219, 255, 0.4);
+}
+
+.chart-scroll-top:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* 浮动按钮 */
+.chart-nav-toggle {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  background: rgba(120, 219, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(120, 219, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  margin: 0;
+  padding: 0;
+}
+
+.chart-nav-toggle:hover {
+  background: rgba(120, 219, 255, 0.25);
+  border-color: rgba(120, 219, 255, 0.5);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(120, 219, 255, 0.4);
+}
+
+.chart-nav-toggle:active {
+  transform: scale(0.95);
+}
+
+/* 导航菜单 */
+.chart-navigation {
+  position: absolute !important;
+  bottom: calc(100% + 12px) !important;
+  right: 0 !important;
+  left: auto !important;
+  top: auto !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(15, 20, 28, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(120, 219, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  min-width: 200px;
+  max-width: 250px;
+  width: auto;
+  max-height: 70vh;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  position: absolute;
+}
+
+.chart-navigation.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* 自定义滚动条 */
+.chart-navigation::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chart-navigation::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.chart-navigation::-webkit-scrollbar-thumb {
+  background: rgba(120, 219, 255, 0.3);
+  border-radius: 3px;
+}
+
+.chart-navigation::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 219, 255, 0.5);
+}
+
+.chart-navigation-item {
+  padding: 10px 16px;
+  background: rgba(120, 219, 255, 0.08);
+  border: 1px solid rgba(120, 219, 255, 0.15);
+  border-radius: 8px;
+  color: rgba(245, 247, 250, 0.9);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.chart-navigation-item:hover {
+  background: rgba(120, 219, 255, 0.2);
+  border-color: rgba(120, 219, 255, 0.4);
+  color: #78dbff;
+  transform: translateX(-4px);
+  box-shadow: 0 2px 8px rgba(120, 219, 255, 0.2);
+}
+
+.chart-navigation-item.active {
+  background: rgba(120, 219, 255, 0.25);
+  border-color: #78dbff;
+  color: #78dbff;
+  box-shadow: 0 0 12px rgba(120, 219, 255, 0.4);
+  transform: translateX(-2px);
+}
+
+.chart-divider {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: 0.3px;
+  padding: 4px 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  scroll-margin-top: 0; /* 移除多余的间距，让锚点真正到达顶部 */
+}
+
+.chart-divider::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #78dbff, #ff9bbb);
+  box-shadow: 0 0 10px rgba(120, 219, 255, 0.5);
+}
+
+.quality-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 4px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+}
+
+.quality-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.quality-item strong {
+  color: #ffd9a6;
+  font-weight: 700;
+}
+
+.tab-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0; /* 允许 flex 子元素缩小 */
+}
+
+/* 表格页面：不滚动，表格内部滚动 */
+.tab-content[data-tab-content="table"] {
+  overflow: hidden;
+}
+
+/* 图表页面：允许滚动 */
+.tab-content[data-tab-content="charts"] {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 图表页面滚动条样式 - 与全局样式一致 */
+.tab-content[data-tab-content="charts"]::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tab-content[data-tab-content="charts"]::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+}
+
+.tab-content[data-tab-content="charts"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(120, 219, 255, 0.6) 0%, rgba(255, 119, 198, 0.4) 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(120, 219, 255, 0.3);
+  box-shadow: 0 0 10px rgba(120, 219, 255, 0.3);
+}
+
+.tab-content[data-tab-content="charts"]::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(120, 219, 255, 0.8) 0%, rgba(255, 119, 198, 0.6) 100%);
+  box-shadow: 0 0 15px rgba(120, 219, 255, 0.5);
+}
+
+.tab-content.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tab-content.fade-in {
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hidden {
+  display: none !important;
 }
 
 .legend-item {
@@ -217,9 +638,13 @@ body.analysis-body {
 .table-wrapper {
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  overflow: auto;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.03);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0; /* 允许 flex 子元素缩小 */
 }
 
 .table-wrapper::-webkit-scrollbar {
@@ -256,11 +681,13 @@ body.analysis-body {
   background: rgba(255, 255, 255, 0.04);
   font-weight: 700;
   color: var(--text-primary-color, #e7ecf3);
+  flex-shrink: 0; /* 防止表头被压缩 */
 }
 
 .table-body {
-  max-height: 70vh;
+  flex: 1;
   overflow: auto;
+  min-height: 0; /* 允许 flex 子元素缩小 */
 }
 
 .table-row {

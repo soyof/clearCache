@@ -591,9 +591,421 @@
     "message": "По типам хранилищ",
     "description": "Заголовок графика распределения по типам"
   },
+  "analysisChartTypesCount": {
+    "message": "По типам хранилищ (кол-во)",
+    "description": "Заголовок графика распределения по количеству элементов"
+  },
   "analysisChartTopDomains": {
     "message": "Топ доменов (по размеру)",
     "description": "Заголовок графика топ доменов по размеру"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Топ доменов (по количеству)",
+    "description": "Заголовок графика топ доменов по количеству элементов"
+  },
+  "analysisChartTopCookies": {
+    "message": "Топ доменов (по размеру Cookies)",
+    "description": "Заголовок графика топ доменов по размеру cookies"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Топ доменов по типу хранилища (размер)",
+    "description": "Стековый график размера по типу хранилища"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Топ доменов по типу хранилища (количество)",
+    "description": "Стековый график количества по типу хранилища"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "Распределение размера элементов хранилища",
+    "description": "График корзин размера"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Атрибуты безопасности Cookies",
+    "description": "График Secure/HttpOnly/SameSite для Cookies"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Распределение срока действия Cookies",
+    "description": "График корзин срока действия Cookies"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "Топ доменов с Cookies, истекающими через 7 дней",
+    "description": "Топ доменов с скоро истекающими Cookies"
+  },
+  "analysisTabTable": {
+    "message": "Таблица",
+    "description": "Метка вкладки"
+  },
+  "analysisTabCharts": {
+    "message": "Графики",
+    "description": "Метка вкладки"
+  },
+  "analysisChartQuality": {
+    "message": "Качество хранилища / риск",
+    "description": "Заголовок графика метрик качества"
+  },
+  "qualityLocalJsonFail": {
+    "message": "Ошибки парсинга JSON LocalStorage",
+    "description": "Метка метрики"
+  },
+  "qualitySessionJsonFail": {
+    "message": "Ошибки парсинга JSON SessionStorage",
+    "description": "Метка метрики"
+  },
+  "qualityLocalLarge": {
+    "message": "Сверхбольшие ключи LocalStorage (>100KB)",
+    "description": "Метка метрики"
+  },
+  "qualitySessionLarge": {
+    "message": "Сверхбольшие ключи SessionStorage (>100KB)",
+    "description": "Метка метрики"
+  },
+  "analysisSectionStacks": {
+    "message": "Вид по доменам и типам хранилищ",
+    "description": "Заголовок секции для стековых графиков"
+  },
+  "analysisSectionQuality": {
+    "message": "Качество и риск хранилища",
+    "description": "Заголовок секции для графиков качества и риска"
+  },
+  "analysisSectionEfficiency": {
+    "message": "Вид эффективности и плотности",
+    "description": "Заголовок секции для графиков эффективности и плотности"
+  },
+  "analysisSectionConcentration": {
+    "message": "Вид концентрации",
+    "description": "Заголовок секции для графиков концентрации"
+  },
+  "analysisSectionDistribution": {
+    "message": "Вид распределения",
+    "description": "Заголовок секции для графиков распределения"
+  },
+  "analysisSectionComparison": {
+    "message": "Вид сравнения",
+    "description": "Заголовок секции для графиков сравнения"
+  },
+  "analysisSectionSecurity": {
+    "message": "Вид безопасности и риска",
+    "description": "Заголовок секции для графиков безопасности и риска"
+  },
+  "analysisSectionSegmentation": {
+    "message": "Вид сегментации",
+    "description": "Заголовок секции для графиков сегментации"
+  },
+  "analysisSectionStatistics": {
+    "message": "Вид статистического резюме",
+    "description": "Заголовок секции для графиков статистического резюме"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "Средний размер элемента по типу хранилища",
+    "description": "Заголовок графика среднего размера элемента"
+  },
+  "analysisChartStorageDensity": {
+    "message": "Распределение плотности хранилища по доменам",
+    "description": "Заголовок графика плотности хранилища"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "Диаграмма рассеяния размера домена и количества элементов",
+    "description": "Заголовок диаграммы рассеяния"
+  },
+  "analysisChartConcentration": {
+    "message": "Анализ концентрации хранилища (диаграмма Парето)",
+    "description": "Заголовок графика концентрации"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Анализ соотношения топ доменов",
+    "description": "Заголовок графика анализа соотношения"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "Гистограмма распределения размера доменов",
+    "description": "Заголовок графика распределения размера"
+  },
+  "analysisChartItemDistribution": {
+    "message": "Гистограмма распределения количества элементов по доменам",
+    "description": "Заголовок графика распределения количества элементов"
+  },
+  "analysisChartStorageUsage": {
+    "message": "Коэффициент использования типов хранилища",
+    "description": "Заголовок графика коэффициента использования"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "Сравнение эффективности типов хранилища",
+    "description": "Заголовок графика сравнения эффективности"
+  },
+  "analysisChartDomainPreference": {
+    "message": "Предпочтение типов хранилища по доменам",
+    "description": "Заголовок графика предпочтений"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "Топ доменов с небезопасными Cookies",
+    "description": "Заголовок графика небезопасных Cookies"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "Распределение доменов с истекшими Cookies",
+    "description": "Заголовок графика истекших Cookies"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Анализ комбинации атрибутов безопасности Cookies",
+    "description": "Заголовок графика комбинации безопасности"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "Группированная статистика по домену верхнего уровня (TLD)",
+    "description": "Заголовок графика распределения TLD"
+  },
+  "analysisChartDomainLength": {
+    "message": "Группированная статистика по длине домена",
+    "description": "Заголовок графика длины домена"
+  },
+  "analysisChartStorageCombination": {
+    "message": "Группировка по комбинации типов хранилища",
+    "description": "Заголовок графика комбинации хранилища"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "Коэффициент ошибок парсинга JSON (по доменам)",
+    "description": "Заголовок графика коэффициента ошибок JSON"
+  },
+  "analysisChartLargeKeys": {
+    "message": "Распределение сверхбольших ключей (по доменам)",
+    "description": "Заголовок графика распределения сверхбольших ключей"
+  },
+  "analysisChartQualityComparison": {
+    "message": "Сравнение качества типов хранилища",
+    "description": "Заголовок графика сравнения качества"
+  },
+  "analysisChartStatistics": {
+    "message": "Статистическое резюме хранилища",
+    "description": "Заголовок графика статистического резюме"
+  },
+  "analysisChartBoxPlot": {
+    "message": "Диаграмма размаха распределения размера по типам хранилища",
+    "description": "Заголовок графика диаграммы размаха"
+  },
+  "avgSize": {
+    "message": "Средний размер",
+    "description": "Метка среднего размера"
+  },
+  "perItem": {
+    "message": "На элемент",
+    "description": "Метка на элемент"
+  },
+  "concentration": {
+    "message": "Концентрация",
+    "description": "Метка концентрации"
+  },
+  "cumulativeRatio": {
+    "message": "Накопительное соотношение",
+    "description": "Метка накопительного соотношения"
+  },
+  "domainCount": {
+    "message": "Количество доменов",
+    "description": "Метка количества доменов"
+  },
+  "sizeRange": {
+    "message": "Диапазон размера",
+    "description": "Метка диапазона размера"
+  },
+  "itemRange": {
+    "message": "Диапазон количества элементов",
+    "description": "Метка диапазона количества элементов"
+  },
+  "usageRate": {
+    "message": "Коэффициент использования",
+    "description": "Метка коэффициента использования"
+  },
+  "efficiency": {
+    "message": "Эффективность",
+    "description": "Метка эффективности"
+  },
+  "preference": {
+    "message": "Предпочтение",
+    "description": "Метка предпочтения"
+  },
+  "insecure": {
+    "message": "Небезопасно",
+    "description": "Метка небезопасно"
+  },
+  "expired": {
+    "message": "Истек",
+    "description": "Метка истек"
+  },
+  "securityCombination": {
+    "message": "Комбинация атрибутов безопасности",
+    "description": "Метка комбинации атрибутов безопасности"
+  },
+  "topLevelDomain": {
+    "message": "Домен верхнего уровня",
+    "description": "Метка домена верхнего уровня"
+  },
+  "domainLength": {
+    "message": "Длина домена",
+    "description": "Метка длины домена"
+  },
+  "storageCombination": {
+    "message": "Комбинация типов хранилища",
+    "description": "Метка комбинации типов хранилища"
+  },
+  "jsonFailRate": {
+    "message": "Коэффициент ошибок JSON",
+    "description": "Метка коэффициента ошибок JSON"
+  },
+  "largeKeys": {
+    "message": "Сверхбольшие ключи",
+    "description": "Метка сверхбольших ключей"
+  },
+  "qualityComparison": {
+    "message": "Сравнение качества",
+    "description": "Метка сравнения качества"
+  },
+  "statistics": {
+    "message": "Статистика",
+    "description": "Метка статистики"
+  },
+  "min": {
+    "message": "Мин",
+    "description": "Метка мин"
+  },
+  "max": {
+    "message": "Макс",
+    "description": "Метка макс"
+  },
+  "median": {
+    "message": "Медиана",
+    "description": "Метка медианы"
+  },
+  "average": {
+    "message": "Среднее",
+    "description": "Метка среднего"
+  },
+  "avgItemSize": {
+    "message": "Средний размер элемента",
+    "description": "Метка среднего размера элемента"
+  },
+  "domains": {
+    "message": "доменов",
+    "description": "Единица домена"
+  },
+  "itemCount": {
+    "message": "Количество элементов",
+    "description": "Метка количества элементов"
+  },
+  "ratio": {
+    "message": "Соотношение",
+    "description": "Метка соотношения"
+  },
+  "localOnly": {
+    "message": "Только LocalStorage",
+    "description": "Метка только LocalStorage"
+  },
+  "cookiesOnly": {
+    "message": "Только Cookies",
+    "description": "Метка только Cookies"
+  },
+  "mixed": {
+    "message": "Смешанное использование",
+    "description": "Метка смешанного использования"
+  },
+  "insecureCookies": {
+    "message": "Небезопасные Cookies",
+    "description": "Метка небезопасных Cookies"
+  },
+  "expiredCookies": {
+    "message": "Истекшие Cookies",
+    "description": "Метка истекших Cookies"
+  },
+  "cookieCount": {
+    "message": "Количество Cookies",
+    "description": "Метка количества Cookies"
+  },
+  "short": {
+    "message": "Короткий (<10)",
+    "description": "Метка короткого домена"
+  },
+  "medium": {
+    "message": "Средний (10-20)",
+    "description": "Метка среднего домена"
+  },
+  "long": {
+    "message": "Длинный (20-30)",
+    "description": "Метка длинного домена"
+  },
+  "veryLong": {
+    "message": "Очень длинный (>30)",
+    "description": "Метка очень длинного домена"
+  },
+  "none": {
+    "message": "Нет",
+    "description": "Метка нет"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "Метка комбинации LocalStorage и Cookies"
+  },
+  "all": {
+    "message": "Все типы",
+    "description": "Метка всех типов"
+  },
+  "other": {
+    "message": "Другие комбинации",
+    "description": "Метка других комбинаций"
+  },
+  "minSize": {
+    "message": "Мин размер",
+    "description": "Метка мин размера"
+  },
+  "maxSize": {
+    "message": "Макс размер",
+    "description": "Метка макс размера"
+  },
+  "medianSize": {
+    "message": "Медианный размер",
+    "description": "Метка медианного размера"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "Метка первого квартиля"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "Метка третьего квартиля"
+  },
+  "totalSize": {
+    "message": "Общий размер",
+    "description": "Метка общего размера"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7 дней",
+    "description": "Корзина срока действия Cookies"
+  },
+  "cookiesExpiryLt30d": {
+    "message": "≤30 дней",
+    "description": "Корзина срока действия Cookies"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180 дней",
+    "description": "Корзина срока действия Cookies"
+  },
+  "cookiesExpiryGt180d": {
+    "message": "≥180 дней",
+    "description": "Корзина срока действия Cookies"
+  },
+  "cookiesExpiryNo": {
+    "message": "Без срока действия",
+    "description": "Корзина срока действия Cookies"
+  },
+  "cookiesExpiryExpired": {
+    "message": "Истек",
+    "description": "Корзина срока действия Cookies"
+  },
+  "analysisSectionTypes": {
+    "message": "Вид по типам хранилищ",
+    "description": "Заголовок секции для графиков по типам хранилищ"
+  },
+  "analysisSectionDomains": {
+    "message": "Вид по доменам",
+    "description": "Заголовок секции для графиков по доменам"
+  },
+  "analysisSectionStacks": {
+    "message": "Вид по доменам и типам хранилищ",
+    "description": "Заголовок секции для стековых графиков"
   },
   "analysisClearDomain": {
     "message": "Очистить домен",

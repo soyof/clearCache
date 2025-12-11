@@ -1,301 +1,78 @@
+/**
+ * 全局存储分析主入口
+ */
+
+import { renderCharts } from './analysis/analysisChartRenderer.js';
+import { clearAll, clearDomain } from './analysis/analysisDataCleaner.js';
+import { collectData } from './analysis/analysisDataCollector.js';
+import { emptyState, renderTable } from './analysis/analysisTableRenderer.js';
 import { getMessage, initializePageI18n } from './index.js';
 
+// DOM 元素获取函数
 const tableBody = () => document.getElementById('table-body');
 const summaryDomains = () => document.getElementById('summary-domains');
 const summaryItems = () => document.getElementById('summary-items');
 const summarySize = () => document.getElementById('summary-size');
 const searchInput = () => document.getElementById('analysis-search');
-const chartTypesCanvas = () => document.getElementById('chart-types');
-const chartTopCanvas = () => document.getElementById('chart-top-domains');
-const chartTypesLegend = () => document.getElementById('chart-types-legend');
-const chartTopLegend = () => document.getElementById('chart-top-domains-legend');
+const qualityList = () => document.getElementById('quality-list');
+const statisticsList = () => document.getElementById('statistics-list');
 
+// 缓存数据
 let cachedDomains = [];
+let cachedStats = null;
 
-const formatBytes = (bytes = 0) => {
-  if (!bytes || bytes < 0) return '0 B';
-  const units = ['B', 'KB', 'MB', 'GB', 'TB'];
-  const i = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
-  const value = bytes / Math.pow(1024, i);
-  return `${value.toFixed(value >= 10 ? 0 : 1)} ${units[i]}`;
-};
-
-const emptyState = (text) => {
-  const body = tableBody();
-  if (!body) return;
-  body.innerHTML = `<div class="empty">${text}</div>`;
-};
-
-async function collectFromTab(tabId) {
-  try {
-    const [{ result }] = await chrome.scripting.executeScript({
-      target: { tabId },
-      func: async () => {
-        const sumStorage = (storage) => {
-          let size = 0;
-          for (let i = 0; i < storage.length; i++) {
-            const key = storage.key(i) || '';
-            const value = storage.getItem(key) || '';
-            size += key.length + value.length;
-          }
-          return { count: storage.length, size };
-        };
-
-        const local = sumStorage(localStorage);
-        const session = sumStorage(sessionStorage);
-
-        let indexed = { count: 0, size: 0 };
-        if (indexedDB?.databases) {
-          const dbs = await indexedDB.databases();
-          indexed.count = dbs.length;
-          indexed.size = dbs.reduce((s, d) => s + (d.size || 0), 0);
-        }
-
-        let cacheInfo = { count: 0, size: 0 };
-        if (caches?.keys) {
-          const names = await caches.keys();
-          cacheInfo.count = names.length;
-          // 估算 cache 大小代价高，这里不逐条统计，保持 0
-        }
-
-        return {
-          origin: location.origin,
-          host: location.hostname,
-          local,
-          session,
-          indexed,
-          cache: cacheInfo,
-        };
-      },
-    });
-    return result;
-  } catch (error) {
-    console.warn('collectFromTab failed', error);
-    return null;
-  }
-}
-
-async function collectCookiesByDomain() {
-  const cookies = await chrome.cookies.getAll({});
-  const map = new Map();
-  cookies.forEach((c) => {
-    const domain = (c.domain || '').replace(/^\./, '');
-    if (!domain) return;
-    const size = (c.name?.length || 0) + (c.value?.length || 0);
-    const entry = map.get(domain) || { count: 0, size: 0 };
-    entry.count += 1;
-    entry.size += size;
-    map.set(domain, entry);
-  });
-  return map;
-}
-
-async function collectData() {
-  const domains = new Map();
-
-  const tabs = await chrome.tabs.query({ url: ['http://*/*', 'https://*/*'] });
-  const hostToTab = new Map();
-  tabs.forEach((tab) => {
-    try {
-      const url = new URL(tab.url || '');
-      hostToTab.set(url.hostname, tab.id);
-    } catch (_) { }
-  });
-
-  // 扫描已打开标签页的存储
-  for (const [host, tabId] of hostToTab.entries()) {
-    const data = await collectFromTab(tabId);
-    if (data && data.host) {
-      const originData = domains.get(data.host) || {
-        domain: data.host,
-        local: { count: 0, size: 0 },
-        session: { count: 0, size: 0 },
-        indexed: { count: 0, size: 0 },
-        cache: { count: 0, size: 0 },
-        cookies: { count: 0, size: 0 },
-      };
-      originData.local.count += data.local.count;
-      originData.local.size += data.local.size;
-      originData.session.count += data.session.count;
-      originData.session.size += data.session.size;
-      originData.indexed.count += data.indexed.count;
-      originData.indexed.size += data.indexed.size;
-      originData.cache.count += data.cache.count;
-      originData.cache.size += data.cache.size;
-      domains.set(data.host, originData);
-    }
-  }
-
-  // 合并 cookies 数据
-  const cookieMap = await collectCookiesByDomain();
-  for (const [domain, info] of cookieMap.entries()) {
-    const target = domains.get(domain) || {
-      domain,
-      local: { count: 0, size: 0 },
-      session: { count: 0, size: 0 },
-      indexed: { count: 0, size: 0 },
-      cache: { count: 0, size: 0 },
-      cookies: { count: 0, size: 0 },
-    };
-    target.cookies.count += info.count;
-    target.cookies.size += info.size;
-    domains.set(domain, target);
-  }
-
-  return Array.from(domains.values()).sort((a, b) => (b.local.size + b.session.size + b.indexed.size + b.cache.size + b.cookies.size) - (a.local.size + a.session.size + a.indexed.size + a.cache.size + a.cookies.size));
-}
-
-async function clearDomain(domain) {
-  const origins = [`https://${domain}`, `http://${domain}`];
-  try {
-    // 清除 cookies
-    const cookies = await chrome.cookies.getAll({ domain });
-    await Promise.all(
-      cookies.map((c) =>
-        chrome.cookies.remove({
-          url: `${c.secure ? 'https' : 'http'}://${c.domain.replace(/^\./, '')}${c.path}`,
-          name: c.name,
-          storeId: c.storeId,
-        }).catch(() => null)
-      )
-    );
-
-    // 清除存储 (localStorage / IndexedDB / Cache)
-    await chrome.browsingData.remove(
-      { origins },
-      {
-        cache: true,
-        cacheStorage: true,
-        indexedDB: true,
-        localStorage: true,
-      }
-    );
-
-    // 尝试清理 sessionStorage / Cache API in-page（仅对已打开的同域 tab）
-    const tabs = await chrome.tabs.query({ url: [`*://${domain}/*`] });
-    await Promise.all(
-      tabs.map((tab) =>
-        chrome.scripting
-          .executeScript({
-            target: { tabId: tab.id },
-            func: async () => {
-              try {
-                sessionStorage.clear();
-              } catch (_) { }
-              try {
-                const names = await caches.keys();
-                await Promise.all(names.map((n) => caches.delete(n)));
-              } catch (_) { }
-            },
-          })
-          .catch(() => null)
-      )
-    );
-  } catch (error) {
-    console.warn('clearDomain failed', domain, error);
-  }
-}
-
-async function clearAll(domains) {
-  for (const d of domains) {
-    await clearDomain(d.domain);
-  }
-}
-
-function render(domains) {
-  const body = tableBody();
-  if (!body) return;
-  if (!domains.length) {
-    emptyState(getMessage('analysisEmpty') || '暂无数据');
-    return;
-  }
-
-  let totalItems = 0;
-  let totalSize = 0;
-  domains.forEach((d) => {
-    totalItems += d.local.count + d.session.count + d.indexed.count + d.cache.count + d.cookies.count;
-    totalSize += d.local.size + d.session.size + d.indexed.size + d.cache.size + d.cookies.size;
-  });
-
-  if (summaryDomains()) summaryDomains().textContent = domains.length.toString();
-  if (summaryItems()) summaryItems().textContent = totalItems.toString();
-  if (summarySize()) summarySize().textContent = formatBytes(totalSize);
-
-  const metricTpl = (item) => {
-    const hasData = (item.count > 0) || (item.size > 0);
-    return `<div class="metric ${hasData ? 'has-data' : ''}">
-      <span class="count">${item.count}</span>
-      <span class="size">${formatBytes(item.size)}</span>
-    </div>`;
-  };
-
-  body.innerHTML = domains
-    .map((d) => {
-      const total = d.local.size + d.session.size + d.indexed.size + d.cache.size + d.cookies.size;
-      const label = getMessage('analysisClearDomain') || '清除此域';
-      const totalHasData = total > 0;
-      return `
-        <div class="table-row">
-          <div class="col domain">${d.domain}</div>
-          <div class="col">
-            ${metricTpl(d.local)}
-          </div>
-          <div class="col">
-            ${metricTpl(d.session)}
-          </div>
-          <div class="col">
-            ${metricTpl(d.indexed)}
-          </div>
-          <div class="col">
-            ${metricTpl(d.cache)}
-          </div>
-          <div class="col">
-            ${metricTpl(d.cookies)}
-          </div>
-          <div class="col">
-            <div class="metric total-size ${totalHasData ? 'has-data' : ''}">${formatBytes(total)}</div>
-          </div>
-          <div class="col action">
-            <button class="action-btn" data-domain="${d.domain}">${label}</button>
-          </div>
-        </div>
-      `;
-    })
-    .join('');
-
-  body.querySelectorAll('.action-btn').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      const domain = btn.getAttribute('data-domain');
-      const confirmText = getMessage('confirmDangerousTitle') || '确认执行当前操作？';
-      if (window.confirm(`${confirmText}\n${getMessage('analysisClearDomain') || '清除此域'}：${domain}`)) {
-        btn.disabled = true;
-        btn.textContent = getMessage('cleaning') || '正在清理...';
-        await clearDomain(domain);
-        btn.textContent = getMessage('analysisRescan') || '重新扫描';
-        btn.disabled = false;
-        await loadData();
-      }
-    });
-  });
-}
-
+/**
+ * 加载数据
+ */
 export async function loadData() {
-  emptyState(getMessage('analysisLoading') || '正在扫描...');
-  const data = await collectData();
-  cachedDomains = data;
+  const body = tableBody();
+  if (body) {
+    emptyState(body, getMessage('analysisLoading') || '正在扫描...');
+  }
+  
+  // 使用 requestIdleCallback 或 setTimeout 让浏览器有机会渲染加载状态
+  await new Promise(resolve => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => resolve(), { timeout: 100 });
+    } else {
+      setTimeout(resolve, 50);
+    }
+  });
+  
+  const { domains, stats } = await collectData();
+  cachedDomains = domains;
+  cachedStats = stats;
   applyFilter();
 }
 
+/**
+ * 应用过滤
+ */
 function applyFilter() {
   const kw = (searchInput()?.value || '').trim().toLowerCase();
   const filtered = kw
     ? cachedDomains.filter((d) => d.domain.toLowerCase().includes(kw))
     : cachedDomains;
-  render(filtered);
+  
+  renderTable(
+    tableBody(),
+    summaryDomains(),
+    summaryItems(),
+    summarySize(),
+    filtered,
+    async (domain) => {
+      await clearDomain(domain);
+      await loadData();
+    }
+  );
+  
   // 图表始终基于全量数据，不受搜索过滤影响
-  renderCharts(cachedDomains);
+  renderCharts(cachedDomains, cachedStats, qualityList(), statisticsList());
 }
 
+/**
+ * 初始化
+ */
 async function init() {
   await initializePageI18n();
   const inputEl = searchInput();
@@ -305,6 +82,80 @@ async function init() {
       inputEl.placeholder = ph;
     }
   }
+  
+  // Tab 切换逻辑
+  const tabs = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  const searchEl = searchInput();
+  tabs.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tab = btn.getAttribute('data-tab');
+      
+      // 更新按钮状态
+      tabs.forEach((b) => b.classList.toggle('active', b === btn));
+      
+      // 平滑切换内容区域
+      tabContents.forEach((c) => {
+        const isTarget = c.getAttribute('data-tab-content') === tab;
+        if (isTarget) {
+          // 显示目标内容
+          c.classList.remove('hidden');
+          c.classList.add('fade-in');
+          // 动画结束后移除 fade-in 类
+          setTimeout(() => {
+            c.classList.remove('fade-in');
+          }, 300);
+        } else {
+          // 隐藏非目标内容
+          c.classList.add('hidden');
+          c.classList.remove('fade-in');
+        }
+      });
+      
+      // 切换搜索框显示
+      if (searchEl) {
+        searchEl.style.transition = 'opacity 0.3s ease';
+        if (tab === 'charts') {
+          searchEl.style.opacity = '0';
+          setTimeout(() => {
+            searchEl.classList.add('hidden');
+            searchEl.style.opacity = '';
+          }, 300);
+        } else {
+          searchEl.classList.remove('hidden');
+          searchEl.style.opacity = '0';
+          requestAnimationFrame(() => {
+            searchEl.style.opacity = '1';
+          });
+        }
+      }
+      
+      // 切换导航容器显示
+      const navContainer = document.querySelector('.chart-nav-container');
+      if (navContainer) {
+        if (tab === 'charts') {
+          navContainer.classList.remove('hidden');
+        } else {
+          navContainer.classList.add('hidden');
+          // 关闭菜单
+          const navMenu = document.getElementById('chart-nav');
+          if (navMenu) {
+            navMenu.classList.remove('show');
+          }
+        }
+      }
+      
+      if (tab === 'charts') {
+        // 确保在显示后重绘图表，避免宽高为 0
+        setTimeout(() => {
+          renderCharts(cachedDomains, cachedStats, qualityList(), statisticsList());
+          // 更新导航菜单活动状态
+          updateActiveNavItemOnScroll();
+        }, 50);
+      }
+    });
+  });
+  
   await loadData();
 
   const rescanBtn = document.getElementById('rescan');
@@ -321,7 +172,7 @@ async function init() {
         clearAllBtn.disabled = true;
         clearAllBtn.textContent = getMessage('cleaning') || '正在清理...';
         const data = await collectData();
-        await clearAll(data);
+        await clearAll(data.domains);
         clearAllBtn.textContent = getMessage('analysisRescan') || '重新扫描';
         clearAllBtn.disabled = false;
         await loadData();
@@ -332,176 +183,195 @@ async function init() {
   if (input) {
     input.addEventListener('input', () => applyFilter());
   }
+
+  // 初始化图表导航菜单
+  initChartNavigation();
+  
+  // 初始化滚动到顶部按钮
+  initScrollToTop();
+}
+
+/**
+ * 初始化滚动到顶部按钮
+ */
+function initScrollToTop() {
+  const scrollTopBtn = document.getElementById('chart-scroll-top');
+  const tabContent = document.querySelector('.tab-content[data-tab-content="charts"]');
+  
+  if (!scrollTopBtn || !tabContent) return;
+  
+  // 监听滚动，显示/隐藏按钮
+  const handleScroll = () => {
+    if (tabContent.scrollTop > 300) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  };
+  
+  tabContent.addEventListener('scroll', handleScroll, { passive: true });
+  
+  // 点击滚动到顶部
+  scrollTopBtn.addEventListener('click', () => {
+    tabContent.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  // 初始检查滚动位置
+  handleScroll();
+}
+
+/**
+ * 初始化图表导航菜单
+ */
+function initChartNavigation() {
+  const navContainer = document.querySelector('.chart-nav-container');
+  const navEl = document.getElementById('chart-nav');
+  const toggleBtn = document.getElementById('chart-nav-toggle');
+  
+  if (!navEl || !toggleBtn) return;
+
+  // 按钮点击事件 - 切换菜单显示
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navEl.classList.toggle('show');
+  });
+
+  // 点击外部区域关闭菜单
+  document.addEventListener('click', (e) => {
+    if (!navContainer.contains(e.target)) {
+      navEl.classList.remove('show');
+    }
+  });
+
+  // 阻止菜单内部点击事件冒泡
+  navEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // 定义所有图表区域
+  const sections = [
+    { id: 'section-types', key: 'analysisSectionTypes' },
+    { id: 'section-domains', key: 'analysisSectionDomains' },
+    { id: 'section-stacks', key: 'analysisSectionStacks' },
+    { id: 'section-quality', key: 'analysisSectionQuality' },
+    { id: 'section-efficiency', key: 'analysisSectionEfficiency' },
+    { id: 'section-concentration', key: 'analysisSectionConcentration' },
+    { id: 'section-distribution', key: 'analysisSectionDistribution' },
+    { id: 'section-comparison', key: 'analysisSectionComparison' },
+    { id: 'section-security', key: 'analysisSectionSecurity' },
+    { id: 'section-segmentation', key: 'analysisSectionSegmentation' },
+    { id: 'section-statistics', key: 'analysisSectionStatistics' },
+  ];
+
+  // 创建导航项
+  sections.forEach((section) => {
+    const item = document.createElement('a');
+    item.href = `#${section.id}`;
+    item.className = 'chart-navigation-item';
+    item.textContent = getMessage(section.key) || section.id.replace('section-', '');
+    item.setAttribute('data-section', section.id);
+    
+    // 点击事件
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const targetEl = document.getElementById(section.id);
+      if (targetEl) {
+        // 图表页面是在 tab-content 容器内滚动的，需要计算容器内的滚动位置
+        const tabContent = document.querySelector('.tab-content[data-tab-content="charts"]');
+        if (tabContent) {
+          // 获取目标元素相对于容器的位置
+          const containerRect = tabContent.getBoundingClientRect();
+          const targetRect = targetEl.getBoundingClientRect();
+          // 计算需要滚动的距离（目标元素顶部 - 容器顶部）
+          const scrollTop = tabContent.scrollTop + (targetRect.top - containerRect.top);
+          tabContent.scrollTo({ top: scrollTop, behavior: 'smooth' });
+        } else {
+          // 回退到默认行为（如果容器不存在）
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // 更新活动状态
+        updateActiveNavItem(section.id);
+        // 关闭菜单
+        navEl.classList.remove('show');
+      }
+    });
+    
+    navEl.appendChild(item);
+  });
+
+  // 监听滚动，更新活动状态
+  let scrollTimeout;
+  const handleScroll = () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      updateActiveNavItemOnScroll();
+    }, 100);
+  };
+  
+  // 监听窗口滚动
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  
+  // 也监听图表容器的滚动（如果有独立滚动）
+  const chartGrid = document.querySelector('.chart-grid');
+  if (chartGrid) {
+    chartGrid.addEventListener('scroll', handleScroll, { passive: true });
+  }
+
+  // 初始更新活动状态
+  updateActiveNavItemOnScroll();
+}
+
+/**
+ * 更新活动导航项
+ */
+function updateActiveNavItem(activeId) {
+  const navItems = document.querySelectorAll('.chart-navigation-item');
+  navItems.forEach((item) => {
+    const sectionId = item.getAttribute('data-section');
+    if (sectionId === activeId) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
+/**
+ * 根据滚动位置更新活动导航项
+ */
+function updateActiveNavItemOnScroll() {
+  const sections = document.querySelectorAll('.chart-divider[id]');
+  const navItems = document.querySelectorAll('.chart-navigation-item');
+  
+  if (sections.length === 0 || navItems.length === 0) return;
+
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const viewportHeight = window.innerHeight;
+  const scrollPosition = scrollTop + viewportHeight / 3; // 视口上方1/3处作为判断点
+
+  let activeSection = null;
+  
+  // 从下往上查找第一个进入视口的区域
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = sections[i];
+    const rect = section.getBoundingClientRect();
+    const sectionTop = scrollTop + rect.top;
+    
+    if (sectionTop <= scrollPosition) {
+      activeSection = section.id;
+      break;
+    }
+  }
+
+  // 如果没有找到，使用第一个区域
+  if (!activeSection && sections.length > 0) {
+    activeSection = sections[0].id;
+  }
+
+  if (activeSection) {
+    updateActiveNavItem(activeSection);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', init);
-
-const chartColors = {
-  local: '#78dbff',
-  session: '#9dd0ff',
-  indexed: '#ffbf80',
-  cache: '#c0b2ff',
-  cookies: '#ff9bbb',
-  total: '#78dbff',
-};
-
-function prepareCanvas(canvas) {
-  if (!canvas) return null;
-  const dpr = window.devicePixelRatio || 1;
-  const rect = canvas.getBoundingClientRect();
-  // 记录 CSS 尺寸后将画布按 DPR 放大，避免高分屏模糊
-  canvas.width = rect.width * dpr;
-  canvas.height = rect.height * dpr;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return null;
-  if (ctx.resetTransform) ctx.resetTransform();
-  ctx.scale(dpr, dpr);
-  ctx.clearRect(0, 0, rect.width, rect.height);
-  return { ctx, width: rect.width, height: rect.height };
-}
-
-function buildLegend(container, items) {
-  if (!container) return;
-  container.innerHTML = items
-    .map(
-      (item) => `
-        <div class="legend-item">
-          <span class="legend-dot" style="background:${item.color}"></span>
-          <span class="legend-label">${item.label}</span>
-          <span class="legend-value">${item.value}</span>
-        </div>
-      `
-    )
-    .join('');
-}
-
-function drawDonut(canvas, data) {
-  const prep = prepareCanvas(canvas);
-  if (!prep) return;
-  const { ctx, width, height } = prep;
-  const total = data.reduce((s, d) => s + d.value, 0);
-  if (!total) return;
-
-  const centerX = width / 2;
-  const centerY = height / 2;
-  const outerR = Math.min(centerX, centerY) - 10;
-  const innerR = outerR * 0.6;
-
-  let start = -Math.PI / 2;
-  data.forEach((d) => {
-    const angle = (d.value / total) * Math.PI * 2;
-    ctx.beginPath();
-    ctx.moveTo(centerX, centerY);
-    ctx.arc(centerX, centerY, outerR, start, start + angle);
-    ctx.closePath();
-    ctx.fillStyle = d.color;
-    ctx.fill();
-    start += angle;
-  });
-
-  ctx.globalCompositeOperation = 'destination-out';
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, innerR, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.globalCompositeOperation = 'source-over';
-
-  ctx.fillStyle = '#e8f4ff';
-  ctx.font = '600 14px "Segoe UI", Arial';
-  ctx.textAlign = 'center';
-  ctx.fillText(getMessage('total') || '总计', centerX, centerY - 4);
-  ctx.font = '700 16px "Segoe UI", Arial';
-  ctx.fillText(formatBytes(total), centerX, centerY + 18);
-}
-
-function drawHorizontalBars(canvas, items) {
-  const prep = prepareCanvas(canvas);
-  if (!prep) return;
-  const { ctx, width, height } = prep;
-  if (!items.length) return;
-
-  const padding = 20;
-  const barHeight = 28;
-  const gap = 8;
-  const max = Math.max(...items.map((i) => i.value), 1);
-
-  items.forEach((item, index) => {
-    const y = padding + index * (barHeight + gap);
-    // 确保不超出画布高度
-    if (y + barHeight > height - padding) return;
-
-    const w = ((width - padding * 2) * item.value) / max;
-    ctx.fillStyle = chartColors.total;
-    ctx.globalAlpha = 0.28;
-    ctx.fillRect(padding, y, width - padding * 2, barHeight);
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = chartColors.total;
-    ctx.fillRect(padding, y, w, barHeight);
-
-    ctx.fillStyle = '#e8f4ff';
-    ctx.font = '600 13px "Segoe UI", Arial';
-    ctx.textAlign = 'left';
-    ctx.fillText(item.label, padding + 8, y + barHeight / 2 + 5);
-
-    ctx.fillStyle = '#ffd9a6';
-    ctx.font = '700 13px "Segoe UI", Arial';
-    ctx.textAlign = 'right';
-    ctx.fillText(formatBytes(item.value), width - padding - 8, y + barHeight / 2 + 5);
-  });
-}
-
-function renderCharts(domains) {
-  if (!domains || !domains.length) return;
-
-  const typesData = [
-    {
-      key: 'local',
-      label: getMessage('localStorage') || 'LocalStorage',
-      value: domains.reduce((s, d) => s + d.local.size, 0),
-      color: chartColors.local,
-    },
-    {
-      key: 'session',
-      label: getMessage('sessionStorage') || 'SessionStorage',
-      value: domains.reduce((s, d) => s + d.session.size, 0),
-      color: chartColors.session,
-    },
-    {
-      key: 'indexed',
-      label: getMessage('indexedDB') || 'IndexedDB',
-      value: domains.reduce((s, d) => s + d.indexed.size, 0),
-      color: chartColors.indexed,
-    },
-    {
-      key: 'cache',
-      label: getMessage('cacheAPI') || 'Cache',
-      value: domains.reduce((s, d) => s + d.cache.size, 0),
-      color: chartColors.cache,
-    },
-    {
-      key: 'cookies',
-      label: getMessage('cookies') || 'Cookies',
-      value: domains.reduce((s, d) => s + d.cookies.size, 0),
-      color: chartColors.cookies,
-    },
-  ].filter((item) => item.value > 0);
-
-  const typesCanvasEl = chartTypesCanvas();
-  drawDonut(typesCanvasEl, typesData);
-  buildLegend(
-    chartTypesLegend(),
-    typesData.map((d) => ({ color: d.color, label: d.label, value: formatBytes(d.value) }))
-  );
-
-  const topDomains = [...domains]
-    .map((d) => ({
-      label: d.domain,
-      value: d.local.size + d.session.size + d.indexed.size + d.cache.size + d.cookies.size,
-    }))
-    .sort((a, b) => b.value - a.value)
-    .slice(0, 10); // 展示前十
-
-  const topCanvasEl = chartTopCanvas();
-  if (!topCanvasEl) return;
-  drawHorizontalBars(topCanvasEl, topDomains);
-}
-

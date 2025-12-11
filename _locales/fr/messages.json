@@ -591,9 +591,389 @@
     "message": "Par type de stockage",
     "description": "Titre du graphique répartition par type"
   },
+  "analysisChartTypesCount": {
+    "message": "Par type de stockage (éléments)",
+    "description": "Titre du graphique répartition par nombre d'éléments"
+  },
   "analysisChartTopDomains": {
     "message": "Top domaines (par taille)",
     "description": "Titre du graphique top domaines par taille"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Top domaines (par éléments)",
+    "description": "Titre du graphique top domaines par nombre d'éléments"
+  },
+  "analysisChartTopCookies": {
+    "message": "Top domaines (par taille des cookies)",
+    "description": "Titre du graphique top domaines par taille des cookies"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Top domaines par type de stockage (taille)",
+    "description": "Empilé par type (taille)"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Top domaines par type de stockage (éléments)",
+    "description": "Empilé par type (éléments)"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "Répartition par taille des éléments",
+    "description": "Graphique des classes de taille"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Attributs de sécurité des Cookies",
+    "description": "Graphique Secure/HttpOnly/SameSite"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Répartition d'expiration des Cookies",
+    "description": "Graphique d'expiration des cookies"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "Cookies expirant sous 7 jours - domaines top",
+    "description": "Top domaines expirant bientôt"
+  },
+  "analysisSectionStacks": {
+    "message": "Vue domaine et type",
+    "description": "Titre de section pour graphes empilés"
+  },
+  "analysisSectionQuality": {
+    "message": "Qualité & risque",
+    "description": "Titre de section pour qualité/risque"
+  },
+  "analysisSectionEfficiency": {
+    "message": "Vue efficacité et densité",
+    "description": "Titre de section pour graphiques efficacité/densité"
+  },
+  "analysisSectionConcentration": {
+    "message": "Vue concentration",
+    "description": "Titre de section pour graphiques de concentration"
+  },
+  "analysisSectionDistribution": {
+    "message": "Vue distribution",
+    "description": "Titre de section pour graphiques de distribution"
+  },
+  "analysisSectionComparison": {
+    "message": "Vue comparaison",
+    "description": "Titre de section pour graphiques de comparaison"
+  },
+  "analysisSectionSecurity": {
+    "message": "Vue sécurité et risque",
+    "description": "Titre de section pour graphiques sécurité/risque"
+  },
+  "analysisSectionSegmentation": {
+    "message": "Vue segmentation",
+    "description": "Titre de section pour graphiques de segmentation"
+  },
+  "analysisSectionStatistics": {
+    "message": "Vue résumé statistique",
+    "description": "Titre de section pour graphiques résumé statistique"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "Taille moyenne d'élément par type de stockage",
+    "description": "Titre graphique taille moyenne d'élément"
+  },
+  "analysisChartStorageDensity": {
+    "message": "Distribution de densité de stockage par domaine",
+    "description": "Titre graphique densité de stockage"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "Nuage de points taille vs nombre d'éléments par domaine",
+    "description": "Titre graphique nuage de points"
+  },
+  "analysisChartConcentration": {
+    "message": "Analyse de concentration de stockage (graphique Pareto)",
+    "description": "Titre graphique de concentration"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Analyse de ratio des domaines principaux",
+    "description": "Titre graphique analyse de ratio"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "Histogramme de distribution de taille par domaine",
+    "description": "Titre graphique distribution de taille"
+  },
+  "analysisChartItemDistribution": {
+    "message": "Histogramme de distribution du nombre d'éléments par domaine",
+    "description": "Titre graphique distribution du nombre d'éléments"
+  },
+  "analysisChartStorageUsage": {
+    "message": "Taux d'utilisation par type de stockage",
+    "description": "Titre graphique taux d'utilisation"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "Comparaison d'efficacité par type de stockage",
+    "description": "Titre graphique comparaison d'efficacité"
+  },
+  "analysisChartDomainPreference": {
+    "message": "Préférence de type de stockage par domaine",
+    "description": "Titre graphique de préférence"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "Domaines principaux avec cookies non sécurisés",
+    "description": "Titre graphique cookies non sécurisés"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "Distribution de domaines avec cookies expirés",
+    "description": "Titre graphique cookies expirés"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Analyse de combinaison d'attributs de sécurité des cookies",
+    "description": "Titre graphique combinaison de sécurité"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "Statistiques groupées par domaine de premier niveau (TLD)",
+    "description": "Titre graphique distribution TLD"
+  },
+  "analysisChartDomainLength": {
+    "message": "Statistiques groupées par longueur de domaine",
+    "description": "Titre graphique longueur de domaine"
+  },
+  "analysisChartStorageCombination": {
+    "message": "Groupé par combinaison de types de stockage",
+    "description": "Titre graphique combinaison de stockage"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "Taux d'échec d'analyse JSON (par domaine)",
+    "description": "Titre graphique taux d'échec JSON"
+  },
+  "analysisChartLargeKeys": {
+    "message": "Distribution de clés volumineuses (par domaine)",
+    "description": "Titre graphique distribution de clés volumineuses"
+  },
+  "analysisChartQualityComparison": {
+    "message": "Comparaison de qualité par type de stockage",
+    "description": "Titre graphique comparaison de qualité"
+  },
+  "analysisChartStatistics": {
+    "message": "Résumé statistique de stockage",
+    "description": "Titre graphique résumé statistique"
+  },
+  "analysisChartBoxPlot": {
+    "message": "Diagramme en boîte de distribution de taille par type de stockage",
+    "description": "Titre graphique diagramme en boîte"
+  },
+  "avgSize": {
+    "message": "Taille moyenne",
+    "description": "Libellé taille moyenne"
+  },
+  "perItem": {
+    "message": "Par élément",
+    "description": "Libellé par élément"
+  },
+  "concentration": {
+    "message": "Concentration",
+    "description": "Libellé concentration"
+  },
+  "cumulativeRatio": {
+    "message": "Ratio cumulatif",
+    "description": "Libellé ratio cumulatif"
+  },
+  "domainCount": {
+    "message": "Nombre de domaines",
+    "description": "Libellé nombre de domaines"
+  },
+  "sizeRange": {
+    "message": "Plage de taille",
+    "description": "Libellé plage de taille"
+  },
+  "itemRange": {
+    "message": "Plage de nombre d'éléments",
+    "description": "Libellé plage de nombre d'éléments"
+  },
+  "usageRate": {
+    "message": "Taux d'utilisation",
+    "description": "Libellé taux d'utilisation"
+  },
+  "efficiency": {
+    "message": "Efficacité",
+    "description": "Libellé efficacité"
+  },
+  "preference": {
+    "message": "Préférence",
+    "description": "Libellé préférence"
+  },
+  "insecure": {
+    "message": "Non sécurisé",
+    "description": "Libellé non sécurisé"
+  },
+  "expired": {
+    "message": "Expiré",
+    "description": "Libellé expiré"
+  },
+  "securityCombination": {
+    "message": "Combinaison d'attributs de sécurité",
+    "description": "Libellé combinaison d'attributs de sécurité"
+  },
+  "topLevelDomain": {
+    "message": "Domaine de premier niveau",
+    "description": "Libellé domaine de premier niveau"
+  },
+  "domainLength": {
+    "message": "Longueur de domaine",
+    "description": "Libellé longueur de domaine"
+  },
+  "storageCombination": {
+    "message": "Combinaison de types de stockage",
+    "description": "Libellé combinaison de types de stockage"
+  },
+  "jsonFailRate": {
+    "message": "Taux d'échec JSON",
+    "description": "Libellé taux d'échec JSON"
+  },
+  "largeKeys": {
+    "message": "Clés volumineuses",
+    "description": "Libellé clés volumineuses"
+  },
+  "qualityComparison": {
+    "message": "Comparaison de qualité",
+    "description": "Libellé comparaison de qualité"
+  },
+  "statistics": {
+    "message": "Statistiques",
+    "description": "Libellé statistiques"
+  },
+  "min": {
+    "message": "Min",
+    "description": "Libellé min"
+  },
+  "max": {
+    "message": "Max",
+    "description": "Libellé max"
+  },
+  "median": {
+    "message": "Médiane",
+    "description": "Libellé médiane"
+  },
+  "average": {
+    "message": "Moyenne",
+    "description": "Libellé moyenne"
+  },
+  "avgItemSize": {
+    "message": "Taille moyenne d'élément",
+    "description": "Libellé taille moyenne d'élément"
+  },
+  "domains": {
+    "message": "domaines",
+    "description": "Unité de domaine"
+  },
+  "itemCount": {
+    "message": "Nombre d'éléments",
+    "description": "Libellé nombre d'éléments"
+  },
+  "ratio": {
+    "message": "Ratio",
+    "description": "Libellé ratio"
+  },
+  "localOnly": {
+    "message": "LocalStorage uniquement",
+    "description": "Libellé LocalStorage uniquement"
+  },
+  "cookiesOnly": {
+    "message": "Cookies uniquement",
+    "description": "Libellé Cookies uniquement"
+  },
+  "mixed": {
+    "message": "Usage mixte",
+    "description": "Libellé usage mixte"
+  },
+  "insecureCookies": {
+    "message": "Cookies non sécurisés",
+    "description": "Libellé cookies non sécurisés"
+  },
+  "expiredCookies": {
+    "message": "Cookies expirés",
+    "description": "Libellé cookies expirés"
+  },
+  "cookieCount": {
+    "message": "Nombre de cookies",
+    "description": "Libellé nombre de cookies"
+  },
+  "short": {
+    "message": "Court (<10)",
+    "description": "Libellé domaine court"
+  },
+  "medium": {
+    "message": "Moyen (10-20)",
+    "description": "Libellé domaine moyen"
+  },
+  "long": {
+    "message": "Long (20-30)",
+    "description": "Libellé domaine long"
+  },
+  "veryLong": {
+    "message": "Très long (>30)",
+    "description": "Libellé domaine très long"
+  },
+  "none": {
+    "message": "Aucun",
+    "description": "Libellé aucun"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "Libellé combinaison LocalStorage et Cookies"
+  },
+  "all": {
+    "message": "Tous les types",
+    "description": "Libellé tous les types"
+  },
+  "other": {
+    "message": "Autres combinaisons",
+    "description": "Libellé autres combinaisons"
+  },
+  "minSize": {
+    "message": "Taille min",
+    "description": "Libellé taille min"
+  },
+  "maxSize": {
+    "message": "Taille max",
+    "description": "Libellé taille max"
+  },
+  "medianSize": {
+    "message": "Taille médiane",
+    "description": "Libellé taille médiane"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "Libellé premier quartile"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "Libellé troisième quartile"
+  },
+  "totalSize": {
+    "message": "Taille totale",
+    "description": "Libellé taille totale"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7 jours",
+    "description": "Classe d'expiration"
+  },
+  "cookiesExpiryLt30d": {
+    "message": "≤30 jours",
+    "description": "Classe d'expiration"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180 jours",
+    "description": "Classe d'expiration"
+  },
+  "cookiesExpiryGt180d": {
+    "message": "≥180 jours",
+    "description": "Classe d'expiration"
+  },
+  "cookiesExpiryNo": {
+    "message": "Sans expiration",
+    "description": "Classe d'expiration"
+  },
+  "cookiesExpiryExpired": {
+    "message": "Expiré",
+    "description": "Classe d'expiration"
+  },
+  "analysisSectionTypes": {
+    "message": "Vue par type de stockage",
+    "description": "Libellé de section pour les graphiques par type de stockage"
+  },
+  "analysisSectionDomains": {
+    "message": "Vue par domaine",
+    "description": "Libellé de section pour les graphiques par domaine"
   },
   "analysisClearDomain": {
     "message": "Effacer ce domaine",
