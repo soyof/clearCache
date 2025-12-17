@@ -1,275 +1,35 @@
 {
-  "extensionName": {
-    "message": "Cache Cleaner Assistant",
-    "description": "Extension name"
+  "action": {
+    "message": "Action",
+    "description": "Action column label"
   },
-  "extensionDescription": {
-    "message": "A powerful tool for one-click clearing of browser cache, cookies, localStorage, sessionStorage and other data",
-    "description": "Extension description"
+  "add": {
+    "message": "Add",
+    "description": "Add button"
   },
-  "popupTitle": {
-    "message": "Cache Cleaner Assistant - Your Browser Cleaning Expert",
-    "description": "Popup title"
+  "addDomain": {
+    "message": "Add Domain",
+    "description": "Add domain modal title"
   },
-  "currentSite": {
-    "message": "Current Site:",
-    "description": "Current site label"
+  "addedDomains": {
+    "message": "Added Domains",
+    "description": "Added domains list title"
   },
-  "loading": {
-    "message": "Loading...",
-    "description": "Loading status"
-  },
-  "unknownSite": {
-    "message": "Unknown Site",
-    "description": "Unknown site"
-  },
-  "tabCurrentSite": {
-    "message": "Current Site",
-    "description": "Current site tab"
-  },
-  "tabAllBrowser": {
-    "message": "All Browser",
-    "description": "All browser tab"
-  },
-  "tabSettings": {
-    "message": "Advanced Settings",
-    "description": "Advanced settings tab"
-  },
-  "normalReload": {
-    "message": "Normal Reload",
-    "description": "Normal reload button"
-  },
-  "hardReload": {
-    "message": "Hard Reload",
-    "description": "Hard reload button"
-  },
-  "clearCacheAndHardReload": {
-    "message": "Empty Cache and Hard Reload",
-    "description": "Empty cache and hard reload button"
-  },
-  "clearCache": {
-    "message": "Clear Cache",
-    "description": "Clear cache button"
-  },
-  "clearAllAndReload": {
-    "message": "Clear All & Reload",
-    "description": "Clear all and reload button"
-  },
-  "cookies": {
-    "message": "Cookies",
-    "description": "Cookies button"
-  },
-  "localStorage": {
-    "message": "LocalStorage",
-    "description": "LocalStorage button"
-  },
-  "sessionStorage": {
-    "message": "SessionStorage",
-    "description": "SessionStorage button"
-  },
-  "indexedDB": {
-    "message": "IndexedDB",
-    "description": "IndexedDB button"
-  },
-  "clearAllCache": {
-    "message": "Clear All Cache",
-    "description": "Clear all cache button"
-  },
-  "browserCache": {
-    "message": "Browser Cache",
-    "description": "Browser cache button"
-  },
-  "allCookies": {
-    "message": "All Cookies",
-    "description": "All cookies button"
-  },
-  "allIndexedDB": {
-    "message": "All IndexedDB",
-    "description": "All IndexedDB button"
-  },
-  "clearHistory": {
-    "message": "Clear History",
-    "description": "Clear history button"
-  },
-  "downloadHistory": {
-    "message": "Download History",
-    "description": "Download history button"
-  },
-  "deleteDownloadFiles": {
-    "message": "Delete Download Files",
-    "description": "Delete download files button"
-  },
-  "themeSettings": {
-    "message": "Appearance Theme",
-    "description": "Appearance theme settings"
-  },
-  "themeAuto": {
-    "message": "Auto",
-    "description": "Auto theme"
-  },
-  "themeDark": {
-    "message": "Dark",
-    "description": "Dark theme"
-  },
-  "themeLight": {
-    "message": "Light",
-    "description": "Light theme"
-  },
-  "cleaningOptions": {
-    "message": "Cleaning Options",
-    "description": "Cleaning options settings"
-  },
-  "keepPasswords": {
-    "message": "Keep Passwords",
-    "description": "Keep passwords option"
-  },
-  "keepFormData": {
-    "message": "Keep Form Data",
-    "description": "Keep form data option"
-  },
-  "includeProtectedData": {
-    "message": "Include Protected Data",
-    "description": "Include protected data option"
-  },
-  "notificationSettings": {
-    "message": "Notification Settings",
-    "description": "Notification settings"
-  },
-  "enableNotifications": {
-    "message": "Enable Notifications",
-    "description": "Enable notifications option"
-  },
-  "notificationSound": {
-    "message": "Notification Sound",
-    "description": "Notification sound option"
-  },
-  "footerTip": {
-    "message": "💡 Tip: Use delete functions carefully, deleted data cannot be recovered",
-    "description": "Footer tip"
-  },
-  "save": {
-    "message": "Save",
-    "description": "Save button"
-  },
-  "settingsSaved": {
-    "message": "Settings saved",
-    "description": "Settings saved success message"
-  },
-  "settingsSaveFailed": {
-    "message": "Failed to save settings",
-    "description": "Settings save failed message"
-  },
-  "saveFailed": {
-    "message": "Save failed",
-    "description": "Generic save failed message"
-  },
-  "currentSiteCacheCleared": {
-    "message": "🌐 Current site cache cleared",
-    "description": "Current site cache cleared success message"
-  },
-  "currentSiteCacheClearFailed": {
-    "message": "❌ Failed to clear current site cache",
-    "description": "Current site cache clear failed message"
-  },
-  "allCacheCleared": {
-    "message": "🌐 All cache cleared",
-    "description": "All cache cleared success message"
+  "all": {
+    "message": "All types",
+    "description": "All types label"
   },
   "allCacheClearFailed": {
     "message": "❌ Failed to clear all cache",
     "description": "All cache clear failed message"
   },
-  "cacheCleared": {
-    "message": "🗑️ Cache cleared",
-    "description": "Cache cleared success message"
+  "allCacheCleared": {
+    "message": "🌐 All cache cleared",
+    "description": "All cache cleared success message"
   },
-  "cacheClearFailed": {
-    "message": "❌ Failed to clear cache",
-    "description": "Cache clear failed message"
-  },
-  "cookiesCleared": {
-    "message": "🍪 Cookies cleared",
-    "description": "Cookies cleared success message"
-  },
-  "cookiesClearFailed": {
-    "message": "❌ Failed to clear cookies",
-    "description": "Cookies clear failed message"
-  },
-  "localStorageCleared": {
-    "message": "💾 LocalStorage cleared",
-    "description": "LocalStorage cleared success message"
-  },
-  "localStorageClearFailed": {
-    "message": "❌ Failed to clear LocalStorage",
-    "description": "LocalStorage clear failed message"
-  },
-  "sessionStorageCleared": {
-    "message": "📂 SessionStorage cleared",
-    "description": "SessionStorage cleared success message"
-  },
-  "sessionStorageClearFailed": {
-    "message": "❌ Failed to clear SessionStorage",
-    "description": "SessionStorage clear failed message"
-  },
-  "indexedDBCleared": {
-    "message": "📊 IndexedDB cleared",
-    "description": "IndexedDB cleared success message"
-  },
-  "indexedDBClearFailed": {
-    "message": "❌ Failed to clear IndexedDB",
-    "description": "IndexedDB clear failed message"
-  },
-  "allIndexedDBCleared": {
-    "message": "📊 All IndexedDB cleared",
-    "description": "All IndexedDB cleared success message"
-  },
-  "historyCleared": {
-    "message": "📜 History cleared",
-    "description": "History cleared success message"
-  },
-  "historyClearFailed": {
-    "message": "❌ Failed to clear history",
-    "description": "History clear failed message"
-  },
-  "downloadsCleared": {
-    "message": "📥 Download history cleared",
-    "description": "Download history cleared success message"
-  },
-  "downloadsClearFailed": {
-    "message": "❌ Failed to clear download history",
-    "description": "Download history clear failed message"
-  },
-  "downloadFilesCleared": {
-    "message": "📁 Download files deleted",
-    "description": "Download files deleted success message"
-  },
-  "downloadFilesClearFailed": {
-    "message": "❌ Failed to delete download files",
-    "description": "Download files delete failed message"
-  },
-  "pageReloading": {
-    "message": "🔄 Page is reloading",
-    "description": "Page reloading message"
-  },
-  "reloadFailed": {
-    "message": "❌ Reload failed",
-    "description": "Reload failed message"
-  },
-  "pageHardReloading": {
-    "message": "🔄 Page is hard reloading",
-    "description": "Page hard reloading message"
-  },
-  "hardReloadFailed": {
-    "message": "❌ Hard reload failed",
-    "description": "Hard reload failed message"
-  },
-  "cacheAndPageReloading": {
-    "message": "🔄 Cache cleared, page is reloading",
-    "description": "Cache cleared and page reloading message"
-  },
-  "cacheAndReloadFailed": {
-    "message": "❌ Failed to clear cache and reload",
-    "description": "Clear cache and reload failed message"
+  "allCookies": {
+    "message": "All Cookies",
+    "description": "All cookies button"
   },
   "allDataAndPageReloading": {
     "message": "🔄 All data cleared, page is reloading",
@@ -279,6 +39,298 @@
     "message": "❌ Failed to clear data and reload",
     "description": "Clear data and reload failed message"
   },
+  "allIndexedDB": {
+    "message": "All IndexedDB",
+    "description": "All IndexedDB button"
+  },
+  "allIndexedDBCleared": {
+    "message": "📊 All IndexedDB cleared",
+    "description": "All IndexedDB cleared success message"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "Average item size by storage type",
+    "description": "Average item size chart title"
+  },
+  "analysisChartBoxPlot": {
+    "message": "Storage type size distribution box plot",
+    "description": "Box plot chart title"
+  },
+  "analysisChartConcentration": {
+    "message": "Storage concentration analysis (Pareto chart)",
+    "description": "Concentration chart title"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "Top domains with cookies expiring in 7 days",
+    "description": "Expiring soon cookies top domains"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies expiry distribution",
+    "description": "Cookies expiry bucket chart"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies security attributes",
+    "description": "Cookies secure/HttpOnly/SameSite chart"
+  },
+  "analysisChartDomainLength": {
+    "message": "Grouped statistics by domain length",
+    "description": "Domain length chart title"
+  },
+  "analysisChartDomainPreference": {
+    "message": "Domain storage type preference",
+    "description": "Preference chart title"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Top domains by storage type (items)",
+    "description": "Stacked count by storage type"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Top domains by storage type (size)",
+    "description": "Stacked size by storage type"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "Expired cookies domain distribution",
+    "description": "Expired cookies chart title"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "Top domains with insecure cookies",
+    "description": "Insecure cookies chart title"
+  },
+  "analysisChartItemDistribution": {
+    "message": "Domain item count distribution histogram",
+    "description": "Item count distribution chart title"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON parse failure rate (by domain)",
+    "description": "JSON failure rate chart title"
+  },
+  "analysisChartLargeKeys": {
+    "message": "Oversized keys distribution (by domain)",
+    "description": "Large keys distribution chart title"
+  },
+  "analysisChartQuality": {
+    "message": "Storage quality / risk",
+    "description": "Chart title for quality metrics"
+  },
+  "analysisChartQualityComparison": {
+    "message": "Storage type quality comparison",
+    "description": "Quality comparison chart title"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies security attribute combination analysis",
+    "description": "Security combination chart title"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "Storage item size distribution",
+    "description": "Size bucket chart"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "Domain size distribution histogram",
+    "description": "Size distribution chart title"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "Domain size vs item count scatter plot",
+    "description": "Scatter plot chart title"
+  },
+  "analysisChartStatistics": {
+    "message": "Storage statistics summary",
+    "description": "Statistics summary chart title"
+  },
+  "analysisChartStorageCombination": {
+    "message": "Grouped by storage type combination",
+    "description": "Storage combination chart title"
+  },
+  "analysisChartStorageDensity": {
+    "message": "Domain storage density distribution",
+    "description": "Storage density chart title"
+  },
+  "analysisChartStorageUsage": {
+    "message": "Storage type usage rate",
+    "description": "Usage rate chart title"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "Grouped statistics by top-level domain (TLD)",
+    "description": "TLD distribution chart title"
+  },
+  "analysisChartTopCookies": {
+    "message": "Top domains (by Cookies size)",
+    "description": "Chart title for top domains by cookies size"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Top domain ratio analysis",
+    "description": "Ratio analysis chart title"
+  },
+  "analysisChartTopDomains": {
+    "message": "Top domains (by size)",
+    "description": "Chart title for top domains by size"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Top domains (by items)",
+    "description": "Chart title for top domains by item count"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "Storage type efficiency comparison",
+    "description": "Efficiency comparison chart title"
+  },
+  "analysisChartTypes": {
+    "message": "By storage type",
+    "description": "Chart title for storage type distribution"
+  },
+  "analysisChartTypesCount": {
+    "message": "By storage type (items)",
+    "description": "Chart title for storage type count distribution"
+  },
+  "analysisClearAll": {
+    "message": "Clear all domains",
+    "description": "Clear all domains button"
+  },
+  "analysisClearDomain": {
+    "message": "Clear domain",
+    "description": "Clear domain button text"
+  },
+  "analysisDesc": {
+    "message": "Aggregate Local/Session/IndexedDB/Cache/Cookies usage by domain",
+    "description": "Analysis page description"
+  },
+  "analysisDomainCount": {
+    "message": "Domains",
+    "description": "Domain count label"
+  },
+  "analysisEmpty": {
+    "message": "No data",
+    "description": "Empty state hint"
+  },
+  "analysisExport": {
+    "message": "Export Data",
+    "description": "Export data button"
+  },
+  "analysisExportExcel": {
+    "message": "Export Excel",
+    "description": "Export Excel button"
+  },
+  "analysisExportPDF": {
+    "message": "Export PDF",
+    "description": "Export PDF button"
+  },
+  "analysisLoading": {
+    "message": "Scanning...",
+    "description": "Scanning hint"
+  },
+  "analysisRescan": {
+    "message": "Rescan",
+    "description": "Rescan button"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Search domain...",
+    "description": "Analysis search placeholder"
+  },
+  "analysisSectionComparison": {
+    "message": "Comparison view",
+    "description": "Section title for comparison charts"
+  },
+  "analysisSectionConcentration": {
+    "message": "Concentration view",
+    "description": "Section title for concentration charts"
+  },
+  "analysisSectionDistribution": {
+    "message": "Distribution view",
+    "description": "Section title for distribution charts"
+  },
+  "analysisSectionDomains": {
+    "message": "Domain view",
+    "description": "Section label for domain top charts"
+  },
+  "analysisSectionEfficiency": {
+    "message": "Efficiency & density view",
+    "description": "Section title for efficiency and density charts"
+  },
+  "analysisSectionQuality": {
+    "message": "Quality & risk",
+    "description": "Section title for quality and risk charts"
+  },
+  "analysisSectionSecurity": {
+    "message": "Security & risk view",
+    "description": "Section title for security and risk charts"
+  },
+  "analysisSectionSegmentation": {
+    "message": "Segmentation view",
+    "description": "Section title for segmentation charts"
+  },
+  "analysisSectionStacks": {
+    "message": "Domain and storage type view",
+    "description": "Section title for stacked charts"
+  },
+  "analysisSectionStatistics": {
+    "message": "Statistics summary view",
+    "description": "Section title for statistics summary charts"
+  },
+  "analysisSectionTypes": {
+    "message": "Storage type view",
+    "description": "Section label for storage type charts"
+  },
+  "analysisTabCharts": {
+    "message": "Charts",
+    "description": "Tab label"
+  },
+  "analysisTabTable": {
+    "message": "Table",
+    "description": "Tab label"
+  },
+  "analysisTitle": {
+    "message": "Global Storage Analysis",
+    "description": "Analysis page title"
+  },
+  "analysisTotalItems": {
+    "message": "Total items",
+    "description": "Total items label"
+  },
+  "analysisTotalSize": {
+    "message": "Estimated size",
+    "description": "Total size label"
+  },
+  "average": {
+    "message": "Average",
+    "description": "Average label"
+  },
+  "avgItemSize": {
+    "message": "Average item size",
+    "description": "Average item size label"
+  },
+  "avgSize": {
+    "message": "Average size",
+    "description": "Average size label"
+  },
+  "blacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist title"
+  },
+  "browserCache": {
+    "message": "Browser Cache",
+    "description": "Browser cache button"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API label"
+  },
+  "cacheAndPageReloading": {
+    "message": "🔄 Cache cleared, page is reloading",
+    "description": "Cache cleared and page reloading message"
+  },
+  "cacheAndReloadFailed": {
+    "message": "❌ Failed to clear cache and reload",
+    "description": "Clear cache and reload failed message"
+  },
+  "cacheClearFailed": {
+    "message": "❌ Failed to clear cache",
+    "description": "Cache clear failed message"
+  },
+  "cacheCleared": {
+    "message": "🗑️ Cache cleared",
+    "description": "Cache cleared success message"
+  },
+  "cancel": {
+    "message": "Cancel",
+    "description": "Cancel button text"
+  },
   "cannotGetCurrentTab": {
     "message": "Cannot get current tab",
     "description": "Cannot get current tab error message"
@@ -287,61 +339,41 @@
     "message": "Cannot get current tab information",
     "description": "Cannot get current tab info error message"
   },
-  "loadSettingsFailed": {
-    "message": "Failed to load settings",
-    "description": "Load settings failed message"
-  },
-  "contextMenuTitle": {
-    "message": "Cache Cleaner Assistant",
-    "description": "Context menu title"
-  },
-  "operationFailed": {
-    "message": "Operation failed",
-    "description": "Operation failed generic message"
-  },
-  "unknownOperation": {
-    "message": "Unknown operation",
-    "description": "Unknown operation message"
+  "cleaning": {
+    "message": "Cleaning...",
+    "description": "Cleaning progress hint"
   },
   "cleaningFailed": {
     "message": "Cleaning failed",
     "description": "Cleaning failed generic message"
   },
-  "localStorageUnavailable": {
-    "message": "LocalStorage unavailable",
-    "description": "LocalStorage unavailable error"
+  "cleaningOptions": {
+    "message": "Cleaning Options",
+    "description": "Cleaning options settings"
   },
-  "sessionStorageUnavailable": {
-    "message": "SessionStorage unavailable",
-    "description": "SessionStorage unavailable error"
+  "clearAllAndReload": {
+    "message": "Clear All & Reload",
+    "description": "Clear all and reload button"
   },
-  "notificationDisabled": {
-    "message": "Notifications disabled, not showing",
-    "description": "Notification disabled message"
+  "clearAllAndReloadDesc": {
+    "message": "Clear all data for the current site and reload page",
+    "description": "Clear all and reload button tooltip"
   },
-  "languageSettings": {
-    "message": "Language Settings",
-    "description": "Language settings title"
+  "clearAllCache": {
+    "message": "Clear All Cache",
+    "description": "Clear all cache button"
   },
-  "languageAuto": {
-    "message": "Follow System",
-    "description": "Auto language option"
+  "clearAllCacheDesc": {
+    "message": "One-click clear all browser cache data",
+    "description": "Clear all cache button tooltip"
   },
-  "languageChanged": {
-    "message": "Language changed",
-    "description": "Language change success message"
+  "clearCache": {
+    "message": "Clear Cache",
+    "description": "Clear cache button"
   },
-  "languageChangeFailed": {
-    "message": "Failed to change language",
-    "description": "Language change failed message"
-  },
-  "normalReloadDesc": {
-    "message": "Reload the current page while keeping cache data",
-    "description": "Normal reload button tooltip"
-  },
-  "hardReloadDesc": {
-    "message": "Force reload the page, ignoring cache",
-    "description": "Hard reload button tooltip"
+  "clearCacheAndHardReload": {
+    "message": "Empty Cache and Hard Reload",
+    "description": "Empty cache and hard reload button"
   },
   "clearCacheAndHardReloadDesc": {
     "message": "Clear current site cache data and force reload",
@@ -351,201 +383,29 @@
     "message": "Clear all cache data for the current site",
     "description": "Clear cache button tooltip"
   },
-  "clearAllAndReloadDesc": {
-    "message": "Clear all data for the current site and reload page",
-    "description": "Clear all and reload button tooltip"
-  },
-  "cookiesDesc": {
-    "message": "Clear cookie data for the current site",
-    "description": "Cookies button tooltip"
-  },
-  "localStorageDesc": {
-    "message": "Clear local storage data for the current site",
-    "description": "LocalStorage button tooltip"
-  },
-  "sessionStorageDesc": {
-    "message": "Clear session storage data for the current site",
-    "description": "SessionStorage button tooltip"
-  },
-  "indexedDBDesc": {
-    "message": "Clear IndexedDB database for the current site",
-    "description": "IndexedDB button tooltip"
-  },
-  "clearAllCacheDesc": {
-    "message": "One-click clear all browser cache data",
-    "description": "Clear all cache button tooltip"
-  },
-  "storageUsage": {
-    "message": "Storage Usage",
-    "description": "Storage usage title"
-  },
-  "loadingStorage": {
-    "message": "Loading storage information...",
-    "description": "Loading storage information prompt"
-  },
-  "storageLoadFailed": {
-    "message": "Unable to load storage information",
-    "description": "Failed to load storage information prompt"
-  },
-  "noStorageData": {
-    "message": "No storage data for current website",
-    "description": "No storage data prompt"
-  },
-  "totalStorage": {
-    "message": "Total Storage:",
-    "description": "Total storage label"
-  },
-  "items": {
-    "message": "items",
-    "description": "Storage item count unit"
-  },
-  "restrictedPageStorage": {
-    "message": "This page is protected by the browser and cannot retrieve storage information",
-    "description": "Restricted page cannot retrieve storage information prompt"
+  "clearHistory": {
+    "message": "Clear History",
+    "description": "Clear history button"
   },
   "clickToViewDetail": {
     "message": "Click to view details",
     "description": "Click to view details prompt"
   },
-  "loadingDetail": {
-    "message": "Loading details...",
-    "description": "Loading details prompt"
-  },
-  "detailLoadFailed": {
-    "message": "Failed to load details",
-    "description": "Failed to load details prompt"
-  },
-  "noDetailData": {
-    "message": "No data",
-    "description": "No detail data prompt"
-  },
-  "totalItems": {
-    "message": "Total",
-    "description": "Total label"
-  },
-  "key": {
-    "message": "Key",
-    "description": "Key label"
-  },
-  "value": {
-    "message": "Value",
-    "description": "Value label"
-  },
-  "size": {
-    "message": "Size",
-    "description": "Size label"
-  },
-  "name": {
-    "message": "Name",
-    "description": "Name label"
-  },
-  "domain": {
-    "message": "Domain",
-    "description": "Domain label"
-  },
-  "path": {
-    "message": "Path",
-    "description": "Path label"
-  },
-  "secure": {
-    "message": "Secure",
-    "description": "Secure label"
-  },
-  "httpOnly": {
-    "message": "HttpOnly",
-    "description": "HttpOnly label"
-  },
-  "expiration": {
-    "message": "Expiration",
-    "description": "Expiration label"
-  },
-  "version": {
-    "message": "Version",
-    "description": "Version label"
-  },
-  "count": {
-    "message": "Count",
-    "description": "Count label"
-  },
-  "urls": {
-    "message": "URLs",
-    "description": "URLs label"
-  },
-  "moreUrls": {
-    "message": "More...",
-    "description": "More URLs prompt"
-  },
-  "expandAll": {
-    "message": "Expand All",
-    "description": "Expand all button"
-  },
   "collapseAll": {
     "message": "Collapse All",
     "description": "Collapse all button"
   },
-  "scrollToTop": {
-    "message": "Scroll to Top",
-    "description": "Scroll to top button"
-  },
-  "searchPlaceholder": {
-    "message": "Search key or value...",
-    "description": "Search input placeholder"
-  },
-  "doubleClickToCopy": {
-    "message": "Double click to copy",
-    "description": "Double click to copy hint"
-  },
-  "keyCopied": {
-    "message": "Key copied",
-    "description": "Key copied success message"
-  },
-  "valueCopied": {
-    "message": "Value copied",
-    "description": "Value copied success message"
-  },
-  "copy": {
-    "message": "Copy",
-    "description": "Copy button text"
-  },
-  "delete": {
-    "message": "Delete",
-    "description": "Delete button text"
-  },
-  "confirmDeleteTitle": {
-    "message": "Confirm Delete",
-    "description": "Delete confirmation dialog title"
-  },
-  "confirmDelete": {
-    "message": "Are you sure you want to delete this item?",
-    "description": "Delete confirmation prompt"
-  },
-  "confirmDeleteDomain": {
-    "message": "Are you sure you want to delete domain \"${domain}\"? This action cannot be undone.",
-    "description": "Delete domain confirmation prompt"
+  "concentration": {
+    "message": "Concentration",
+    "description": "Concentration label"
   },
   "confirm": {
     "message": "Confirm",
     "description": "Confirm button text"
   },
-  "cancel": {
-    "message": "Cancel",
-    "description": "Cancel button text"
-  },
-  "itemDeleted": {
-    "message": "Item deleted",
-    "description": "Delete success message"
-  },
-  "deleteFailed": {
-    "message": "Delete failed",
-    "description": "Delete failed message"
-  },
   "confirmDangerous": {
     "message": "Double confirm for dangerous actions",
     "description": "Toggle for dangerous action confirmation"
-  },
-  "silentMode": {
-    "message": "Silent mode (no prompts)",
-    "description": "Toggle for silent mode"
   },
   "confirmDangerousMessage": {
     "message": "This operation cannot be undone. Continue?",
@@ -563,509 +423,245 @@
     "message": "Confirm current action?",
     "description": "Dangerous action confirmation title"
   },
-  "analysisTitle": {
-    "message": "Global Storage Analysis",
-    "description": "Analysis page title"
-  },
-  "analysisDesc": {
-    "message": "Aggregate Local/Session/IndexedDB/Cache/Cookies usage by domain",
-    "description": "Analysis page description"
-  },
-  "analysisRescan": {
-    "message": "Rescan",
-    "description": "Rescan button"
-  },
-  "analysisClearAll": {
-    "message": "Clear all domains",
-    "description": "Clear all domains button"
-  },
-  "analysisDomainCount": {
-    "message": "Domains",
-    "description": "Domain count label"
-  },
-  "analysisTotalItems": {
-    "message": "Total items",
-    "description": "Total items label"
-  },
-  "analysisTotalSize": {
-    "message": "Estimated size",
-    "description": "Total size label"
-  },
-  "analysisChartTypes": {
-    "message": "By storage type",
-    "description": "Chart title for storage type distribution"
-  },
-  "analysisChartTypesCount": {
-    "message": "By storage type (items)",
-    "description": "Chart title for storage type count distribution"
-  },
-  "analysisChartTopDomains": {
-    "message": "Top domains (by size)",
-    "description": "Chart title for top domains by size"
-  },
-  "analysisChartTopDomainsCount": {
-    "message": "Top domains (by items)",
-    "description": "Chart title for top domains by item count"
-  },
-  "analysisChartTopCookies": {
-    "message": "Top domains (by Cookies size)",
-    "description": "Chart title for top domains by cookies size"
-  },
-  "analysisChartDomainTypeSize": {
-    "message": "Top domains by storage type (size)",
-    "description": "Stacked size by storage type"
-  },
-  "analysisChartDomainTypeCount": {
-    "message": "Top domains by storage type (items)",
-    "description": "Stacked count by storage type"
-  },
-  "analysisChartSizeBuckets": {
-    "message": "Storage item size distribution",
-    "description": "Size bucket chart"
-  },
-  "analysisChartCookiesSecurity": {
-    "message": "Cookies security attributes",
-    "description": "Cookies secure/HttpOnly/SameSite chart"
-  },
-  "analysisChartCookiesExpiry": {
-    "message": "Cookies expiry distribution",
-    "description": "Cookies expiry bucket chart"
-  },
-  "analysisChartCookiesExpiringSoon": {
-    "message": "Top domains with cookies expiring in 7 days",
-    "description": "Expiring soon cookies top domains"
-  },
-  "analysisTabTable": {
-    "message": "Table",
-    "description": "Tab label"
-  },
-  "analysisTabCharts": {
-    "message": "Charts",
-    "description": "Tab label"
-  },
-  "analysisChartQuality": {
-    "message": "Storage quality / risk",
-    "description": "Chart title for quality metrics"
-  },
-  "qualityLocalJsonFail": {
-    "message": "LocalStorage JSON parse fails",
-    "description": "Metric label"
-  },
-  "qualitySessionJsonFail": {
-    "message": "SessionStorage JSON parse fails",
-    "description": "Metric label"
-  },
-  "qualityLocalLarge": {
-    "message": "LocalStorage oversized keys (>100KB)",
-    "description": "Metric label"
-  },
-  "qualitySessionLarge": {
-    "message": "SessionStorage oversized keys (>100KB)",
-    "description": "Metric label"
-  },
-  "analysisSectionStacks": {
-    "message": "Domain and storage type view",
-    "description": "Section title for stacked charts"
-  },
-  "analysisSectionQuality": {
-    "message": "Quality & risk",
-    "description": "Section title for quality and risk charts"
-  },
-  "analysisSectionEfficiency": {
-    "message": "Efficiency & density view",
-    "description": "Section title for efficiency and density charts"
-  },
-  "analysisSectionConcentration": {
-    "message": "Concentration view",
-    "description": "Section title for concentration charts"
-  },
-  "analysisSectionDistribution": {
-    "message": "Distribution view",
-    "description": "Section title for distribution charts"
-  },
-  "analysisSectionComparison": {
-    "message": "Comparison view",
-    "description": "Section title for comparison charts"
-  },
-  "analysisSectionSecurity": {
-    "message": "Security & risk view",
-    "description": "Section title for security and risk charts"
-  },
-  "analysisSectionSegmentation": {
-    "message": "Segmentation view",
-    "description": "Section title for segmentation charts"
-  },
-  "analysisSectionStatistics": {
-    "message": "Statistics summary view",
-    "description": "Section title for statistics summary charts"
-  },
-  "analysisChartAvgItemSize": {
-    "message": "Average item size by storage type",
-    "description": "Average item size chart title"
-  },
-  "analysisChartStorageDensity": {
-    "message": "Domain storage density distribution",
-    "description": "Storage density chart title"
-  },
-  "analysisChartSizeItemScatter": {
-    "message": "Domain size vs item count scatter plot",
-    "description": "Scatter plot chart title"
-  },
-  "analysisChartConcentration": {
-    "message": "Storage concentration analysis (Pareto chart)",
-    "description": "Concentration chart title"
-  },
-  "analysisChartTopDomainRatio": {
-    "message": "Top domain ratio analysis",
-    "description": "Ratio analysis chart title"
-  },
-  "analysisChartSizeDistribution": {
-    "message": "Domain size distribution histogram",
-    "description": "Size distribution chart title"
-  },
-  "analysisChartItemDistribution": {
-    "message": "Domain item count distribution histogram",
-    "description": "Item count distribution chart title"
-  },
-  "analysisChartStorageUsage": {
-    "message": "Storage type usage rate",
-    "description": "Usage rate chart title"
-  },
-  "analysisChartTypeEfficiency": {
-    "message": "Storage type efficiency comparison",
-    "description": "Efficiency comparison chart title"
-  },
-  "analysisChartDomainPreference": {
-    "message": "Domain storage type preference",
-    "description": "Preference chart title"
-  },
-  "analysisChartInsecureCookies": {
-    "message": "Top domains with insecure cookies",
-    "description": "Insecure cookies chart title"
-  },
-  "analysisChartExpiredCookies": {
-    "message": "Expired cookies domain distribution",
-    "description": "Expired cookies chart title"
-  },
-  "analysisChartSecurityCombination": {
-    "message": "Cookies security attribute combination analysis",
-    "description": "Security combination chart title"
-  },
-  "analysisChartTLDDistribution": {
-    "message": "Grouped statistics by top-level domain (TLD)",
-    "description": "TLD distribution chart title"
-  },
-  "analysisChartDomainLength": {
-    "message": "Grouped statistics by domain length",
-    "description": "Domain length chart title"
-  },
-  "analysisChartStorageCombination": {
-    "message": "Grouped by storage type combination",
-    "description": "Storage combination chart title"
-  },
-  "analysisChartJsonFailRate": {
-    "message": "JSON parse failure rate (by domain)",
-    "description": "JSON failure rate chart title"
-  },
-  "analysisChartLargeKeys": {
-    "message": "Oversized keys distribution (by domain)",
-    "description": "Large keys distribution chart title"
-  },
-  "analysisChartQualityComparison": {
-    "message": "Storage type quality comparison",
-    "description": "Quality comparison chart title"
-  },
-  "analysisChartStatistics": {
-    "message": "Storage statistics summary",
-    "description": "Statistics summary chart title"
-  },
-  "analysisChartBoxPlot": {
-    "message": "Storage type size distribution box plot",
-    "description": "Box plot chart title"
-  },
-  "avgSize": {
-    "message": "Average size",
-    "description": "Average size label"
-  },
-  "perItem": {
-    "message": "Per item",
-    "description": "Per item label"
-  },
-  "concentration": {
-    "message": "Concentration",
-    "description": "Concentration label"
-  },
-  "cumulativeRatio": {
-    "message": "Cumulative ratio",
-    "description": "Cumulative ratio label"
-  },
-  "domainCount": {
-    "message": "Domain count",
-    "description": "Domain count label"
-  },
-  "sizeRange": {
-    "message": "Size range",
-    "description": "Size range label"
-  },
-  "itemRange": {
-    "message": "Item count range",
-    "description": "Item count range label"
-  },
-  "usageRate": {
-    "message": "Usage rate",
-    "description": "Usage rate label"
-  },
-  "efficiency": {
-    "message": "Efficiency",
-    "description": "Efficiency label"
-  },
-  "preference": {
-    "message": "Preference",
-    "description": "Preference label"
-  },
-  "insecure": {
-    "message": "Insecure",
-    "description": "Insecure label"
-  },
-  "expired": {
-    "message": "Expired",
-    "description": "Expired label"
-  },
-  "securityCombination": {
-    "message": "Security attribute combination",
-    "description": "Security attribute combination label"
-  },
-  "topLevelDomain": {
-    "message": "Top-level domain",
-    "description": "Top-level domain label"
-  },
-  "domainLength": {
-    "message": "Domain length",
-    "description": "Domain length label"
-  },
-  "storageCombination": {
-    "message": "Storage type combination",
-    "description": "Storage type combination label"
-  },
-  "jsonFailRate": {
-    "message": "JSON failure rate",
-    "description": "JSON failure rate label"
-  },
-  "largeKeys": {
-    "message": "Large keys",
-    "description": "Large keys label"
-  },
-  "qualityComparison": {
-    "message": "Quality comparison",
-    "description": "Quality comparison label"
-  },
-  "statistics": {
-    "message": "Statistics",
-    "description": "Statistics label"
-  },
-  "min": {
-    "message": "Min",
-    "description": "Min label"
-  },
-  "max": {
-    "message": "Max",
-    "description": "Max label"
-  },
-  "median": {
-    "message": "Median",
-    "description": "Median label"
-  },
-  "average": {
-    "message": "Average",
-    "description": "Average label"
-  },
-  "avgItemSize": {
-    "message": "Average item size",
-    "description": "Average item size label"
-  },
-  "domains": {
-    "message": "domains",
-    "description": "Domain unit"
-  },
-  "itemCount": {
-    "message": "Item count",
-    "description": "Item count label"
-  },
-  "ratio": {
-    "message": "Ratio",
-    "description": "Ratio label"
-  },
-  "localOnly": {
-    "message": "LocalStorage only",
-    "description": "LocalStorage only label"
-  },
-  "cookiesOnly": {
-    "message": "Cookies only",
-    "description": "Cookies only label"
-  },
-  "mixed": {
-    "message": "Mixed usage",
-    "description": "Mixed usage label"
-  },
-  "insecureCookies": {
-    "message": "Insecure cookies",
-    "description": "Insecure cookies label"
-  },
-  "expiredCookies": {
-    "message": "Expired cookies",
-    "description": "Expired cookies label"
+  "confirmDelete": {
+    "message": "Are you sure you want to delete this item?",
+    "description": "Delete confirmation prompt"
+  },
+  "confirmDeleteDomain": {
+    "message": "Are you sure you want to delete domain \"${domain}\"? This action cannot be undone.",
+    "description": "Delete domain confirmation prompt"
+  },
+  "confirmDeleteTitle": {
+    "message": "Confirm Delete",
+    "description": "Delete confirmation dialog title"
+  },
+  "contextMenuTitle": {
+    "message": "Cache Cleaner Assistant",
+    "description": "Context menu title"
   },
   "cookieCount": {
     "message": "Cookie count",
     "description": "Cookie count label"
   },
-  "short": {
-    "message": "Short (<10)",
-    "description": "Short domain label"
+  "cookies": {
+    "message": "Cookies",
+    "description": "Cookies button"
   },
-  "medium": {
-    "message": "Medium (10-20)",
-    "description": "Medium domain label"
+  "cookiesClearFailed": {
+    "message": "❌ Failed to clear cookies",
+    "description": "Cookies clear failed message"
   },
-  "long": {
-    "message": "Long (20-30)",
-    "description": "Long domain label"
+  "cookiesCleared": {
+    "message": "🍪 Cookies cleared",
+    "description": "Cookies cleared success message"
   },
-  "veryLong": {
-    "message": "Very long (>30)",
-    "description": "Very long domain label"
+  "cookiesDesc": {
+    "message": "Clear cookie data for the current site",
+    "description": "Cookies button tooltip"
   },
-  "none": {
-    "message": "None",
-    "description": "None label"
-  },
-  "localAndCookies": {
-    "message": "LocalStorage + Cookies",
-    "description": "LocalStorage and Cookies combination label"
-  },
-  "all": {
-    "message": "All types",
-    "description": "All types label"
-  },
-  "other": {
-    "message": "Other combinations",
-    "description": "Other combinations label"
-  },
-  "minSize": {
-    "message": "Min size",
-    "description": "Min size label"
-  },
-  "maxSize": {
-    "message": "Max size",
-    "description": "Max size label"
-  },
-  "medianSize": {
-    "message": "Median size",
-    "description": "Median size label"
-  },
-  "q1": {
-    "message": "Q1",
-    "description": "First quartile label"
-  },
-  "q3": {
-    "message": "Q3",
-    "description": "Third quartile label"
-  },
-  "totalSize": {
-    "message": "Total size",
-    "description": "Total size label"
-  },
-  "cookiesExpiryLt7d": {
-    "message": "≤7 days",
-    "description": "Cookies expiry bucket"
-  },
-  "cookiesExpiryLt30d": {
-    "message": "≤30 days",
-    "description": "Cookies expiry bucket"
-  },
-  "cookiesExpiryMid": {
-    "message": "30-180 days",
+  "cookiesExpiryExpired": {
+    "message": "Expired",
     "description": "Cookies expiry bucket"
   },
   "cookiesExpiryGt180d": {
     "message": "≥180 days",
     "description": "Cookies expiry bucket"
   },
+  "cookiesExpiryLt30d": {
+    "message": "≤30 days",
+    "description": "Cookies expiry bucket"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7 days",
+    "description": "Cookies expiry bucket"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180 days",
+    "description": "Cookies expiry bucket"
+  },
   "cookiesExpiryNo": {
     "message": "No expiry",
     "description": "Cookies expiry bucket"
   },
-  "cookiesExpiryExpired": {
-    "message": "Expired",
-    "description": "Cookies expiry bucket"
+  "cookiesOnly": {
+    "message": "Cookies only",
+    "description": "Cookies only label"
   },
-  "analysisSectionTypes": {
-    "message": "Storage type view",
-    "description": "Section label for storage type charts"
+  "copy": {
+    "message": "Copy",
+    "description": "Copy button text"
   },
-  "analysisSectionDomains": {
-    "message": "Domain view",
-    "description": "Section label for domain top charts"
+  "count": {
+    "message": "Count",
+    "description": "Count label"
   },
-  "analysisClearDomain": {
-    "message": "Clear domain",
-    "description": "Clear domain button text"
+  "cumulativeRatio": {
+    "message": "Cumulative ratio",
+    "description": "Cumulative ratio label"
   },
-  "analysisLoading": {
-    "message": "Scanning...",
-    "description": "Scanning hint"
+  "currentSite": {
+    "message": "Current Site:",
+    "description": "Current site label"
   },
-  "analysisEmpty": {
-    "message": "No data",
-    "description": "Empty state hint"
+  "currentSiteCacheClearFailed": {
+    "message": "❌ Failed to clear current site cache",
+    "description": "Current site cache clear failed message"
   },
-  "openAnalysis": {
-    "message": "Global Storage Analysis",
-    "description": "Open analysis entry button"
+  "currentSiteCacheCleared": {
+    "message": "🌐 Current site cache cleared",
+    "description": "Current site cache cleared success message"
   },
-  "cacheAPI": {
-    "message": "Cache",
-    "description": "Cache API label"
+  "delete": {
+    "message": "Delete",
+    "description": "Delete button text"
   },
-  "action": {
-    "message": "Action",
-    "description": "Action column label"
+  "deleteDownloadFiles": {
+    "message": "Delete Download Files",
+    "description": "Delete download files button"
   },
-  "cleaning": {
-    "message": "Cleaning...",
-    "description": "Cleaning progress hint"
+  "deleteFailed": {
+    "message": "Delete failed",
+    "description": "Delete failed message"
   },
-  "analysisSearchPlaceholder": {
-    "message": "Search domain...",
-    "description": "Analysis search placeholder"
+  "detailLoadFailed": {
+    "message": "Failed to load details",
+    "description": "Failed to load details prompt"
   },
-  "exportJSON": {
-    "message": "Export JSON",
-    "description": "Export as JSON button"
+  "domain": {
+    "message": "Domain",
+    "description": "Domain label"
   },
-  "exportCSV": {
-    "message": "Export CSV",
-    "description": "Export as CSV button"
+  "domainAdded": {
+    "message": "Domain added to list",
+    "description": "Single domain added success message"
   },
-  "exportFilteredOnly": {
-    "message": "Export filtered only",
-    "description": "Export filtered toggle"
+  "domainBlocked": {
+    "message": "This domain is filtered and cannot perform this operation",
+    "description": "Domain blocked message"
   },
-  "exportSuccess": {
-    "message": "Exported",
-    "description": "Export success hint"
+  "domainCount": {
+    "message": "Domain count",
+    "description": "Domain count label"
   },
-  "exportFailed": {
-    "message": "Export failed",
-    "description": "Export failed hint"
+  "domainExists": {
+    "message": "Domain already exists",
+    "description": "Domain exists message"
   },
   "domainFilter": {
     "message": "Domain Filter",
     "description": "Domain filter title"
   },
+  "domainFilterHint": {
+    "message": "Whitelist mode: Only allow cleanup operations on listed domains; Blacklist mode: Block cleanup operations on listed domains",
+    "description": "Domain filter hint"
+  },
+  "domainInputPlaceholder": {
+    "message": "Enter domain, e.g. example.com or *.example.com",
+    "description": "Domain input placeholder"
+  },
+  "domainLength": {
+    "message": "Domain length",
+    "description": "Domain length label"
+  },
+  "domains": {
+    "message": "domains",
+    "description": "Domain unit"
+  },
+  "domainsAddedFailed": {
+    "message": "All domains already exist or are invalid",
+    "description": "Batch add domains all failed message"
+  },
+  "domainsAddedPartial": {
+    "message": "Successfully added %d domains, skipped %d",
+    "description": "Batch add domains partial success message"
+  },
+  "domainsAddedSuccess": {
+    "message": "Successfully added %d domains",
+    "description": "Batch add domains success message"
+  },
+  "doubleClickToCopy": {
+    "message": "Double click to copy",
+    "description": "Double click to copy hint"
+  },
+  "downloadFilesClearFailed": {
+    "message": "❌ Failed to delete download files",
+    "description": "Download files delete failed message"
+  },
+  "downloadFilesCleared": {
+    "message": "📁 Download files deleted",
+    "description": "Download files deleted success message"
+  },
+  "downloadHistory": {
+    "message": "Download History",
+    "description": "Download history button"
+  },
+  "downloadsClearFailed": {
+    "message": "❌ Failed to clear download history",
+    "description": "Download history clear failed message"
+  },
+  "downloadsCleared": {
+    "message": "📥 Download history cleared",
+    "description": "Download history cleared success message"
+  },
+  "efficiency": {
+    "message": "Efficiency",
+    "description": "Efficiency label"
+  },
+  "enableNotifications": {
+    "message": "Enable Notifications",
+    "description": "Enable notifications option"
+  },
+  "expandAll": {
+    "message": "Expand All",
+    "description": "Expand all button"
+  },
+  "expiration": {
+    "message": "Expiration",
+    "description": "Expiration label"
+  },
+  "expired": {
+    "message": "Expired",
+    "description": "Expired label"
+  },
+  "expiredCookies": {
+    "message": "Expired cookies",
+    "description": "Expired cookies label"
+  },
+  "exportCSV": {
+    "message": "Export CSV",
+    "description": "Export as CSV button"
+  },
+  "exportFailed": {
+    "message": "Export failed",
+    "description": "Export failed hint"
+  },
+  "exportFilteredOnly": {
+    "message": "Export filtered only",
+    "description": "Export filtered toggle"
+  },
+  "exportJSON": {
+    "message": "Export JSON",
+    "description": "Export as JSON button"
+  },
+  "exportSuccess": {
+    "message": "Exported",
+    "description": "Export success hint"
+  },
+  "extensionDescription": {
+    "message": "A powerful tool for one-click clearing of browser cache, cookies, localStorage, sessionStorage and other data",
+    "description": "Extension description"
+  },
+  "extensionName": {
+    "message": "Cache Cleaner Assistant",
+    "description": "Extension name"
+  },
   "filterMode": {
     "message": "Filter Mode:",
     "description": "Filter mode label"
+  },
+  "filterModeBlacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist filter mode"
   },
   "filterModeDisabled": {
     "message": "Disabled",
@@ -1075,72 +671,512 @@
     "message": "Whitelist",
     "description": "Whitelist filter mode"
   },
-  "filterModeBlacklist": {
-    "message": "Blacklist",
-    "description": "Blacklist filter mode"
+  "footerTip": {
+    "message": "💡 Tip: Use delete functions carefully, deleted data cannot be recovered",
+    "description": "Footer tip"
   },
-  "whitelist": {
-    "message": "Whitelist",
-    "description": "Whitelist title"
+  "hardReload": {
+    "message": "Hard Reload",
+    "description": "Hard reload button"
   },
-  "blacklist": {
-    "message": "Blacklist",
-    "description": "Blacklist title"
+  "hardReloadDesc": {
+    "message": "Force reload the page, ignoring cache",
+    "description": "Hard reload button tooltip"
   },
-  "add": {
-    "message": "Add",
-    "description": "Add button"
+  "hardReloadFailed": {
+    "message": "❌ Hard reload failed",
+    "description": "Hard reload failed message"
   },
-  "addDomain": {
-    "message": "Add Domain",
-    "description": "Add domain modal title"
+  "historyClearFailed": {
+    "message": "❌ Failed to clear history",
+    "description": "History clear failed message"
   },
-  "addedDomains": {
-    "message": "Added Domains",
-    "description": "Added domains list title"
+  "historyCleared": {
+    "message": "📜 History cleared",
+    "description": "History cleared success message"
   },
-  "domainAdded": {
-    "message": "Domain added to list",
-    "description": "Single domain added success message"
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnly label"
   },
-  "domainsAddedSuccess": {
-    "message": "Successfully added %d domains",
-    "description": "Batch add domains success message"
+  "includeProtectedData": {
+    "message": "Include Protected Data",
+    "description": "Include protected data option"
   },
-  "domainsAddedPartial": {
-    "message": "Successfully added %d domains, skipped %d",
-    "description": "Batch add domains partial success message"
+  "indexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB button"
   },
-  "domainsAddedFailed": {
-    "message": "All domains already exist or are invalid",
-    "description": "Batch add domains all failed message"
+  "indexedDBClearFailed": {
+    "message": "❌ Failed to clear IndexedDB",
+    "description": "IndexedDB clear failed message"
   },
-  "remove": {
-    "message": "Remove",
-    "description": "Remove button"
+  "indexedDBCleared": {
+    "message": "📊 IndexedDB cleared",
+    "description": "IndexedDB cleared success message"
   },
-  "domainInputPlaceholder": {
-    "message": "Enter domain, e.g. example.com or *.example.com",
-    "description": "Domain input placeholder"
+  "indexedDBDesc": {
+    "message": "Clear IndexedDB database for the current site",
+    "description": "IndexedDB button tooltip"
   },
-  "domainFilterHint": {
-    "message": "Whitelist mode: Only allow cleanup operations on listed domains; Blacklist mode: Block cleanup operations on listed domains",
-    "description": "Domain filter hint"
+  "insecure": {
+    "message": "Insecure",
+    "description": "Insecure label"
   },
-  "domainBlocked": {
-    "message": "This domain is filtered and cannot perform this operation",
-    "description": "Domain blocked message"
+  "insecureCookies": {
+    "message": "Insecure cookies",
+    "description": "Insecure cookies label"
   },
   "invalidDomain": {
     "message": "Invalid domain format",
     "description": "Invalid domain message"
   },
-  "domainExists": {
-    "message": "Domain already exists",
-    "description": "Domain exists message"
+  "itemCount": {
+    "message": "Item count",
+    "description": "Item count label"
+  },
+  "itemDeleted": {
+    "message": "Item deleted",
+    "description": "Delete success message"
+  },
+  "itemRange": {
+    "message": "Item count range",
+    "description": "Item count range label"
+  },
+  "items": {
+    "message": "items",
+    "description": "Storage item count unit"
+  },
+  "jsonFailRate": {
+    "message": "JSON failure rate",
+    "description": "JSON failure rate label"
+  },
+  "keepFormData": {
+    "message": "Keep Form Data",
+    "description": "Keep form data option"
+  },
+  "keepPasswords": {
+    "message": "Keep Passwords",
+    "description": "Keep passwords option"
+  },
+  "key": {
+    "message": "Key",
+    "description": "Key label"
+  },
+  "keyCopied": {
+    "message": "Key copied",
+    "description": "Key copied success message"
+  },
+  "languageAuto": {
+    "message": "Follow System",
+    "description": "Auto language option"
+  },
+  "languageChangeFailed": {
+    "message": "Failed to change language",
+    "description": "Language change failed message"
+  },
+  "languageChanged": {
+    "message": "Language changed",
+    "description": "Language change success message"
+  },
+  "languageSettings": {
+    "message": "Language Settings",
+    "description": "Language settings title"
+  },
+  "largeKeys": {
+    "message": "Large keys",
+    "description": "Large keys label"
+  },
+  "loadSettingsFailed": {
+    "message": "Failed to load settings",
+    "description": "Load settings failed message"
+  },
+  "loading": {
+    "message": "Loading...",
+    "description": "Loading status"
+  },
+  "loadingDetail": {
+    "message": "Loading details...",
+    "description": "Loading details prompt"
+  },
+  "loadingStorage": {
+    "message": "Loading storage information...",
+    "description": "Loading storage information prompt"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorage and Cookies combination label"
+  },
+  "localOnly": {
+    "message": "LocalStorage only",
+    "description": "LocalStorage only label"
+  },
+  "localStorage": {
+    "message": "LocalStorage",
+    "description": "LocalStorage button"
+  },
+  "localStorageClearFailed": {
+    "message": "❌ Failed to clear LocalStorage",
+    "description": "LocalStorage clear failed message"
+  },
+  "localStorageCleared": {
+    "message": "💾 LocalStorage cleared",
+    "description": "LocalStorage cleared success message"
+  },
+  "localStorageDesc": {
+    "message": "Clear local storage data for the current site",
+    "description": "LocalStorage button tooltip"
+  },
+  "localStorageUnavailable": {
+    "message": "LocalStorage unavailable",
+    "description": "LocalStorage unavailable error"
+  },
+  "long": {
+    "message": "Long (20-30)",
+    "description": "Long domain label"
+  },
+  "max": {
+    "message": "Max",
+    "description": "Max label"
+  },
+  "maxSize": {
+    "message": "Max size",
+    "description": "Max size label"
+  },
+  "median": {
+    "message": "Median",
+    "description": "Median label"
+  },
+  "medianSize": {
+    "message": "Median size",
+    "description": "Median size label"
+  },
+  "medium": {
+    "message": "Medium (10-20)",
+    "description": "Medium domain label"
+  },
+  "min": {
+    "message": "Min",
+    "description": "Min label"
+  },
+  "minSize": {
+    "message": "Min size",
+    "description": "Min size label"
+  },
+  "mixed": {
+    "message": "Mixed usage",
+    "description": "Mixed usage label"
+  },
+  "moreUrls": {
+    "message": "More...",
+    "description": "More URLs prompt"
+  },
+  "name": {
+    "message": "Name",
+    "description": "Name label"
+  },
+  "noDetailData": {
+    "message": "No data",
+    "description": "No detail data prompt"
   },
   "noDomains": {
     "message": "No domains",
     "description": "Empty list message"
+  },
+  "noStorageData": {
+    "message": "No storage data for current website",
+    "description": "No storage data prompt"
+  },
+  "none": {
+    "message": "None",
+    "description": "None label"
+  },
+  "normalReload": {
+    "message": "Normal Reload",
+    "description": "Normal reload button"
+  },
+  "normalReloadDesc": {
+    "message": "Reload the current page while keeping cache data",
+    "description": "Normal reload button tooltip"
+  },
+  "notificationDisabled": {
+    "message": "Notifications disabled, not showing",
+    "description": "Notification disabled message"
+  },
+  "notificationSettings": {
+    "message": "Notification Settings",
+    "description": "Notification settings"
+  },
+  "notificationSound": {
+    "message": "Notification Sound",
+    "description": "Notification sound option"
+  },
+  "openAnalysis": {
+    "message": "Global Storage Analysis",
+    "description": "Open analysis entry button"
+  },
+  "operationFailed": {
+    "message": "Operation failed",
+    "description": "Operation failed generic message"
+  },
+  "other": {
+    "message": "Other combinations",
+    "description": "Other combinations label"
+  },
+  "pageHardReloading": {
+    "message": "🔄 Page is hard reloading",
+    "description": "Page hard reloading message"
+  },
+  "pageReloading": {
+    "message": "🔄 Page is reloading",
+    "description": "Page reloading message"
+  },
+  "path": {
+    "message": "Path",
+    "description": "Path label"
+  },
+  "perItem": {
+    "message": "Per item",
+    "description": "Per item label"
+  },
+  "popupTitle": {
+    "message": "Cache Cleaner Assistant - Your Browser Cleaning Expert",
+    "description": "Popup title"
+  },
+  "preference": {
+    "message": "Preference",
+    "description": "Preference label"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "First quartile label"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "Third quartile label"
+  },
+  "qualityComparison": {
+    "message": "Quality comparison",
+    "description": "Quality comparison label"
+  },
+  "qualityLocalJsonFail": {
+    "message": "LocalStorage JSON parse fails",
+    "description": "Metric label"
+  },
+  "qualityLocalLarge": {
+    "message": "LocalStorage oversized keys (>100KB)",
+    "description": "Metric label"
+  },
+  "qualitySessionJsonFail": {
+    "message": "SessionStorage JSON parse fails",
+    "description": "Metric label"
+  },
+  "qualitySessionLarge": {
+    "message": "SessionStorage oversized keys (>100KB)",
+    "description": "Metric label"
+  },
+  "ratio": {
+    "message": "Ratio",
+    "description": "Ratio label"
+  },
+  "reloadFailed": {
+    "message": "❌ Reload failed",
+    "description": "Reload failed message"
+  },
+  "remove": {
+    "message": "Remove",
+    "description": "Remove button"
+  },
+  "restrictedPageStorage": {
+    "message": "This page is protected by the browser and cannot retrieve storage information",
+    "description": "Restricted page cannot retrieve storage information prompt"
+  },
+  "save": {
+    "message": "Save",
+    "description": "Save button"
+  },
+  "saveFailed": {
+    "message": "Save failed",
+    "description": "Generic save failed message"
+  },
+  "scrollToTop": {
+    "message": "Scroll to Top",
+    "description": "Scroll to top button"
+  },
+  "searchPlaceholder": {
+    "message": "Search key or value...",
+    "description": "Search input placeholder"
+  },
+  "secure": {
+    "message": "Secure",
+    "description": "Secure label"
+  },
+  "securityCombination": {
+    "message": "Security attribute combination",
+    "description": "Security attribute combination label"
+  },
+  "sessionStorage": {
+    "message": "SessionStorage",
+    "description": "SessionStorage button"
+  },
+  "sessionStorageClearFailed": {
+    "message": "❌ Failed to clear SessionStorage",
+    "description": "SessionStorage clear failed message"
+  },
+  "sessionStorageCleared": {
+    "message": "📂 SessionStorage cleared",
+    "description": "SessionStorage cleared success message"
+  },
+  "sessionStorageDesc": {
+    "message": "Clear session storage data for the current site",
+    "description": "SessionStorage button tooltip"
+  },
+  "sessionStorageUnavailable": {
+    "message": "SessionStorage unavailable",
+    "description": "SessionStorage unavailable error"
+  },
+  "settingsSaveFailed": {
+    "message": "Failed to save settings",
+    "description": "Settings save failed message"
+  },
+  "settingsSaved": {
+    "message": "Settings saved",
+    "description": "Settings saved success message"
+  },
+  "short": {
+    "message": "Short (<10)",
+    "description": "Short domain label"
+  },
+  "silentMode": {
+    "message": "Silent mode (no prompts)",
+    "description": "Toggle for silent mode"
+  },
+  "size": {
+    "message": "Size",
+    "description": "Size label"
+  },
+  "sizeRange": {
+    "message": "Size range",
+    "description": "Size range label"
+  },
+  "statistics": {
+    "message": "Statistics",
+    "description": "Statistics label"
+  },
+  "storageCombination": {
+    "message": "Storage type combination",
+    "description": "Storage type combination label"
+  },
+  "storageLoadFailed": {
+    "message": "Unable to load storage information",
+    "description": "Failed to load storage information prompt"
+  },
+  "storageUsage": {
+    "message": "Storage Usage",
+    "description": "Storage usage title"
+  },
+  "tabAllBrowser": {
+    "message": "All Browser",
+    "description": "All browser tab"
+  },
+  "tabCurrentSite": {
+    "message": "Current Site",
+    "description": "Current site tab"
+  },
+  "tabSettings": {
+    "message": "Advanced Settings",
+    "description": "Advanced settings tab"
+  },
+  "themeAuto": {
+    "message": "Auto",
+    "description": "Auto theme"
+  },
+  "themeDark": {
+    "message": "Dark",
+    "description": "Dark theme"
+  },
+  "themeLight": {
+    "message": "Light",
+    "description": "Light theme"
+  },
+  "themeSettings": {
+    "message": "Appearance Theme",
+    "description": "Appearance theme settings"
+  },
+  "timeRangeAll": {
+    "message": "All time",
+    "description": "Time range option: all"
+  },
+  "timeRangeLabel": {
+    "message": "Time Range",
+    "description": "Time range title"
+  },
+  "timeRangeLastDay": {
+    "message": "Last 24 hours",
+    "description": "Time range option: 24 hours"
+  },
+  "timeRangeLastHour": {
+    "message": "Last 1 hour",
+    "description": "Time range option: 1 hour"
+  },
+  "timeRangeLastMonth": {
+    "message": "Last 4 weeks",
+    "description": "Time range option: 4 weeks"
+  },
+  "timeRangeLastWeek": {
+    "message": "Last 7 days",
+    "description": "Time range option: 7 days"
+  },
+  "timeRangeSaved": {
+    "message": "Time range saved",
+    "description": "Time range saved success message"
+  },
+  "topLevelDomain": {
+    "message": "Top-level domain",
+    "description": "Top-level domain label"
+  },
+  "totalItems": {
+    "message": "Total",
+    "description": "Total label"
+  },
+  "totalStorage": {
+    "message": "Total Storage:",
+    "description": "Total storage label"
+  },
+  "unknownOperation": {
+    "message": "Unknown operation",
+    "description": "Unknown operation message"
+  },
+  "unknownSite": {
+    "message": "Unknown Site",
+    "description": "Unknown site"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLs label"
+  },
+  "usageRate": {
+    "message": "Usage rate",
+    "description": "Usage rate label"
+  },
+  "value": {
+    "message": "Value",
+    "description": "Value label"
+  },
+  "valueCopied": {
+    "message": "Value copied",
+    "description": "Value copied success message"
+  },
+  "version": {
+    "message": "Version",
+    "description": "Version label"
+  },
+  "veryLong": {
+    "message": "Very long (>30)",
+    "description": "Very long domain label"
+  },
+  "whitelist": {
+    "message": "Whitelist",
+    "description": "Whitelist title"
   }
 }

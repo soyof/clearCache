@@ -178,6 +178,20 @@
 
             <!-- 整个浏览器 Tab 内容 -->
             <div class="tab-content" id="all-browser-tab">
+                <!-- 清理范围选择（仅作用于“整个浏览器”操作） -->
+                <div class="time-range-row">
+                    <div class="time-range-labels">
+                        <span class="time-range-title" data-i18n="timeRangeLabel">清理范围</span>
+                    </div>
+                    <select id="time-range-select" class="filter-mode-select time-range-select">
+                        <option value="hour" data-i18n="timeRangeLastHour">最近 1 小时</option>
+                        <option value="day" data-i18n="timeRangeLastDay">最近 24 小时</option>
+                        <option value="week" data-i18n="timeRangeLastWeek">最近 7 天</option>
+                        <option value="month" data-i18n="timeRangeLastMonth">最近 4 周</option>
+                        <option value="all" selected data-i18n="timeRangeAll">全部时间</option>
+                    </select>
+                </div>
+
                 <!-- 一键清理 + 全局分析 -->
                 <div class="actions-grid all-browser-top">
                     <button id="clear-all" class="btn btn-primary" data-i18n-title="clearAllCacheDesc">

@@ -3,16 +3,24 @@
  * 处理各种数据清理操作
  */
 
+import domainFilter from '../utils/domainFilter.js';
 import {
     BrowsingDataManager,
     ButtonManager,
     CleanerManager,
     SettingsManager,
     StatusManager,
-    getMessage
+    getMessage,
+    resolveTimeRangeSince
 } from '../utils/index.js';
 import { getCurrentTab } from './state.js';
-import domainFilter from '../utils/domainFilter.js';
+
+async function getSinceFromOptions(options = {}) {
+    if (options.applyTimeRange) {
+        return await resolveTimeRangeSince(options.timeRange);
+    }
+    return 0;
+}
 
 /**
  * 执行清理操作
@@ -120,8 +128,10 @@ export async function clearCurrentWebsiteData(elements, options = {}) {
             return;
         }
 
+        const since = await getSinceFromOptions(options);
+
         if (options.silent) {
-            await CleanerManager.clearCurrentWebsiteData(currentTab);
+            await CleanerManager.clearCurrentWebsiteData(currentTab, { since });
             console.log('[silent] clearCurrentWebsiteData done');
             return;
         }
@@ -142,7 +152,7 @@ export async function clearCurrentWebsiteData(elements, options = {}) {
         // 使用立即执行的异步函数确保清理操作一定会执行
         (async () => {
             try {
-                await CleanerManager.clearCurrentWebsiteData(currentTab);
+                await CleanerManager.clearCurrentWebsiteData(currentTab, { since });
                 // 检查元素是否还存在（popup可能已关闭）
                 if (elements.clearCurrentAll && elements.status && elements.statusContainer) {
                     ButtonManager.setSuccess(elements.clearCurrentAll);
@@ -189,7 +199,8 @@ export async function clearAllData(elements, options = {}) {
                 'clearFormData',
                 'includeProtected'
             ]);
-            await CleanerManager.clearAllData(currentTab, settings);
+            const since = await getSinceFromOptions(options);
+            await CleanerManager.clearAllData(currentTab, settings, { since });
             console.log('[silent] clearAllData done');
             return;
         }
@@ -217,7 +228,8 @@ export async function clearAllData(elements, options = {}) {
                     'includeProtected'
                 ]);
 
-                await CleanerManager.clearAllData(currentTab, settings);
+                const since = await getSinceFromOptions(options);
+                await CleanerManager.clearAllData(currentTab, settings, { since });
 
                 // 检查元素是否还存在（popup可能已关闭）
                 if (elements.clearAll && elements.status && elements.statusContainer) {
@@ -247,9 +259,10 @@ export async function clearAllData(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearCache(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
-            await BrowsingDataManager.clearCache({ since: 0 });
+            await BrowsingDataManager.clearCache({ since });
         },
         elements.clearCache,
         getMessage('cacheCleared'),
@@ -266,11 +279,12 @@ export async function clearCache(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearCookies(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
             if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
-            await CleanerManager.clearCookiesData(currentTab);
+            await CleanerManager.clearCookiesData(currentTab, { since });
         },
         elements.clearCurrentCookies,
         getMessage('cookiesCleared'),
@@ -287,6 +301,7 @@ export async function clearCookies(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearLocalStorage(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
@@ -308,6 +323,7 @@ export async function clearLocalStorage(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearSessionStorage(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
@@ -329,11 +345,12 @@ export async function clearSessionStorage(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearCurrentIndexedDB(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
             if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
-            await CleanerManager.clearIndexedDBData(currentTab);
+            await CleanerManager.clearIndexedDBData(currentTab, { since });
         },
         elements.clearCurrentIndexedDB,
         getMessage('indexedDBCleared'),
@@ -350,9 +367,10 @@ export async function clearCurrentIndexedDB(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearIndexedDB(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
-            await BrowsingDataManager.clearIndexedDB({ since: 0 });
+            await BrowsingDataManager.clearIndexedDB({ since });
         },
         elements.clearIndexedDB,
         getMessage('allIndexedDBCleared'),
@@ -369,9 +387,10 @@ export async function clearIndexedDB(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearHistory(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
-            await CleanerManager.clearHistoryData();
+            await CleanerManager.clearHistoryData({ since });
         },
         elements.clearHistory,
         getMessage('historyCleared'),
@@ -388,9 +407,10 @@ export async function clearHistory(elements, options = {}) {
  * @param {Object} elements - DOM元素对象
  */
 export async function clearDownloads(elements, options = {}) {
+    const since = await getSinceFromOptions(options);
     await executeCleanup(
         async () => {
-            await CleanerManager.clearDownloadsData();
+            await CleanerManager.clearDownloadsData({ since });
         },
         elements.clearDownloads,
         getMessage('downloadsCleared'),

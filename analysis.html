@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/analysis.css">
     <script src="plugins/chart.umd.min.js"></script>
+    <script src="plugins/jspdf.umd.min.js"></script>
 </head>
 <body class="analysis-body">
     <!-- 右下角浮动按钮和导航菜单 -->
@@ -35,6 +36,9 @@
             <div class="analysis-actions">
                 <input id="analysis-search" type="search" class="analysis-search" data-i18n-placeholder="analysisSearchPlaceholder" placeholder="搜索域名...">
                 <button id="rescan" class="btn btn-clean" data-i18n="analysisRescan">重新扫描</button>
+                <button id="export-excel" class="btn btn-primary hidden" data-i18n="analysisExportExcel">导出表格</button>
+                <button id="export-pdf" class="btn btn-primary hidden" data-i18n="analysisExportPDF">导出图表</button>
+                <button id="export-data" class="btn btn-primary" data-i18n="analysisExport">导出数据</button>
                 <button id="clear-all-domains" class="btn btn-danger" data-i18n="analysisClearAll">清除所有域</button>
             </div>
         </header>

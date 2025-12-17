@@ -19,8 +19,9 @@ const CleanerManager = {
     async clearCurrentWebsiteData(tab, options = {}) {
         try {
             const url = tab.url;
+            const since = options.since ?? 0;
             const apiOptions = {
-                since: 0,
+                since,
                 origins: [url]
             };
 
@@ -31,21 +32,20 @@ const CleanerManager = {
                 BrowsingDataManager.clearIndexedDB(apiOptions)
             ]);
 
-            // localStorage和sessionStorage在后台继续清理，不阻塞
-            Promise.all([
-                // 尝试使用API清理localStorage（更快）
+            // localStorage/sessionStorage 在后台清理；按时间范围时也执行（等同清理全部）
+            const tasks = [];
+            tasks.push(
                 BrowsingDataManager.clearLocalStorage(apiOptions).catch(() => {
-                    // 如果API失败，回退到脚本注入方式
                     return LocalStorageManager.clearInTab(tab.id);
-                }),
-                // sessionStorage只能通过脚本清理
-                SessionStorageManager.clearInTab(tab.id).catch(() => {
-                    // 忽略sessionStorage清理失败
-                    return { success: true };
                 })
-            ]).catch(() => {
-                // 静默处理后台清理错误
-            });
+            );
+            tasks.push(
+                (async () => {
+                    await SessionStorageManager.clearInTab(tab.id).catch(() => { });
+                })()
+            );
+
+            await Promise.all(tasks).catch(() => { /* 静默处理后台清理错误 */ });
 
             NotificationManager.success('当前网站缓存已清空');
         } catch (error) {
@@ -57,15 +57,17 @@ const CleanerManager = {
      * 清理所有数据
      * @param {Object} tab - 标签页对象
      * @param {Object} settings - 设置
+     * @param {Object} options - 额外选项
      * @returns {Promise<void>}
      */
-    async clearAllData(tab, settings) {
+    async clearAllData(tab, settings, options = {}) {
         try {
             const url = tab.url;
+            const since = options.since ?? 0;
 
             // 定义清理选项
             const apiOptions = {
-                since: 0,
+                since,
                 origins: settings.includeProtected ? undefined : [url]
             };
 
@@ -89,21 +91,20 @@ const CleanerManager = {
             // 执行主要清理操作
             await Promise.all(mainDataTypes);
 
-            // localStorage和sessionStorage在后台继续清理，不阻塞
-            Promise.all([
-                // 尝试使用API清理localStorage（更快）
+            // localStorage/sessionStorage 在后台清理；按时间范围时也执行（等同清理全部）
+            const backgroundTasks = [];
+            backgroundTasks.push(
                 BrowsingDataManager.clearLocalStorage(apiOptions).catch(() => {
-                    // 如果API失败，回退到脚本注入方式
                     return LocalStorageManager.clearInTab(tab.id);
-                }),
-                // sessionStorage只能通过脚本清理
-                SessionStorageManager.clearInTab(tab.id).catch(() => {
-                    // 忽略sessionStorage清理失败
-                    return { success: true };
                 })
-            ]).catch(() => {
-                // 静默处理后台清理错误
-            });
+            );
+            backgroundTasks.push(
+                (async () => {
+                    await SessionStorageManager.clearInTab(tab.id).catch(() => { });
+                })()
+            );
+
+            await Promise.all(backgroundTasks).catch(() => { /* 静默处理后台清理错误 */ });
 
             NotificationManager.success('所有缓存已清空');
         } catch (error) {
@@ -114,12 +115,14 @@ const CleanerManager = {
     /**
      * 清理Cookies
      * @param {Object} tab - 标签页对象
+     * @param {Object} options - 额外选项
      * @returns {Promise<void>}
      */
-    async clearCookiesData(tab) {
+    async clearCookiesData(tab, options = {}) {
         try {
+            const since = options.since ?? 0;
             await BrowsingDataManager.clearCookies({
-                since: 0,
+                since,
                 origins: [tab.url]
             });
 
@@ -160,12 +163,14 @@ const CleanerManager = {
     /**
      * 清理IndexedDB
      * @param {Object} tab - 标签页对象
+     * @param {Object} options - 额外选项
      * @returns {Promise<void>}
      */
-    async clearIndexedDBData(tab) {
+    async clearIndexedDBData(tab, options = {}) {
         try {
+            const since = options.since ?? 0;
             await BrowsingDataManager.clearIndexedDB({
-                since: 0,
+                since,
                 origins: [tab.url]
             });
 
@@ -177,11 +182,13 @@ const CleanerManager = {
 
     /**
      * 清理历史记录
+     * @param {Object} options - 额外选项
      * @returns {Promise<void>}
      */
-    async clearHistoryData() {
+    async clearHistoryData(options = {}) {
         try {
-            await BrowsingDataManager.clearHistory({ since: 0 });
+            const since = options.since ?? 0;
+            await BrowsingDataManager.clearHistory({ since });
             NotificationManager.success('历史记录已清空');
         } catch (error) {
             throw error;
@@ -190,11 +197,13 @@ const CleanerManager = {
 
     /**
      * 清理下载记录
+     * @param {Object} options - 额外选项
      * @returns {Promise<void>}
      */
-    async clearDownloadsData() {
+    async clearDownloadsData(options = {}) {
         try {
-            await BrowsingDataManager.clearDownloads({ since: 0 });
+            const since = options.since ?? 0;
+            await BrowsingDataManager.clearDownloads({ since });
             NotificationManager.success('下载记录已清空');
         } catch (error) {
             throw error;
@@ -233,15 +242,17 @@ const CleanerManager = {
     /**
      * 清空缓存并硬性重新加载（保留登录状态）
      * @param {Object} tab - 标签页对象
+     * @param {Object} options - 额外选项
      * @returns {Promise<void>}
      */
-    async hardReloadCacheOnly(tab) {
+    async hardReloadCacheOnly(tab, options = {}) {
         try {
             const url = tab.url;
+            const since = options.since ?? 0;
 
             // 只清理文件缓存，不清理 Cookies 和用户数据
             await BrowsingDataManager.clearCache({
-                since: 0,
+                since,
                 origins: [url]
             });
 
@@ -268,9 +279,10 @@ const CleanerManager = {
      * 清空所有数据并硬性重新加载（包括登录状态）
      * @param {Object} tab - 标签页对象
      * @param {Object} settings - 清理选项设置（可选）
+     * @param {Object} options - 额外选项
      * @returns {Promise<void>}
      */
-    async hardReloadPage(tab, settings) {
+    async hardReloadPage(tab, settings, options = {}) {
         try {
             // 如果没有传递 settings，使用默认值
             const defaultSettings = {
@@ -279,9 +291,10 @@ const CleanerManager = {
                 includeProtected: false
             };
             const finalSettings = settings || defaultSettings;
+            const since = options.since ?? 0;
 
             // 先清理所有数据
-            await this.clearAllData(tab, finalSettings);
+            await this.clearAllData(tab, finalSettings, { since });
 
             // 重新加载页面
             await chrome.tabs.reload(tab.id, { bypassCache: true });

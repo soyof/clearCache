@@ -345,3 +345,142 @@
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
+/* 清理范围选择 */
+.time-range-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0;
+    margin: 0 0 10px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.time-range-labels {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+.time-range-title {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    text-shadow: 0 0 8px rgba(120, 219, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.time-range-title::before {
+    content: '📅';
+    font-size: 0.9rem;
+    filter: drop-shadow(0 0 5px rgba(120, 219, 255, 0.4));
+}
+
+.time-range-select {
+    flex: 1;
+    max-width: 200px;
+    height: 36px;
+    padding: 4px 10px;
+    border: 1px solid rgba(120, 219, 255, 0.3);
+    border-radius: 10px;
+    background: 
+        linear-gradient(135deg, 
+            rgba(120, 119, 198, 0.15) 0%, 
+            rgba(255, 119, 198, 0.1) 100%);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.15),
+        0 0 10px rgba(120, 219, 255, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 28px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath d='M4 6l4 4 4-4' stroke='%2378dbff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    cursor: pointer;
+    text-shadow: 0 0 6px rgba(120, 219, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.time-range-select:hover {
+    border-color: rgba(120, 219, 255, 0.5);
+    background: 
+        linear-gradient(135deg, 
+            rgba(120, 119, 198, 0.25) 0%, 
+            rgba(255, 119, 198, 0.15) 100%);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(120, 219, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath d='M4 6l4 4 4-4' stroke='%2378dbff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 11px;
+}
+
+.time-range-select:focus {
+    border-color: rgba(120, 219, 255, 0.6);
+    background: 
+        linear-gradient(135deg, 
+            rgba(120, 119, 198, 0.3) 0%, 
+            rgba(255, 119, 198, 0.2) 100%);
+    box-shadow: 
+        0 4px 18px rgba(0, 0, 0, 0.25),
+        0 0 18px rgba(120, 219, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath d='M4 6l4 4 4-4' stroke='%2378dbff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 11px;
+}
+
+.time-range-select:focus-visible {
+    border-color: rgba(120, 219, 255, 0.6);
+    outline: none;
+    background: 
+        linear-gradient(135deg, 
+            rgba(120, 119, 198, 0.3) 0%, 
+            rgba(255, 119, 198, 0.2) 100%);
+    box-shadow: 
+        0 4px 18px rgba(0, 0, 0, 0.25),
+        0 0 18px rgba(120, 219, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath d='M4 6l4 4 4-4' stroke='%2378dbff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 11px;
+}
+
+.time-range-select option {
+    background-color: #1a1a2e;
+    color: rgba(255, 255, 255, 0.95);
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+.time-range-select option:hover,
+.time-range-select option:focus,
+.time-range-select option:checked {
+    background: linear-gradient(0deg, #2a2a4e 0%, #2a2a4e 100%);
+    background-color: #2a2a4e !important;
+    color: #78dbff;
+}
+
+
+

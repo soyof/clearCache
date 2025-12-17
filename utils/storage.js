@@ -3,6 +3,51 @@
  * 提供对各种存储类型的统一操作接口
  */
 
+// 时间范围预设（毫秒）
+const TIME_RANGE_PRESETS = {
+    hour: 60 * 60 * 1000,
+    day: 24 * 60 * 60 * 1000,
+    week: 7 * 24 * 60 * 60 * 1000,
+    month: 28 * 24 * 60 * 60 * 1000, // 与浏览器“最近 4 周”保持一致
+    all: null
+};
+
+function normalizeTimeRangeKey(rangeKey) {
+    return Object.prototype.hasOwnProperty.call(TIME_RANGE_PRESETS, rangeKey) ? rangeKey : 'all';
+}
+
+/**
+ * 根据时间范围计算 since 值
+ * @param {string} rangeKey - 范围键（hour/day/week/month/all）
+ * @returns {number} since 毫秒值
+ */
+export function calculateSince(rangeKey = 'all') {
+    const key = normalizeTimeRangeKey(rangeKey);
+    const duration = TIME_RANGE_PRESETS[key];
+    if (!duration) return 0;
+    const since = Date.now() - duration;
+    return since > 0 ? since : 0;
+}
+
+/**
+ * 获取当前设置的时间范围对应的 since 值
+ * @param {string} [rangeKey] - 可选，传入直接使用该值；未传时读取存储
+ * @returns {Promise<number>} since 毫秒值
+ */
+export async function resolveTimeRangeSince(rangeKey) {
+    const key = normalizeTimeRangeKey(rangeKey);
+    if (rangeKey) {
+        return calculateSince(key);
+    }
+
+    try {
+        const { timeRange } = await chrome.storage.local.get(['timeRange']);
+        return calculateSince(normalizeTimeRangeKey(timeRange));
+    } catch (error) {
+        return calculateSince('all');
+    }
+}
+
 // 本地存储操作
 const LocalStorageManager = {
     /**
@@ -267,9 +312,10 @@ const SettingsManager = {
             autoCleanOnStartup: false,
             enableNotifications: true,  // 默认启用通知
             notificationSound: false,   // 默认关闭通知声音
-            theme: 'dark'               // 默认深色主题
+            theme: 'dark',              // 默认深色主题
+            timeRange: 'all'            // 默认清理范围：全部时间
         };
     }
 };
 
-export { BrowsingDataManager, LocalStorageManager, SessionStorageManager, SettingsManager };
+export { BrowsingDataManager, LocalStorageManager, SessionStorageManager, SettingsManager, TIME_RANGE_PRESETS };

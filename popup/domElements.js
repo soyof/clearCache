@@ -15,6 +15,9 @@ export function getDOMElements() {
     progress: document.getElementById('progress'),
     progressFill: document.querySelector('.progress-fill'),
 
+    // 清理范围
+    timeRangeSelect: document.getElementById('time-range-select'),
+
     // 针对当前网站的按钮
     normalReload: document.getElementById('normal-reload'),
     hardReloadOnly: document.getElementById('hard-reload-only'),

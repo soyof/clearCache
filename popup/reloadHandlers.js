@@ -3,7 +3,7 @@
  * 处理页面重载相关操作
  */
 
-import { ButtonManager, CleanerManager, StatusManager, getMessage } from '../utils/index.js';
+import { ButtonManager, CleanerManager, StatusManager, getMessage, resolveTimeRangeSince } from '../utils/index.js';
 import { getCurrentTab } from './state.js';
 
 /**
@@ -76,8 +76,9 @@ export async function hardReloadOnly(elements) {
 /**
  * 清空缓存并硬性重新加载（保留登录状态）
  * @param {Object} elements - DOM元素对象
+ * @param {Object} options - 额外选项
  */
-export async function hardReloadCacheOnly(elements) {
+export async function hardReloadCacheOnly(elements, options = {}) {
     try {
         const currentTab = getCurrentTab();
         // 立即检查tab
@@ -85,6 +86,8 @@ export async function hardReloadCacheOnly(elements) {
             StatusManager.show(elements.status, elements.statusContainer, getMessage('cannotGetCurrentTab'), 'error');
             return;
         }
+
+        const since = await resolveTimeRangeSince(options.timeRange);
 
         // 立即更新UI
         ButtonManager.setSuccess(elements.hardReloadCacheOnly);
@@ -109,7 +112,7 @@ export async function hardReloadCacheOnly(elements) {
         // 🔄 异步清理缓存（不阻塞重载）
         setTimeout(() => {
             chrome.browsingData.removeCache({
-                since: 0,
+                since,
                 origins: [urlToClean]
             }).catch(error => {
                 console.warn('清理缓存失败:', error);
@@ -129,11 +132,12 @@ export async function hardReloadCacheOnly(elements) {
 export async function hardReloadPage(elements, options = {}) {
     // 导入 executeCleanup 函数
     const { executeCleanup } = await import('./cleanupHandlers.js');
+    const since = await resolveTimeRangeSince(options.timeRange);
     await executeCleanup(
         async () => {
             const currentTab = getCurrentTab();
             if (!currentTab) throw new Error(getMessage('cannotGetCurrentTab'));
-            await CleanerManager.hardReloadPage(currentTab);
+            await CleanerManager.hardReloadPage(currentTab, undefined, { since });
         },
         elements.hardReload,
         getMessage('allDataAndPageReloading'),

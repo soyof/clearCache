@@ -17,7 +17,8 @@ export async function loadSettings(elements) {
             'clearFormData',
             'includeProtected',
             'confirmDangerous',
-            'silentMode'
+            'silentMode',
+            'timeRange'
         ]);
         const timeoutPromise = new Promise((_, reject) =>
             setTimeout(() => reject(new Error('加载设置超时')), 1000)
@@ -44,6 +45,12 @@ export async function loadSettings(elements) {
         if (elements.silentMode) {
             elements.silentMode.checked = settings.silentMode === true;
         }
+
+        if (elements.timeRangeSelect) {
+            const allowedRanges = ['hour', 'day', 'week', 'month', 'all'];
+            const savedRange = settings.timeRange;
+            elements.timeRangeSelect.value = allowedRanges.includes(savedRange) ? savedRange : 'all';
+        }
     } catch (error) {
         console.warn('加载设置失败:', error);
         // 使用默认设置
@@ -61,6 +68,9 @@ export async function loadSettings(elements) {
         }
         if (elements.silentMode) {
             elements.silentMode.checked = false;
+        }
+        if (elements.timeRangeSelect) {
+            elements.timeRangeSelect.value = 'all';
         }
     }
 }
@@ -193,7 +203,8 @@ export async function saveAdvancedSettings(elements) {
             clearFormData: elements.clearFormData?.checked !== false,
             includeProtected: elements.includeProtected?.checked !== false,
             confirmDangerous: elements.confirmDangerous?.checked !== false,
-            silentMode: elements.silentMode?.checked === true
+            silentMode: elements.silentMode?.checked === true,
+            timeRange: elements.timeRangeSelect?.value || 'all'
         };
 
         await SettingsManager.save(settings);

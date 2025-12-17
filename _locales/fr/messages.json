@@ -1,271 +1,35 @@
 {
-  "extensionName": {
-    "message": "Assistant de Nettoyage de Cache",
-    "description": "Nom de l'extension"
+  "action": {
+    "message": "Action",
+    "description": "Libellé colonne action"
   },
-  "extensionDescription": {
-    "message": "Un outil puissant pour effacer en un clic le cache du navigateur, les cookies, localStorage, sessionStorage et autres données",
-    "description": "Description de l'extension"
+  "add": {
+    "message": "Ajouter",
+    "description": "Bouton ajouter"
   },
-  "popupTitle": {
-    "message": "Assistant de Nettoyage de Cache - Votre Expert en Nettoyage de Navigateur",
-    "description": "Titre de la popup"
+  "addDomain": {
+    "message": "Ajouter un domaine",
+    "description": "Titre de la modale d'ajout de domaine"
   },
-  "currentSite": {
-    "message": "Site actuel :",
-    "description": "Libellé du site actuel"
+  "addedDomains": {
+    "message": "Domaines ajoutés",
+    "description": "Titre de la liste des domaines ajoutés"
   },
-  "loading": {
-    "message": "Chargement...",
-    "description": "État de chargement"
-  },
-  "unknownSite": {
-    "message": "Site inconnu",
-    "description": "Site inconnu"
-  },
-  "tabCurrentSite": {
-    "message": "Site actuel",
-    "description": "Onglet site actuel"
-  },
-  "tabAllBrowser": {
-    "message": "Tout le navigateur",
-    "description": "Onglet tout le navigateur"
-  },
-  "tabSettings": {
-    "message": "Paramètres avancés",
-    "description": "Onglet paramètres avancés"
-  },
-  "normalReload": {
-    "message": "Rechargement normal",
-    "description": "Bouton rechargement normal"
-  },
-  "hardReload": {
-    "message": "Rechargement forcé",
-    "description": "Bouton rechargement forcé"
-  },
-  "clearCacheAndHardReload": {
-    "message": "Vider le cache et rechargement forcé",
-    "description": "Bouton vider cache et rechargement forcé"
-  },
-  "clearCache": {
-    "message": "Vider le cache",
-    "description": "Bouton vider le cache"
-  },
-  "clearAllAndReload": {
-    "message": "Tout vider et recharger",
-    "description": "Bouton tout vider et recharger"
-  },
-  "cookies": {
-    "message": "Cookies",
-    "description": "Bouton cookies"
-  },
-  "localStorage": {
-    "message": "LocalStorage",
-    "description": "Bouton localStorage"
-  },
-  "sessionStorage": {
-    "message": "SessionStorage",
-    "description": "Bouton sessionStorage"
-  },
-  "indexedDB": {
-    "message": "IndexedDB",
-    "description": "Bouton indexedDB"
-  },
-  "clearAllCache": {
-    "message": "Vider tout le cache",
-    "description": "Bouton vider tout le cache"
-  },
-  "browserCache": {
-    "message": "Cache du navigateur",
-    "description": "Bouton cache du navigateur"
-  },
-  "allCookies": {
-    "message": "Tous les cookies",
-    "description": "Bouton tous les cookies"
-  },
-  "allIndexedDB": {
-    "message": "Toutes les IndexedDB",
-    "description": "Bouton toutes les IndexedDB"
-  },
-  "clearHistory": {
-    "message": "Effacer l'historique",
-    "description": "Bouton effacer l'historique"
-  },
-  "downloadHistory": {
-    "message": "Historique des téléchargements",
-    "description": "Bouton historique des téléchargements"
-  },
-  "deleteDownloadFiles": {
-    "message": "Supprimer les fichiers téléchargés",
-    "description": "Bouton supprimer les fichiers téléchargés"
-  },
-  "themeSettings": {
-    "message": "Thème d'apparence",
-    "description": "Paramètres du thème d'apparence"
-  },
-  "themeAuto": {
-    "message": "Auto",
-    "description": "Thème automatique"
-  },
-  "themeDark": {
-    "message": "Sombre",
-    "description": "Thème sombre"
-  },
-  "themeLight": {
-    "message": "Clair",
-    "description": "Thème clair"
-  },
-  "cleaningOptions": {
-    "message": "Options de nettoyage",
-    "description": "Paramètres des options de nettoyage"
-  },
-  "keepPasswords": {
-    "message": "Conserver les mots de passe",
-    "description": "Option conserver les mots de passe"
-  },
-  "keepFormData": {
-    "message": "Conserver les données de formulaire",
-    "description": "Option conserver les données de formulaire"
-  },
-  "includeProtectedData": {
-    "message": "Inclure les données protégées",
-    "description": "Option inclure les données protégées"
-  },
-  "notificationSettings": {
-    "message": "Paramètres de notification",
-    "description": "Paramètres de notification"
-  },
-  "enableNotifications": {
-    "message": "Activer les notifications",
-    "description": "Option activer les notifications"
-  },
-  "notificationSound": {
-    "message": "Son de notification",
-    "description": "Option son de notification"
-  },
-  "footerTip": {
-    "message": "💡 Conseil : Utilisez les fonctions de suppression avec prudence, les données supprimées ne peuvent pas être récupérées",
-    "description": "Conseil du pied de page"
-  },
-  "save": {
-    "message": "Enregistrer",
-    "description": "Bouton enregistrer"
-  },
-  "settingsSaved": {
-    "message": "Paramètres sauvegardés",
-    "description": "Message de succès de sauvegarde des paramètres"
-  },
-  "settingsSaveFailed": {
-    "message": "Échec de la sauvegarde des paramètres",
-    "description": "Message d'échec de sauvegarde des paramètres"
-  },
-  "currentSiteCacheCleared": {
-    "message": "🌐 Cache du site actuel vidé",
-    "description": "Message de succès de vidage du cache du site actuel"
-  },
-  "currentSiteCacheClearFailed": {
-    "message": "❌ Échec du vidage du cache du site actuel",
-    "description": "Message d'échec de vidage du cache du site actuel"
-  },
-  "allCacheCleared": {
-    "message": "🌐 Tout le cache vidé",
-    "description": "Message de succès de vidage de tout le cache"
+  "all": {
+    "message": "Tous les types",
+    "description": "Libellé tous les types"
   },
   "allCacheClearFailed": {
     "message": "❌ Échec du vidage de tout le cache",
     "description": "Message d'échec de vidage de tout le cache"
   },
-  "cacheCleared": {
-    "message": "🗑️ Cache vidé",
-    "description": "Message de succès de vidage du cache"
+  "allCacheCleared": {
+    "message": "🌐 Tout le cache vidé",
+    "description": "Message de succès de vidage de tout le cache"
   },
-  "cacheClearFailed": {
-    "message": "❌ Échec du vidage du cache",
-    "description": "Message d'échec de vidage du cache"
-  },
-  "cookiesCleared": {
-    "message": "🍪 Cookies vidés",
-    "description": "Message de succès de vidage des cookies"
-  },
-  "cookiesClearFailed": {
-    "message": "❌ Échec du vidage des cookies",
-    "description": "Message d'échec de vidage des cookies"
-  },
-  "localStorageCleared": {
-    "message": "💾 LocalStorage vidé",
-    "description": "Message de succès de vidage du localStorage"
-  },
-  "localStorageClearFailed": {
-    "message": "❌ Échec du vidage du localStorage",
-    "description": "Message d'échec de vidage du localStorage"
-  },
-  "sessionStorageCleared": {
-    "message": "📂 SessionStorage vidé",
-    "description": "Message de succès de vidage du sessionStorage"
-  },
-  "sessionStorageClearFailed": {
-    "message": "❌ Échec du vidage du sessionStorage",
-    "description": "Message d'échec de vidage du sessionStorage"
-  },
-  "indexedDBCleared": {
-    "message": "📊 IndexedDB vidée",
-    "description": "Message de succès de vidage d'IndexedDB"
-  },
-  "indexedDBClearFailed": {
-    "message": "❌ Échec du vidage d'IndexedDB",
-    "description": "Message d'échec de vidage d'IndexedDB"
-  },
-  "allIndexedDBCleared": {
-    "message": "📊 Toutes les IndexedDB vidées",
-    "description": "Message de succès de vidage de toutes les IndexedDB"
-  },
-  "historyCleared": {
-    "message": "📜 Historique effacé",
-    "description": "Message de succès d'effacement de l'historique"
-  },
-  "historyClearFailed": {
-    "message": "❌ Échec de l'effacement de l'historique",
-    "description": "Message d'échec d'effacement de l'historique"
-  },
-  "downloadsCleared": {
-    "message": "📥 Historique des téléchargements effacé",
-    "description": "Message de succès d'effacement de l'historique des téléchargements"
-  },
-  "downloadsClearFailed": {
-    "message": "❌ Échec de l'effacement de l'historique des téléchargements",
-    "description": "Message d'échec d'effacement de l'historique des téléchargements"
-  },
-  "downloadFilesCleared": {
-    "message": "📁 Fichiers téléchargés supprimés",
-    "description": "Message de succès de suppression des fichiers téléchargés"
-  },
-  "downloadFilesClearFailed": {
-    "message": "❌ Échec de la suppression des fichiers téléchargés",
-    "description": "Message d'échec de suppression des fichiers téléchargés"
-  },
-  "pageReloading": {
-    "message": "🔄 La page se recharge",
-    "description": "Message de rechargement de page"
-  },
-  "reloadFailed": {
-    "message": "❌ Échec du rechargement",
-    "description": "Message d'échec de rechargement"
-  },
-  "pageHardReloading": {
-    "message": "🔄 La page se recharge de force",
-    "description": "Message de rechargement forcé de page"
-  },
-  "hardReloadFailed": {
-    "message": "❌ Échec du rechargement forcé",
-    "description": "Message d'échec de rechargement forcé"
-  },
-  "cacheAndPageReloading": {
-    "message": "🔄 Cache vidé, la page se recharge",
-    "description": "Message de vidage du cache et rechargement de page"
-  },
-  "cacheAndReloadFailed": {
-    "message": "❌ Échec du vidage du cache et du rechargement",
-    "description": "Message d'échec de vidage du cache et rechargement"
+  "allCookies": {
+    "message": "Tous les cookies",
+    "description": "Bouton tous les cookies"
   },
   "allDataAndPageReloading": {
     "message": "🔄 Toutes les données vidées, la page se recharge",
@@ -275,6 +39,298 @@
     "message": "❌ Échec du vidage des données et du rechargement",
     "description": "Message d'échec de vidage des données et rechargement"
   },
+  "allIndexedDB": {
+    "message": "Toutes les IndexedDB",
+    "description": "Bouton toutes les IndexedDB"
+  },
+  "allIndexedDBCleared": {
+    "message": "📊 Toutes les IndexedDB vidées",
+    "description": "Message de succès de vidage de toutes les IndexedDB"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "Taille moyenne d'élément par type de stockage",
+    "description": "Titre graphique taille moyenne d'élément"
+  },
+  "analysisChartBoxPlot": {
+    "message": "Diagramme en boîte de distribution de taille par type de stockage",
+    "description": "Titre graphique diagramme en boîte"
+  },
+  "analysisChartConcentration": {
+    "message": "Analyse de concentration de stockage (graphique Pareto)",
+    "description": "Titre graphique de concentration"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "Cookies expirant sous 7 jours - domaines top",
+    "description": "Top domaines expirant bientôt"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Répartition d'expiration des Cookies",
+    "description": "Graphique d'expiration des cookies"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Attributs de sécurité des Cookies",
+    "description": "Graphique Secure/HttpOnly/SameSite"
+  },
+  "analysisChartDomainLength": {
+    "message": "Statistiques groupées par longueur de domaine",
+    "description": "Titre graphique longueur de domaine"
+  },
+  "analysisChartDomainPreference": {
+    "message": "Préférence de type de stockage par domaine",
+    "description": "Titre graphique de préférence"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Top domaines par type de stockage (éléments)",
+    "description": "Empilé par type (éléments)"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Top domaines par type de stockage (taille)",
+    "description": "Empilé par type (taille)"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "Distribution de domaines avec cookies expirés",
+    "description": "Titre graphique cookies expirés"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "Domaines principaux avec cookies non sécurisés",
+    "description": "Titre graphique cookies non sécurisés"
+  },
+  "analysisChartItemDistribution": {
+    "message": "Histogramme de distribution du nombre d'éléments par domaine",
+    "description": "Titre graphique distribution du nombre d'éléments"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "Taux d'échec d'analyse JSON (par domaine)",
+    "description": "Titre graphique taux d'échec JSON"
+  },
+  "analysisChartLargeKeys": {
+    "message": "Distribution de clés volumineuses (par domaine)",
+    "description": "Titre graphique distribution de clés volumineuses"
+  },
+  "analysisChartQuality": {
+    "message": "Qualité / Risque de stockage",
+    "description": "Titre de carte de métrique de qualité"
+  },
+  "analysisChartQualityComparison": {
+    "message": "Comparaison de qualité par type de stockage",
+    "description": "Titre graphique comparaison de qualité"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Analyse de combinaison d'attributs de sécurité des cookies",
+    "description": "Titre graphique combinaison de sécurité"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "Répartition par taille des éléments",
+    "description": "Graphique des classes de taille"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "Histogramme de distribution de taille par domaine",
+    "description": "Titre graphique distribution de taille"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "Nuage de points taille vs nombre d'éléments par domaine",
+    "description": "Titre graphique nuage de points"
+  },
+  "analysisChartStatistics": {
+    "message": "Résumé statistique de stockage",
+    "description": "Titre graphique résumé statistique"
+  },
+  "analysisChartStorageCombination": {
+    "message": "Groupé par combinaison de types de stockage",
+    "description": "Titre graphique combinaison de stockage"
+  },
+  "analysisChartStorageDensity": {
+    "message": "Distribution de densité de stockage par domaine",
+    "description": "Titre graphique densité de stockage"
+  },
+  "analysisChartStorageUsage": {
+    "message": "Taux d'utilisation par type de stockage",
+    "description": "Titre graphique taux d'utilisation"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "Statistiques groupées par domaine de premier niveau (TLD)",
+    "description": "Titre graphique distribution TLD"
+  },
+  "analysisChartTopCookies": {
+    "message": "Top domaines (par taille des cookies)",
+    "description": "Titre du graphique top domaines par taille des cookies"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Analyse de ratio des domaines principaux",
+    "description": "Titre graphique analyse de ratio"
+  },
+  "analysisChartTopDomains": {
+    "message": "Top domaines (par taille)",
+    "description": "Titre du graphique top domaines par taille"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Top domaines (par éléments)",
+    "description": "Titre du graphique top domaines par nombre d'éléments"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "Comparaison d'efficacité par type de stockage",
+    "description": "Titre graphique comparaison d'efficacité"
+  },
+  "analysisChartTypes": {
+    "message": "Par type de stockage",
+    "description": "Titre du graphique répartition par type"
+  },
+  "analysisChartTypesCount": {
+    "message": "Par type de stockage (éléments)",
+    "description": "Titre du graphique répartition par nombre d'éléments"
+  },
+  "analysisClearAll": {
+    "message": "Tout effacer",
+    "description": "Bouton effacer tous les domaines"
+  },
+  "analysisClearDomain": {
+    "message": "Effacer ce domaine",
+    "description": "Bouton effacer domaine"
+  },
+  "analysisDesc": {
+    "message": "Agrège Local/Session/IndexedDB/Cache/Cookies par domaine",
+    "description": "Description de la page d'analyse"
+  },
+  "analysisDomainCount": {
+    "message": "Nombre de domaines",
+    "description": "Libellé nombre de domaines"
+  },
+  "analysisEmpty": {
+    "message": "Aucune donnée",
+    "description": "Etat vide"
+  },
+  "analysisExport": {
+    "message": "Exporter les données",
+    "description": "Bouton d'exportation de données"
+  },
+  "analysisExportExcel": {
+    "message": "Exporter Excel",
+    "description": "Bouton d'exportation Excel"
+  },
+  "analysisExportPDF": {
+    "message": "Exporter PDF",
+    "description": "Bouton d'exportation PDF"
+  },
+  "analysisLoading": {
+    "message": "Analyse en cours...",
+    "description": "Indication de scan"
+  },
+  "analysisRescan": {
+    "message": "Rescanner",
+    "description": "Bouton rescanner"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Rechercher un domaine...",
+    "description": "Placeholder de recherche domaine"
+  },
+  "analysisSectionComparison": {
+    "message": "Vue comparaison",
+    "description": "Titre de section pour graphiques de comparaison"
+  },
+  "analysisSectionConcentration": {
+    "message": "Vue concentration",
+    "description": "Titre de section pour graphiques de concentration"
+  },
+  "analysisSectionDistribution": {
+    "message": "Vue distribution",
+    "description": "Titre de section pour graphiques de distribution"
+  },
+  "analysisSectionDomains": {
+    "message": "Vue par domaine",
+    "description": "Libellé de section pour les graphiques par domaine"
+  },
+  "analysisSectionEfficiency": {
+    "message": "Vue efficacité et densité",
+    "description": "Titre de section pour graphiques efficacité/densité"
+  },
+  "analysisSectionQuality": {
+    "message": "Qualité & risque",
+    "description": "Titre de section pour qualité/risque"
+  },
+  "analysisSectionSecurity": {
+    "message": "Vue sécurité et risque",
+    "description": "Titre de section pour graphiques sécurité/risque"
+  },
+  "analysisSectionSegmentation": {
+    "message": "Vue segmentation",
+    "description": "Titre de section pour graphiques de segmentation"
+  },
+  "analysisSectionStacks": {
+    "message": "Vue domaine et type",
+    "description": "Titre de section pour graphes empilés"
+  },
+  "analysisSectionStatistics": {
+    "message": "Vue résumé statistique",
+    "description": "Titre de section pour graphiques résumé statistique"
+  },
+  "analysisSectionTypes": {
+    "message": "Vue par type de stockage",
+    "description": "Libellé de section pour les graphiques par type de stockage"
+  },
+  "analysisTabCharts": {
+    "message": "Graphiques",
+    "description": "Étiquette d'onglet"
+  },
+  "analysisTabTable": {
+    "message": "Tableau",
+    "description": "Étiquette d'onglet"
+  },
+  "analysisTitle": {
+    "message": "Analyse globale du stockage",
+    "description": "Titre de la page d'analyse"
+  },
+  "analysisTotalItems": {
+    "message": "Total d'éléments",
+    "description": "Libellé total éléments"
+  },
+  "analysisTotalSize": {
+    "message": "Taille estimée",
+    "description": "Libellé taille totale"
+  },
+  "average": {
+    "message": "Moyenne",
+    "description": "Libellé moyenne"
+  },
+  "avgItemSize": {
+    "message": "Taille moyenne d'élément",
+    "description": "Libellé taille moyenne d'élément"
+  },
+  "avgSize": {
+    "message": "Taille moyenne",
+    "description": "Libellé taille moyenne"
+  },
+  "blacklist": {
+    "message": "Liste noire",
+    "description": "Titre liste noire"
+  },
+  "browserCache": {
+    "message": "Cache du navigateur",
+    "description": "Bouton cache du navigateur"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Libellé Cache API"
+  },
+  "cacheAndPageReloading": {
+    "message": "🔄 Cache vidé, la page se recharge",
+    "description": "Message de vidage du cache et rechargement de page"
+  },
+  "cacheAndReloadFailed": {
+    "message": "❌ Échec du vidage du cache et du rechargement",
+    "description": "Message d'échec de vidage du cache et rechargement"
+  },
+  "cacheClearFailed": {
+    "message": "❌ Échec du vidage du cache",
+    "description": "Message d'échec de vidage du cache"
+  },
+  "cacheCleared": {
+    "message": "🗑️ Cache vidé",
+    "description": "Message de succès de vidage du cache"
+  },
+  "cancel": {
+    "message": "Annuler",
+    "description": "Texte du bouton annuler"
+  },
   "cannotGetCurrentTab": {
     "message": "Impossible d'obtenir l'onglet actuel",
     "description": "Message d'erreur impossible d'obtenir l'onglet actuel"
@@ -283,61 +339,41 @@
     "message": "Impossible d'obtenir les informations de l'onglet actuel",
     "description": "Message d'erreur impossible d'obtenir les informations de l'onglet actuel"
   },
-  "loadSettingsFailed": {
-    "message": "Échec du chargement des paramètres",
-    "description": "Message d'échec de chargement des paramètres"
-  },
-  "contextMenuTitle": {
-    "message": "Assistant de Nettoyage de Cache",
-    "description": "Titre du menu contextuel"
-  },
-  "operationFailed": {
-    "message": "Échec de l'opération",
-    "description": "Message générique d'échec d'opération"
-  },
-  "unknownOperation": {
-    "message": "Opération inconnue",
-    "description": "Message d'opération inconnue"
+  "cleaning": {
+    "message": "Nettoyage...",
+    "description": "Indication de nettoyage"
   },
   "cleaningFailed": {
     "message": "Échec du nettoyage",
     "description": "Message générique d'échec de nettoyage"
   },
-  "localStorageUnavailable": {
-    "message": "LocalStorage indisponible",
-    "description": "Erreur localStorage indisponible"
+  "cleaningOptions": {
+    "message": "Options de nettoyage",
+    "description": "Paramètres des options de nettoyage"
   },
-  "sessionStorageUnavailable": {
-    "message": "SessionStorage indisponible",
-    "description": "Erreur sessionStorage indisponible"
+  "clearAllAndReload": {
+    "message": "Tout vider et recharger",
+    "description": "Bouton tout vider et recharger"
   },
-  "notificationDisabled": {
-    "message": "Notifications désactivées, non affichées",
-    "description": "Message de notifications désactivées"
+  "clearAllAndReloadDesc": {
+    "message": "Effacer toutes les données du site actuel et recharger la page",
+    "description": "Info-bulle du bouton tout effacer et recharger"
   },
-  "languageSettings": {
-    "message": "Paramètres de langue",
-    "description": "Titre des paramètres de langue"
+  "clearAllCache": {
+    "message": "Vider tout le cache",
+    "description": "Bouton vider tout le cache"
   },
-  "languageAuto": {
-    "message": "Suivre le système",
-    "description": "Option de langue automatique"
+  "clearAllCacheDesc": {
+    "message": "Effacer en un clic toutes les données de cache du navigateur",
+    "description": "Info-bulle du bouton effacer tout le cache"
   },
-  "languageChanged": {
-    "message": "Langue changée",
-    "description": "Message de succès de changement de langue"
+  "clearCache": {
+    "message": "Vider le cache",
+    "description": "Bouton vider le cache"
   },
-  "languageChangeFailed": {
-    "message": "Échec du changement de langue",
-    "description": "Message d'échec de changement de langue"
-  },
-  "normalReloadDesc": {
-    "message": "Recharger la page actuelle en conservant les données de cache",
-    "description": "Info-bulle du bouton de rechargement normal"
-  },
-  "hardReloadDesc": {
-    "message": "Forcer le rechargement de la page en ignorant le cache",
-    "description": "Info-bulle du bouton de rechargement forcé"
+  "clearCacheAndHardReload": {
+    "message": "Vider le cache et rechargement forcé",
+    "description": "Bouton vider cache et rechargement forcé"
   },
   "clearCacheAndHardReloadDesc": {
     "message": "Effacer les données de cache du site actuel et forcer le rechargement",
@@ -347,201 +383,29 @@
     "message": "Effacer toutes les données de cache du site actuel",
     "description": "Info-bulle du bouton effacer le cache"
   },
-  "clearAllAndReloadDesc": {
-    "message": "Effacer toutes les données du site actuel et recharger la page",
-    "description": "Info-bulle du bouton tout effacer et recharger"
-  },
-  "cookiesDesc": {
-    "message": "Effacer les données de cookies du site actuel",
-    "description": "Info-bulle du bouton Cookies"
-  },
-  "localStorageDesc": {
-    "message": "Effacer les données de stockage local du site actuel",
-    "description": "Info-bulle du bouton LocalStorage"
-  },
-  "sessionStorageDesc": {
-    "message": "Effacer les données de stockage de session du site actuel",
-    "description": "Info-bulle du bouton SessionStorage"
-  },
-  "indexedDBDesc": {
-    "message": "Effacer la base de données IndexedDB du site actuel",
-    "description": "Info-bulle du bouton IndexedDB"
-  },
-  "clearAllCacheDesc": {
-    "message": "Effacer en un clic toutes les données de cache du navigateur",
-    "description": "Info-bulle du bouton effacer tout le cache"
-  },
-  "storageUsage": {
-    "message": "Utilisation du stockage",
-    "description": "Titre de l'utilisation du stockage"
-  },
-  "loadingStorage": {
-    "message": "Chargement des informations de stockage...",
-    "description": "Invite lors du chargement des informations de stockage"
-  },
-  "storageLoadFailed": {
-    "message": "Impossible de charger les informations de stockage",
-    "description": "Invite en cas d'échec du chargement des informations de stockage"
-  },
-  "noStorageData": {
-    "message": "Aucune donnée de stockage pour le site Web actuel",
-    "description": "Invite lorsqu'il n'y a pas de données de stockage"
-  },
-  "totalStorage": {
-    "message": "Stockage total :",
-    "description": "Étiquette du stockage total"
-  },
-  "items": {
-    "message": "éléments",
-    "description": "Unité de comptage des éléments de stockage"
-  },
-  "restrictedPageStorage": {
-    "message": "Cette page est protégée par le navigateur et ne peut pas récupérer les informations de stockage",
-    "description": "Invite lorsque la page restreinte ne peut pas récupérer les informations de stockage"
+  "clearHistory": {
+    "message": "Effacer l'historique",
+    "description": "Bouton effacer l'historique"
   },
   "clickToViewDetail": {
     "message": "Cliquez pour voir les détails",
     "description": "Invite pour cliquer et voir les détails"
   },
-  "loadingDetail": {
-    "message": "Chargement des détails...",
-    "description": "Invite de chargement des détails"
-  },
-  "detailLoadFailed": {
-    "message": "Échec du chargement des détails",
-    "description": "Invite d'échec du chargement des détails"
-  },
-  "noDetailData": {
-    "message": "Aucune donnée",
-    "description": "Invite sans données détaillées"
-  },
-  "totalItems": {
-    "message": "Total",
-    "description": "Étiquette totale"
-  },
-  "key": {
-    "message": "Clé",
-    "description": "Étiquette de clé"
-  },
-  "value": {
-    "message": "Valeur",
-    "description": "Étiquette de valeur"
-  },
-  "size": {
-    "message": "Taille",
-    "description": "Étiquette de taille"
-  },
-  "name": {
-    "message": "Nom",
-    "description": "Étiquette de nom"
-  },
-  "domain": {
-    "message": "Domaine",
-    "description": "Étiquette de domaine"
-  },
-  "path": {
-    "message": "Chemin",
-    "description": "Étiquette de chemin"
-  },
-  "secure": {
-    "message": "Sécurisé",
-    "description": "Étiquette sécurisée"
-  },
-  "httpOnly": {
-    "message": "HttpOnly",
-    "description": "Étiquette HttpOnly"
-  },
-  "expiration": {
-    "message": "Expiration",
-    "description": "Étiquette d'expiration"
-  },
-  "version": {
-    "message": "Version",
-    "description": "Étiquette de version"
-  },
-  "count": {
-    "message": "Nombre",
-    "description": "Étiquette de nombre"
-  },
-  "urls": {
-    "message": "URLs",
-    "description": "Étiquette URLs"
-  },
-  "moreUrls": {
-    "message": "Plus...",
-    "description": "Invite de plus d'URLs"
-  },
-  "expandAll": {
-    "message": "Tout développer",
-    "description": "Bouton tout développer"
-  },
   "collapseAll": {
     "message": "Tout réduire",
     "description": "Bouton tout réduire"
   },
-  "scrollToTop": {
-    "message": "Défiler vers le haut",
-    "description": "Bouton défiler vers le haut"
-  },
-  "searchPlaceholder": {
-    "message": "Rechercher une clé ou une valeur...",
-    "description": "Placeholder du champ de recherche"
-  },
-  "doubleClickToCopy": {
-    "message": "Double-cliquer pour copier",
-    "description": "Indication pour copier en double-cliquant"
-  },
-  "keyCopied": {
-    "message": "Clé copiée",
-    "description": "Message de succès de copie de clé"
-  },
-  "valueCopied": {
-    "message": "Valeur copiée",
-    "description": "Message de succès de copie de valeur"
-  },
-  "copy": {
-    "message": "Copier",
-    "description": "Texte du bouton copier"
-  },
-  "delete": {
-    "message": "Supprimer",
-    "description": "Texte du bouton supprimer"
-  },
-  "confirmDeleteTitle": {
-    "message": "Confirmer la suppression",
-    "description": "Titre de la boîte de dialogue de confirmation de suppression"
-  },
-  "confirmDelete": {
-    "message": "Êtes-vous sûr de vouloir supprimer cet élément ?",
-    "description": "Invite de confirmation de suppression"
-  },
-  "confirmDeleteDomain": {
-    "message": "Êtes-vous sûr de vouloir supprimer le domaine \"${domain}\" ? Cette action ne peut pas être annulée.",
-    "description": "Invite de confirmation de suppression de domaine"
+  "concentration": {
+    "message": "Concentration",
+    "description": "Libellé concentration"
   },
   "confirm": {
     "message": "Confirmer",
     "description": "Texte du bouton confirmer"
   },
-  "cancel": {
-    "message": "Annuler",
-    "description": "Texte du bouton annuler"
-  },
-  "itemDeleted": {
-    "message": "Élément supprimé",
-    "description": "Message de succès de suppression"
-  },
-  "deleteFailed": {
-    "message": "Échec de la suppression",
-    "description": "Message d'erreur de suppression"
-  },
   "confirmDangerous": {
     "message": "Double confirmation des actions risquées",
     "description": "Bascule de confirmation pour actions risquées"
-  },
-  "silentMode": {
-    "message": "Mode silencieux (aucune invite)",
-    "description": "Bascule du mode silencieux"
   },
   "confirmDangerousMessage": {
     "message": "Cette opération est irréversible. Continuer ?",
@@ -559,481 +423,245 @@
     "message": "Confirmer l'action en cours ?",
     "description": "Titre de confirmation d'action risquée"
   },
-  "analysisTitle": {
-    "message": "Analyse globale du stockage",
-    "description": "Titre de la page d'analyse"
-  },
-  "analysisDesc": {
-    "message": "Agrège Local/Session/IndexedDB/Cache/Cookies par domaine",
-    "description": "Description de la page d'analyse"
-  },
-  "analysisRescan": {
-    "message": "Rescanner",
-    "description": "Bouton rescanner"
-  },
-  "analysisClearAll": {
-    "message": "Tout effacer",
-    "description": "Bouton effacer tous les domaines"
-  },
-  "analysisDomainCount": {
-    "message": "Nombre de domaines",
-    "description": "Libellé nombre de domaines"
-  },
-  "analysisTotalItems": {
-    "message": "Total d'éléments",
-    "description": "Libellé total éléments"
-  },
-  "analysisTotalSize": {
-    "message": "Taille estimée",
-    "description": "Libellé taille totale"
-  },
-  "analysisChartTypes": {
-    "message": "Par type de stockage",
-    "description": "Titre du graphique répartition par type"
-  },
-  "analysisChartTypesCount": {
-    "message": "Par type de stockage (éléments)",
-    "description": "Titre du graphique répartition par nombre d'éléments"
-  },
-  "analysisChartTopDomains": {
-    "message": "Top domaines (par taille)",
-    "description": "Titre du graphique top domaines par taille"
-  },
-  "analysisChartTopDomainsCount": {
-    "message": "Top domaines (par éléments)",
-    "description": "Titre du graphique top domaines par nombre d'éléments"
-  },
-  "analysisChartTopCookies": {
-    "message": "Top domaines (par taille des cookies)",
-    "description": "Titre du graphique top domaines par taille des cookies"
-  },
-  "analysisChartDomainTypeSize": {
-    "message": "Top domaines par type de stockage (taille)",
-    "description": "Empilé par type (taille)"
-  },
-  "analysisChartDomainTypeCount": {
-    "message": "Top domaines par type de stockage (éléments)",
-    "description": "Empilé par type (éléments)"
-  },
-  "analysisChartSizeBuckets": {
-    "message": "Répartition par taille des éléments",
-    "description": "Graphique des classes de taille"
-  },
-  "analysisChartCookiesSecurity": {
-    "message": "Attributs de sécurité des Cookies",
-    "description": "Graphique Secure/HttpOnly/SameSite"
-  },
-  "analysisChartCookiesExpiry": {
-    "message": "Répartition d'expiration des Cookies",
-    "description": "Graphique d'expiration des cookies"
-  },
-  "analysisChartCookiesExpiringSoon": {
-    "message": "Cookies expirant sous 7 jours - domaines top",
-    "description": "Top domaines expirant bientôt"
-  },
-  "analysisSectionStacks": {
-    "message": "Vue domaine et type",
-    "description": "Titre de section pour graphes empilés"
-  },
-  "analysisSectionQuality": {
-    "message": "Qualité & risque",
-    "description": "Titre de section pour qualité/risque"
-  },
-  "analysisSectionEfficiency": {
-    "message": "Vue efficacité et densité",
-    "description": "Titre de section pour graphiques efficacité/densité"
-  },
-  "analysisSectionConcentration": {
-    "message": "Vue concentration",
-    "description": "Titre de section pour graphiques de concentration"
-  },
-  "analysisSectionDistribution": {
-    "message": "Vue distribution",
-    "description": "Titre de section pour graphiques de distribution"
-  },
-  "analysisSectionComparison": {
-    "message": "Vue comparaison",
-    "description": "Titre de section pour graphiques de comparaison"
-  },
-  "analysisSectionSecurity": {
-    "message": "Vue sécurité et risque",
-    "description": "Titre de section pour graphiques sécurité/risque"
-  },
-  "analysisSectionSegmentation": {
-    "message": "Vue segmentation",
-    "description": "Titre de section pour graphiques de segmentation"
-  },
-  "analysisSectionStatistics": {
-    "message": "Vue résumé statistique",
-    "description": "Titre de section pour graphiques résumé statistique"
-  },
-  "analysisChartAvgItemSize": {
-    "message": "Taille moyenne d'élément par type de stockage",
-    "description": "Titre graphique taille moyenne d'élément"
-  },
-  "analysisChartStorageDensity": {
-    "message": "Distribution de densité de stockage par domaine",
-    "description": "Titre graphique densité de stockage"
-  },
-  "analysisChartSizeItemScatter": {
-    "message": "Nuage de points taille vs nombre d'éléments par domaine",
-    "description": "Titre graphique nuage de points"
-  },
-  "analysisChartConcentration": {
-    "message": "Analyse de concentration de stockage (graphique Pareto)",
-    "description": "Titre graphique de concentration"
-  },
-  "analysisChartTopDomainRatio": {
-    "message": "Analyse de ratio des domaines principaux",
-    "description": "Titre graphique analyse de ratio"
-  },
-  "analysisChartSizeDistribution": {
-    "message": "Histogramme de distribution de taille par domaine",
-    "description": "Titre graphique distribution de taille"
-  },
-  "analysisChartItemDistribution": {
-    "message": "Histogramme de distribution du nombre d'éléments par domaine",
-    "description": "Titre graphique distribution du nombre d'éléments"
-  },
-  "analysisChartStorageUsage": {
-    "message": "Taux d'utilisation par type de stockage",
-    "description": "Titre graphique taux d'utilisation"
-  },
-  "analysisChartTypeEfficiency": {
-    "message": "Comparaison d'efficacité par type de stockage",
-    "description": "Titre graphique comparaison d'efficacité"
-  },
-  "analysisChartDomainPreference": {
-    "message": "Préférence de type de stockage par domaine",
-    "description": "Titre graphique de préférence"
-  },
-  "analysisChartInsecureCookies": {
-    "message": "Domaines principaux avec cookies non sécurisés",
-    "description": "Titre graphique cookies non sécurisés"
-  },
-  "analysisChartExpiredCookies": {
-    "message": "Distribution de domaines avec cookies expirés",
-    "description": "Titre graphique cookies expirés"
-  },
-  "analysisChartSecurityCombination": {
-    "message": "Analyse de combinaison d'attributs de sécurité des cookies",
-    "description": "Titre graphique combinaison de sécurité"
-  },
-  "analysisChartTLDDistribution": {
-    "message": "Statistiques groupées par domaine de premier niveau (TLD)",
-    "description": "Titre graphique distribution TLD"
-  },
-  "analysisChartDomainLength": {
-    "message": "Statistiques groupées par longueur de domaine",
-    "description": "Titre graphique longueur de domaine"
-  },
-  "analysisChartStorageCombination": {
-    "message": "Groupé par combinaison de types de stockage",
-    "description": "Titre graphique combinaison de stockage"
-  },
-  "analysisChartJsonFailRate": {
-    "message": "Taux d'échec d'analyse JSON (par domaine)",
-    "description": "Titre graphique taux d'échec JSON"
-  },
-  "analysisChartLargeKeys": {
-    "message": "Distribution de clés volumineuses (par domaine)",
-    "description": "Titre graphique distribution de clés volumineuses"
-  },
-  "analysisChartQualityComparison": {
-    "message": "Comparaison de qualité par type de stockage",
-    "description": "Titre graphique comparaison de qualité"
-  },
-  "analysisChartStatistics": {
-    "message": "Résumé statistique de stockage",
-    "description": "Titre graphique résumé statistique"
-  },
-  "analysisChartBoxPlot": {
-    "message": "Diagramme en boîte de distribution de taille par type de stockage",
-    "description": "Titre graphique diagramme en boîte"
-  },
-  "avgSize": {
-    "message": "Taille moyenne",
-    "description": "Libellé taille moyenne"
-  },
-  "perItem": {
-    "message": "Par élément",
-    "description": "Libellé par élément"
-  },
-  "concentration": {
-    "message": "Concentration",
-    "description": "Libellé concentration"
-  },
-  "cumulativeRatio": {
-    "message": "Ratio cumulatif",
-    "description": "Libellé ratio cumulatif"
-  },
-  "domainCount": {
-    "message": "Nombre de domaines",
-    "description": "Libellé nombre de domaines"
-  },
-  "sizeRange": {
-    "message": "Plage de taille",
-    "description": "Libellé plage de taille"
-  },
-  "itemRange": {
-    "message": "Plage de nombre d'éléments",
-    "description": "Libellé plage de nombre d'éléments"
-  },
-  "usageRate": {
-    "message": "Taux d'utilisation",
-    "description": "Libellé taux d'utilisation"
-  },
-  "efficiency": {
-    "message": "Efficacité",
-    "description": "Libellé efficacité"
-  },
-  "preference": {
-    "message": "Préférence",
-    "description": "Libellé préférence"
-  },
-  "insecure": {
-    "message": "Non sécurisé",
-    "description": "Libellé non sécurisé"
-  },
-  "expired": {
-    "message": "Expiré",
-    "description": "Libellé expiré"
-  },
-  "securityCombination": {
-    "message": "Combinaison d'attributs de sécurité",
-    "description": "Libellé combinaison d'attributs de sécurité"
-  },
-  "topLevelDomain": {
-    "message": "Domaine de premier niveau",
-    "description": "Libellé domaine de premier niveau"
-  },
-  "domainLength": {
-    "message": "Longueur de domaine",
-    "description": "Libellé longueur de domaine"
-  },
-  "storageCombination": {
-    "message": "Combinaison de types de stockage",
-    "description": "Libellé combinaison de types de stockage"
-  },
-  "jsonFailRate": {
-    "message": "Taux d'échec JSON",
-    "description": "Libellé taux d'échec JSON"
-  },
-  "largeKeys": {
-    "message": "Clés volumineuses",
-    "description": "Libellé clés volumineuses"
-  },
-  "qualityComparison": {
-    "message": "Comparaison de qualité",
-    "description": "Libellé comparaison de qualité"
-  },
-  "statistics": {
-    "message": "Statistiques",
-    "description": "Libellé statistiques"
-  },
-  "min": {
-    "message": "Min",
-    "description": "Libellé min"
-  },
-  "max": {
-    "message": "Max",
-    "description": "Libellé max"
-  },
-  "median": {
-    "message": "Médiane",
-    "description": "Libellé médiane"
-  },
-  "average": {
-    "message": "Moyenne",
-    "description": "Libellé moyenne"
-  },
-  "avgItemSize": {
-    "message": "Taille moyenne d'élément",
-    "description": "Libellé taille moyenne d'élément"
-  },
-  "domains": {
-    "message": "domaines",
-    "description": "Unité de domaine"
-  },
-  "itemCount": {
-    "message": "Nombre d'éléments",
-    "description": "Libellé nombre d'éléments"
-  },
-  "ratio": {
-    "message": "Ratio",
-    "description": "Libellé ratio"
-  },
-  "localOnly": {
-    "message": "LocalStorage uniquement",
-    "description": "Libellé LocalStorage uniquement"
-  },
-  "cookiesOnly": {
-    "message": "Cookies uniquement",
-    "description": "Libellé Cookies uniquement"
-  },
-  "mixed": {
-    "message": "Usage mixte",
-    "description": "Libellé usage mixte"
-  },
-  "insecureCookies": {
-    "message": "Cookies non sécurisés",
-    "description": "Libellé cookies non sécurisés"
-  },
-  "expiredCookies": {
-    "message": "Cookies expirés",
-    "description": "Libellé cookies expirés"
+  "confirmDelete": {
+    "message": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+    "description": "Invite de confirmation de suppression"
+  },
+  "confirmDeleteDomain": {
+    "message": "Êtes-vous sûr de vouloir supprimer le domaine \"${domain}\" ? Cette action ne peut pas être annulée.",
+    "description": "Invite de confirmation de suppression de domaine"
+  },
+  "confirmDeleteTitle": {
+    "message": "Confirmer la suppression",
+    "description": "Titre de la boîte de dialogue de confirmation de suppression"
+  },
+  "contextMenuTitle": {
+    "message": "Assistant de Nettoyage de Cache",
+    "description": "Titre du menu contextuel"
   },
   "cookieCount": {
     "message": "Nombre de cookies",
     "description": "Libellé nombre de cookies"
   },
-  "short": {
-    "message": "Court (<10)",
-    "description": "Libellé domaine court"
+  "cookies": {
+    "message": "Cookies",
+    "description": "Bouton cookies"
   },
-  "medium": {
-    "message": "Moyen (10-20)",
-    "description": "Libellé domaine moyen"
+  "cookiesClearFailed": {
+    "message": "❌ Échec du vidage des cookies",
+    "description": "Message d'échec de vidage des cookies"
   },
-  "long": {
-    "message": "Long (20-30)",
-    "description": "Libellé domaine long"
+  "cookiesCleared": {
+    "message": "🍪 Cookies vidés",
+    "description": "Message de succès de vidage des cookies"
   },
-  "veryLong": {
-    "message": "Très long (>30)",
-    "description": "Libellé domaine très long"
+  "cookiesDesc": {
+    "message": "Effacer les données de cookies du site actuel",
+    "description": "Info-bulle du bouton Cookies"
   },
-  "none": {
-    "message": "Aucun",
-    "description": "Libellé aucun"
-  },
-  "localAndCookies": {
-    "message": "LocalStorage + Cookies",
-    "description": "Libellé combinaison LocalStorage et Cookies"
-  },
-  "all": {
-    "message": "Tous les types",
-    "description": "Libellé tous les types"
-  },
-  "other": {
-    "message": "Autres combinaisons",
-    "description": "Libellé autres combinaisons"
-  },
-  "minSize": {
-    "message": "Taille min",
-    "description": "Libellé taille min"
-  },
-  "maxSize": {
-    "message": "Taille max",
-    "description": "Libellé taille max"
-  },
-  "medianSize": {
-    "message": "Taille médiane",
-    "description": "Libellé taille médiane"
-  },
-  "q1": {
-    "message": "Q1",
-    "description": "Libellé premier quartile"
-  },
-  "q3": {
-    "message": "Q3",
-    "description": "Libellé troisième quartile"
-  },
-  "totalSize": {
-    "message": "Taille totale",
-    "description": "Libellé taille totale"
-  },
-  "cookiesExpiryLt7d": {
-    "message": "≤7 jours",
-    "description": "Classe d'expiration"
-  },
-  "cookiesExpiryLt30d": {
-    "message": "≤30 jours",
-    "description": "Classe d'expiration"
-  },
-  "cookiesExpiryMid": {
-    "message": "30-180 jours",
+  "cookiesExpiryExpired": {
+    "message": "Expiré",
     "description": "Classe d'expiration"
   },
   "cookiesExpiryGt180d": {
     "message": "≥180 jours",
     "description": "Classe d'expiration"
   },
+  "cookiesExpiryLt30d": {
+    "message": "≤30 jours",
+    "description": "Classe d'expiration"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7 jours",
+    "description": "Classe d'expiration"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180 jours",
+    "description": "Classe d'expiration"
+  },
   "cookiesExpiryNo": {
     "message": "Sans expiration",
     "description": "Classe d'expiration"
   },
-  "cookiesExpiryExpired": {
-    "message": "Expiré",
-    "description": "Classe d'expiration"
+  "cookiesOnly": {
+    "message": "Cookies uniquement",
+    "description": "Libellé Cookies uniquement"
   },
-  "analysisSectionTypes": {
-    "message": "Vue par type de stockage",
-    "description": "Libellé de section pour les graphiques par type de stockage"
+  "copy": {
+    "message": "Copier",
+    "description": "Texte du bouton copier"
   },
-  "analysisSectionDomains": {
-    "message": "Vue par domaine",
-    "description": "Libellé de section pour les graphiques par domaine"
+  "count": {
+    "message": "Nombre",
+    "description": "Étiquette de nombre"
   },
-  "analysisClearDomain": {
-    "message": "Effacer ce domaine",
-    "description": "Bouton effacer domaine"
+  "cumulativeRatio": {
+    "message": "Ratio cumulatif",
+    "description": "Libellé ratio cumulatif"
   },
-  "analysisLoading": {
-    "message": "Analyse en cours...",
-    "description": "Indication de scan"
+  "currentSite": {
+    "message": "Site actuel :",
+    "description": "Libellé du site actuel"
   },
-  "analysisEmpty": {
-    "message": "Aucune donnée",
-    "description": "Etat vide"
+  "currentSiteCacheClearFailed": {
+    "message": "❌ Échec du vidage du cache du site actuel",
+    "description": "Message d'échec de vidage du cache du site actuel"
   },
-  "openAnalysis": {
-    "message": "Analyse globale du stockage",
-    "description": "Bouton ouvrir l'analyse"
+  "currentSiteCacheCleared": {
+    "message": "🌐 Cache du site actuel vidé",
+    "description": "Message de succès de vidage du cache du site actuel"
   },
-  "cacheAPI": {
-    "message": "Cache",
-    "description": "Libellé Cache API"
+  "delete": {
+    "message": "Supprimer",
+    "description": "Texte du bouton supprimer"
   },
-  "action": {
-    "message": "Action",
-    "description": "Libellé colonne action"
+  "deleteDownloadFiles": {
+    "message": "Supprimer les fichiers téléchargés",
+    "description": "Bouton supprimer les fichiers téléchargés"
   },
-  "cleaning": {
-    "message": "Nettoyage...",
-    "description": "Indication de nettoyage"
+  "deleteFailed": {
+    "message": "Échec de la suppression",
+    "description": "Message d'erreur de suppression"
   },
-  "analysisSearchPlaceholder": {
-    "message": "Rechercher un domaine...",
-    "description": "Placeholder de recherche domaine"
+  "detailLoadFailed": {
+    "message": "Échec du chargement des détails",
+    "description": "Invite d'échec du chargement des détails"
   },
-  "exportJSON": {
-    "message": "Exporter en JSON",
-    "description": "Bouton export JSON"
+  "domain": {
+    "message": "Domaine",
+    "description": "Étiquette de domaine"
   },
-  "exportCSV": {
-    "message": "Exporter en CSV",
-    "description": "Bouton export CSV"
+  "domainAdded": {
+    "message": "Domaine ajouté à la liste",
+    "description": "Message de succès d'ajout d'un seul domaine"
   },
-  "exportFilteredOnly": {
-    "message": "Exporter le filtré seulement",
-    "description": "Bascule export filtré"
+  "domainBlocked": {
+    "message": "Ce domaine est filtré et ne peut pas effectuer cette opération",
+    "description": "Message domaine bloqué"
   },
-  "exportSuccess": {
-    "message": "Export réussi",
-    "description": "Indication succès export"
+  "domainCount": {
+    "message": "Nombre de domaines",
+    "description": "Libellé nombre de domaines"
   },
-  "exportFailed": {
-    "message": "Échec de l'export",
-    "description": "Indication échec export"
+  "domainExists": {
+    "message": "Le domaine existe déjà",
+    "description": "Message domaine existant"
   },
   "domainFilter": {
     "message": "Filtre de domaine",
     "description": "Titre filtre domaine"
   },
+  "domainFilterHint": {
+    "message": "Mode liste blanche : Autoriser uniquement les opérations de nettoyage sur les domaines listés ; Mode liste noire : Bloquer les opérations de nettoyage sur les domaines listés",
+    "description": "Indication filtre domaine"
+  },
+  "domainInputPlaceholder": {
+    "message": "Entrez un domaine, ex. example.com ou *.example.com",
+    "description": "Placeholder saisie domaine"
+  },
+  "domainLength": {
+    "message": "Longueur de domaine",
+    "description": "Libellé longueur de domaine"
+  },
+  "domains": {
+    "message": "domaines",
+    "description": "Unité de domaine"
+  },
+  "domainsAddedFailed": {
+    "message": "Tous les domaines existent déjà ou sont invalides",
+    "description": "Message d'échec complet d'ajout en lot de domaines"
+  },
+  "domainsAddedPartial": {
+    "message": "%d domaines ajoutés avec succès, %d ignorés",
+    "description": "Message de succès partiel d'ajout en lot de domaines"
+  },
+  "domainsAddedSuccess": {
+    "message": "%d domaines ajoutés avec succès",
+    "description": "Message de succès d'ajout en lot de domaines"
+  },
+  "doubleClickToCopy": {
+    "message": "Double-cliquer pour copier",
+    "description": "Indication pour copier en double-cliquant"
+  },
+  "downloadFilesClearFailed": {
+    "message": "❌ Échec de la suppression des fichiers téléchargés",
+    "description": "Message d'échec de suppression des fichiers téléchargés"
+  },
+  "downloadFilesCleared": {
+    "message": "📁 Fichiers téléchargés supprimés",
+    "description": "Message de succès de suppression des fichiers téléchargés"
+  },
+  "downloadHistory": {
+    "message": "Historique des téléchargements",
+    "description": "Bouton historique des téléchargements"
+  },
+  "downloadsClearFailed": {
+    "message": "❌ Échec de l'effacement de l'historique des téléchargements",
+    "description": "Message d'échec d'effacement de l'historique des téléchargements"
+  },
+  "downloadsCleared": {
+    "message": "📥 Historique des téléchargements effacé",
+    "description": "Message de succès d'effacement de l'historique des téléchargements"
+  },
+  "efficiency": {
+    "message": "Efficacité",
+    "description": "Libellé efficacité"
+  },
+  "enableNotifications": {
+    "message": "Activer les notifications",
+    "description": "Option activer les notifications"
+  },
+  "expandAll": {
+    "message": "Tout développer",
+    "description": "Bouton tout développer"
+  },
+  "expiration": {
+    "message": "Expiration",
+    "description": "Étiquette d'expiration"
+  },
+  "expired": {
+    "message": "Expiré",
+    "description": "Libellé expiré"
+  },
+  "expiredCookies": {
+    "message": "Cookies expirés",
+    "description": "Libellé cookies expirés"
+  },
+  "exportCSV": {
+    "message": "Exporter en CSV",
+    "description": "Bouton export CSV"
+  },
+  "exportFailed": {
+    "message": "Échec de l'export",
+    "description": "Indication échec export"
+  },
+  "exportFilteredOnly": {
+    "message": "Exporter le filtré seulement",
+    "description": "Bascule export filtré"
+  },
+  "exportJSON": {
+    "message": "Exporter en JSON",
+    "description": "Bouton export JSON"
+  },
+  "exportSuccess": {
+    "message": "Export réussi",
+    "description": "Indication succès export"
+  },
+  "extensionDescription": {
+    "message": "Un outil puissant pour effacer en un clic le cache du navigateur, les cookies, localStorage, sessionStorage et autres données",
+    "description": "Description de l'extension"
+  },
+  "extensionName": {
+    "message": "Assistant de Nettoyage de Cache",
+    "description": "Nom de l'extension"
+  },
   "filterMode": {
     "message": "Mode de filtrage :",
     "description": "Libellé mode filtrage"
+  },
+  "filterModeBlacklist": {
+    "message": "Liste noire",
+    "description": "Mode filtrage liste noire"
   },
   "filterModeDisabled": {
     "message": "Désactivé",
@@ -1043,72 +671,512 @@
     "message": "Liste blanche",
     "description": "Mode filtrage liste blanche"
   },
-  "filterModeBlacklist": {
-    "message": "Liste noire",
-    "description": "Mode filtrage liste noire"
+  "footerTip": {
+    "message": "💡 Conseil : Utilisez les fonctions de suppression avec prudence, les données supprimées ne peuvent pas être récupérées",
+    "description": "Conseil du pied de page"
   },
-  "whitelist": {
-    "message": "Liste blanche",
-    "description": "Titre liste blanche"
+  "hardReload": {
+    "message": "Rechargement forcé",
+    "description": "Bouton rechargement forcé"
   },
-  "blacklist": {
-    "message": "Liste noire",
-    "description": "Titre liste noire"
+  "hardReloadDesc": {
+    "message": "Forcer le rechargement de la page en ignorant le cache",
+    "description": "Info-bulle du bouton de rechargement forcé"
   },
-  "add": {
-    "message": "Ajouter",
-    "description": "Bouton ajouter"
+  "hardReloadFailed": {
+    "message": "❌ Échec du rechargement forcé",
+    "description": "Message d'échec de rechargement forcé"
   },
-  "addDomain": {
-    "message": "Ajouter un domaine",
-    "description": "Titre de la modale d'ajout de domaine"
+  "historyClearFailed": {
+    "message": "❌ Échec de l'effacement de l'historique",
+    "description": "Message d'échec d'effacement de l'historique"
   },
-  "addedDomains": {
-    "message": "Domaines ajoutés",
-    "description": "Titre de la liste des domaines ajoutés"
+  "historyCleared": {
+    "message": "📜 Historique effacé",
+    "description": "Message de succès d'effacement de l'historique"
   },
-  "domainAdded": {
-    "message": "Domaine ajouté à la liste",
-    "description": "Message de succès d'ajout d'un seul domaine"
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "Étiquette HttpOnly"
   },
-  "domainsAddedSuccess": {
-    "message": "%d domaines ajoutés avec succès",
-    "description": "Message de succès d'ajout en lot de domaines"
+  "includeProtectedData": {
+    "message": "Inclure les données protégées",
+    "description": "Option inclure les données protégées"
   },
-  "domainsAddedPartial": {
-    "message": "%d domaines ajoutés avec succès, %d ignorés",
-    "description": "Message de succès partiel d'ajout en lot de domaines"
+  "indexedDB": {
+    "message": "IndexedDB",
+    "description": "Bouton indexedDB"
   },
-  "domainsAddedFailed": {
-    "message": "Tous les domaines existent déjà ou sont invalides",
-    "description": "Message d'échec complet d'ajout en lot de domaines"
+  "indexedDBClearFailed": {
+    "message": "❌ Échec du vidage d'IndexedDB",
+    "description": "Message d'échec de vidage d'IndexedDB"
   },
-  "remove": {
-    "message": "Supprimer",
-    "description": "Bouton supprimer"
+  "indexedDBCleared": {
+    "message": "📊 IndexedDB vidée",
+    "description": "Message de succès de vidage d'IndexedDB"
   },
-  "domainInputPlaceholder": {
-    "message": "Entrez un domaine, ex. example.com ou *.example.com",
-    "description": "Placeholder saisie domaine"
+  "indexedDBDesc": {
+    "message": "Effacer la base de données IndexedDB du site actuel",
+    "description": "Info-bulle du bouton IndexedDB"
   },
-  "domainFilterHint": {
-    "message": "Mode liste blanche : Autoriser uniquement les opérations de nettoyage sur les domaines listés ; Mode liste noire : Bloquer les opérations de nettoyage sur les domaines listés",
-    "description": "Indication filtre domaine"
+  "insecure": {
+    "message": "Non sécurisé",
+    "description": "Libellé non sécurisé"
   },
-  "domainBlocked": {
-    "message": "Ce domaine est filtré et ne peut pas effectuer cette opération",
-    "description": "Message domaine bloqué"
+  "insecureCookies": {
+    "message": "Cookies non sécurisés",
+    "description": "Libellé cookies non sécurisés"
   },
   "invalidDomain": {
     "message": "Format de domaine invalide",
     "description": "Message domaine invalide"
   },
-  "domainExists": {
-    "message": "Le domaine existe déjà",
-    "description": "Message domaine existant"
+  "itemCount": {
+    "message": "Nombre d'éléments",
+    "description": "Libellé nombre d'éléments"
+  },
+  "itemDeleted": {
+    "message": "Élément supprimé",
+    "description": "Message de succès de suppression"
+  },
+  "itemRange": {
+    "message": "Plage de nombre d'éléments",
+    "description": "Libellé plage de nombre d'éléments"
+  },
+  "items": {
+    "message": "éléments",
+    "description": "Unité de comptage des éléments de stockage"
+  },
+  "jsonFailRate": {
+    "message": "Taux d'échec JSON",
+    "description": "Libellé taux d'échec JSON"
+  },
+  "keepFormData": {
+    "message": "Conserver les données de formulaire",
+    "description": "Option conserver les données de formulaire"
+  },
+  "keepPasswords": {
+    "message": "Conserver les mots de passe",
+    "description": "Option conserver les mots de passe"
+  },
+  "key": {
+    "message": "Clé",
+    "description": "Étiquette de clé"
+  },
+  "keyCopied": {
+    "message": "Clé copiée",
+    "description": "Message de succès de copie de clé"
+  },
+  "languageAuto": {
+    "message": "Suivre le système",
+    "description": "Option de langue automatique"
+  },
+  "languageChangeFailed": {
+    "message": "Échec du changement de langue",
+    "description": "Message d'échec de changement de langue"
+  },
+  "languageChanged": {
+    "message": "Langue changée",
+    "description": "Message de succès de changement de langue"
+  },
+  "languageSettings": {
+    "message": "Paramètres de langue",
+    "description": "Titre des paramètres de langue"
+  },
+  "largeKeys": {
+    "message": "Clés volumineuses",
+    "description": "Libellé clés volumineuses"
+  },
+  "loadSettingsFailed": {
+    "message": "Échec du chargement des paramètres",
+    "description": "Message d'échec de chargement des paramètres"
+  },
+  "loading": {
+    "message": "Chargement...",
+    "description": "État de chargement"
+  },
+  "loadingDetail": {
+    "message": "Chargement des détails...",
+    "description": "Invite de chargement des détails"
+  },
+  "loadingStorage": {
+    "message": "Chargement des informations de stockage...",
+    "description": "Invite lors du chargement des informations de stockage"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "Libellé combinaison LocalStorage et Cookies"
+  },
+  "localOnly": {
+    "message": "LocalStorage uniquement",
+    "description": "Libellé LocalStorage uniquement"
+  },
+  "localStorage": {
+    "message": "LocalStorage",
+    "description": "Bouton localStorage"
+  },
+  "localStorageClearFailed": {
+    "message": "❌ Échec du vidage du localStorage",
+    "description": "Message d'échec de vidage du localStorage"
+  },
+  "localStorageCleared": {
+    "message": "💾 LocalStorage vidé",
+    "description": "Message de succès de vidage du localStorage"
+  },
+  "localStorageDesc": {
+    "message": "Effacer les données de stockage local du site actuel",
+    "description": "Info-bulle du bouton LocalStorage"
+  },
+  "localStorageUnavailable": {
+    "message": "LocalStorage indisponible",
+    "description": "Erreur localStorage indisponible"
+  },
+  "long": {
+    "message": "Long (20-30)",
+    "description": "Libellé domaine long"
+  },
+  "max": {
+    "message": "Max",
+    "description": "Libellé max"
+  },
+  "maxSize": {
+    "message": "Taille max",
+    "description": "Libellé taille max"
+  },
+  "median": {
+    "message": "Médiane",
+    "description": "Libellé médiane"
+  },
+  "medianSize": {
+    "message": "Taille médiane",
+    "description": "Libellé taille médiane"
+  },
+  "medium": {
+    "message": "Moyen (10-20)",
+    "description": "Libellé domaine moyen"
+  },
+  "min": {
+    "message": "Min",
+    "description": "Libellé min"
+  },
+  "minSize": {
+    "message": "Taille min",
+    "description": "Libellé taille min"
+  },
+  "mixed": {
+    "message": "Usage mixte",
+    "description": "Libellé usage mixte"
+  },
+  "moreUrls": {
+    "message": "Plus...",
+    "description": "Invite de plus d'URLs"
+  },
+  "name": {
+    "message": "Nom",
+    "description": "Étiquette de nom"
+  },
+  "noDetailData": {
+    "message": "Aucune donnée",
+    "description": "Invite sans données détaillées"
   },
   "noDomains": {
     "message": "Aucun domaine",
     "description": "Message liste vide"
+  },
+  "noStorageData": {
+    "message": "Aucune donnée de stockage pour le site Web actuel",
+    "description": "Invite lorsqu'il n'y a pas de données de stockage"
+  },
+  "none": {
+    "message": "Aucun",
+    "description": "Libellé aucun"
+  },
+  "normalReload": {
+    "message": "Rechargement normal",
+    "description": "Bouton rechargement normal"
+  },
+  "normalReloadDesc": {
+    "message": "Recharger la page actuelle en conservant les données de cache",
+    "description": "Info-bulle du bouton de rechargement normal"
+  },
+  "notificationDisabled": {
+    "message": "Notifications désactivées, non affichées",
+    "description": "Message de notifications désactivées"
+  },
+  "notificationSettings": {
+    "message": "Paramètres de notification",
+    "description": "Paramètres de notification"
+  },
+  "notificationSound": {
+    "message": "Son de notification",
+    "description": "Option son de notification"
+  },
+  "openAnalysis": {
+    "message": "Analyse globale du stockage",
+    "description": "Bouton ouvrir l'analyse"
+  },
+  "operationFailed": {
+    "message": "Échec de l'opération",
+    "description": "Message générique d'échec d'opération"
+  },
+  "other": {
+    "message": "Autres combinaisons",
+    "description": "Libellé autres combinaisons"
+  },
+  "pageHardReloading": {
+    "message": "🔄 La page se recharge de force",
+    "description": "Message de rechargement forcé de page"
+  },
+  "pageReloading": {
+    "message": "🔄 La page se recharge",
+    "description": "Message de rechargement de page"
+  },
+  "path": {
+    "message": "Chemin",
+    "description": "Étiquette de chemin"
+  },
+  "perItem": {
+    "message": "Par élément",
+    "description": "Libellé par élément"
+  },
+  "popupTitle": {
+    "message": "Assistant de Nettoyage de Cache - Votre Expert en Nettoyage de Navigateur",
+    "description": "Titre de la popup"
+  },
+  "preference": {
+    "message": "Préférence",
+    "description": "Libellé préférence"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "Libellé premier quartile"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "Libellé troisième quartile"
+  },
+  "qualityComparison": {
+    "message": "Comparaison de qualité",
+    "description": "Libellé comparaison de qualité"
+  },
+  "qualityLocalJsonFail": {
+    "message": "Échecs d'analyse JSON LocalStorage",
+    "description": "Métrique de qualité"
+  },
+  "qualityLocalLarge": {
+    "message": "Clés LocalStorage surdimensionnées (>100KB)",
+    "description": "Métrique de qualité"
+  },
+  "qualitySessionJsonFail": {
+    "message": "Échecs d'analyse JSON SessionStorage",
+    "description": "Métrique de qualité"
+  },
+  "qualitySessionLarge": {
+    "message": "Clés SessionStorage surdimensionnées (>100KB)",
+    "description": "Métrique de qualité"
+  },
+  "ratio": {
+    "message": "Ratio",
+    "description": "Libellé ratio"
+  },
+  "reloadFailed": {
+    "message": "❌ Échec du rechargement",
+    "description": "Message d'échec de rechargement"
+  },
+  "remove": {
+    "message": "Supprimer",
+    "description": "Bouton supprimer"
+  },
+  "restrictedPageStorage": {
+    "message": "Cette page est protégée par le navigateur et ne peut pas récupérer les informations de stockage",
+    "description": "Invite lorsque la page restreinte ne peut pas récupérer les informations de stockage"
+  },
+  "save": {
+    "message": "Enregistrer",
+    "description": "Bouton enregistrer"
+  },
+  "saveFailed": {
+    "message": "Échec de l'enregistrement",
+    "description": "Message d'échec d'enregistrement"
+  },
+  "scrollToTop": {
+    "message": "Défiler vers le haut",
+    "description": "Bouton défiler vers le haut"
+  },
+  "searchPlaceholder": {
+    "message": "Rechercher une clé ou une valeur...",
+    "description": "Placeholder du champ de recherche"
+  },
+  "secure": {
+    "message": "Sécurisé",
+    "description": "Étiquette sécurisée"
+  },
+  "securityCombination": {
+    "message": "Combinaison d'attributs de sécurité",
+    "description": "Libellé combinaison d'attributs de sécurité"
+  },
+  "sessionStorage": {
+    "message": "SessionStorage",
+    "description": "Bouton sessionStorage"
+  },
+  "sessionStorageClearFailed": {
+    "message": "❌ Échec du vidage du sessionStorage",
+    "description": "Message d'échec de vidage du sessionStorage"
+  },
+  "sessionStorageCleared": {
+    "message": "📂 SessionStorage vidé",
+    "description": "Message de succès de vidage du sessionStorage"
+  },
+  "sessionStorageDesc": {
+    "message": "Effacer les données de stockage de session du site actuel",
+    "description": "Info-bulle du bouton SessionStorage"
+  },
+  "sessionStorageUnavailable": {
+    "message": "SessionStorage indisponible",
+    "description": "Erreur sessionStorage indisponible"
+  },
+  "settingsSaveFailed": {
+    "message": "Échec de la sauvegarde des paramètres",
+    "description": "Message d'échec de sauvegarde des paramètres"
+  },
+  "settingsSaved": {
+    "message": "Paramètres sauvegardés",
+    "description": "Message de succès de sauvegarde des paramètres"
+  },
+  "short": {
+    "message": "Court (<10)",
+    "description": "Libellé domaine court"
+  },
+  "silentMode": {
+    "message": "Mode silencieux (aucune invite)",
+    "description": "Bascule du mode silencieux"
+  },
+  "size": {
+    "message": "Taille",
+    "description": "Étiquette de taille"
+  },
+  "sizeRange": {
+    "message": "Plage de taille",
+    "description": "Libellé plage de taille"
+  },
+  "statistics": {
+    "message": "Statistiques",
+    "description": "Libellé statistiques"
+  },
+  "storageCombination": {
+    "message": "Combinaison de types de stockage",
+    "description": "Libellé combinaison de types de stockage"
+  },
+  "storageLoadFailed": {
+    "message": "Impossible de charger les informations de stockage",
+    "description": "Invite en cas d'échec du chargement des informations de stockage"
+  },
+  "storageUsage": {
+    "message": "Utilisation du stockage",
+    "description": "Titre de l'utilisation du stockage"
+  },
+  "tabAllBrowser": {
+    "message": "Tout le navigateur",
+    "description": "Onglet tout le navigateur"
+  },
+  "tabCurrentSite": {
+    "message": "Site actuel",
+    "description": "Onglet site actuel"
+  },
+  "tabSettings": {
+    "message": "Paramètres avancés",
+    "description": "Onglet paramètres avancés"
+  },
+  "themeAuto": {
+    "message": "Auto",
+    "description": "Thème automatique"
+  },
+  "themeDark": {
+    "message": "Sombre",
+    "description": "Thème sombre"
+  },
+  "themeLight": {
+    "message": "Clair",
+    "description": "Thème clair"
+  },
+  "themeSettings": {
+    "message": "Thème d'apparence",
+    "description": "Paramètres du thème d'apparence"
+  },
+  "timeRangeAll": {
+    "message": "Toute la période",
+    "description": "Option de plage : tout"
+  },
+  "timeRangeLabel": {
+    "message": "Plage de nettoyage",
+    "description": "Titre de la plage de temps"
+  },
+  "timeRangeLastDay": {
+    "message": "Dernières 24 heures",
+    "description": "Option de plage : 24 heures"
+  },
+  "timeRangeLastHour": {
+    "message": "Dernière heure",
+    "description": "Option de plage : 1 heure"
+  },
+  "timeRangeLastMonth": {
+    "message": "Dernières 4 semaines",
+    "description": "Option de plage : 4 semaines"
+  },
+  "timeRangeLastWeek": {
+    "message": "Derniers 7 jours",
+    "description": "Option de plage : 7 jours"
+  },
+  "timeRangeSaved": {
+    "message": "Plage de temps enregistrée",
+    "description": "Message de succès de sauvegarde de plage"
+  },
+  "topLevelDomain": {
+    "message": "Domaine de premier niveau",
+    "description": "Libellé domaine de premier niveau"
+  },
+  "totalItems": {
+    "message": "Total",
+    "description": "Étiquette totale"
+  },
+  "totalStorage": {
+    "message": "Stockage total :",
+    "description": "Étiquette du stockage total"
+  },
+  "unknownOperation": {
+    "message": "Opération inconnue",
+    "description": "Message d'opération inconnue"
+  },
+  "unknownSite": {
+    "message": "Site inconnu",
+    "description": "Site inconnu"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "Étiquette URLs"
+  },
+  "usageRate": {
+    "message": "Taux d'utilisation",
+    "description": "Libellé taux d'utilisation"
+  },
+  "value": {
+    "message": "Valeur",
+    "description": "Étiquette de valeur"
+  },
+  "valueCopied": {
+    "message": "Valeur copiée",
+    "description": "Message de succès de copie de valeur"
+  },
+  "version": {
+    "message": "Version",
+    "description": "Étiquette de version"
+  },
+  "veryLong": {
+    "message": "Très long (>30)",
+    "description": "Libellé domaine très long"
+  },
+  "whitelist": {
+    "message": "Liste blanche",
+    "description": "Titre liste blanche"
   }
 }

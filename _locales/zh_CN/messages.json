@@ -99,6 +99,34 @@
     "message": "删除下载文件",
     "description": "删除下载文件按钮"
   },
+  "timeRangeLabel": {
+    "message": "清理范围",
+    "description": "时间范围标题"
+  },
+  "timeRangeLastHour": {
+    "message": "最近 1 小时",
+    "description": "时间范围选项：1小时"
+  },
+  "timeRangeLastDay": {
+    "message": "最近 24 小时",
+    "description": "时间范围选项：24小时"
+  },
+  "timeRangeLastWeek": {
+    "message": "最近 7 天",
+    "description": "时间范围选项：7天"
+  },
+  "timeRangeLastMonth": {
+    "message": "最近 4 周",
+    "description": "时间范围选项：4周"
+  },
+  "timeRangeAll": {
+    "message": "全部时间",
+    "description": "时间范围选项：全部"
+  },
+  "timeRangeSaved": {
+    "message": "清理范围已保存",
+    "description": "时间范围保存成功提示"
+  },
   "themeSettings": {
     "message": "外观主题",
     "description": "外观主题设置"
@@ -578,6 +606,18 @@
   "analysisClearAll": {
     "message": "清除所有域",
     "description": "清除所有域按钮"
+  },
+  "analysisExport": {
+    "message": "导出数据",
+    "description": "导出数据按钮"
+  },
+  "analysisExportExcel": {
+    "message": "导出表格",
+    "description": "导出表格按钮"
+  },
+  "analysisExportPDF": {
+    "message": "导出图表",
+    "description": "导出图表按钮"
   },
   "analysisDomainCount": {
     "message": "域名数",

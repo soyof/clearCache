@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // 重载操作
             normalReload: () => normalReload(elements),
             hardReloadOnly: () => hardReloadOnly(elements),
-            hardReloadCacheOnly: () => hardReloadCacheOnly(elements),
+            hardReloadCacheOnly: (opts) => hardReloadCacheOnly(elements, opts),
             hardReloadPage: (opts) => hardReloadPage(elements, opts),
 
             // 设置操作

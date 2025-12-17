@@ -1,271 +1,35 @@
 {
-  "extensionName": {
-    "message": "캐시 클리너 어시스턴트",
-    "description": "확장 프로그램 이름"
+  "action": {
+    "message": "작업",
+    "description": "작업 열 라벨"
   },
-  "extensionDescription": {
-    "message": "브라우저 캐시, 쿠키, localStorage, sessionStorage 등의 데이터를 원클릭으로 정리하는 강력한 도구",
-    "description": "확장 프로그램 설명"
+  "add": {
+    "message": "추가",
+    "description": "추가 버튼"
   },
-  "popupTitle": {
-    "message": "캐시 클리너 어시스턴트 - 당신의 브라우저 정리 전문가",
-    "description": "팝업 제목"
+  "addDomain": {
+    "message": "도메인 추가",
+    "description": "도메인 추가 모달 제목"
   },
-  "currentSite": {
-    "message": "현재 사이트:",
-    "description": "현재 사이트 라벨"
+  "addedDomains": {
+    "message": "추가된 도메인",
+    "description": "추가된 도메인 목록 제목"
   },
-  "loading": {
-    "message": "로딩 중...",
-    "description": "로딩 상태"
-  },
-  "unknownSite": {
-    "message": "알 수 없는 사이트",
-    "description": "알 수 없는 사이트"
-  },
-  "tabCurrentSite": {
-    "message": "현재 사이트",
-    "description": "현재 사이트 탭"
-  },
-  "tabAllBrowser": {
-    "message": "전체 브라우저",
-    "description": "전체 브라우저 탭"
-  },
-  "tabSettings": {
-    "message": "고급 설정",
-    "description": "고급 설정 탭"
-  },
-  "normalReload": {
-    "message": "일반 새로고침",
-    "description": "일반 새로고침 버튼"
-  },
-  "hardReload": {
-    "message": "하드 새로고침",
-    "description": "하드 새로고침 버튼"
-  },
-  "clearCacheAndHardReload": {
-    "message": "캐시 지우고 하드 새로고침",
-    "description": "캐시 지우고 하드 새로고침 버튼"
-  },
-  "clearCache": {
-    "message": "캐시 지우기",
-    "description": "캐시 지우기 버튼"
-  },
-  "clearAllAndReload": {
-    "message": "모두 지우고 새로고침",
-    "description": "모두 지우고 새로고침 버튼"
-  },
-  "cookies": {
-    "message": "쿠키",
-    "description": "쿠키 버튼"
-  },
-  "localStorage": {
-    "message": "로컬스토리지",
-    "description": "로컬스토리지 버튼"
-  },
-  "sessionStorage": {
-    "message": "세션스토리지",
-    "description": "세션스토리지 버튼"
-  },
-  "indexedDB": {
-    "message": "IndexedDB",
-    "description": "IndexedDB 버튼"
-  },
-  "clearAllCache": {
-    "message": "모든 캐시 지우기",
-    "description": "모든 캐시 지우기 버튼"
-  },
-  "browserCache": {
-    "message": "브라우저 캐시",
-    "description": "브라우저 캐시 버튼"
-  },
-  "allCookies": {
-    "message": "모든 쿠키",
-    "description": "모든 쿠키 버튼"
-  },
-  "allIndexedDB": {
-    "message": "모든 IndexedDB",
-    "description": "모든 IndexedDB 버튼"
-  },
-  "clearHistory": {
-    "message": "기록 지우기",
-    "description": "기록 지우기 버튼"
-  },
-  "downloadHistory": {
-    "message": "다운로드 기록",
-    "description": "다운로드 기록 버튼"
-  },
-  "deleteDownloadFiles": {
-    "message": "다운로드 파일 삭제",
-    "description": "다운로드 파일 삭제 버튼"
-  },
-  "themeSettings": {
-    "message": "외관 테마",
-    "description": "외관 테마 설정"
-  },
-  "themeAuto": {
-    "message": "자동",
-    "description": "자동 테마"
-  },
-  "themeDark": {
-    "message": "다크",
-    "description": "다크 테마"
-  },
-  "themeLight": {
-    "message": "라이트",
-    "description": "라이트 테마"
-  },
-  "cleaningOptions": {
-    "message": "정리 옵션",
-    "description": "정리 옵션 설정"
-  },
-  "keepPasswords": {
-    "message": "비밀번호 유지",
-    "description": "비밀번호 유지 옵션"
-  },
-  "keepFormData": {
-    "message": "폼 데이터 유지",
-    "description": "폼 데이터 유지 옵션"
-  },
-  "includeProtectedData": {
-    "message": "보호된 데이터 포함",
-    "description": "보호된 데이터 포함 옵션"
-  },
-  "notificationSettings": {
-    "message": "알림 설정",
-    "description": "알림 설정"
-  },
-  "enableNotifications": {
-    "message": "알림 활성화",
-    "description": "알림 활성화 옵션"
-  },
-  "notificationSound": {
-    "message": "알림 소리",
-    "description": "알림 소리 옵션"
-  },
-  "footerTip": {
-    "message": "💡 팁: 삭제 기능을 신중하게 사용하세요. 삭제된 데이터는 복구할 수 없습니다",
-    "description": "푸터 팁"
-  },
-  "save": {
-    "message": "저장",
-    "description": "저장 버튼"
-  },
-  "settingsSaved": {
-    "message": "설정이 저장되었습니다",
-    "description": "설정 저장 성공 메시지"
-  },
-  "settingsSaveFailed": {
-    "message": "설정 저장에 실패했습니다",
-    "description": "설정 저장 실패 메시지"
-  },
-  "currentSiteCacheCleared": {
-    "message": "🌐 현재 사이트 캐시가 지워졌습니다",
-    "description": "현재 사이트 캐시 지우기 성공 메시지"
-  },
-  "currentSiteCacheClearFailed": {
-    "message": "❌ 현재 사이트 캐시 지우기에 실패했습니다",
-    "description": "현재 사이트 캐시 지우기 실패 메시지"
-  },
-  "allCacheCleared": {
-    "message": "🌐 모든 캐시가 지워졌습니다",
-    "description": "모든 캐시 지우기 성공 메시지"
+  "all": {
+    "message": "모든 유형",
+    "description": "모든 유형 레이블"
   },
   "allCacheClearFailed": {
     "message": "❌ 모든 캐시 지우기에 실패했습니다",
     "description": "모든 캐시 지우기 실패 메시지"
   },
-  "cacheCleared": {
-    "message": "🗑️ 캐시가 지워졌습니다",
-    "description": "캐시 지우기 성공 메시지"
+  "allCacheCleared": {
+    "message": "🌐 모든 캐시가 지워졌습니다",
+    "description": "모든 캐시 지우기 성공 메시지"
   },
-  "cacheClearFailed": {
-    "message": "❌ 캐시 지우기에 실패했습니다",
-    "description": "캐시 지우기 실패 메시지"
-  },
-  "cookiesCleared": {
-    "message": "🍪 쿠키가 지워졌습니다",
-    "description": "쿠키 지우기 성공 메시지"
-  },
-  "cookiesClearFailed": {
-    "message": "❌ 쿠키 지우기에 실패했습니다",
-    "description": "쿠키 지우기 실패 메시지"
-  },
-  "localStorageCleared": {
-    "message": "💾 로컬스토리지가 지워졌습니다",
-    "description": "로컬스토리지 지우기 성공 메시지"
-  },
-  "localStorageClearFailed": {
-    "message": "❌ 로컬스토리지 지우기에 실패했습니다",
-    "description": "로컬스토리지 지우기 실패 메시지"
-  },
-  "sessionStorageCleared": {
-    "message": "📂 세션스토리지가 지워졌습니다",
-    "description": "세션스토리지 지우기 성공 메시지"
-  },
-  "sessionStorageClearFailed": {
-    "message": "❌ 세션스토리지 지우기에 실패했습니다",
-    "description": "세션스토리지 지우기 실패 메시지"
-  },
-  "indexedDBCleared": {
-    "message": "📊 IndexedDB가 지워졌습니다",
-    "description": "IndexedDB 지우기 성공 메시지"
-  },
-  "indexedDBClearFailed": {
-    "message": "❌ IndexedDB 지우기에 실패했습니다",
-    "description": "IndexedDB 지우기 실패 메시지"
-  },
-  "allIndexedDBCleared": {
-    "message": "📊 모든 IndexedDB가 지워졌습니다",
-    "description": "모든 IndexedDB 지우기 성공 메시지"
-  },
-  "historyCleared": {
-    "message": "📜 기록이 지워졌습니다",
-    "description": "기록 지우기 성공 메시지"
-  },
-  "historyClearFailed": {
-    "message": "❌ 기록 지우기에 실패했습니다",
-    "description": "기록 지우기 실패 메시지"
-  },
-  "downloadsCleared": {
-    "message": "📥 다운로드 기록이 지워졌습니다",
-    "description": "다운로드 기록 지우기 성공 메시지"
-  },
-  "downloadsClearFailed": {
-    "message": "❌ 다운로드 기록 지우기에 실패했습니다",
-    "description": "다운로드 기록 지우기 실패 메시지"
-  },
-  "downloadFilesCleared": {
-    "message": "📁 다운로드 파일이 삭제되었습니다",
-    "description": "다운로드 파일 삭제 성공 메시지"
-  },
-  "downloadFilesClearFailed": {
-    "message": "❌ 다운로드 파일 삭제에 실패했습니다",
-    "description": "다운로드 파일 삭제 실패 메시지"
-  },
-  "pageReloading": {
-    "message": "🔄 페이지를 새로고침하고 있습니다",
-    "description": "페이지 새로고침 메시지"
-  },
-  "reloadFailed": {
-    "message": "❌ 새로고침에 실패했습니다",
-    "description": "새로고침 실패 메시지"
-  },
-  "pageHardReloading": {
-    "message": "🔄 페이지를 하드 새로고침하고 있습니다",
-    "description": "페이지 하드 새로고침 메시지"
-  },
-  "hardReloadFailed": {
-    "message": "❌ 하드 새로고침에 실패했습니다",
-    "description": "하드 새로고침 실패 메시지"
-  },
-  "cacheAndPageReloading": {
-    "message": "🔄 캐시가 지워지고 페이지를 새로고침하고 있습니다",
-    "description": "캐시 지우고 페이지 새로고침 메시지"
-  },
-  "cacheAndReloadFailed": {
-    "message": "❌ 캐시 지우기와 새로고침에 실패했습니다",
-    "description": "캐시 지우기와 새로고침 실패 메시지"
+  "allCookies": {
+    "message": "모든 쿠키",
+    "description": "모든 쿠키 버튼"
   },
   "allDataAndPageReloading": {
     "message": "🔄 모든 데이터가 지워지고 페이지를 새로고침하고 있습니다",
@@ -275,6 +39,298 @@
     "message": "❌ 데이터 지우기와 새로고침에 실패했습니다",
     "description": "데이터 지우기와 새로고침 실패 메시지"
   },
+  "allIndexedDB": {
+    "message": "모든 IndexedDB",
+    "description": "모든 IndexedDB 버튼"
+  },
+  "allIndexedDBCleared": {
+    "message": "📊 모든 IndexedDB가 지워졌습니다",
+    "description": "모든 IndexedDB 지우기 성공 메시지"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "저장소 유형별 평균 항목 크기",
+    "description": "평균 항목 크기 차트 제목"
+  },
+  "analysisChartBoxPlot": {
+    "message": "저장소 유형 크기 분포 상자 그림",
+    "description": "상자 그림 차트 제목"
+  },
+  "analysisChartConcentration": {
+    "message": "저장소 집중도 분석(파레토 차트)",
+    "description": "집중도 차트 제목"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "7일 이내 만료되는 Cookies 상위 도메인",
+    "description": "곧 만료되는 Cookies 상위 도메인"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies 만료 분포",
+    "description": "Cookies 만료 버킷 차트"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies 보안 속성",
+    "description": "Cookies Secure/HttpOnly/SameSite 차트"
+  },
+  "analysisChartDomainLength": {
+    "message": "도메인 길이별 그룹 통계",
+    "description": "도메인 길이 차트 제목"
+  },
+  "analysisChartDomainPreference": {
+    "message": "도메인 저장소 유형 선호도",
+    "description": "선호도 차트 제목"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "상위 도메인 저장소 유형별(항목 수)",
+    "description": "저장소 유형별 항목 수 스택 차트"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "상위 도메인 저장소 유형별(크기)",
+    "description": "저장소 유형별 크기 스택 차트"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "만료된 Cookies 도메인 분포",
+    "description": "만료된Cookies 차트 제목"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "안전하지 않은 Cookies 상위 도메인",
+    "description": "안전하지 않은Cookies 차트 제목"
+  },
+  "analysisChartItemDistribution": {
+    "message": "도메인 항목 수 분포 히스토그램",
+    "description": "항목 수 분포 차트 제목"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON 구문 분석 실패율(도메인별)",
+    "description": "JSON 실패율 차트 제목"
+  },
+  "analysisChartLargeKeys": {
+    "message": "초대형 키 분포(도메인별)",
+    "description": "초대형 키 분포 차트 제목"
+  },
+  "analysisChartQuality": {
+    "message": "저장소 품질 / 위험",
+    "description": "품질 지표 차트 제목"
+  },
+  "analysisChartQualityComparison": {
+    "message": "저장소 유형 품질 비교",
+    "description": "품질 비교 차트 제목"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies 보안 속성 조합 분석",
+    "description": "보안 조합 차트 제목"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "저장소 항목 크기 분포",
+    "description": "크기 버킷 차트"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "도메인 크기 분포 히스토그램",
+    "description": "크기 분포 차트 제목"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "도메인 크기 대 항목 수 산점도",
+    "description": "산점도 차트 제목"
+  },
+  "analysisChartStatistics": {
+    "message": "저장소 통계 요약",
+    "description": "통계 요약 차트 제목"
+  },
+  "analysisChartStorageCombination": {
+    "message": "저장소 유형 조합별 그룹",
+    "description": "저장소 조합 차트 제목"
+  },
+  "analysisChartStorageDensity": {
+    "message": "도메인 저장소 밀도 분포",
+    "description": "저장소 밀도 차트 제목"
+  },
+  "analysisChartStorageUsage": {
+    "message": "저장소 유형 사용률",
+    "description": "사용률 차트 제목"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "최상위 도메인(TLD)별 그룹 통계",
+    "description": "TLD 분포 차트 제목"
+  },
+  "analysisChartTopCookies": {
+    "message": "상위 도메인(Cookies 크기 기준)",
+    "description": "Cookies 크기 기준 상위 도메인 차트 제목"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "상위 도메인 비율 분석",
+    "description": "비율 분석 차트 제목"
+  },
+  "analysisChartTopDomains": {
+    "message": "상위 도메인(크기 기준)",
+    "description": "크기 기준 상위 도메인 차트 제목"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "상위 도메인(항목 수 기준)",
+    "description": "항목 수 기준 상위 도메인 차트 제목"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "저장소 유형 효율성 비교",
+    "description": "효율성 비교 차트 제목"
+  },
+  "analysisChartTypes": {
+    "message": "저장소 유형별",
+    "description": "저장소 유형 분포 차트 제목"
+  },
+  "analysisChartTypesCount": {
+    "message": "저장소 유형별 (항목 수)",
+    "description": "저장소 유형별 항목 수 분포 차트 제목"
+  },
+  "analysisClearAll": {
+    "message": "모든 도메인 삭제",
+    "description": "모든 도메인 삭제 버튼"
+  },
+  "analysisClearDomain": {
+    "message": "이 도메인 삭제",
+    "description": "도메인 삭제 버튼 텍스트"
+  },
+  "analysisDesc": {
+    "message": "도메인별 Local/Session/IndexedDB/Cache/Cookies 사용량 집계",
+    "description": "분석 페이지 설명"
+  },
+  "analysisDomainCount": {
+    "message": "도메인 수",
+    "description": "도메인 수 라벨"
+  },
+  "analysisEmpty": {
+    "message": "데이터 없음",
+    "description": "빈 데이터 힌트"
+  },
+  "analysisExport": {
+    "message": "데이터 내보내기",
+    "description": "데이터 내보내기 버튼"
+  },
+  "analysisExportExcel": {
+    "message": "Excel 내보내기",
+    "description": "Excel 내보내기 버튼"
+  },
+  "analysisExportPDF": {
+    "message": "PDF 내보내기",
+    "description": "PDF 내보내기 버튼"
+  },
+  "analysisLoading": {
+    "message": "스캔 중...",
+    "description": "스캔 중 힌트"
+  },
+  "analysisRescan": {
+    "message": "재스캔",
+    "description": "재스캔 버튼"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "도메인 검색...",
+    "description": "분석 페이지 검색 플레이스홀더"
+  },
+  "analysisSectionComparison": {
+    "message": "비교 뷰",
+    "description": "비교 그룹 소제목"
+  },
+  "analysisSectionConcentration": {
+    "message": "집중도 뷰",
+    "description": "집중도 그룹 소제목"
+  },
+  "analysisSectionDistribution": {
+    "message": "분포 뷰",
+    "description": "분포 그룹 소제목"
+  },
+  "analysisSectionDomains": {
+    "message": "도메인 뷰",
+    "description": "도메인 차트 섹션 라벨"
+  },
+  "analysisSectionEfficiency": {
+    "message": "효율성 및 밀도 뷰",
+    "description": "효율성 밀도 그룹 소제목"
+  },
+  "analysisSectionQuality": {
+    "message": "저장소 품질 및 위험",
+    "description": "품질 위험 그룹 소제목"
+  },
+  "analysisSectionSecurity": {
+    "message": "보안 및 위험 뷰",
+    "description": "보안 위험 그룹 소제목"
+  },
+  "analysisSectionSegmentation": {
+    "message": "세분화 뷰",
+    "description": "세분화 그룹 소제목"
+  },
+  "analysisSectionStacks": {
+    "message": "도메인 및 저장소 유형 뷰",
+    "description": "스택 차트 섹션 라벨"
+  },
+  "analysisSectionStatistics": {
+    "message": "통계 요약 뷰",
+    "description": "통계 요약 그룹 소제목"
+  },
+  "analysisSectionTypes": {
+    "message": "저장소 유형 뷰",
+    "description": "저장소 유형 차트 섹션 라벨"
+  },
+  "analysisTabCharts": {
+    "message": "차트",
+    "description": "탭 레이블"
+  },
+  "analysisTabTable": {
+    "message": "테이블",
+    "description": "탭 레이블"
+  },
+  "analysisTitle": {
+    "message": "글로벌 저장소 분석",
+    "description": "분석 페이지 제목"
+  },
+  "analysisTotalItems": {
+    "message": "항목 합계",
+    "description": "항목 합계 라벨"
+  },
+  "analysisTotalSize": {
+    "message": "추정 크기",
+    "description": "총 크기 라벨"
+  },
+  "average": {
+    "message": "평균",
+    "description": "평균 레이블"
+  },
+  "avgItemSize": {
+    "message": "평균 항목 크기",
+    "description": "평균 항목 크기 레이블"
+  },
+  "avgSize": {
+    "message": "평균 크기",
+    "description": "평균 크기 레이블"
+  },
+  "blacklist": {
+    "message": "블랙리스트",
+    "description": "블랙리스트 제목"
+  },
+  "browserCache": {
+    "message": "브라우저 캐시",
+    "description": "브라우저 캐시 버튼"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API 라벨"
+  },
+  "cacheAndPageReloading": {
+    "message": "🔄 캐시가 지워지고 페이지를 새로고침하고 있습니다",
+    "description": "캐시 지우고 페이지 새로고침 메시지"
+  },
+  "cacheAndReloadFailed": {
+    "message": "❌ 캐시 지우기와 새로고침에 실패했습니다",
+    "description": "캐시 지우기와 새로고침 실패 메시지"
+  },
+  "cacheClearFailed": {
+    "message": "❌ 캐시 지우기에 실패했습니다",
+    "description": "캐시 지우기 실패 메시지"
+  },
+  "cacheCleared": {
+    "message": "🗑️ 캐시가 지워졌습니다",
+    "description": "캐시 지우기 성공 메시지"
+  },
+  "cancel": {
+    "message": "취소",
+    "description": "취소 버튼 텍스트"
+  },
   "cannotGetCurrentTab": {
     "message": "현재 탭을 가져올 수 없습니다",
     "description": "현재 탭 가져오기 불가 오류 메시지"
@@ -283,61 +339,41 @@
     "message": "현재 탭 정보를 가져올 수 없습니다",
     "description": "현재 탭 정보 가져오기 불가 오류 메시지"
   },
-  "loadSettingsFailed": {
-    "message": "설정 로드에 실패했습니다",
-    "description": "설정 로드 실패 메시지"
-  },
-  "contextMenuTitle": {
-    "message": "캐시 클리너 어시스턴트",
-    "description": "컨텍스트 메뉴 제목"
-  },
-  "operationFailed": {
-    "message": "작업에 실패했습니다",
-    "description": "작업 실패 일반 메시지"
-  },
-  "unknownOperation": {
-    "message": "알 수 없는 작업",
-    "description": "알 수 없는 작업 메시지"
+  "cleaning": {
+    "message": "정리 중...",
+    "description": "정리 진행 중 힌트"
   },
   "cleaningFailed": {
     "message": "정리에 실패했습니다",
     "description": "정리 실패 일반 메시지"
   },
-  "localStorageUnavailable": {
-    "message": "로컬스토리지를 사용할 수 없습니다",
-    "description": "로컬스토리지 사용 불가 오류"
+  "cleaningOptions": {
+    "message": "정리 옵션",
+    "description": "정리 옵션 설정"
   },
-  "sessionStorageUnavailable": {
-    "message": "세션스토리지를 사용할 수 없습니다",
-    "description": "세션스토리지 사용 불가 오류"
+  "clearAllAndReload": {
+    "message": "모두 지우고 새로고침",
+    "description": "모두 지우고 새로고침 버튼"
   },
-  "notificationDisabled": {
-    "message": "알림이 비활성화되어 표시되지 않습니다",
-    "description": "알림 비활성화 메시지"
+  "clearAllAndReloadDesc": {
+    "message": "현재 사이트의 모든 데이터를 지우고 페이지를 새로고침합니다",
+    "description": "모두 지우기 및 새로고침 버튼 툴팁"
   },
-  "languageSettings": {
-    "message": "언어 설정",
-    "description": "언어 설정 제목"
+  "clearAllCache": {
+    "message": "모든 캐시 지우기",
+    "description": "모든 캐시 지우기 버튼"
   },
-  "languageAuto": {
-    "message": "시스템 따라가기",
-    "description": "자동 언어 옵션"
+  "clearAllCacheDesc": {
+    "message": "브라우저의 모든 캐시 데이터를 한 번에 지웁니다",
+    "description": "모든 캐시 지우기 버튼 툴팁"
   },
-  "languageChanged": {
-    "message": "언어가 변경되었습니다",
-    "description": "언어 변경 성공 메시지"
+  "clearCache": {
+    "message": "캐시 지우기",
+    "description": "캐시 지우기 버튼"
   },
-  "languageChangeFailed": {
-    "message": "언어 변경에 실패했습니다",
-    "description": "언어 변경 실패 메시지"
-  },
-  "normalReloadDesc": {
-    "message": "캐시 데이터를 유지하면서 현재 페이지를 새로고침합니다",
-    "description": "일반 새로고침 버튼 툴팁"
-  },
-  "hardReloadDesc": {
-    "message": "캐시를 무시하고 페이지를 강제로 새로고침합니다",
-    "description": "하드 새로고침 버튼 툴팁"
+  "clearCacheAndHardReload": {
+    "message": "캐시 지우고 하드 새로고침",
+    "description": "캐시 지우고 하드 새로고침 버튼"
   },
   "clearCacheAndHardReloadDesc": {
     "message": "현재 사이트의 캐시 데이터를 지우고 강제로 새로고침합니다",
@@ -347,201 +383,29 @@
     "message": "현재 사이트의 모든 캐시 데이터를 지웁니다",
     "description": "캐시 지우기 버튼 툴팁"
   },
-  "clearAllAndReloadDesc": {
-    "message": "현재 사이트의 모든 데이터를 지우고 페이지를 새로고침합니다",
-    "description": "모두 지우기 및 새로고침 버튼 툴팁"
-  },
-  "cookiesDesc": {
-    "message": "현재 사이트의 쿠키 데이터를 지웁니다",
-    "description": "쿠키 버튼 툴팁"
-  },
-  "localStorageDesc": {
-    "message": "현재 사이트의 로컬 스토리지 데이터를 지웁니다",
-    "description": "로컬스토리지 버튼 툴팁"
-  },
-  "sessionStorageDesc": {
-    "message": "현재 사이트의 세션 스토리지 데이터를 지웁니다",
-    "description": "세션스토리지 버튼 툴팁"
-  },
-  "indexedDBDesc": {
-    "message": "현재 사이트의 IndexedDB 데이터베이스를 지웁니다",
-    "description": "IndexedDB 버튼 툴팁"
-  },
-  "clearAllCacheDesc": {
-    "message": "브라우저의 모든 캐시 데이터를 한 번에 지웁니다",
-    "description": "모든 캐시 지우기 버튼 툴팁"
-  },
-  "storageUsage": {
-    "message": "저장소 사용량",
-    "description": "저장소 사용량 제목"
-  },
-  "loadingStorage": {
-    "message": "저장소 정보를 불러오는 중...",
-    "description": "저장소 정보 로딩 시 프롬프트"
-  },
-  "storageLoadFailed": {
-    "message": "저장소 정보를 불러올 수 없습니다",
-    "description": "저장소 정보 로딩 실패 시 프롬프트"
-  },
-  "noStorageData": {
-    "message": "현재 웹사이트에 저장소 데이터가 없습니다",
-    "description": "저장소 데이터가 없을 때의 프롬프트"
-  },
-  "totalStorage": {
-    "message": "총 저장소：",
-    "description": "총 저장소 레이블"
-  },
-  "items": {
-    "message": "개",
-    "description": "저장소 항목 수 단위"
-  },
-  "restrictedPageStorage": {
-    "message": "이 페이지는 브라우저에 의해 보호되어 있어 저장소 정보를 가져올 수 없습니다",
-    "description": "제한된 페이지에서 저장소 정보를 가져올 수 없을 때의 프롬프트"
+  "clearHistory": {
+    "message": "기록 지우기",
+    "description": "기록 지우기 버튼"
   },
   "clickToViewDetail": {
     "message": "클릭하여 세부 정보 보기",
     "description": "세부 정보를 보기 위한 클릭 프롬프트"
   },
-  "loadingDetail": {
-    "message": "세부 정보 로드 중...",
-    "description": "세부 정보 로드 중 프롬프트"
-  },
-  "detailLoadFailed": {
-    "message": "세부 정보 로드 실패",
-    "description": "세부 정보 로드 실패 프롬프트"
-  },
-  "noDetailData": {
-    "message": "데이터 없음",
-    "description": "세부 데이터 없음 프롬프트"
-  },
-  "totalItems": {
-    "message": "총계",
-    "description": "총계 레이블"
-  },
-  "key": {
-    "message": "키",
-    "description": "키 레이블"
-  },
-  "value": {
-    "message": "값",
-    "description": "값 레이블"
-  },
-  "size": {
-    "message": "크기",
-    "description": "크기 레이블"
-  },
-  "name": {
-    "message": "이름",
-    "description": "이름 레이블"
-  },
-  "domain": {
-    "message": "도메인",
-    "description": "도메인 레이블"
-  },
-  "path": {
-    "message": "경로",
-    "description": "경로 레이블"
-  },
-  "secure": {
-    "message": "보안",
-    "description": "보안 레이블"
-  },
-  "httpOnly": {
-    "message": "HttpOnly",
-    "description": "HttpOnly 레이블"
-  },
-  "expiration": {
-    "message": "만료 시간",
-    "description": "만료 시간 레이블"
-  },
-  "version": {
-    "message": "버전",
-    "description": "버전 레이블"
-  },
-  "count": {
-    "message": "수량",
-    "description": "수량 레이블"
-  },
-  "urls": {
-    "message": "URLs",
-    "description": "URLs 레이블"
-  },
-  "moreUrls": {
-    "message": "더 보기...",
-    "description": "더 많은 URL 프롬프트"
-  },
-  "expandAll": {
-    "message": "모두 확장",
-    "description": "모두 확장 버튼"
-  },
   "collapseAll": {
     "message": "모두 접기",
     "description": "모두 접기 버튼"
   },
-  "scrollToTop": {
-    "message": "맨 위로 스크롤",
-    "description": "맨 위로 스크롤 버튼"
-  },
-  "searchPlaceholder": {
-    "message": "키 또는 값 검색...",
-    "description": "검색 입력 플레이스홀더"
-  },
-  "doubleClickToCopy": {
-    "message": "더블 클릭하여 복사",
-    "description": "더블 클릭하여 복사 힌트"
-  },
-  "keyCopied": {
-    "message": "키가 복사되었습니다",
-    "description": "키 복사 성공 메시지"
-  },
-  "valueCopied": {
-    "message": "값이 복사되었습니다",
-    "description": "값 복사 성공 메시지"
-  },
-  "copy": {
-    "message": "복사",
-    "description": "복사 버튼 텍스트"
-  },
-  "delete": {
-    "message": "삭제",
-    "description": "삭제 버튼 텍스트"
-  },
-  "confirmDeleteTitle": {
-    "message": "삭제 확인",
-    "description": "삭제 확인 대화상자 제목"
-  },
-  "confirmDelete": {
-    "message": "이 항목을 삭제하시겠습니까?",
-    "description": "삭제 확인 프롬프트"
-  },
-  "confirmDeleteDomain": {
-    "message": "도메인 \"${domain}\"을(를) 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
-    "description": "도메인 삭제 확인 프롬프트"
+  "concentration": {
+    "message": "집중도",
+    "description": "집중도 레이블"
   },
   "confirm": {
     "message": "확인",
     "description": "확인 버튼 텍스트"
   },
-  "cancel": {
-    "message": "취소",
-    "description": "취소 버튼 텍스트"
-  },
-  "itemDeleted": {
-    "message": "항목이 삭제되었습니다",
-    "description": "삭제 성공 메시지"
-  },
-  "deleteFailed": {
-    "message": "삭제 실패",
-    "description": "삭제 실패 메시지"
-  },
   "confirmDangerous": {
     "message": "위험 작업 재확인",
     "description": "위험 작업 이중 확인 토글"
-  },
-  "silentMode": {
-    "message": "사일런트 모드(알림 없음)",
-    "description": "사일런트 모드 토글"
   },
   "confirmDangerousMessage": {
     "message": "이 작업은 되돌릴 수 없습니다. 계속하시겠습니까?",
@@ -559,513 +423,245 @@
     "message": "현재 작업을 실행하시겠습니까?",
     "description": "위험 작업 확인 제목"
   },
-  "analysisTitle": {
-    "message": "글로벌 저장소 분석",
-    "description": "분석 페이지 제목"
-  },
-  "analysisDesc": {
-    "message": "도메인별 Local/Session/IndexedDB/Cache/Cookies 사용량 집계",
-    "description": "분석 페이지 설명"
-  },
-  "analysisRescan": {
-    "message": "재스캔",
-    "description": "재스캔 버튼"
-  },
-  "analysisClearAll": {
-    "message": "모든 도메인 삭제",
-    "description": "모든 도메인 삭제 버튼"
-  },
-  "analysisDomainCount": {
-    "message": "도메인 수",
-    "description": "도메인 수 라벨"
-  },
-  "analysisTotalItems": {
-    "message": "항목 합계",
-    "description": "항목 합계 라벨"
-  },
-  "analysisTotalSize": {
-    "message": "추정 크기",
-    "description": "총 크기 라벨"
-  },
-  "analysisChartTypes": {
-    "message": "저장소 유형별",
-    "description": "저장소 유형 분포 차트 제목"
-  },
-  "analysisChartTypesCount": {
-    "message": "저장소 유형별 (항목 수)",
-    "description": "저장소 유형별 항목 수 분포 차트 제목"
-  },
-  "analysisChartTopDomains": {
-    "message": "상위 도메인(크기 기준)",
-    "description": "크기 기준 상위 도메인 차트 제목"
-  },
-  "analysisChartTopDomainsCount": {
-    "message": "상위 도메인(항목 수 기준)",
-    "description": "항목 수 기준 상위 도메인 차트 제목"
-  },
-  "analysisChartTopCookies": {
-    "message": "상위 도메인(Cookies 크기 기준)",
-    "description": "Cookies 크기 기준 상위 도메인 차트 제목"
-  },
-  "analysisChartDomainTypeSize": {
-    "message": "상위 도메인 저장소 유형별(크기)",
-    "description": "저장소 유형별 크기 스택 차트"
-  },
-  "analysisChartDomainTypeCount": {
-    "message": "상위 도메인 저장소 유형별(항목 수)",
-    "description": "저장소 유형별 항목 수 스택 차트"
-  },
-  "analysisChartSizeBuckets": {
-    "message": "저장소 항목 크기 분포",
-    "description": "크기 버킷 차트"
-  },
-  "analysisChartCookiesSecurity": {
-    "message": "Cookies 보안 속성",
-    "description": "Cookies Secure/HttpOnly/SameSite 차트"
-  },
-  "analysisChartCookiesExpiry": {
-    "message": "Cookies 만료 분포",
-    "description": "Cookies 만료 버킷 차트"
-  },
-  "analysisChartCookiesExpiringSoon": {
-    "message": "7일 이내 만료되는 Cookies 상위 도메인",
-    "description": "곧 만료되는 Cookies 상위 도메인"
-  },
-  "analysisTabTable": {
-    "message": "테이블",
-    "description": "탭 레이블"
-  },
-  "analysisTabCharts": {
-    "message": "차트",
-    "description": "탭 레이블"
-  },
-  "analysisChartQuality": {
-    "message": "저장소 품질 / 위험",
-    "description": "품질 지표 차트 제목"
-  },
-  "qualityLocalJsonFail": {
-    "message": "LocalStorage JSON 구문 분석 실패 수",
-    "description": "지표 레이블"
-  },
-  "qualitySessionJsonFail": {
-    "message": "SessionStorage JSON 구문 분석 실패 수",
-    "description": "지표 레이블"
-  },
-  "qualityLocalLarge": {
-    "message": "LocalStorage 초대형 키 (>100KB)",
-    "description": "지표 레이블"
-  },
-  "qualitySessionLarge": {
-    "message": "SessionStorage 초대형 키 (>100KB)",
-    "description": "지표 레이블"
-  },
-  "analysisSectionStacks": {
-    "message": "도메인 및 저장소 유형 뷰",
-    "description": "스택 차트 섹션 라벨"
-  },
-  "analysisSectionQuality": {
-    "message": "저장소 품질 및 위험",
-    "description": "품질 위험 그룹 소제목"
-  },
-  "analysisSectionEfficiency": {
-    "message": "효율성 및 밀도 뷰",
-    "description": "효율성 밀도 그룹 소제목"
-  },
-  "analysisSectionConcentration": {
-    "message": "집중도 뷰",
-    "description": "집중도 그룹 소제목"
-  },
-  "analysisSectionDistribution": {
-    "message": "분포 뷰",
-    "description": "분포 그룹 소제목"
-  },
-  "analysisSectionComparison": {
-    "message": "비교 뷰",
-    "description": "비교 그룹 소제목"
-  },
-  "analysisSectionSecurity": {
-    "message": "보안 및 위험 뷰",
-    "description": "보안 위험 그룹 소제목"
-  },
-  "analysisSectionSegmentation": {
-    "message": "세분화 뷰",
-    "description": "세분화 그룹 소제목"
-  },
-  "analysisSectionStatistics": {
-    "message": "통계 요약 뷰",
-    "description": "통계 요약 그룹 소제목"
-  },
-  "analysisChartAvgItemSize": {
-    "message": "저장소 유형별 평균 항목 크기",
-    "description": "평균 항목 크기 차트 제목"
-  },
-  "analysisChartStorageDensity": {
-    "message": "도메인 저장소 밀도 분포",
-    "description": "저장소 밀도 차트 제목"
-  },
-  "analysisChartSizeItemScatter": {
-    "message": "도메인 크기 대 항목 수 산점도",
-    "description": "산점도 차트 제목"
-  },
-  "analysisChartConcentration": {
-    "message": "저장소 집중도 분석(파레토 차트)",
-    "description": "집중도 차트 제목"
-  },
-  "analysisChartTopDomainRatio": {
-    "message": "상위 도메인 비율 분석",
-    "description": "비율 분석 차트 제목"
-  },
-  "analysisChartSizeDistribution": {
-    "message": "도메인 크기 분포 히스토그램",
-    "description": "크기 분포 차트 제목"
-  },
-  "analysisChartItemDistribution": {
-    "message": "도메인 항목 수 분포 히스토그램",
-    "description": "항목 수 분포 차트 제목"
-  },
-  "analysisChartStorageUsage": {
-    "message": "저장소 유형 사용률",
-    "description": "사용률 차트 제목"
-  },
-  "analysisChartTypeEfficiency": {
-    "message": "저장소 유형 효율성 비교",
-    "description": "효율성 비교 차트 제목"
-  },
-  "analysisChartDomainPreference": {
-    "message": "도메인 저장소 유형 선호도",
-    "description": "선호도 차트 제목"
-  },
-  "analysisChartInsecureCookies": {
-    "message": "안전하지 않은 Cookies 상위 도메인",
-    "description": "안전하지 않은Cookies 차트 제목"
-  },
-  "analysisChartExpiredCookies": {
-    "message": "만료된 Cookies 도메인 분포",
-    "description": "만료된Cookies 차트 제목"
-  },
-  "analysisChartSecurityCombination": {
-    "message": "Cookies 보안 속성 조합 분석",
-    "description": "보안 조합 차트 제목"
-  },
-  "analysisChartTLDDistribution": {
-    "message": "최상위 도메인(TLD)별 그룹 통계",
-    "description": "TLD 분포 차트 제목"
-  },
-  "analysisChartDomainLength": {
-    "message": "도메인 길이별 그룹 통계",
-    "description": "도메인 길이 차트 제목"
-  },
-  "analysisChartStorageCombination": {
-    "message": "저장소 유형 조합별 그룹",
-    "description": "저장소 조합 차트 제목"
-  },
-  "analysisChartJsonFailRate": {
-    "message": "JSON 구문 분석 실패율(도메인별)",
-    "description": "JSON 실패율 차트 제목"
-  },
-  "analysisChartLargeKeys": {
-    "message": "초대형 키 분포(도메인별)",
-    "description": "초대형 키 분포 차트 제목"
-  },
-  "analysisChartQualityComparison": {
-    "message": "저장소 유형 품질 비교",
-    "description": "품질 비교 차트 제목"
-  },
-  "analysisChartStatistics": {
-    "message": "저장소 통계 요약",
-    "description": "통계 요약 차트 제목"
-  },
-  "analysisChartBoxPlot": {
-    "message": "저장소 유형 크기 분포 상자 그림",
-    "description": "상자 그림 차트 제목"
-  },
-  "avgSize": {
-    "message": "평균 크기",
-    "description": "평균 크기 레이블"
-  },
-  "perItem": {
-    "message": "항목당",
-    "description": "항목당 레이블"
-  },
-  "concentration": {
-    "message": "집중도",
-    "description": "집중도 레이블"
-  },
-  "cumulativeRatio": {
-    "message": "누적 비율",
-    "description": "누적 비율 레이블"
-  },
-  "domainCount": {
-    "message": "도메인 수",
-    "description": "도메인 수 레이블"
-  },
-  "sizeRange": {
-    "message": "크기 범위",
-    "description": "크기 범위 레이블"
-  },
-  "itemRange": {
-    "message": "항목 수 범위",
-    "description": "항목 수 범위 레이블"
-  },
-  "usageRate": {
-    "message": "사용률",
-    "description": "사용률 레이블"
-  },
-  "efficiency": {
-    "message": "효율성",
-    "description": "효율성 레이블"
-  },
-  "preference": {
-    "message": "선호도",
-    "description": "선호도 레이블"
-  },
-  "insecure": {
-    "message": "안전하지 않음",
-    "description": "안전하지 않음 레이블"
-  },
-  "expired": {
-    "message": "만료됨",
-    "description": "만료됨 레이블"
-  },
-  "securityCombination": {
-    "message": "보안 속성 조합",
-    "description": "보안 속성 조합 레이블"
-  },
-  "topLevelDomain": {
-    "message": "최상위 도메인",
-    "description": "최상위 도메인 레이블"
-  },
-  "domainLength": {
-    "message": "도메인 길이",
-    "description": "도메인 길이 레이블"
-  },
-  "storageCombination": {
-    "message": "저장소 유형 조합",
-    "description": "저장소 유형 조합 레이블"
-  },
-  "jsonFailRate": {
-    "message": "JSON 실패율",
-    "description": "JSON 실패율 레이블"
-  },
-  "largeKeys": {
-    "message": "초대형 키",
-    "description": "초대형 키 레이블"
-  },
-  "qualityComparison": {
-    "message": "품질 비교",
-    "description": "품질 비교 레이블"
-  },
-  "statistics": {
-    "message": "통계",
-    "description": "통계 레이블"
-  },
-  "min": {
-    "message": "최소",
-    "description": "최소 레이블"
-  },
-  "max": {
-    "message": "최대",
-    "description": "최대 레이블"
-  },
-  "median": {
-    "message": "중앙값",
-    "description": "중앙값 레이블"
-  },
-  "average": {
-    "message": "평균",
-    "description": "평균 레이블"
-  },
-  "avgItemSize": {
-    "message": "평균 항목 크기",
-    "description": "평균 항목 크기 레이블"
-  },
-  "domains": {
-    "message": "도메인",
-    "description": "도메인 단위"
-  },
-  "itemCount": {
-    "message": "항목 수",
-    "description": "항목 수 레이블"
-  },
-  "ratio": {
-    "message": "비율",
-    "description": "비율 레이블"
-  },
-  "localOnly": {
-    "message": "LocalStorage만",
-    "description": "LocalStorage만 레이블"
-  },
-  "cookiesOnly": {
-    "message": "Cookies만",
-    "description": "Cookies만 레이블"
-  },
-  "mixed": {
-    "message": "혼합 사용",
-    "description": "혼합 사용 레이블"
-  },
-  "insecureCookies": {
-    "message": "안전하지 않은 Cookies",
-    "description": "안전하지 않은Cookies 레이블"
-  },
-  "expiredCookies": {
-    "message": "만료된 Cookies",
-    "description": "만료된Cookies 레이블"
+  "confirmDelete": {
+    "message": "이 항목을 삭제하시겠습니까?",
+    "description": "삭제 확인 프롬프트"
+  },
+  "confirmDeleteDomain": {
+    "message": "도메인 \"${domain}\"을(를) 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+    "description": "도메인 삭제 확인 프롬프트"
+  },
+  "confirmDeleteTitle": {
+    "message": "삭제 확인",
+    "description": "삭제 확인 대화상자 제목"
+  },
+  "contextMenuTitle": {
+    "message": "캐시 클리너 어시스턴트",
+    "description": "컨텍스트 메뉴 제목"
   },
   "cookieCount": {
     "message": "Cookies 수",
     "description": "Cookies 수 레이블"
   },
-  "short": {
-    "message": "짧음 (<10)",
-    "description": "짧은 도메인 레이블"
+  "cookies": {
+    "message": "쿠키",
+    "description": "쿠키 버튼"
   },
-  "medium": {
-    "message": "중간 (10-20)",
-    "description": "중간 도메인 레이블"
+  "cookiesClearFailed": {
+    "message": "❌ 쿠키 지우기에 실패했습니다",
+    "description": "쿠키 지우기 실패 메시지"
   },
-  "long": {
-    "message": "김 (20-30)",
-    "description": "긴 도메인 레이블"
+  "cookiesCleared": {
+    "message": "🍪 쿠키가 지워졌습니다",
+    "description": "쿠키 지우기 성공 메시지"
   },
-  "veryLong": {
-    "message": "매우 김 (>30)",
-    "description": "매우 긴 도메인 레이블"
+  "cookiesDesc": {
+    "message": "현재 사이트의 쿠키 데이터를 지웁니다",
+    "description": "쿠키 버튼 툴팁"
   },
-  "none": {
-    "message": "없음",
-    "description": "없음 레이블"
-  },
-  "localAndCookies": {
-    "message": "LocalStorage + Cookies",
-    "description": "LocalStorage와 Cookies 조합 레이블"
-  },
-  "all": {
-    "message": "모든 유형",
-    "description": "모든 유형 레이블"
-  },
-  "other": {
-    "message": "기타 조합",
-    "description": "기타 조합 레이블"
-  },
-  "minSize": {
-    "message": "최소 크기",
-    "description": "최소 크기 레이블"
-  },
-  "maxSize": {
-    "message": "최대 크기",
-    "description": "최대 크기 레이블"
-  },
-  "medianSize": {
-    "message": "중앙값 크기",
-    "description": "중앙값 크기 레이블"
-  },
-  "q1": {
-    "message": "Q1",
-    "description": "첫 번째 사분위수 레이블"
-  },
-  "q3": {
-    "message": "Q3",
-    "description": "세 번째 사분위수 레이블"
-  },
-  "totalSize": {
-    "message": "총 크기",
-    "description": "총 크기 레이블"
-  },
-  "cookiesExpiryLt7d": {
-    "message": "≤7일",
-    "description": "Cookies 만료 버킷"
-  },
-  "cookiesExpiryLt30d": {
-    "message": "≤30일",
-    "description": "Cookies 만료 버킷"
-  },
-  "cookiesExpiryMid": {
-    "message": "30-180일",
+  "cookiesExpiryExpired": {
+    "message": "만료됨",
     "description": "Cookies 만료 버킷"
   },
   "cookiesExpiryGt180d": {
     "message": "≥180일",
     "description": "Cookies 만료 버킷"
   },
+  "cookiesExpiryLt30d": {
+    "message": "≤30일",
+    "description": "Cookies 만료 버킷"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7일",
+    "description": "Cookies 만료 버킷"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180일",
+    "description": "Cookies 만료 버킷"
+  },
   "cookiesExpiryNo": {
     "message": "만료 없음",
     "description": "Cookies 만료 버킷"
   },
-  "cookiesExpiryExpired": {
-    "message": "만료됨",
-    "description": "Cookies 만료 버킷"
+  "cookiesOnly": {
+    "message": "Cookies만",
+    "description": "Cookies만 레이블"
   },
-  "analysisSectionTypes": {
-    "message": "저장소 유형 뷰",
-    "description": "저장소 유형 차트 섹션 라벨"
+  "copy": {
+    "message": "복사",
+    "description": "복사 버튼 텍스트"
   },
-  "analysisSectionDomains": {
-    "message": "도메인 뷰",
-    "description": "도메인 차트 섹션 라벨"
+  "count": {
+    "message": "수량",
+    "description": "수량 레이블"
   },
-  "analysisSectionStacks": {
-    "message": "도메인 및 저장소 유형 뷰",
-    "description": "스택 차트 섹션 라벨"
+  "cumulativeRatio": {
+    "message": "누적 비율",
+    "description": "누적 비율 레이블"
   },
-  "analysisClearDomain": {
-    "message": "이 도메인 삭제",
-    "description": "도메인 삭제 버튼 텍스트"
+  "currentSite": {
+    "message": "현재 사이트:",
+    "description": "현재 사이트 라벨"
   },
-  "analysisLoading": {
-    "message": "스캔 중...",
-    "description": "스캔 중 힌트"
+  "currentSiteCacheClearFailed": {
+    "message": "❌ 현재 사이트 캐시 지우기에 실패했습니다",
+    "description": "현재 사이트 캐시 지우기 실패 메시지"
   },
-  "analysisEmpty": {
-    "message": "데이터 없음",
-    "description": "빈 데이터 힌트"
+  "currentSiteCacheCleared": {
+    "message": "🌐 현재 사이트 캐시가 지워졌습니다",
+    "description": "현재 사이트 캐시 지우기 성공 메시지"
   },
-  "openAnalysis": {
-    "message": "글로벌 저장소 분석",
-    "description": "분석 페이지 열기 버튼"
+  "delete": {
+    "message": "삭제",
+    "description": "삭제 버튼 텍스트"
   },
-  "cacheAPI": {
-    "message": "Cache",
-    "description": "Cache API 라벨"
+  "deleteDownloadFiles": {
+    "message": "다운로드 파일 삭제",
+    "description": "다운로드 파일 삭제 버튼"
   },
-  "action": {
-    "message": "작업",
-    "description": "작업 열 라벨"
+  "deleteFailed": {
+    "message": "삭제 실패",
+    "description": "삭제 실패 메시지"
   },
-  "cleaning": {
-    "message": "정리 중...",
-    "description": "정리 진행 중 힌트"
+  "detailLoadFailed": {
+    "message": "세부 정보 로드 실패",
+    "description": "세부 정보 로드 실패 프롬프트"
   },
-  "analysisSearchPlaceholder": {
-    "message": "도메인 검색...",
-    "description": "분석 페이지 검색 플레이스홀더"
+  "domain": {
+    "message": "도메인",
+    "description": "도메인 레이블"
   },
-  "exportJSON": {
-    "message": "JSON 내보내기",
-    "description": "JSON 내보내기 버튼"
+  "domainAdded": {
+    "message": "도메인이 목록에 추가되었습니다",
+    "description": "단일 도메인 추가 성공 메시지"
   },
-  "exportCSV": {
-    "message": "CSV 내보내기",
-    "description": "CSV 내보내기 버튼"
+  "domainBlocked": {
+    "message": "이 도메인은 필터링되어 이 작업을 수행할 수 없습니다",
+    "description": "도메인 차단 메시지"
   },
-  "exportFilteredOnly": {
-    "message": "필터 결과만 내보내기",
-    "description": "필터 내보내기 토글"
+  "domainCount": {
+    "message": "도메인 수",
+    "description": "도메인 수 레이블"
   },
-  "exportSuccess": {
-    "message": "내보내기 완료",
-    "description": "내보내기 성공 알림"
-  },
-  "exportFailed": {
-    "message": "내보내기 실패",
-    "description": "내보내기 실패 알림"
+  "domainExists": {
+    "message": "도메인이 이미 존재합니다",
+    "description": "도메인 존재 메시지"
   },
   "domainFilter": {
     "message": "도메인 필터",
     "description": "도메인 필터 제목"
   },
+  "domainFilterHint": {
+    "message": "화이트리스트 모드: 목록에 있는 도메인에서만 정리 작업 허용; 블랙리스트 모드: 목록에 있는 도메인에서 정리 작업 차단",
+    "description": "도메인 필터 힌트"
+  },
+  "domainInputPlaceholder": {
+    "message": "도메인 입력, 예: example.com 또는 *.example.com",
+    "description": "도메인 입력 플레이스홀더"
+  },
+  "domainLength": {
+    "message": "도메인 길이",
+    "description": "도메인 길이 레이블"
+  },
+  "domains": {
+    "message": "도메인",
+    "description": "도메인 단위"
+  },
+  "domainsAddedFailed": {
+    "message": "모든 도메인이 이미 존재하거나 유효하지 않습니다",
+    "description": "도메인 일괄 추가 전체 실패 메시지"
+  },
+  "domainsAddedPartial": {
+    "message": "%d개의 도메인을 성공적으로 추가하고 %d개를 건너뛰었습니다",
+    "description": "도메인 일괄 추가 부분 성공 메시지"
+  },
+  "domainsAddedSuccess": {
+    "message": "%d개의 도메인을 성공적으로 추가했습니다",
+    "description": "도메인 일괄 추가 성공 메시지"
+  },
+  "doubleClickToCopy": {
+    "message": "더블 클릭하여 복사",
+    "description": "더블 클릭하여 복사 힌트"
+  },
+  "downloadFilesClearFailed": {
+    "message": "❌ 다운로드 파일 삭제에 실패했습니다",
+    "description": "다운로드 파일 삭제 실패 메시지"
+  },
+  "downloadFilesCleared": {
+    "message": "📁 다운로드 파일이 삭제되었습니다",
+    "description": "다운로드 파일 삭제 성공 메시지"
+  },
+  "downloadHistory": {
+    "message": "다운로드 기록",
+    "description": "다운로드 기록 버튼"
+  },
+  "downloadsClearFailed": {
+    "message": "❌ 다운로드 기록 지우기에 실패했습니다",
+    "description": "다운로드 기록 지우기 실패 메시지"
+  },
+  "downloadsCleared": {
+    "message": "📥 다운로드 기록이 지워졌습니다",
+    "description": "다운로드 기록 지우기 성공 메시지"
+  },
+  "efficiency": {
+    "message": "효율성",
+    "description": "효율성 레이블"
+  },
+  "enableNotifications": {
+    "message": "알림 활성화",
+    "description": "알림 활성화 옵션"
+  },
+  "expandAll": {
+    "message": "모두 확장",
+    "description": "모두 확장 버튼"
+  },
+  "expiration": {
+    "message": "만료 시간",
+    "description": "만료 시간 레이블"
+  },
+  "expired": {
+    "message": "만료됨",
+    "description": "만료됨 레이블"
+  },
+  "expiredCookies": {
+    "message": "만료된 Cookies",
+    "description": "만료된Cookies 레이블"
+  },
+  "exportCSV": {
+    "message": "CSV 내보내기",
+    "description": "CSV 내보내기 버튼"
+  },
+  "exportFailed": {
+    "message": "내보내기 실패",
+    "description": "내보내기 실패 알림"
+  },
+  "exportFilteredOnly": {
+    "message": "필터 결과만 내보내기",
+    "description": "필터 내보내기 토글"
+  },
+  "exportJSON": {
+    "message": "JSON 내보내기",
+    "description": "JSON 내보내기 버튼"
+  },
+  "exportSuccess": {
+    "message": "내보내기 완료",
+    "description": "내보내기 성공 알림"
+  },
+  "extensionDescription": {
+    "message": "브라우저 캐시, 쿠키, localStorage, sessionStorage 등의 데이터를 원클릭으로 정리하는 강력한 도구",
+    "description": "확장 프로그램 설명"
+  },
+  "extensionName": {
+    "message": "캐시 클리너 어시스턴트",
+    "description": "확장 프로그램 이름"
+  },
   "filterMode": {
     "message": "필터 모드:",
     "description": "필터 모드 레이블"
+  },
+  "filterModeBlacklist": {
+    "message": "블랙리스트",
+    "description": "블랙리스트 필터 모드"
   },
   "filterModeDisabled": {
     "message": "비활성화",
@@ -1075,72 +671,512 @@
     "message": "화이트리스트",
     "description": "화이트리스트 필터 모드"
   },
-  "filterModeBlacklist": {
-    "message": "블랙리스트",
-    "description": "블랙리스트 필터 모드"
+  "footerTip": {
+    "message": "💡 팁: 삭제 기능을 신중하게 사용하세요. 삭제된 데이터는 복구할 수 없습니다",
+    "description": "푸터 팁"
   },
-  "whitelist": {
-    "message": "화이트리스트",
-    "description": "화이트리스트 제목"
+  "hardReload": {
+    "message": "하드 새로고침",
+    "description": "하드 새로고침 버튼"
   },
-  "blacklist": {
-    "message": "블랙리스트",
-    "description": "블랙리스트 제목"
+  "hardReloadDesc": {
+    "message": "캐시를 무시하고 페이지를 강제로 새로고침합니다",
+    "description": "하드 새로고침 버튼 툴팁"
   },
-  "add": {
-    "message": "추가",
-    "description": "추가 버튼"
+  "hardReloadFailed": {
+    "message": "❌ 하드 새로고침에 실패했습니다",
+    "description": "하드 새로고침 실패 메시지"
   },
-  "addDomain": {
-    "message": "도메인 추가",
-    "description": "도메인 추가 모달 제목"
+  "historyClearFailed": {
+    "message": "❌ 기록 지우기에 실패했습니다",
+    "description": "기록 지우기 실패 메시지"
   },
-  "addedDomains": {
-    "message": "추가된 도메인",
-    "description": "추가된 도메인 목록 제목"
+  "historyCleared": {
+    "message": "📜 기록이 지워졌습니다",
+    "description": "기록 지우기 성공 메시지"
   },
-  "domainAdded": {
-    "message": "도메인이 목록에 추가되었습니다",
-    "description": "단일 도메인 추가 성공 메시지"
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnly 레이블"
   },
-  "domainsAddedSuccess": {
-    "message": "%d개의 도메인을 성공적으로 추가했습니다",
-    "description": "도메인 일괄 추가 성공 메시지"
+  "includeProtectedData": {
+    "message": "보호된 데이터 포함",
+    "description": "보호된 데이터 포함 옵션"
   },
-  "domainsAddedPartial": {
-    "message": "%d개의 도메인을 성공적으로 추가하고 %d개를 건너뛰었습니다",
-    "description": "도메인 일괄 추가 부분 성공 메시지"
+  "indexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB 버튼"
   },
-  "domainsAddedFailed": {
-    "message": "모든 도메인이 이미 존재하거나 유효하지 않습니다",
-    "description": "도메인 일괄 추가 전체 실패 메시지"
+  "indexedDBClearFailed": {
+    "message": "❌ IndexedDB 지우기에 실패했습니다",
+    "description": "IndexedDB 지우기 실패 메시지"
   },
-  "remove": {
-    "message": "제거",
-    "description": "제거 버튼"
+  "indexedDBCleared": {
+    "message": "📊 IndexedDB가 지워졌습니다",
+    "description": "IndexedDB 지우기 성공 메시지"
   },
-  "domainInputPlaceholder": {
-    "message": "도메인 입력, 예: example.com 또는 *.example.com",
-    "description": "도메인 입력 플레이스홀더"
+  "indexedDBDesc": {
+    "message": "현재 사이트의 IndexedDB 데이터베이스를 지웁니다",
+    "description": "IndexedDB 버튼 툴팁"
   },
-  "domainFilterHint": {
-    "message": "화이트리스트 모드: 목록에 있는 도메인에서만 정리 작업 허용; 블랙리스트 모드: 목록에 있는 도메인에서 정리 작업 차단",
-    "description": "도메인 필터 힌트"
+  "insecure": {
+    "message": "안전하지 않음",
+    "description": "안전하지 않음 레이블"
   },
-  "domainBlocked": {
-    "message": "이 도메인은 필터링되어 이 작업을 수행할 수 없습니다",
-    "description": "도메인 차단 메시지"
+  "insecureCookies": {
+    "message": "안전하지 않은 Cookies",
+    "description": "안전하지 않은Cookies 레이블"
   },
   "invalidDomain": {
     "message": "잘못된 도메인 형식",
     "description": "잘못된 도메인 메시지"
   },
-  "domainExists": {
-    "message": "도메인이 이미 존재합니다",
-    "description": "도메인 존재 메시지"
+  "itemCount": {
+    "message": "항목 수",
+    "description": "항목 수 레이블"
+  },
+  "itemDeleted": {
+    "message": "항목이 삭제되었습니다",
+    "description": "삭제 성공 메시지"
+  },
+  "itemRange": {
+    "message": "항목 수 범위",
+    "description": "항목 수 범위 레이블"
+  },
+  "items": {
+    "message": "개",
+    "description": "저장소 항목 수 단위"
+  },
+  "jsonFailRate": {
+    "message": "JSON 실패율",
+    "description": "JSON 실패율 레이블"
+  },
+  "keepFormData": {
+    "message": "폼 데이터 유지",
+    "description": "폼 데이터 유지 옵션"
+  },
+  "keepPasswords": {
+    "message": "비밀번호 유지",
+    "description": "비밀번호 유지 옵션"
+  },
+  "key": {
+    "message": "키",
+    "description": "키 레이블"
+  },
+  "keyCopied": {
+    "message": "키가 복사되었습니다",
+    "description": "키 복사 성공 메시지"
+  },
+  "languageAuto": {
+    "message": "시스템 따라가기",
+    "description": "자동 언어 옵션"
+  },
+  "languageChangeFailed": {
+    "message": "언어 변경에 실패했습니다",
+    "description": "언어 변경 실패 메시지"
+  },
+  "languageChanged": {
+    "message": "언어가 변경되었습니다",
+    "description": "언어 변경 성공 메시지"
+  },
+  "languageSettings": {
+    "message": "언어 설정",
+    "description": "언어 설정 제목"
+  },
+  "largeKeys": {
+    "message": "초대형 키",
+    "description": "초대형 키 레이블"
+  },
+  "loadSettingsFailed": {
+    "message": "설정 로드에 실패했습니다",
+    "description": "설정 로드 실패 메시지"
+  },
+  "loading": {
+    "message": "로딩 중...",
+    "description": "로딩 상태"
+  },
+  "loadingDetail": {
+    "message": "세부 정보 로드 중...",
+    "description": "세부 정보 로드 중 프롬프트"
+  },
+  "loadingStorage": {
+    "message": "저장소 정보를 불러오는 중...",
+    "description": "저장소 정보 로딩 시 프롬프트"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorage와 Cookies 조합 레이블"
+  },
+  "localOnly": {
+    "message": "LocalStorage만",
+    "description": "LocalStorage만 레이블"
+  },
+  "localStorage": {
+    "message": "로컬스토리지",
+    "description": "로컬스토리지 버튼"
+  },
+  "localStorageClearFailed": {
+    "message": "❌ 로컬스토리지 지우기에 실패했습니다",
+    "description": "로컬스토리지 지우기 실패 메시지"
+  },
+  "localStorageCleared": {
+    "message": "💾 로컬스토리지가 지워졌습니다",
+    "description": "로컬스토리지 지우기 성공 메시지"
+  },
+  "localStorageDesc": {
+    "message": "현재 사이트의 로컬 스토리지 데이터를 지웁니다",
+    "description": "로컬스토리지 버튼 툴팁"
+  },
+  "localStorageUnavailable": {
+    "message": "로컬스토리지를 사용할 수 없습니다",
+    "description": "로컬스토리지 사용 불가 오류"
+  },
+  "long": {
+    "message": "김 (20-30)",
+    "description": "긴 도메인 레이블"
+  },
+  "max": {
+    "message": "최대",
+    "description": "최대 레이블"
+  },
+  "maxSize": {
+    "message": "최대 크기",
+    "description": "최대 크기 레이블"
+  },
+  "median": {
+    "message": "중앙값",
+    "description": "중앙값 레이블"
+  },
+  "medianSize": {
+    "message": "중앙값 크기",
+    "description": "중앙값 크기 레이블"
+  },
+  "medium": {
+    "message": "중간 (10-20)",
+    "description": "중간 도메인 레이블"
+  },
+  "min": {
+    "message": "최소",
+    "description": "최소 레이블"
+  },
+  "minSize": {
+    "message": "최소 크기",
+    "description": "최소 크기 레이블"
+  },
+  "mixed": {
+    "message": "혼합 사용",
+    "description": "혼합 사용 레이블"
+  },
+  "moreUrls": {
+    "message": "더 보기...",
+    "description": "더 많은 URL 프롬프트"
+  },
+  "name": {
+    "message": "이름",
+    "description": "이름 레이블"
+  },
+  "noDetailData": {
+    "message": "데이터 없음",
+    "description": "세부 데이터 없음 프롬프트"
   },
   "noDomains": {
     "message": "도메인 없음",
     "description": "빈 목록 메시지"
+  },
+  "noStorageData": {
+    "message": "현재 웹사이트에 저장소 데이터가 없습니다",
+    "description": "저장소 데이터가 없을 때의 프롬프트"
+  },
+  "none": {
+    "message": "없음",
+    "description": "없음 레이블"
+  },
+  "normalReload": {
+    "message": "일반 새로고침",
+    "description": "일반 새로고침 버튼"
+  },
+  "normalReloadDesc": {
+    "message": "캐시 데이터를 유지하면서 현재 페이지를 새로고침합니다",
+    "description": "일반 새로고침 버튼 툴팁"
+  },
+  "notificationDisabled": {
+    "message": "알림이 비활성화되어 표시되지 않습니다",
+    "description": "알림 비활성화 메시지"
+  },
+  "notificationSettings": {
+    "message": "알림 설정",
+    "description": "알림 설정"
+  },
+  "notificationSound": {
+    "message": "알림 소리",
+    "description": "알림 소리 옵션"
+  },
+  "openAnalysis": {
+    "message": "글로벌 저장소 분석",
+    "description": "분석 페이지 열기 버튼"
+  },
+  "operationFailed": {
+    "message": "작업에 실패했습니다",
+    "description": "작업 실패 일반 메시지"
+  },
+  "other": {
+    "message": "기타 조합",
+    "description": "기타 조합 레이블"
+  },
+  "pageHardReloading": {
+    "message": "🔄 페이지를 하드 새로고침하고 있습니다",
+    "description": "페이지 하드 새로고침 메시지"
+  },
+  "pageReloading": {
+    "message": "🔄 페이지를 새로고침하고 있습니다",
+    "description": "페이지 새로고침 메시지"
+  },
+  "path": {
+    "message": "경로",
+    "description": "경로 레이블"
+  },
+  "perItem": {
+    "message": "항목당",
+    "description": "항목당 레이블"
+  },
+  "popupTitle": {
+    "message": "캐시 클리너 어시스턴트 - 당신의 브라우저 정리 전문가",
+    "description": "팝업 제목"
+  },
+  "preference": {
+    "message": "선호도",
+    "description": "선호도 레이블"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "첫 번째 사분위수 레이블"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "세 번째 사분위수 레이블"
+  },
+  "qualityComparison": {
+    "message": "품질 비교",
+    "description": "품질 비교 레이블"
+  },
+  "qualityLocalJsonFail": {
+    "message": "LocalStorage JSON 구문 분석 실패 수",
+    "description": "지표 레이블"
+  },
+  "qualityLocalLarge": {
+    "message": "LocalStorage 초대형 키 (>100KB)",
+    "description": "지표 레이블"
+  },
+  "qualitySessionJsonFail": {
+    "message": "SessionStorage JSON 구문 분석 실패 수",
+    "description": "지표 레이블"
+  },
+  "qualitySessionLarge": {
+    "message": "SessionStorage 초대형 키 (>100KB)",
+    "description": "지표 레이블"
+  },
+  "ratio": {
+    "message": "비율",
+    "description": "비율 레이블"
+  },
+  "reloadFailed": {
+    "message": "❌ 새로고침에 실패했습니다",
+    "description": "새로고침 실패 메시지"
+  },
+  "remove": {
+    "message": "제거",
+    "description": "제거 버튼"
+  },
+  "restrictedPageStorage": {
+    "message": "이 페이지는 브라우저에 의해 보호되어 있어 저장소 정보를 가져올 수 없습니다",
+    "description": "제한된 페이지에서 저장소 정보를 가져올 수 없을 때의 프롬프트"
+  },
+  "save": {
+    "message": "저장",
+    "description": "저장 버튼"
+  },
+  "saveFailed": {
+    "message": "저장 실패",
+    "description": "저장 실패 메시지"
+  },
+  "scrollToTop": {
+    "message": "맨 위로 스크롤",
+    "description": "맨 위로 스크롤 버튼"
+  },
+  "searchPlaceholder": {
+    "message": "키 또는 값 검색...",
+    "description": "검색 입력 플레이스홀더"
+  },
+  "secure": {
+    "message": "보안",
+    "description": "보안 레이블"
+  },
+  "securityCombination": {
+    "message": "보안 속성 조합",
+    "description": "보안 속성 조합 레이블"
+  },
+  "sessionStorage": {
+    "message": "세션스토리지",
+    "description": "세션스토리지 버튼"
+  },
+  "sessionStorageClearFailed": {
+    "message": "❌ 세션스토리지 지우기에 실패했습니다",
+    "description": "세션스토리지 지우기 실패 메시지"
+  },
+  "sessionStorageCleared": {
+    "message": "📂 세션스토리지가 지워졌습니다",
+    "description": "세션스토리지 지우기 성공 메시지"
+  },
+  "sessionStorageDesc": {
+    "message": "현재 사이트의 세션 스토리지 데이터를 지웁니다",
+    "description": "세션스토리지 버튼 툴팁"
+  },
+  "sessionStorageUnavailable": {
+    "message": "세션스토리지를 사용할 수 없습니다",
+    "description": "세션스토리지 사용 불가 오류"
+  },
+  "settingsSaveFailed": {
+    "message": "설정 저장에 실패했습니다",
+    "description": "설정 저장 실패 메시지"
+  },
+  "settingsSaved": {
+    "message": "설정이 저장되었습니다",
+    "description": "설정 저장 성공 메시지"
+  },
+  "short": {
+    "message": "짧음 (<10)",
+    "description": "짧은 도메인 레이블"
+  },
+  "silentMode": {
+    "message": "사일런트 모드(알림 없음)",
+    "description": "사일런트 모드 토글"
+  },
+  "size": {
+    "message": "크기",
+    "description": "크기 레이블"
+  },
+  "sizeRange": {
+    "message": "크기 범위",
+    "description": "크기 범위 레이블"
+  },
+  "statistics": {
+    "message": "통계",
+    "description": "통계 레이블"
+  },
+  "storageCombination": {
+    "message": "저장소 유형 조합",
+    "description": "저장소 유형 조합 레이블"
+  },
+  "storageLoadFailed": {
+    "message": "저장소 정보를 불러올 수 없습니다",
+    "description": "저장소 정보 로딩 실패 시 프롬프트"
+  },
+  "storageUsage": {
+    "message": "저장소 사용량",
+    "description": "저장소 사용량 제목"
+  },
+  "tabAllBrowser": {
+    "message": "전체 브라우저",
+    "description": "전체 브라우저 탭"
+  },
+  "tabCurrentSite": {
+    "message": "현재 사이트",
+    "description": "현재 사이트 탭"
+  },
+  "tabSettings": {
+    "message": "고급 설정",
+    "description": "고급 설정 탭"
+  },
+  "themeAuto": {
+    "message": "자동",
+    "description": "자동 테마"
+  },
+  "themeDark": {
+    "message": "다크",
+    "description": "다크 테마"
+  },
+  "themeLight": {
+    "message": "라이트",
+    "description": "라이트 테마"
+  },
+  "themeSettings": {
+    "message": "외관 테마",
+    "description": "외관 테마 설정"
+  },
+  "timeRangeAll": {
+    "message": "전체 기간",
+    "description": "시간 범위 옵션: 전체"
+  },
+  "timeRangeLabel": {
+    "message": "삭제 범위",
+    "description": "시간 범위 제목"
+  },
+  "timeRangeLastDay": {
+    "message": "최근 24시간",
+    "description": "시간 범위 옵션: 24시간"
+  },
+  "timeRangeLastHour": {
+    "message": "최근 1시간",
+    "description": "시간 범위 옵션: 1시간"
+  },
+  "timeRangeLastMonth": {
+    "message": "최근 4주",
+    "description": "시간 범위 옵션: 4주"
+  },
+  "timeRangeLastWeek": {
+    "message": "최근 7일",
+    "description": "시간 범위 옵션: 7일"
+  },
+  "timeRangeSaved": {
+    "message": "삭제 범위가 저장되었습니다",
+    "description": "시간 범위 저장 성공 메시지"
+  },
+  "topLevelDomain": {
+    "message": "최상위 도메인",
+    "description": "최상위 도메인 레이블"
+  },
+  "totalItems": {
+    "message": "총계",
+    "description": "총계 레이블"
+  },
+  "totalStorage": {
+    "message": "총 저장소：",
+    "description": "총 저장소 레이블"
+  },
+  "unknownOperation": {
+    "message": "알 수 없는 작업",
+    "description": "알 수 없는 작업 메시지"
+  },
+  "unknownSite": {
+    "message": "알 수 없는 사이트",
+    "description": "알 수 없는 사이트"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLs 레이블"
+  },
+  "usageRate": {
+    "message": "사용률",
+    "description": "사용률 레이블"
+  },
+  "value": {
+    "message": "값",
+    "description": "값 레이블"
+  },
+  "valueCopied": {
+    "message": "값이 복사되었습니다",
+    "description": "값 복사 성공 메시지"
+  },
+  "version": {
+    "message": "버전",
+    "description": "버전 레이블"
+  },
+  "veryLong": {
+    "message": "매우 김 (>30)",
+    "description": "매우 긴 도메인 레이블"
+  },
+  "whitelist": {
+    "message": "화이트리스트",
+    "description": "화이트리스트 제목"
   }
 }

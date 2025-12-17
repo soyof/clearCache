@@ -1,271 +1,35 @@
 {
-  "extensionName": {
-    "message": "Cache-Reinigungsassistent",
-    "description": "Name der Erweiterung"
+  "action": {
+    "message": "Aktion",
+    "description": "Aktionsspalte Label"
   },
-  "extensionDescription": {
-    "message": "Ein mächtiges Tool zum Ein-Klick-Löschen von Browser-Cache, Cookies, localStorage, sessionStorage und anderen Daten",
-    "description": "Beschreibung der Erweiterung"
+  "add": {
+    "message": "Hinzufügen",
+    "description": "Hinzufügen Button"
   },
-  "popupTitle": {
-    "message": "Cache-Reinigungsassistent - Ihr Browser-Reinigungsexperte",
-    "description": "Popup-Titel"
+  "addDomain": {
+    "message": "Domain hinzufügen",
+    "description": "Domain hinzufügen Modal-Titel"
   },
-  "currentSite": {
-    "message": "Aktuelle Website:",
-    "description": "Label für aktuelle Website"
+  "addedDomains": {
+    "message": "Hinzugefügte Domains",
+    "description": "Titel der Liste hinzugefügter Domains"
   },
-  "loading": {
-    "message": "Lädt...",
-    "description": "Ladestatus"
-  },
-  "unknownSite": {
-    "message": "Unbekannte Website",
-    "description": "Unbekannte Website"
-  },
-  "tabCurrentSite": {
-    "message": "Aktuelle Website",
-    "description": "Tab für aktuelle Website"
-  },
-  "tabAllBrowser": {
-    "message": "Gesamter Browser",
-    "description": "Tab für gesamten Browser"
-  },
-  "tabSettings": {
-    "message": "Erweiterte Einstellungen",
-    "description": "Tab für erweiterte Einstellungen"
-  },
-  "normalReload": {
-    "message": "Normales Neuladen",
-    "description": "Button für normales Neuladen"
-  },
-  "hardReload": {
-    "message": "Hartes Neuladen",
-    "description": "Button für hartes Neuladen"
-  },
-  "clearCacheAndHardReload": {
-    "message": "Cache leeren und hart neuladen",
-    "description": "Button für Cache leeren und hart neuladen"
-  },
-  "clearCache": {
-    "message": "Cache leeren",
-    "description": "Button für Cache leeren"
-  },
-  "clearAllAndReload": {
-    "message": "Alles leeren & neuladen",
-    "description": "Button für alles leeren und neuladen"
-  },
-  "cookies": {
-    "message": "Cookies",
-    "description": "Cookies-Button"
-  },
-  "localStorage": {
-    "message": "LocalStorage",
-    "description": "LocalStorage-Button"
-  },
-  "sessionStorage": {
-    "message": "SessionStorage",
-    "description": "SessionStorage-Button"
-  },
-  "indexedDB": {
-    "message": "IndexedDB",
-    "description": "IndexedDB-Button"
-  },
-  "clearAllCache": {
-    "message": "Gesamten Cache leeren",
-    "description": "Button für gesamten Cache leeren"
-  },
-  "browserCache": {
-    "message": "Browser-Cache",
-    "description": "Browser-Cache-Button"
-  },
-  "allCookies": {
-    "message": "Alle Cookies",
-    "description": "Alle Cookies-Button"
-  },
-  "allIndexedDB": {
-    "message": "Alle IndexedDB",
-    "description": "Alle IndexedDB-Button"
-  },
-  "clearHistory": {
-    "message": "Verlauf löschen",
-    "description": "Verlauf löschen-Button"
-  },
-  "downloadHistory": {
-    "message": "Download-Verlauf",
-    "description": "Download-Verlauf-Button"
-  },
-  "deleteDownloadFiles": {
-    "message": "Download-Dateien löschen",
-    "description": "Download-Dateien löschen-Button"
-  },
-  "themeSettings": {
-    "message": "Erscheinungsbild-Theme",
-    "description": "Erscheinungsbild-Theme-Einstellungen"
-  },
-  "themeAuto": {
-    "message": "Auto",
-    "description": "Automatisches Theme"
-  },
-  "themeDark": {
-    "message": "Dunkel",
-    "description": "Dunkles Theme"
-  },
-  "themeLight": {
-    "message": "Hell",
-    "description": "Helles Theme"
-  },
-  "cleaningOptions": {
-    "message": "Reinigungsoptionen",
-    "description": "Reinigungsoptionen-Einstellungen"
-  },
-  "keepPasswords": {
-    "message": "Passwörter behalten",
-    "description": "Passwörter behalten-Option"
-  },
-  "keepFormData": {
-    "message": "Formulardaten behalten",
-    "description": "Formulardaten behalten-Option"
-  },
-  "includeProtectedData": {
-    "message": "Geschützte Daten einschließen",
-    "description": "Geschützte Daten einschließen-Option"
-  },
-  "notificationSettings": {
-    "message": "Benachrichtigungseinstellungen",
-    "description": "Benachrichtigungseinstellungen"
-  },
-  "enableNotifications": {
-    "message": "Benachrichtigungen aktivieren",
-    "description": "Benachrichtigungen aktivieren-Option"
-  },
-  "notificationSound": {
-    "message": "Benachrichtigungston",
-    "description": "Benachrichtigungston-Option"
-  },
-  "footerTip": {
-    "message": "💡 Tipp: Verwenden Sie Löschfunktionen vorsichtig, gelöschte Daten können nicht wiederhergestellt werden",
-    "description": "Fußzeilen-Tipp"
-  },
-  "save": {
-    "message": "Speichern",
-    "description": "Speichern Button"
-  },
-  "settingsSaved": {
-    "message": "Einstellungen gespeichert",
-    "description": "Erfolgsmeldung für gespeicherte Einstellungen"
-  },
-  "settingsSaveFailed": {
-    "message": "Speichern der Einstellungen fehlgeschlagen",
-    "description": "Fehlermeldung für Speichern der Einstellungen"
-  },
-  "currentSiteCacheCleared": {
-    "message": "🌐 Cache der aktuellen Website geleert",
-    "description": "Erfolgsmeldung für geleerten Cache der aktuellen Website"
-  },
-  "currentSiteCacheClearFailed": {
-    "message": "❌ Leeren des Caches der aktuellen Website fehlgeschlagen",
-    "description": "Fehlermeldung für Leeren des Caches der aktuellen Website"
-  },
-  "allCacheCleared": {
-    "message": "🌐 Gesamter Cache geleert",
-    "description": "Erfolgsmeldung für geleerten gesamten Cache"
+  "all": {
+    "message": "Alle Typen",
+    "description": "Alle Typen Label"
   },
   "allCacheClearFailed": {
     "message": "❌ Leeren des gesamten Caches fehlgeschlagen",
     "description": "Fehlermeldung für Leeren des gesamten Caches"
   },
-  "cacheCleared": {
-    "message": "🗑️ Cache geleert",
-    "description": "Erfolgsmeldung für geleerten Cache"
+  "allCacheCleared": {
+    "message": "🌐 Gesamter Cache geleert",
+    "description": "Erfolgsmeldung für geleerten gesamten Cache"
   },
-  "cacheClearFailed": {
-    "message": "❌ Cache leeren fehlgeschlagen",
-    "description": "Fehlermeldung für Cache leeren"
-  },
-  "cookiesCleared": {
-    "message": "🍪 Cookies geleert",
-    "description": "Erfolgsmeldung für geleerte Cookies"
-  },
-  "cookiesClearFailed": {
-    "message": "❌ Cookies leeren fehlgeschlagen",
-    "description": "Fehlermeldung für Cookies leeren"
-  },
-  "localStorageCleared": {
-    "message": "💾 LocalStorage geleert",
-    "description": "Erfolgsmeldung für geleerten LocalStorage"
-  },
-  "localStorageClearFailed": {
-    "message": "❌ LocalStorage leeren fehlgeschlagen",
-    "description": "Fehlermeldung für LocalStorage leeren"
-  },
-  "sessionStorageCleared": {
-    "message": "📂 SessionStorage geleert",
-    "description": "Erfolgsmeldung für geleerten SessionStorage"
-  },
-  "sessionStorageClearFailed": {
-    "message": "❌ SessionStorage leeren fehlgeschlagen",
-    "description": "Fehlermeldung für SessionStorage leeren"
-  },
-  "indexedDBCleared": {
-    "message": "📊 IndexedDB geleert",
-    "description": "Erfolgsmeldung für geleerte IndexedDB"
-  },
-  "indexedDBClearFailed": {
-    "message": "❌ IndexedDB leeren fehlgeschlagen",
-    "description": "Fehlermeldung für IndexedDB leeren"
-  },
-  "allIndexedDBCleared": {
-    "message": "📊 Alle IndexedDB geleert",
-    "description": "Erfolgsmeldung für alle geleerten IndexedDB"
-  },
-  "historyCleared": {
-    "message": "📜 Verlauf gelöscht",
-    "description": "Erfolgsmeldung für gelöschten Verlauf"
-  },
-  "historyClearFailed": {
-    "message": "❌ Verlauf löschen fehlgeschlagen",
-    "description": "Fehlermeldung für Verlauf löschen"
-  },
-  "downloadsCleared": {
-    "message": "📥 Download-Verlauf gelöscht",
-    "description": "Erfolgsmeldung für gelöschten Download-Verlauf"
-  },
-  "downloadsClearFailed": {
-    "message": "❌ Download-Verlauf löschen fehlgeschlagen",
-    "description": "Fehlermeldung für Download-Verlauf löschen"
-  },
-  "downloadFilesCleared": {
-    "message": "📁 Download-Dateien gelöscht",
-    "description": "Erfolgsmeldung für gelöschte Download-Dateien"
-  },
-  "downloadFilesClearFailed": {
-    "message": "❌ Download-Dateien löschen fehlgeschlagen",
-    "description": "Fehlermeldung für Download-Dateien löschen"
-  },
-  "pageReloading": {
-    "message": "🔄 Seite wird neu geladen",
-    "description": "Meldung für Seite neu laden"
-  },
-  "reloadFailed": {
-    "message": "❌ Neu laden fehlgeschlagen",
-    "description": "Fehlermeldung für Neu laden"
-  },
-  "pageHardReloading": {
-    "message": "🔄 Seite wird hart neu geladen",
-    "description": "Meldung für Seite hart neu laden"
-  },
-  "hardReloadFailed": {
-    "message": "❌ Hartes Neu laden fehlgeschlagen",
-    "description": "Fehlermeldung für hartes Neu laden"
-  },
-  "cacheAndPageReloading": {
-    "message": "🔄 Cache geleert, Seite wird neu geladen",
-    "description": "Meldung für Cache geleert und Seite neu laden"
-  },
-  "cacheAndReloadFailed": {
-    "message": "❌ Cache leeren und Neu laden fehlgeschlagen",
-    "description": "Fehlermeldung für Cache leeren und Neu laden"
+  "allCookies": {
+    "message": "Alle Cookies",
+    "description": "Alle Cookies-Button"
   },
   "allDataAndPageReloading": {
     "message": "🔄 Alle Daten geleert, Seite wird neu geladen",
@@ -275,6 +39,298 @@
     "message": "❌ Daten leeren und Neu laden fehlgeschlagen",
     "description": "Fehlermeldung für Daten leeren und Neu laden"
   },
+  "allIndexedDB": {
+    "message": "Alle IndexedDB",
+    "description": "Alle IndexedDB-Button"
+  },
+  "allIndexedDBCleared": {
+    "message": "📊 Alle IndexedDB geleert",
+    "description": "Erfolgsmeldung für alle geleerten IndexedDB"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "Durchschnittliche Eintragsgröße nach Speichertyp",
+    "description": "Durchschnittliche Eintragsgröße Diagrammtitel"
+  },
+  "analysisChartBoxPlot": {
+    "message": "Speichertyp-Größenverteilung Box-Plot",
+    "description": "Box-Plot Diagrammtitel"
+  },
+  "analysisChartConcentration": {
+    "message": "Speicherkonzentrationsanalyse (Pareto-Diagramm)",
+    "description": "Konzentrationsdiagramm Titel"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "Top-Domains mit Cookies, die in 7 Tagen ablaufen",
+    "description": "Bald ablaufende Cookies Top-Domains"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies Ablaufverteilung",
+    "description": "Ablauf-Bucket-Diagramm"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies Sicherheitsattribute",
+    "description": "Secure/HttpOnly/SameSite Diagramm"
+  },
+  "analysisChartDomainLength": {
+    "message": "Gruppierte Statistiken nach Domain-Länge",
+    "description": "Domain-Länge Diagrammtitel"
+  },
+  "analysisChartDomainPreference": {
+    "message": "Domain-Speichertyp-Präferenz",
+    "description": "Präferenz Diagrammtitel"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "Top-Domains nach Speichertyp (Anzahl)",
+    "description": "Gestapelte Anzahl nach Speichertyp"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "Top-Domains nach Speichertyp (Größe)",
+    "description": "Gestapelte Größe nach Speichertyp"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "Abgelaufene Cookies Domain-Verteilung",
+    "description": "Abgelaufene Cookies Diagrammtitel"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "Top-Domains mit unsicheren Cookies",
+    "description": "Unsichere Cookies Diagrammtitel"
+  },
+  "analysisChartItemDistribution": {
+    "message": "Domain-Eintragsanzahlverteilung Histogramm",
+    "description": "Eintragsanzahlverteilung Diagrammtitel"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON-Parse-Fehlrate (nach Domain)",
+    "description": "JSON-Fehlrate Diagrammtitel"
+  },
+  "analysisChartLargeKeys": {
+    "message": "Übergroße Schlüssel-Verteilung (nach Domain)",
+    "description": "Große Schlüssel-Verteilung Diagrammtitel"
+  },
+  "analysisChartQuality": {
+    "message": "Speicherqualität / Risiko",
+    "description": "Titel der Qualitätsmetrik-Karte"
+  },
+  "analysisChartQualityComparison": {
+    "message": "Speichertyp-Qualitätsvergleich",
+    "description": "Qualitätsvergleich Diagrammtitel"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies-Sicherheitsattribut-Kombinationsanalyse",
+    "description": "Sicherheitskombination Diagrammtitel"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "Verteilung der Speichergrößen",
+    "description": "Größen-Bucket-Diagramm"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "Domain-Größenverteilung Histogramm",
+    "description": "Größenverteilung Diagrammtitel"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "Domain-Größe vs. Eintragsanzahl Streudiagramm",
+    "description": "Streudiagramm Titel"
+  },
+  "analysisChartStatistics": {
+    "message": "Speicher-Statistik-Zusammenfassung",
+    "description": "Statistik-Zusammenfassung Diagrammtitel"
+  },
+  "analysisChartStorageCombination": {
+    "message": "Gruppiert nach Speichertyp-Kombination",
+    "description": "Speicherkombination Diagrammtitel"
+  },
+  "analysisChartStorageDensity": {
+    "message": "Domain-Speicherdichteverteilung",
+    "description": "Speicherdichte Diagrammtitel"
+  },
+  "analysisChartStorageUsage": {
+    "message": "Speichertyp-Nutzungsrate",
+    "description": "Nutzungsrate Diagrammtitel"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "Gruppierte Statistiken nach Top-Level-Domain (TLD)",
+    "description": "TLD-Verteilung Diagrammtitel"
+  },
+  "analysisChartTopCookies": {
+    "message": "Top-Domains (nach Cookie-Größe)",
+    "description": "Diagrammtitel für Top-Domains nach Cookie-Größe"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "Top-Domain-Verhältnisanalyse",
+    "description": "Verhältnisanalyse Diagrammtitel"
+  },
+  "analysisChartTopDomains": {
+    "message": "Top-Domains (nach Größe)",
+    "description": "Diagrammtitel für Top-Domains nach Größe"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "Top-Domains (nach Anzahl)",
+    "description": "Diagrammtitel für Top-Domains nach Anzahl"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "Speichertyp-Effizienzvergleich",
+    "description": "Effizienzvergleich Diagrammtitel"
+  },
+  "analysisChartTypes": {
+    "message": "Nach Speicher-Typ",
+    "description": "Diagrammtitel für Speicher-Typ Verteilung"
+  },
+  "analysisChartTypesCount": {
+    "message": "Nach Speicher-Typ (Anzahl)",
+    "description": "Diagrammtitel für Speicher-Typ Verteilung nach Anzahl"
+  },
+  "analysisClearAll": {
+    "message": "Alle Domains löschen",
+    "description": "Alle Domains löschen Button"
+  },
+  "analysisClearDomain": {
+    "message": "Diese Domain löschen",
+    "description": "Domain löschen Button"
+  },
+  "analysisDesc": {
+    "message": "Fasst Local/Session/IndexedDB/Cache/Cookies pro Domain zusammen",
+    "description": "Beschreibung der Analyse-Seite"
+  },
+  "analysisDomainCount": {
+    "message": "Domain-Anzahl",
+    "description": "Domain Anzahl Label"
+  },
+  "analysisEmpty": {
+    "message": "Keine Daten",
+    "description": "Leer Hinweis"
+  },
+  "analysisExport": {
+    "message": "Daten exportieren",
+    "description": "Datenexport-Button"
+  },
+  "analysisExportExcel": {
+    "message": "Excel exportieren",
+    "description": "Excel-Export-Button"
+  },
+  "analysisExportPDF": {
+    "message": "PDF exportieren",
+    "description": "PDF-Export-Button"
+  },
+  "analysisLoading": {
+    "message": "Scannen...",
+    "description": "Scan Hinweis"
+  },
+  "analysisRescan": {
+    "message": "Neu scannen",
+    "description": "Neu scannen Button"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "Domain suchen...",
+    "description": "Platzhalter für Domainsuche"
+  },
+  "analysisSectionComparison": {
+    "message": "Vergleich",
+    "description": "Abschnittstitel für Vergleichsdiagramme"
+  },
+  "analysisSectionConcentration": {
+    "message": "Konzentration",
+    "description": "Abschnittstitel für Konzentrationsdiagramme"
+  },
+  "analysisSectionDistribution": {
+    "message": "Verteilung",
+    "description": "Abschnittstitel für Verteilungsdiagramme"
+  },
+  "analysisSectionDomains": {
+    "message": "Domain-Sicht",
+    "description": "Abschnittstitel für Domain-Top-Charts"
+  },
+  "analysisSectionEfficiency": {
+    "message": "Effizienz & Dichte",
+    "description": "Abschnittstitel für Effizienz-/Dichtediagramme"
+  },
+  "analysisSectionQuality": {
+    "message": "Qualität & Risiko",
+    "description": "Abschnittstitel für Qualitäts-/Risikodiagramme"
+  },
+  "analysisSectionSecurity": {
+    "message": "Sicherheit & Risiko",
+    "description": "Abschnittstitel für Sicherheits-/Risikodiagramme"
+  },
+  "analysisSectionSegmentation": {
+    "message": "Segmentierung",
+    "description": "Abschnittstitel für Segmentierungsdiagramme"
+  },
+  "analysisSectionStacks": {
+    "message": "Domain und Speichertyp",
+    "description": "Abschnittstitel für gestapelte Diagramme"
+  },
+  "analysisSectionStatistics": {
+    "message": "Statistik-Zusammenfassung",
+    "description": "Abschnittstitel für Statistik-Zusammenfassungsdiagramme"
+  },
+  "analysisSectionTypes": {
+    "message": "Speichertyp-Sicht",
+    "description": "Abschnittstitel für Speichertyp-Charts"
+  },
+  "analysisTabCharts": {
+    "message": "Diagramme",
+    "description": "Tab-Label"
+  },
+  "analysisTabTable": {
+    "message": "Tabelle",
+    "description": "Tab-Label"
+  },
+  "analysisTitle": {
+    "message": "Globale Speicheranalyse",
+    "description": "Titel der Analyse-Seite"
+  },
+  "analysisTotalItems": {
+    "message": "Gesamtanzahl",
+    "description": "Gesamtitems Label"
+  },
+  "analysisTotalSize": {
+    "message": "Geschätzte Größe",
+    "description": "Gesamtgröße Label"
+  },
+  "average": {
+    "message": "Durchschnitt",
+    "description": "Durchschnitt Label"
+  },
+  "avgItemSize": {
+    "message": "Durchschnittliche Eintragsgröße",
+    "description": "Durchschnittliche Eintragsgröße Label"
+  },
+  "avgSize": {
+    "message": "Durchschnittliche Größe",
+    "description": "Durchschnittliche Größe Label"
+  },
+  "blacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist Titel"
+  },
+  "browserCache": {
+    "message": "Browser-Cache",
+    "description": "Browser-Cache-Button"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API Label"
+  },
+  "cacheAndPageReloading": {
+    "message": "🔄 Cache geleert, Seite wird neu geladen",
+    "description": "Meldung für Cache geleert und Seite neu laden"
+  },
+  "cacheAndReloadFailed": {
+    "message": "❌ Cache leeren und Neu laden fehlgeschlagen",
+    "description": "Fehlermeldung für Cache leeren und Neu laden"
+  },
+  "cacheClearFailed": {
+    "message": "❌ Cache leeren fehlgeschlagen",
+    "description": "Fehlermeldung für Cache leeren"
+  },
+  "cacheCleared": {
+    "message": "🗑️ Cache geleert",
+    "description": "Erfolgsmeldung für geleerten Cache"
+  },
+  "cancel": {
+    "message": "Abbrechen",
+    "description": "Abbrechen Button Text"
+  },
   "cannotGetCurrentTab": {
     "message": "Aktueller Tab kann nicht abgerufen werden",
     "description": "Fehlermeldung für aktueller Tab kann nicht abgerufen werden"
@@ -283,61 +339,41 @@
     "message": "Informationen des aktuellen Tabs können nicht abgerufen werden",
     "description": "Fehlermeldung für Informationen des aktuellen Tabs können nicht abgerufen werden"
   },
-  "loadSettingsFailed": {
-    "message": "Laden der Einstellungen fehlgeschlagen",
-    "description": "Fehlermeldung für Laden der Einstellungen"
-  },
-  "contextMenuTitle": {
-    "message": "Cache-Reinigungsassistent",
-    "description": "Titel des Kontextmenüs"
-  },
-  "operationFailed": {
-    "message": "Operation fehlgeschlagen",
-    "description": "Allgemeine Fehlermeldung für Operation"
-  },
-  "unknownOperation": {
-    "message": "Unbekannte Operation",
-    "description": "Meldung für unbekannte Operation"
+  "cleaning": {
+    "message": "Wird bereinigt...",
+    "description": "Bereinigungs-Hinweis"
   },
   "cleaningFailed": {
     "message": "Reinigung fehlgeschlagen",
     "description": "Allgemeine Fehlermeldung für Reinigung"
   },
-  "localStorageUnavailable": {
-    "message": "LocalStorage nicht verfügbar",
-    "description": "Fehler LocalStorage nicht verfügbar"
+  "cleaningOptions": {
+    "message": "Reinigungsoptionen",
+    "description": "Reinigungsoptionen-Einstellungen"
   },
-  "sessionStorageUnavailable": {
-    "message": "SessionStorage nicht verfügbar",
-    "description": "Fehler SessionStorage nicht verfügbar"
+  "clearAllAndReload": {
+    "message": "Alles leeren & neuladen",
+    "description": "Button für alles leeren und neuladen"
   },
-  "notificationDisabled": {
-    "message": "Benachrichtigungen deaktiviert, werden nicht angezeigt",
-    "description": "Meldung für deaktivierte Benachrichtigungen"
+  "clearAllAndReloadDesc": {
+    "message": "Alle Daten der aktuellen Website löschen und Seite neu laden",
+    "description": "Tooltip für Alles-löschen-und-neu-laden-Button"
   },
-  "languageSettings": {
-    "message": "Spracheinstellungen",
-    "description": "Titel der Spracheinstellungen"
+  "clearAllCache": {
+    "message": "Gesamten Cache leeren",
+    "description": "Button für gesamten Cache leeren"
   },
-  "languageAuto": {
-    "message": "System folgen",
-    "description": "Automatische Sprachoption"
+  "clearAllCacheDesc": {
+    "message": "Alle Browser-Cache-Daten mit einem Klick löschen",
+    "description": "Tooltip für Alle-Cache-löschen-Button"
   },
-  "languageChanged": {
-    "message": "Sprache geändert",
-    "description": "Erfolgsmeldung für Sprachänderung"
+  "clearCache": {
+    "message": "Cache leeren",
+    "description": "Button für Cache leeren"
   },
-  "languageChangeFailed": {
-    "message": "Sprachänderung fehlgeschlagen",
-    "description": "Fehlermeldung für Sprachänderung"
-  },
-  "normalReloadDesc": {
-    "message": "Aktuelle Seite neu laden und Cache-Daten beibehalten",
-    "description": "Tooltip für normalen Neu-laden-Button"
-  },
-  "hardReloadDesc": {
-    "message": "Seite zwangsweise neu laden und Cache ignorieren",
-    "description": "Tooltip für Hard-Reload-Button"
+  "clearCacheAndHardReload": {
+    "message": "Cache leeren und hart neuladen",
+    "description": "Button für Cache leeren und hart neuladen"
   },
   "clearCacheAndHardReloadDesc": {
     "message": "Cache-Daten der aktuellen Website löschen und zwangsweise neu laden",
@@ -347,201 +383,29 @@
     "message": "Alle Cache-Daten der aktuellen Website löschen",
     "description": "Tooltip für Cache-löschen-Button"
   },
-  "clearAllAndReloadDesc": {
-    "message": "Alle Daten der aktuellen Website löschen und Seite neu laden",
-    "description": "Tooltip für Alles-löschen-und-neu-laden-Button"
-  },
-  "cookiesDesc": {
-    "message": "Cookie-Daten der aktuellen Website löschen",
-    "description": "Tooltip für Cookies-Button"
-  },
-  "localStorageDesc": {
-    "message": "Local-Storage-Daten der aktuellen Website löschen",
-    "description": "Tooltip für LocalStorage-Button"
-  },
-  "sessionStorageDesc": {
-    "message": "Session-Storage-Daten der aktuellen Website löschen",
-    "description": "Tooltip für SessionStorage-Button"
-  },
-  "indexedDBDesc": {
-    "message": "IndexedDB-Datenbank der aktuellen Website löschen",
-    "description": "Tooltip für IndexedDB-Button"
-  },
-  "clearAllCacheDesc": {
-    "message": "Alle Browser-Cache-Daten mit einem Klick löschen",
-    "description": "Tooltip für Alle-Cache-löschen-Button"
-  },
-  "storageUsage": {
-    "message": "Speichernutzung",
-    "description": "Speichernutzung Titel"
-  },
-  "loadingStorage": {
-    "message": "Speicherinformationen werden geladen...",
-    "description": "Eingabeaufforderung beim Laden der Speicherinformationen"
-  },
-  "storageLoadFailed": {
-    "message": "Speicherinformationen konnten nicht geladen werden",
-    "description": "Eingabeaufforderung bei fehlgeschlagenem Laden der Speicherinformationen"
-  },
-  "noStorageData": {
-    "message": "Keine Speicherdaten für die aktuelle Website",
-    "description": "Eingabeaufforderung wenn keine Speicherdaten vorhanden sind"
-  },
-  "totalStorage": {
-    "message": "Gesamtspeicher:",
-    "description": "Gesamtspeicher Etikett"
-  },
-  "items": {
-    "message": "Elemente",
-    "description": "Einheit für die Anzahl der Speicherelemente"
-  },
-  "restrictedPageStorage": {
-    "message": "Diese Seite ist vom Browser geschützt und kann keine Speicherinformationen abrufen",
-    "description": "Eingabeaufforderung wenn eine eingeschränkte Seite keine Speicherinformationen abrufen kann"
+  "clearHistory": {
+    "message": "Verlauf löschen",
+    "description": "Verlauf löschen-Button"
   },
   "clickToViewDetail": {
     "message": "Klicken Sie, um Details anzuzeigen",
     "description": "Eingabeaufforderung zum Anzeigen von Details"
   },
-  "loadingDetail": {
-    "message": "Details werden geladen...",
-    "description": "Eingabeaufforderung beim Laden von Details"
-  },
-  "detailLoadFailed": {
-    "message": "Details konnten nicht geladen werden",
-    "description": "Eingabeaufforderung beim Fehlschlagen des Ladens von Details"
-  },
-  "noDetailData": {
-    "message": "Keine Daten",
-    "description": "Eingabeaufforderung ohne Detaildaten"
-  },
-  "totalItems": {
-    "message": "Gesamt",
-    "description": "Gesamt-Label"
-  },
-  "key": {
-    "message": "Schlüssel",
-    "description": "Schlüssel-Label"
-  },
-  "value": {
-    "message": "Wert",
-    "description": "Wert-Label"
-  },
-  "size": {
-    "message": "Größe",
-    "description": "Größe-Label"
-  },
-  "name": {
-    "message": "Name",
-    "description": "Name-Label"
-  },
-  "domain": {
-    "message": "Domäne",
-    "description": "Domäne-Label"
-  },
-  "path": {
-    "message": "Pfad",
-    "description": "Pfad-Label"
-  },
-  "secure": {
-    "message": "Sicher",
-    "description": "Sicher-Label"
-  },
-  "httpOnly": {
-    "message": "HttpOnly",
-    "description": "HttpOnly-Label"
-  },
-  "expiration": {
-    "message": "Ablauf",
-    "description": "Ablauf-Label"
-  },
-  "version": {
-    "message": "Version",
-    "description": "Version-Label"
-  },
-  "count": {
-    "message": "Anzahl",
-    "description": "Anzahl-Label"
-  },
-  "urls": {
-    "message": "URLs",
-    "description": "URLs-Label"
-  },
-  "moreUrls": {
-    "message": "Mehr...",
-    "description": "Eingabeaufforderung für mehr URLs"
-  },
-  "expandAll": {
-    "message": "Alle aufklappen",
-    "description": "Alle aufklappen Button"
-  },
   "collapseAll": {
     "message": "Alle zuklappen",
     "description": "Alle zuklappen Button"
   },
-  "scrollToTop": {
-    "message": "Nach oben scrollen",
-    "description": "Nach oben scrollen Button"
-  },
-  "searchPlaceholder": {
-    "message": "Schlüssel oder Wert suchen...",
-    "description": "Suchfeld Platzhalter"
-  },
-  "doubleClickToCopy": {
-    "message": "Doppelklicken zum Kopieren",
-    "description": "Hinweis zum Kopieren durch Doppelklicken"
-  },
-  "keyCopied": {
-    "message": "Schlüssel kopiert",
-    "description": "Schlüssel kopiert Erfolgsmeldung"
-  },
-  "valueCopied": {
-    "message": "Wert kopiert",
-    "description": "Wert kopiert Erfolgsmeldung"
-  },
-  "copy": {
-    "message": "Kopieren",
-    "description": "Kopieren Button Text"
-  },
-  "delete": {
-    "message": "Löschen",
-    "description": "Löschen Button Text"
-  },
-  "confirmDeleteTitle": {
-    "message": "Löschen bestätigen",
-    "description": "Löschbestätigungsdialog Titel"
-  },
-  "confirmDelete": {
-    "message": "Möchten Sie diesen Eintrag wirklich löschen?",
-    "description": "Löschbestätigungsaufforderung"
-  },
-  "confirmDeleteDomain": {
-    "message": "Möchten Sie die Domain \"${domain}\" wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
-    "description": "Domain-Löschbestätigungsaufforderung"
+  "concentration": {
+    "message": "Konzentration",
+    "description": "Konzentration Label"
   },
   "confirm": {
     "message": "Bestätigen",
     "description": "Bestätigen Button Text"
   },
-  "cancel": {
-    "message": "Abbrechen",
-    "description": "Abbrechen Button Text"
-  },
-  "itemDeleted": {
-    "message": "Eintrag gelöscht",
-    "description": "Löschen Erfolgsmeldung"
-  },
-  "deleteFailed": {
-    "message": "Löschen fehlgeschlagen",
-    "description": "Löschen Fehlermeldung"
-  },
   "confirmDangerous": {
     "message": "Gefährliche Aktionen doppelt bestätigen",
     "description": "Schalter für gefährliche Aktionen Bestätigung"
-  },
-  "silentMode": {
-    "message": "Stiller Modus (keine Hinweise)",
-    "description": "Schalter für stillen Modus"
   },
   "confirmDangerousMessage": {
     "message": "Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?",
@@ -559,481 +423,245 @@
     "message": "Aktuelle Aktion ausführen?",
     "description": "Titel für gefährliche Aktion"
   },
-  "analysisTitle": {
-    "message": "Globale Speicheranalyse",
-    "description": "Titel der Analyse-Seite"
-  },
-  "analysisDesc": {
-    "message": "Fasst Local/Session/IndexedDB/Cache/Cookies pro Domain zusammen",
-    "description": "Beschreibung der Analyse-Seite"
-  },
-  "analysisRescan": {
-    "message": "Neu scannen",
-    "description": "Neu scannen Button"
-  },
-  "analysisClearAll": {
-    "message": "Alle Domains löschen",
-    "description": "Alle Domains löschen Button"
-  },
-  "analysisDomainCount": {
-    "message": "Domain-Anzahl",
-    "description": "Domain Anzahl Label"
-  },
-  "analysisTotalItems": {
-    "message": "Gesamtanzahl",
-    "description": "Gesamtitems Label"
-  },
-  "analysisTotalSize": {
-    "message": "Geschätzte Größe",
-    "description": "Gesamtgröße Label"
-  },
-  "analysisChartTypes": {
-    "message": "Nach Speicher-Typ",
-    "description": "Diagrammtitel für Speicher-Typ Verteilung"
-  },
-  "analysisChartTypesCount": {
-    "message": "Nach Speicher-Typ (Anzahl)",
-    "description": "Diagrammtitel für Speicher-Typ Verteilung nach Anzahl"
-  },
-  "analysisChartTopDomains": {
-    "message": "Top-Domains (nach Größe)",
-    "description": "Diagrammtitel für Top-Domains nach Größe"
-  },
-  "analysisChartTopDomainsCount": {
-    "message": "Top-Domains (nach Anzahl)",
-    "description": "Diagrammtitel für Top-Domains nach Anzahl"
-  },
-  "analysisChartTopCookies": {
-    "message": "Top-Domains (nach Cookie-Größe)",
-    "description": "Diagrammtitel für Top-Domains nach Cookie-Größe"
-  },
-  "analysisChartDomainTypeSize": {
-    "message": "Top-Domains nach Speichertyp (Größe)",
-    "description": "Gestapelte Größe nach Speichertyp"
-  },
-  "analysisChartDomainTypeCount": {
-    "message": "Top-Domains nach Speichertyp (Anzahl)",
-    "description": "Gestapelte Anzahl nach Speichertyp"
-  },
-  "analysisChartSizeBuckets": {
-    "message": "Verteilung der Speichergrößen",
-    "description": "Größen-Bucket-Diagramm"
-  },
-  "analysisChartCookiesSecurity": {
-    "message": "Cookies Sicherheitsattribute",
-    "description": "Secure/HttpOnly/SameSite Diagramm"
-  },
-  "analysisChartCookiesExpiry": {
-    "message": "Cookies Ablaufverteilung",
-    "description": "Ablauf-Bucket-Diagramm"
-  },
-  "analysisChartCookiesExpiringSoon": {
-    "message": "Top-Domains mit Cookies, die in 7 Tagen ablaufen",
-    "description": "Bald ablaufende Cookies Top-Domains"
-  },
-  "analysisSectionStacks": {
-    "message": "Domain und Speichertyp",
-    "description": "Abschnittstitel für gestapelte Diagramme"
-  },
-  "analysisSectionQuality": {
-    "message": "Qualität & Risiko",
-    "description": "Abschnittstitel für Qualitäts-/Risikodiagramme"
-  },
-  "analysisSectionEfficiency": {
-    "message": "Effizienz & Dichte",
-    "description": "Abschnittstitel für Effizienz-/Dichtediagramme"
-  },
-  "analysisSectionConcentration": {
-    "message": "Konzentration",
-    "description": "Abschnittstitel für Konzentrationsdiagramme"
-  },
-  "analysisSectionDistribution": {
-    "message": "Verteilung",
-    "description": "Abschnittstitel für Verteilungsdiagramme"
-  },
-  "analysisSectionComparison": {
-    "message": "Vergleich",
-    "description": "Abschnittstitel für Vergleichsdiagramme"
-  },
-  "analysisSectionSecurity": {
-    "message": "Sicherheit & Risiko",
-    "description": "Abschnittstitel für Sicherheits-/Risikodiagramme"
-  },
-  "analysisSectionSegmentation": {
-    "message": "Segmentierung",
-    "description": "Abschnittstitel für Segmentierungsdiagramme"
-  },
-  "analysisSectionStatistics": {
-    "message": "Statistik-Zusammenfassung",
-    "description": "Abschnittstitel für Statistik-Zusammenfassungsdiagramme"
-  },
-  "analysisChartAvgItemSize": {
-    "message": "Durchschnittliche Eintragsgröße nach Speichertyp",
-    "description": "Durchschnittliche Eintragsgröße Diagrammtitel"
-  },
-  "analysisChartStorageDensity": {
-    "message": "Domain-Speicherdichteverteilung",
-    "description": "Speicherdichte Diagrammtitel"
-  },
-  "analysisChartSizeItemScatter": {
-    "message": "Domain-Größe vs. Eintragsanzahl Streudiagramm",
-    "description": "Streudiagramm Titel"
-  },
-  "analysisChartConcentration": {
-    "message": "Speicherkonzentrationsanalyse (Pareto-Diagramm)",
-    "description": "Konzentrationsdiagramm Titel"
-  },
-  "analysisChartTopDomainRatio": {
-    "message": "Top-Domain-Verhältnisanalyse",
-    "description": "Verhältnisanalyse Diagrammtitel"
-  },
-  "analysisChartSizeDistribution": {
-    "message": "Domain-Größenverteilung Histogramm",
-    "description": "Größenverteilung Diagrammtitel"
-  },
-  "analysisChartItemDistribution": {
-    "message": "Domain-Eintragsanzahlverteilung Histogramm",
-    "description": "Eintragsanzahlverteilung Diagrammtitel"
-  },
-  "analysisChartStorageUsage": {
-    "message": "Speichertyp-Nutzungsrate",
-    "description": "Nutzungsrate Diagrammtitel"
-  },
-  "analysisChartTypeEfficiency": {
-    "message": "Speichertyp-Effizienzvergleich",
-    "description": "Effizienzvergleich Diagrammtitel"
-  },
-  "analysisChartDomainPreference": {
-    "message": "Domain-Speichertyp-Präferenz",
-    "description": "Präferenz Diagrammtitel"
-  },
-  "analysisChartInsecureCookies": {
-    "message": "Top-Domains mit unsicheren Cookies",
-    "description": "Unsichere Cookies Diagrammtitel"
-  },
-  "analysisChartExpiredCookies": {
-    "message": "Abgelaufene Cookies Domain-Verteilung",
-    "description": "Abgelaufene Cookies Diagrammtitel"
-  },
-  "analysisChartSecurityCombination": {
-    "message": "Cookies-Sicherheitsattribut-Kombinationsanalyse",
-    "description": "Sicherheitskombination Diagrammtitel"
-  },
-  "analysisChartTLDDistribution": {
-    "message": "Gruppierte Statistiken nach Top-Level-Domain (TLD)",
-    "description": "TLD-Verteilung Diagrammtitel"
-  },
-  "analysisChartDomainLength": {
-    "message": "Gruppierte Statistiken nach Domain-Länge",
-    "description": "Domain-Länge Diagrammtitel"
-  },
-  "analysisChartStorageCombination": {
-    "message": "Gruppiert nach Speichertyp-Kombination",
-    "description": "Speicherkombination Diagrammtitel"
-  },
-  "analysisChartJsonFailRate": {
-    "message": "JSON-Parse-Fehlrate (nach Domain)",
-    "description": "JSON-Fehlrate Diagrammtitel"
-  },
-  "analysisChartLargeKeys": {
-    "message": "Übergroße Schlüssel-Verteilung (nach Domain)",
-    "description": "Große Schlüssel-Verteilung Diagrammtitel"
-  },
-  "analysisChartQualityComparison": {
-    "message": "Speichertyp-Qualitätsvergleich",
-    "description": "Qualitätsvergleich Diagrammtitel"
-  },
-  "analysisChartStatistics": {
-    "message": "Speicher-Statistik-Zusammenfassung",
-    "description": "Statistik-Zusammenfassung Diagrammtitel"
-  },
-  "analysisChartBoxPlot": {
-    "message": "Speichertyp-Größenverteilung Box-Plot",
-    "description": "Box-Plot Diagrammtitel"
-  },
-  "avgSize": {
-    "message": "Durchschnittliche Größe",
-    "description": "Durchschnittliche Größe Label"
-  },
-  "perItem": {
-    "message": "Pro Eintrag",
-    "description": "Pro Eintrag Label"
-  },
-  "concentration": {
-    "message": "Konzentration",
-    "description": "Konzentration Label"
-  },
-  "cumulativeRatio": {
-    "message": "Kumulatives Verhältnis",
-    "description": "Kumulatives Verhältnis Label"
-  },
-  "domainCount": {
-    "message": "Domain-Anzahl",
-    "description": "Domain-Anzahl Label"
-  },
-  "sizeRange": {
-    "message": "Größenbereich",
-    "description": "Größenbereich Label"
-  },
-  "itemRange": {
-    "message": "Eintragsanzahlbereich",
-    "description": "Eintragsanzahlbereich Label"
-  },
-  "usageRate": {
-    "message": "Nutzungsrate",
-    "description": "Nutzungsrate Label"
-  },
-  "efficiency": {
-    "message": "Effizienz",
-    "description": "Effizienz Label"
-  },
-  "preference": {
-    "message": "Präferenz",
-    "description": "Präferenz Label"
-  },
-  "insecure": {
-    "message": "Unsicher",
-    "description": "Unsicher Label"
-  },
-  "expired": {
-    "message": "Abgelaufen",
-    "description": "Abgelaufen Label"
-  },
-  "securityCombination": {
-    "message": "Sicherheitsattribut-Kombination",
-    "description": "Sicherheitsattribut-Kombination Label"
-  },
-  "topLevelDomain": {
-    "message": "Top-Level-Domain",
-    "description": "Top-Level-Domain Label"
-  },
-  "domainLength": {
-    "message": "Domain-Länge",
-    "description": "Domain-Länge Label"
-  },
-  "storageCombination": {
-    "message": "Speichertyp-Kombination",
-    "description": "Speichertyp-Kombination Label"
-  },
-  "jsonFailRate": {
-    "message": "JSON-Fehlrate",
-    "description": "JSON-Fehlrate Label"
-  },
-  "largeKeys": {
-    "message": "Große Schlüssel",
-    "description": "Große Schlüssel Label"
-  },
-  "qualityComparison": {
-    "message": "Qualitätsvergleich",
-    "description": "Qualitätsvergleich Label"
-  },
-  "statistics": {
-    "message": "Statistik",
-    "description": "Statistik Label"
-  },
-  "min": {
-    "message": "Min",
-    "description": "Min Label"
-  },
-  "max": {
-    "message": "Max",
-    "description": "Max Label"
-  },
-  "median": {
-    "message": "Median",
-    "description": "Median Label"
-  },
-  "average": {
-    "message": "Durchschnitt",
-    "description": "Durchschnitt Label"
-  },
-  "avgItemSize": {
-    "message": "Durchschnittliche Eintragsgröße",
-    "description": "Durchschnittliche Eintragsgröße Label"
-  },
-  "domains": {
-    "message": "Domains",
-    "description": "Domain-Einheit"
-  },
-  "itemCount": {
-    "message": "Eintragsanzahl",
-    "description": "Eintragsanzahl Label"
-  },
-  "ratio": {
-    "message": "Verhältnis",
-    "description": "Verhältnis Label"
-  },
-  "localOnly": {
-    "message": "Nur LocalStorage",
-    "description": "Nur LocalStorage Label"
-  },
-  "cookiesOnly": {
-    "message": "Nur Cookies",
-    "description": "Nur Cookies Label"
-  },
-  "mixed": {
-    "message": "Gemischte Nutzung",
-    "description": "Gemischte Nutzung Label"
-  },
-  "insecureCookies": {
-    "message": "Unsichere Cookies",
-    "description": "Unsichere Cookies Label"
-  },
-  "expiredCookies": {
-    "message": "Abgelaufene Cookies",
-    "description": "Abgelaufene Cookies Label"
+  "confirmDelete": {
+    "message": "Möchten Sie diesen Eintrag wirklich löschen?",
+    "description": "Löschbestätigungsaufforderung"
+  },
+  "confirmDeleteDomain": {
+    "message": "Möchten Sie die Domain \"${domain}\" wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "description": "Domain-Löschbestätigungsaufforderung"
+  },
+  "confirmDeleteTitle": {
+    "message": "Löschen bestätigen",
+    "description": "Löschbestätigungsdialog Titel"
+  },
+  "contextMenuTitle": {
+    "message": "Cache-Reinigungsassistent",
+    "description": "Titel des Kontextmenüs"
   },
   "cookieCount": {
     "message": "Cookie-Anzahl",
     "description": "Cookie-Anzahl Label"
   },
-  "short": {
-    "message": "Kurz (<10)",
-    "description": "Kurze Domain Label"
+  "cookies": {
+    "message": "Cookies",
+    "description": "Cookies-Button"
   },
-  "medium": {
-    "message": "Mittel (10-20)",
-    "description": "Mittlere Domain Label"
+  "cookiesClearFailed": {
+    "message": "❌ Cookies leeren fehlgeschlagen",
+    "description": "Fehlermeldung für Cookies leeren"
   },
-  "long": {
-    "message": "Lang (20-30)",
-    "description": "Lange Domain Label"
+  "cookiesCleared": {
+    "message": "🍪 Cookies geleert",
+    "description": "Erfolgsmeldung für geleerte Cookies"
   },
-  "veryLong": {
-    "message": "Sehr lang (>30)",
-    "description": "Sehr lange Domain Label"
+  "cookiesDesc": {
+    "message": "Cookie-Daten der aktuellen Website löschen",
+    "description": "Tooltip für Cookies-Button"
   },
-  "none": {
-    "message": "Keine",
-    "description": "Keine Label"
-  },
-  "localAndCookies": {
-    "message": "LocalStorage + Cookies",
-    "description": "LocalStorage und Cookies Kombination Label"
-  },
-  "all": {
-    "message": "Alle Typen",
-    "description": "Alle Typen Label"
-  },
-  "other": {
-    "message": "Andere Kombinationen",
-    "description": "Andere Kombinationen Label"
-  },
-  "minSize": {
-    "message": "Min Größe",
-    "description": "Min Größe Label"
-  },
-  "maxSize": {
-    "message": "Max Größe",
-    "description": "Max Größe Label"
-  },
-  "medianSize": {
-    "message": "Median Größe",
-    "description": "Median Größe Label"
-  },
-  "q1": {
-    "message": "Q1",
-    "description": "Erstes Quartil Label"
-  },
-  "q3": {
-    "message": "Q3",
-    "description": "Drittes Quartil Label"
-  },
-  "totalSize": {
-    "message": "Gesamtgröße",
-    "description": "Gesamtgröße Label"
-  },
-  "cookiesExpiryLt7d": {
-    "message": "≤7 Tage",
-    "description": "Cookies Ablaufbucket"
-  },
-  "cookiesExpiryLt30d": {
-    "message": "≤30 Tage",
-    "description": "Cookies Ablaufbucket"
-  },
-  "cookiesExpiryMid": {
-    "message": "30-180 Tage",
+  "cookiesExpiryExpired": {
+    "message": "Abgelaufen",
     "description": "Cookies Ablaufbucket"
   },
   "cookiesExpiryGt180d": {
     "message": "≥180 Tage",
     "description": "Cookies Ablaufbucket"
   },
+  "cookiesExpiryLt30d": {
+    "message": "≤30 Tage",
+    "description": "Cookies Ablaufbucket"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7 Tage",
+    "description": "Cookies Ablaufbucket"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180 Tage",
+    "description": "Cookies Ablaufbucket"
+  },
   "cookiesExpiryNo": {
     "message": "Kein Ablauf",
     "description": "Cookies Ablaufbucket"
   },
-  "cookiesExpiryExpired": {
-    "message": "Abgelaufen",
-    "description": "Cookies Ablaufbucket"
+  "cookiesOnly": {
+    "message": "Nur Cookies",
+    "description": "Nur Cookies Label"
   },
-  "analysisSectionTypes": {
-    "message": "Speichertyp-Sicht",
-    "description": "Abschnittstitel für Speichertyp-Charts"
+  "copy": {
+    "message": "Kopieren",
+    "description": "Kopieren Button Text"
   },
-  "analysisSectionDomains": {
-    "message": "Domain-Sicht",
-    "description": "Abschnittstitel für Domain-Top-Charts"
+  "count": {
+    "message": "Anzahl",
+    "description": "Anzahl-Label"
   },
-  "analysisClearDomain": {
-    "message": "Diese Domain löschen",
-    "description": "Domain löschen Button"
+  "cumulativeRatio": {
+    "message": "Kumulatives Verhältnis",
+    "description": "Kumulatives Verhältnis Label"
   },
-  "analysisLoading": {
-    "message": "Scannen...",
-    "description": "Scan Hinweis"
+  "currentSite": {
+    "message": "Aktuelle Website:",
+    "description": "Label für aktuelle Website"
   },
-  "analysisEmpty": {
-    "message": "Keine Daten",
-    "description": "Leer Hinweis"
+  "currentSiteCacheClearFailed": {
+    "message": "❌ Leeren des Caches der aktuellen Website fehlgeschlagen",
+    "description": "Fehlermeldung für Leeren des Caches der aktuellen Website"
   },
-  "openAnalysis": {
-    "message": "Globale Speicheranalyse",
-    "description": "Analyse öffnen Button"
+  "currentSiteCacheCleared": {
+    "message": "🌐 Cache der aktuellen Website geleert",
+    "description": "Erfolgsmeldung für geleerten Cache der aktuellen Website"
   },
-  "cacheAPI": {
-    "message": "Cache",
-    "description": "Cache API Label"
+  "delete": {
+    "message": "Löschen",
+    "description": "Löschen Button Text"
   },
-  "action": {
-    "message": "Aktion",
-    "description": "Aktionsspalte Label"
+  "deleteDownloadFiles": {
+    "message": "Download-Dateien löschen",
+    "description": "Download-Dateien löschen-Button"
   },
-  "cleaning": {
-    "message": "Wird bereinigt...",
-    "description": "Bereinigungs-Hinweis"
+  "deleteFailed": {
+    "message": "Löschen fehlgeschlagen",
+    "description": "Löschen Fehlermeldung"
   },
-  "analysisSearchPlaceholder": {
-    "message": "Domain suchen...",
-    "description": "Platzhalter für Domainsuche"
+  "detailLoadFailed": {
+    "message": "Details konnten nicht geladen werden",
+    "description": "Eingabeaufforderung beim Fehlschlagen des Ladens von Details"
   },
-  "exportJSON": {
-    "message": "JSON exportieren",
-    "description": "JSON Export Button"
+  "domain": {
+    "message": "Domäne",
+    "description": "Domäne-Label"
   },
-  "exportCSV": {
-    "message": "CSV exportieren",
-    "description": "CSV Export Button"
+  "domainAdded": {
+    "message": "Domain zur Liste hinzugefügt",
+    "description": "Erfolgsmeldung für einzelne Domain"
   },
-  "exportFilteredOnly": {
-    "message": "Nur gefilterte exportieren",
-    "description": "Export Toggle gefiltert"
+  "domainBlocked": {
+    "message": "Diese Domain ist gefiltert und kann diese Operation nicht ausführen",
+    "description": "Domain blockiert Nachricht"
   },
-  "exportSuccess": {
-    "message": "Exportiert",
-    "description": "Export Erfolg Hinweis"
+  "domainCount": {
+    "message": "Domain-Anzahl",
+    "description": "Domain-Anzahl Label"
   },
-  "exportFailed": {
-    "message": "Export fehlgeschlagen",
-    "description": "Export Fehler Hinweis"
+  "domainExists": {
+    "message": "Domain existiert bereits",
+    "description": "Domain existiert Nachricht"
   },
   "domainFilter": {
     "message": "Domain-Filter",
     "description": "Domain-Filter Titel"
   },
+  "domainFilterHint": {
+    "message": "Whitelist-Modus: Nur Bereinigungsvorgänge auf gelisteten Domains zulassen; Blacklist-Modus: Bereinigungsvorgänge auf gelisteten Domains blockieren",
+    "description": "Domain-Filter Hinweis"
+  },
+  "domainInputPlaceholder": {
+    "message": "Domain eingeben, z.B. example.com oder *.example.com",
+    "description": "Domain Eingabe Platzhalter"
+  },
+  "domainLength": {
+    "message": "Domain-Länge",
+    "description": "Domain-Länge Label"
+  },
+  "domains": {
+    "message": "Domains",
+    "description": "Domain-Einheit"
+  },
+  "domainsAddedFailed": {
+    "message": "Alle Domains existieren bereits oder sind ungültig",
+    "description": "Fehlermeldung für vollständiges Versagen beim Batch-Hinzufügen von Domains"
+  },
+  "domainsAddedPartial": {
+    "message": "%d Domains erfolgreich hinzugefügt, %d übersprungen",
+    "description": "Teilweise Erfolgsmeldung für Batch-Hinzufügen von Domains"
+  },
+  "domainsAddedSuccess": {
+    "message": "%d Domains erfolgreich hinzugefügt",
+    "description": "Erfolgsmeldung für Batch-Hinzufügen von Domains"
+  },
+  "doubleClickToCopy": {
+    "message": "Doppelklicken zum Kopieren",
+    "description": "Hinweis zum Kopieren durch Doppelklicken"
+  },
+  "downloadFilesClearFailed": {
+    "message": "❌ Download-Dateien löschen fehlgeschlagen",
+    "description": "Fehlermeldung für Download-Dateien löschen"
+  },
+  "downloadFilesCleared": {
+    "message": "📁 Download-Dateien gelöscht",
+    "description": "Erfolgsmeldung für gelöschte Download-Dateien"
+  },
+  "downloadHistory": {
+    "message": "Download-Verlauf",
+    "description": "Download-Verlauf-Button"
+  },
+  "downloadsClearFailed": {
+    "message": "❌ Download-Verlauf löschen fehlgeschlagen",
+    "description": "Fehlermeldung für Download-Verlauf löschen"
+  },
+  "downloadsCleared": {
+    "message": "📥 Download-Verlauf gelöscht",
+    "description": "Erfolgsmeldung für gelöschten Download-Verlauf"
+  },
+  "efficiency": {
+    "message": "Effizienz",
+    "description": "Effizienz Label"
+  },
+  "enableNotifications": {
+    "message": "Benachrichtigungen aktivieren",
+    "description": "Benachrichtigungen aktivieren-Option"
+  },
+  "expandAll": {
+    "message": "Alle aufklappen",
+    "description": "Alle aufklappen Button"
+  },
+  "expiration": {
+    "message": "Ablauf",
+    "description": "Ablauf-Label"
+  },
+  "expired": {
+    "message": "Abgelaufen",
+    "description": "Abgelaufen Label"
+  },
+  "expiredCookies": {
+    "message": "Abgelaufene Cookies",
+    "description": "Abgelaufene Cookies Label"
+  },
+  "exportCSV": {
+    "message": "CSV exportieren",
+    "description": "CSV Export Button"
+  },
+  "exportFailed": {
+    "message": "Export fehlgeschlagen",
+    "description": "Export Fehler Hinweis"
+  },
+  "exportFilteredOnly": {
+    "message": "Nur gefilterte exportieren",
+    "description": "Export Toggle gefiltert"
+  },
+  "exportJSON": {
+    "message": "JSON exportieren",
+    "description": "JSON Export Button"
+  },
+  "exportSuccess": {
+    "message": "Exportiert",
+    "description": "Export Erfolg Hinweis"
+  },
+  "extensionDescription": {
+    "message": "Ein mächtiges Tool zum Ein-Klick-Löschen von Browser-Cache, Cookies, localStorage, sessionStorage und anderen Daten",
+    "description": "Beschreibung der Erweiterung"
+  },
+  "extensionName": {
+    "message": "Cache-Reinigungsassistent",
+    "description": "Name der Erweiterung"
+  },
   "filterMode": {
     "message": "Filtermodus:",
     "description": "Filtermodus Label"
+  },
+  "filterModeBlacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist Filtermodus"
   },
   "filterModeDisabled": {
     "message": "Deaktiviert",
@@ -1043,72 +671,512 @@
     "message": "Whitelist",
     "description": "Whitelist Filtermodus"
   },
-  "filterModeBlacklist": {
-    "message": "Blacklist",
-    "description": "Blacklist Filtermodus"
+  "footerTip": {
+    "message": "💡 Tipp: Verwenden Sie Löschfunktionen vorsichtig, gelöschte Daten können nicht wiederhergestellt werden",
+    "description": "Fußzeilen-Tipp"
   },
-  "whitelist": {
-    "message": "Whitelist",
-    "description": "Whitelist Titel"
+  "hardReload": {
+    "message": "Hartes Neuladen",
+    "description": "Button für hartes Neuladen"
   },
-  "blacklist": {
-    "message": "Blacklist",
-    "description": "Blacklist Titel"
+  "hardReloadDesc": {
+    "message": "Seite zwangsweise neu laden und Cache ignorieren",
+    "description": "Tooltip für Hard-Reload-Button"
   },
-  "add": {
-    "message": "Hinzufügen",
-    "description": "Hinzufügen Button"
+  "hardReloadFailed": {
+    "message": "❌ Hartes Neu laden fehlgeschlagen",
+    "description": "Fehlermeldung für hartes Neu laden"
   },
-  "addDomain": {
-    "message": "Domain hinzufügen",
-    "description": "Domain hinzufügen Modal-Titel"
+  "historyClearFailed": {
+    "message": "❌ Verlauf löschen fehlgeschlagen",
+    "description": "Fehlermeldung für Verlauf löschen"
   },
-  "addedDomains": {
-    "message": "Hinzugefügte Domains",
-    "description": "Titel der Liste hinzugefügter Domains"
+  "historyCleared": {
+    "message": "📜 Verlauf gelöscht",
+    "description": "Erfolgsmeldung für gelöschten Verlauf"
   },
-  "domainAdded": {
-    "message": "Domain zur Liste hinzugefügt",
-    "description": "Erfolgsmeldung für einzelne Domain"
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnly-Label"
   },
-  "domainsAddedSuccess": {
-    "message": "%d Domains erfolgreich hinzugefügt",
-    "description": "Erfolgsmeldung für Batch-Hinzufügen von Domains"
+  "includeProtectedData": {
+    "message": "Geschützte Daten einschließen",
+    "description": "Geschützte Daten einschließen-Option"
   },
-  "domainsAddedPartial": {
-    "message": "%d Domains erfolgreich hinzugefügt, %d übersprungen",
-    "description": "Teilweise Erfolgsmeldung für Batch-Hinzufügen von Domains"
+  "indexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB-Button"
   },
-  "domainsAddedFailed": {
-    "message": "Alle Domains existieren bereits oder sind ungültig",
-    "description": "Fehlermeldung für vollständiges Versagen beim Batch-Hinzufügen von Domains"
+  "indexedDBClearFailed": {
+    "message": "❌ IndexedDB leeren fehlgeschlagen",
+    "description": "Fehlermeldung für IndexedDB leeren"
   },
-  "remove": {
-    "message": "Entfernen",
-    "description": "Entfernen Button"
+  "indexedDBCleared": {
+    "message": "📊 IndexedDB geleert",
+    "description": "Erfolgsmeldung für geleerte IndexedDB"
   },
-  "domainInputPlaceholder": {
-    "message": "Domain eingeben, z.B. example.com oder *.example.com",
-    "description": "Domain Eingabe Platzhalter"
+  "indexedDBDesc": {
+    "message": "IndexedDB-Datenbank der aktuellen Website löschen",
+    "description": "Tooltip für IndexedDB-Button"
   },
-  "domainFilterHint": {
-    "message": "Whitelist-Modus: Nur Bereinigungsvorgänge auf gelisteten Domains zulassen; Blacklist-Modus: Bereinigungsvorgänge auf gelisteten Domains blockieren",
-    "description": "Domain-Filter Hinweis"
+  "insecure": {
+    "message": "Unsicher",
+    "description": "Unsicher Label"
   },
-  "domainBlocked": {
-    "message": "Diese Domain ist gefiltert und kann diese Operation nicht ausführen",
-    "description": "Domain blockiert Nachricht"
+  "insecureCookies": {
+    "message": "Unsichere Cookies",
+    "description": "Unsichere Cookies Label"
   },
   "invalidDomain": {
     "message": "Ungültiges Domain-Format",
     "description": "Ungültige Domain Nachricht"
   },
-  "domainExists": {
-    "message": "Domain existiert bereits",
-    "description": "Domain existiert Nachricht"
+  "itemCount": {
+    "message": "Eintragsanzahl",
+    "description": "Eintragsanzahl Label"
+  },
+  "itemDeleted": {
+    "message": "Eintrag gelöscht",
+    "description": "Löschen Erfolgsmeldung"
+  },
+  "itemRange": {
+    "message": "Eintragsanzahlbereich",
+    "description": "Eintragsanzahlbereich Label"
+  },
+  "items": {
+    "message": "Elemente",
+    "description": "Einheit für die Anzahl der Speicherelemente"
+  },
+  "jsonFailRate": {
+    "message": "JSON-Fehlrate",
+    "description": "JSON-Fehlrate Label"
+  },
+  "keepFormData": {
+    "message": "Formulardaten behalten",
+    "description": "Formulardaten behalten-Option"
+  },
+  "keepPasswords": {
+    "message": "Passwörter behalten",
+    "description": "Passwörter behalten-Option"
+  },
+  "key": {
+    "message": "Schlüssel",
+    "description": "Schlüssel-Label"
+  },
+  "keyCopied": {
+    "message": "Schlüssel kopiert",
+    "description": "Schlüssel kopiert Erfolgsmeldung"
+  },
+  "languageAuto": {
+    "message": "System folgen",
+    "description": "Automatische Sprachoption"
+  },
+  "languageChangeFailed": {
+    "message": "Sprachänderung fehlgeschlagen",
+    "description": "Fehlermeldung für Sprachänderung"
+  },
+  "languageChanged": {
+    "message": "Sprache geändert",
+    "description": "Erfolgsmeldung für Sprachänderung"
+  },
+  "languageSettings": {
+    "message": "Spracheinstellungen",
+    "description": "Titel der Spracheinstellungen"
+  },
+  "largeKeys": {
+    "message": "Große Schlüssel",
+    "description": "Große Schlüssel Label"
+  },
+  "loadSettingsFailed": {
+    "message": "Laden der Einstellungen fehlgeschlagen",
+    "description": "Fehlermeldung für Laden der Einstellungen"
+  },
+  "loading": {
+    "message": "Lädt...",
+    "description": "Ladestatus"
+  },
+  "loadingDetail": {
+    "message": "Details werden geladen...",
+    "description": "Eingabeaufforderung beim Laden von Details"
+  },
+  "loadingStorage": {
+    "message": "Speicherinformationen werden geladen...",
+    "description": "Eingabeaufforderung beim Laden der Speicherinformationen"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorage und Cookies Kombination Label"
+  },
+  "localOnly": {
+    "message": "Nur LocalStorage",
+    "description": "Nur LocalStorage Label"
+  },
+  "localStorage": {
+    "message": "LocalStorage",
+    "description": "LocalStorage-Button"
+  },
+  "localStorageClearFailed": {
+    "message": "❌ LocalStorage leeren fehlgeschlagen",
+    "description": "Fehlermeldung für LocalStorage leeren"
+  },
+  "localStorageCleared": {
+    "message": "💾 LocalStorage geleert",
+    "description": "Erfolgsmeldung für geleerten LocalStorage"
+  },
+  "localStorageDesc": {
+    "message": "Local-Storage-Daten der aktuellen Website löschen",
+    "description": "Tooltip für LocalStorage-Button"
+  },
+  "localStorageUnavailable": {
+    "message": "LocalStorage nicht verfügbar",
+    "description": "Fehler LocalStorage nicht verfügbar"
+  },
+  "long": {
+    "message": "Lang (20-30)",
+    "description": "Lange Domain Label"
+  },
+  "max": {
+    "message": "Max",
+    "description": "Max Label"
+  },
+  "maxSize": {
+    "message": "Max Größe",
+    "description": "Max Größe Label"
+  },
+  "median": {
+    "message": "Median",
+    "description": "Median Label"
+  },
+  "medianSize": {
+    "message": "Median Größe",
+    "description": "Median Größe Label"
+  },
+  "medium": {
+    "message": "Mittel (10-20)",
+    "description": "Mittlere Domain Label"
+  },
+  "min": {
+    "message": "Min",
+    "description": "Min Label"
+  },
+  "minSize": {
+    "message": "Min Größe",
+    "description": "Min Größe Label"
+  },
+  "mixed": {
+    "message": "Gemischte Nutzung",
+    "description": "Gemischte Nutzung Label"
+  },
+  "moreUrls": {
+    "message": "Mehr...",
+    "description": "Eingabeaufforderung für mehr URLs"
+  },
+  "name": {
+    "message": "Name",
+    "description": "Name-Label"
+  },
+  "noDetailData": {
+    "message": "Keine Daten",
+    "description": "Eingabeaufforderung ohne Detaildaten"
   },
   "noDomains": {
     "message": "Keine Domains",
     "description": "Leere Liste Nachricht"
+  },
+  "noStorageData": {
+    "message": "Keine Speicherdaten für die aktuelle Website",
+    "description": "Eingabeaufforderung wenn keine Speicherdaten vorhanden sind"
+  },
+  "none": {
+    "message": "Keine",
+    "description": "Keine Label"
+  },
+  "normalReload": {
+    "message": "Normales Neuladen",
+    "description": "Button für normales Neuladen"
+  },
+  "normalReloadDesc": {
+    "message": "Aktuelle Seite neu laden und Cache-Daten beibehalten",
+    "description": "Tooltip für normalen Neu-laden-Button"
+  },
+  "notificationDisabled": {
+    "message": "Benachrichtigungen deaktiviert, werden nicht angezeigt",
+    "description": "Meldung für deaktivierte Benachrichtigungen"
+  },
+  "notificationSettings": {
+    "message": "Benachrichtigungseinstellungen",
+    "description": "Benachrichtigungseinstellungen"
+  },
+  "notificationSound": {
+    "message": "Benachrichtigungston",
+    "description": "Benachrichtigungston-Option"
+  },
+  "openAnalysis": {
+    "message": "Globale Speicheranalyse",
+    "description": "Analyse öffnen Button"
+  },
+  "operationFailed": {
+    "message": "Operation fehlgeschlagen",
+    "description": "Allgemeine Fehlermeldung für Operation"
+  },
+  "other": {
+    "message": "Andere Kombinationen",
+    "description": "Andere Kombinationen Label"
+  },
+  "pageHardReloading": {
+    "message": "🔄 Seite wird hart neu geladen",
+    "description": "Meldung für Seite hart neu laden"
+  },
+  "pageReloading": {
+    "message": "🔄 Seite wird neu geladen",
+    "description": "Meldung für Seite neu laden"
+  },
+  "path": {
+    "message": "Pfad",
+    "description": "Pfad-Label"
+  },
+  "perItem": {
+    "message": "Pro Eintrag",
+    "description": "Pro Eintrag Label"
+  },
+  "popupTitle": {
+    "message": "Cache-Reinigungsassistent - Ihr Browser-Reinigungsexperte",
+    "description": "Popup-Titel"
+  },
+  "preference": {
+    "message": "Präferenz",
+    "description": "Präferenz Label"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "Erstes Quartil Label"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "Drittes Quartil Label"
+  },
+  "qualityComparison": {
+    "message": "Qualitätsvergleich",
+    "description": "Qualitätsvergleich Label"
+  },
+  "qualityLocalJsonFail": {
+    "message": "LocalStorage JSON-Parse-Fehler",
+    "description": "Qualitätsmetrik"
+  },
+  "qualityLocalLarge": {
+    "message": "LocalStorage übergroße Schlüssel (>100KB)",
+    "description": "Qualitätsmetrik"
+  },
+  "qualitySessionJsonFail": {
+    "message": "SessionStorage JSON-Parse-Fehler",
+    "description": "Qualitätsmetrik"
+  },
+  "qualitySessionLarge": {
+    "message": "SessionStorage übergroße Schlüssel (>100KB)",
+    "description": "Qualitätsmetrik"
+  },
+  "ratio": {
+    "message": "Verhältnis",
+    "description": "Verhältnis Label"
+  },
+  "reloadFailed": {
+    "message": "❌ Neu laden fehlgeschlagen",
+    "description": "Fehlermeldung für Neu laden"
+  },
+  "remove": {
+    "message": "Entfernen",
+    "description": "Entfernen Button"
+  },
+  "restrictedPageStorage": {
+    "message": "Diese Seite ist vom Browser geschützt und kann keine Speicherinformationen abrufen",
+    "description": "Eingabeaufforderung wenn eine eingeschränkte Seite keine Speicherinformationen abrufen kann"
+  },
+  "save": {
+    "message": "Speichern",
+    "description": "Speichern Button"
+  },
+  "saveFailed": {
+    "message": "Speichern fehlgeschlagen",
+    "description": "Fehlgeschlagene Speichermeldung"
+  },
+  "scrollToTop": {
+    "message": "Nach oben scrollen",
+    "description": "Nach oben scrollen Button"
+  },
+  "searchPlaceholder": {
+    "message": "Schlüssel oder Wert suchen...",
+    "description": "Suchfeld Platzhalter"
+  },
+  "secure": {
+    "message": "Sicher",
+    "description": "Sicher-Label"
+  },
+  "securityCombination": {
+    "message": "Sicherheitsattribut-Kombination",
+    "description": "Sicherheitsattribut-Kombination Label"
+  },
+  "sessionStorage": {
+    "message": "SessionStorage",
+    "description": "SessionStorage-Button"
+  },
+  "sessionStorageClearFailed": {
+    "message": "❌ SessionStorage leeren fehlgeschlagen",
+    "description": "Fehlermeldung für SessionStorage leeren"
+  },
+  "sessionStorageCleared": {
+    "message": "📂 SessionStorage geleert",
+    "description": "Erfolgsmeldung für geleerten SessionStorage"
+  },
+  "sessionStorageDesc": {
+    "message": "Session-Storage-Daten der aktuellen Website löschen",
+    "description": "Tooltip für SessionStorage-Button"
+  },
+  "sessionStorageUnavailable": {
+    "message": "SessionStorage nicht verfügbar",
+    "description": "Fehler SessionStorage nicht verfügbar"
+  },
+  "settingsSaveFailed": {
+    "message": "Speichern der Einstellungen fehlgeschlagen",
+    "description": "Fehlermeldung für Speichern der Einstellungen"
+  },
+  "settingsSaved": {
+    "message": "Einstellungen gespeichert",
+    "description": "Erfolgsmeldung für gespeicherte Einstellungen"
+  },
+  "short": {
+    "message": "Kurz (<10)",
+    "description": "Kurze Domain Label"
+  },
+  "silentMode": {
+    "message": "Stiller Modus (keine Hinweise)",
+    "description": "Schalter für stillen Modus"
+  },
+  "size": {
+    "message": "Größe",
+    "description": "Größe-Label"
+  },
+  "sizeRange": {
+    "message": "Größenbereich",
+    "description": "Größenbereich Label"
+  },
+  "statistics": {
+    "message": "Statistik",
+    "description": "Statistik Label"
+  },
+  "storageCombination": {
+    "message": "Speichertyp-Kombination",
+    "description": "Speichertyp-Kombination Label"
+  },
+  "storageLoadFailed": {
+    "message": "Speicherinformationen konnten nicht geladen werden",
+    "description": "Eingabeaufforderung bei fehlgeschlagenem Laden der Speicherinformationen"
+  },
+  "storageUsage": {
+    "message": "Speichernutzung",
+    "description": "Speichernutzung Titel"
+  },
+  "tabAllBrowser": {
+    "message": "Gesamter Browser",
+    "description": "Tab für gesamten Browser"
+  },
+  "tabCurrentSite": {
+    "message": "Aktuelle Website",
+    "description": "Tab für aktuelle Website"
+  },
+  "tabSettings": {
+    "message": "Erweiterte Einstellungen",
+    "description": "Tab für erweiterte Einstellungen"
+  },
+  "themeAuto": {
+    "message": "Auto",
+    "description": "Automatisches Theme"
+  },
+  "themeDark": {
+    "message": "Dunkel",
+    "description": "Dunkles Theme"
+  },
+  "themeLight": {
+    "message": "Hell",
+    "description": "Helles Theme"
+  },
+  "themeSettings": {
+    "message": "Erscheinungsbild-Theme",
+    "description": "Erscheinungsbild-Theme-Einstellungen"
+  },
+  "timeRangeAll": {
+    "message": "Gesamte Zeit",
+    "description": "Zeitraum-Option: alles"
+  },
+  "timeRangeLabel": {
+    "message": "Bereich",
+    "description": "Zeitraum-Titel"
+  },
+  "timeRangeLastDay": {
+    "message": "Letzte 24 Stunden",
+    "description": "Zeitraum-Option: 24 Stunden"
+  },
+  "timeRangeLastHour": {
+    "message": "Letzte 1 Stunde",
+    "description": "Zeitraum-Option: 1 Stunde"
+  },
+  "timeRangeLastMonth": {
+    "message": "Letzte 4 Wochen",
+    "description": "Zeitraum-Option: 4 Wochen"
+  },
+  "timeRangeLastWeek": {
+    "message": "Letzte 7 Tage",
+    "description": "Zeitraum-Option: 7 Tage"
+  },
+  "timeRangeSaved": {
+    "message": "Zeitraum gespeichert",
+    "description": "Zeitraum gespeichert Erfolgsmeldung"
+  },
+  "topLevelDomain": {
+    "message": "Top-Level-Domain",
+    "description": "Top-Level-Domain Label"
+  },
+  "totalItems": {
+    "message": "Gesamt",
+    "description": "Gesamt-Label"
+  },
+  "totalStorage": {
+    "message": "Gesamtspeicher:",
+    "description": "Gesamtspeicher Etikett"
+  },
+  "unknownOperation": {
+    "message": "Unbekannte Operation",
+    "description": "Meldung für unbekannte Operation"
+  },
+  "unknownSite": {
+    "message": "Unbekannte Website",
+    "description": "Unbekannte Website"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLs-Label"
+  },
+  "usageRate": {
+    "message": "Nutzungsrate",
+    "description": "Nutzungsrate Label"
+  },
+  "value": {
+    "message": "Wert",
+    "description": "Wert-Label"
+  },
+  "valueCopied": {
+    "message": "Wert kopiert",
+    "description": "Wert kopiert Erfolgsmeldung"
+  },
+  "version": {
+    "message": "Version",
+    "description": "Version-Label"
+  },
+  "veryLong": {
+    "message": "Sehr lang (>30)",
+    "description": "Sehr lange Domain Label"
+  },
+  "whitelist": {
+    "message": "Whitelist",
+    "description": "Whitelist Titel"
   }
 }

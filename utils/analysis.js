@@ -132,6 +132,7 @@ async function init() {
       
       // 切换导航容器显示
       const navContainer = document.querySelector('.chart-nav-container');
+      
       if (navContainer) {
         if (tab === 'charts') {
           navContainer.classList.remove('hidden');
@@ -145,6 +146,9 @@ async function init() {
         }
       }
       
+      // 更新导出按钮状态
+      updateExportButtons(tab);
+      
       if (tab === 'charts') {
         // 确保在显示后重绘图表，避免宽高为 0
         setTimeout(() => {
@@ -157,14 +161,32 @@ async function init() {
   });
   
   await loadData();
+  
+  // 初始化时更新导出按钮状态（默认为 table）
+  updateExportButtons('table');
 
   const rescanBtn = document.getElementById('rescan');
+  const exportBtn = document.getElementById('export-data');
   const clearAllBtn = document.getElementById('clear-all-domains');
   const input = searchInput();
 
   if (rescanBtn) {
     rescanBtn.addEventListener('click', () => loadData());
   }
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => exportData());
+  }
+  
+  const exportExcelBtn = document.getElementById('export-excel');
+  const exportPDFBtn = document.getElementById('export-pdf');
+
+  if (exportExcelBtn) {
+    exportExcelBtn.addEventListener('click', () => exportTableAsExcel());
+  }
+  if (exportPDFBtn) {
+    exportPDFBtn.addEventListener('click', () => exportChartsAsPDF());
+  }
+
   if (clearAllBtn) {
     clearAllBtn.addEventListener('click', async () => {
       const confirmText = getMessage('confirmDangerousTitle') || '确认执行当前操作？';
@@ -189,6 +211,253 @@ async function init() {
   
   // 初始化滚动到顶部按钮
   initScrollToTop();
+}
+
+/**
+ * 更新导出按钮显示状态
+ * @param {string} activeTab - 当前激活的 Tab 名称
+ */
+function updateExportButtons(activeTab) {
+  const exportExcelBtn = document.getElementById('export-excel');
+  const exportPDFBtn = document.getElementById('export-pdf');
+  
+  if (activeTab === 'charts') {
+    // Show PDF button, hide Excel button
+    if (exportPDFBtn) exportPDFBtn.classList.remove('hidden');
+    if (exportExcelBtn) exportExcelBtn.classList.add('hidden');
+  } else {
+    // Hide PDF button, show Excel button
+    if (exportPDFBtn) exportPDFBtn.classList.add('hidden');
+    if (exportExcelBtn) exportExcelBtn.classList.remove('hidden');
+  }
+}
+
+/**
+ * 格式化字节数
+ */
+function formatBytes(bytes, decimals = 2) {
+  if (bytes === 0) return '0 B';
+
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+
+/**
+ * 导出数据 (JSON)
+ */
+function exportData() {
+  if (!cachedDomains || cachedDomains.length === 0) {
+    alert(getMessage('noStorageData') || '没有数据可导出');
+    return;
+  }
+
+  const exportObj = {
+    timestamp: new Date().toISOString(),
+    domains: cachedDomains,
+    stats: cachedStats
+  };
+
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj, null, 2));
+  downloadFile(dataStr, 'json');
+}
+
+/**
+ * 导出表格为 Excel (CSV)
+ */
+function exportTableAsExcel() {
+  if (!cachedDomains || cachedDomains.length === 0) {
+    alert(getMessage('noStorageData') || '没有数据可导出');
+    return;
+  }
+
+  // CSV Header
+  const headers = [
+    getMessage('domain') || '域名',
+    getMessage('localStorage') || 'LocalStorage',
+    getMessage('sessionStorage') || 'SessionStorage',
+    getMessage('indexedDB') || 'IndexedDB',
+    getMessage('cacheAPI') || 'Cache',
+    getMessage('cookies') || 'Cookies',
+    getMessage('total') || '总计'
+  ];
+
+  // CSV Content
+  let csvContent = "\uFEFF" + headers.join(",") + "\n"; // Add BOM for Excel
+
+  // Helper to format cell: "Count | Size"
+  const fmt = (item) => `${item.count} | ${formatBytes(item.size)}`;
+  
+  cachedDomains.forEach(d => {
+    const totalSize = d.local.size + d.session.size + d.indexed.size + d.cache.size + d.cookies.size;
+    const totalCount = d.local.count + d.session.count + d.indexed.count + d.cache.count + d.cookies.count;
+    
+    // Excel needs quoting for cells with special chars (like |)
+    const quote = (str) => `"${str}"`;
+
+    const row = [
+      d.domain,
+      quote(fmt(d.local)),
+      quote(fmt(d.session)),
+      quote(fmt(d.indexed)),
+      quote(fmt(d.cache)),
+      quote(fmt(d.cookies)),
+      quote(`${totalCount} | ${formatBytes(totalSize)}`)
+    ];
+    csvContent += row.join(",") + "\n";
+  });
+
+  const dataStr = "data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
+  downloadFile(dataStr, 'csv');
+}
+
+/**
+ * 将文本转换为图片 Data URL
+ */
+function textToImage(text, options = {}) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  const fontSize = options.fontSize || 16;
+  const color = options.color || '#f5f7fa';
+  const fontFamily = options.fontFamily || '"Segoe UI", "Helvetica Neue", Arial, sans-serif';
+  
+  ctx.font = `bold ${fontSize}px ${fontFamily}`;
+  const textMetrics = ctx.measureText(text);
+  
+  canvas.width = textMetrics.width + 10; // padding
+  canvas.height = fontSize * 1.5;
+  
+  // Re-set font after resize
+  ctx.font = `bold ${fontSize}px ${fontFamily}`;
+  ctx.fillStyle = color;
+  ctx.textBaseline = 'middle';
+  
+  ctx.fillText(text, 0, canvas.height / 2);
+  
+  return {
+    dataUrl: canvas.toDataURL('image/png'),
+    width: canvas.width,
+    height: canvas.height,
+    aspectRatio: canvas.width / canvas.height
+  };
+}
+
+/**
+ * 导出图表为 PDF
+ */
+async function exportChartsAsPDF() {
+  if (!window.jspdf) {
+    alert('PDF library not loaded');
+    return;
+  }
+  
+  const { jsPDF } = window.jspdf;
+  // A4 size: 210 x 297 mm
+  const doc = new jsPDF();
+  
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 10;
+  const bgColor = '#0f141c'; // Dark background
+  
+  // Helper to fill background
+  const fillPage = () => {
+    doc.setFillColor(bgColor);
+    doc.rect(0, 0, pageWidth, pageHeight, 'F');
+  };
+  
+  // First page background
+  fillPage();
+  
+  let yOffset = 15;
+  
+  // Title
+  const mainTitle = getMessage('analysisTitle') || '全局存储分析';
+  const titleImg = textToImage(mainTitle, { fontSize: 24 });
+  // Scale title usually
+  const titleWidth = 60; 
+  const titleHeight = titleWidth / titleImg.aspectRatio;
+  doc.addImage(titleImg.dataUrl, 'PNG', margin, yOffset, titleWidth, titleHeight);
+  
+  // Timestamp
+  const timeStr = `Generated: ${new Date().toLocaleString()}`;
+  const timeImg = textToImage(timeStr, { fontSize: 12, color: '#b3b8c4' });
+  const timeWidth = 60;
+  const timeHeight = timeWidth / timeImg.aspectRatio;
+  doc.addImage(timeImg.dataUrl, 'PNG', margin, yOffset + titleHeight + 2, timeWidth, timeHeight);
+  
+  yOffset += titleHeight + timeHeight + 10;
+  
+  const charts = document.querySelectorAll('.chart-card canvas');
+  
+  for (let i = 0; i < charts.length; i++) {
+    const canvas = charts[i];
+    const card = canvas.closest('.chart-card');
+    const titleEl = card.querySelector('.chart-title');
+    const chartTitle = titleEl ? titleEl.textContent : '';
+    
+    // Check if we need a new page (estimate chart height + title height)
+    // Assume chart takes about 80mm height
+    if (yOffset > pageHeight - 100) {
+      doc.addPage();
+      fillPage();
+      yOffset = 15;
+    }
+    
+    // Add Chart Title
+    const chartTitleImg = textToImage(chartTitle, { fontSize: 16 });
+    const cTitleWidth = Math.min(pageWidth - margin * 2, chartTitleImg.width * 0.264583); // px to mm approx
+    const cTitleHeight = cTitleWidth / chartTitleImg.aspectRatio;
+    
+    doc.addImage(chartTitleImg.dataUrl, 'PNG', margin, yOffset, cTitleWidth, cTitleHeight);
+    yOffset += cTitleHeight + 3;
+    
+    try {
+      // Calculate aspect ratio to fit width
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = doc.getImageProperties(imgData);
+      
+      const pdfWidth = pageWidth - (margin * 2);
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+      // Double check page space
+      if (yOffset + pdfHeight > pageHeight - margin) {
+        doc.addPage();
+        fillPage();
+        yOffset = 15;
+        // Re-print title
+        doc.addImage(chartTitleImg.dataUrl, 'PNG', margin, yOffset, cTitleWidth, cTitleHeight);
+        yOffset += cTitleHeight + 3;
+      }
+      
+      doc.addImage(imgData, 'PNG', margin, yOffset, pdfWidth, pdfHeight);
+      yOffset += pdfHeight + 15;
+    } catch (err) {
+      console.error('Error adding chart to PDF', err);
+    }
+  }
+  
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+  doc.save(`storage_analysis_charts_${timestamp}.pdf`);
+}
+
+/**
+ * 通用下载函数
+ */
+function downloadFile(dataUri, ext) {
+  const downloadAnchorNode = document.createElement('a');
+  downloadAnchorNode.setAttribute("href", dataUri);
+  
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+  downloadAnchorNode.setAttribute("download", `storage_analysis_${timestamp}.${ext}`);
+  document.body.appendChild(downloadAnchorNode); // required for firefox
+  downloadAnchorNode.click();
+  downloadAnchorNode.remove();
 }
 
 /**

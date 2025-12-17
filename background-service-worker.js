@@ -19,6 +19,37 @@ function getMessage(key, substitutions = null) {
 // 图标URL
 const iconUrl = chrome.runtime.getURL('icons/icon128.png');
 
+// 清理时间范围
+const TIME_RANGE_PRESETS = {
+  hour: 60 * 60 * 1000,
+  day: 24 * 60 * 60 * 1000,
+  week: 7 * 24 * 60 * 60 * 1000,
+  month: 28 * 24 * 60 * 60 * 1000,
+  all: null
+};
+
+function normalizeRangeKey(rangeKey) {
+  return Object.prototype.hasOwnProperty.call(TIME_RANGE_PRESETS, rangeKey) ? rangeKey : 'all';
+}
+
+function calculateSince(rangeKey = 'all') {
+  const key = normalizeRangeKey(rangeKey);
+  const duration = TIME_RANGE_PRESETS[key];
+  if (!duration) return 0;
+  const since = Date.now() - duration;
+  return since > 0 ? since : 0;
+}
+
+async function getCleanupSince(rangeKey) {
+  if (rangeKey) return calculateSince(rangeKey);
+  try {
+    const { timeRange } = await chrome.storage.local.get(['timeRange']);
+    return calculateSince(timeRange);
+  } catch (error) {
+    return calculateSince('all');
+  }
+}
+
 // 确保Service Worker正常注册
 self.addEventListener('install', (event) => {
   // Service Worker 安装
@@ -245,21 +276,24 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         // 清空缓存并硬性重新加载
         // 🚀 优化：先重载页面（立即响应），后清理缓存（异步进行）
         // 这样可以避免在 macOS 等系统上因缓存清理导致的延迟
+        {
+          const since = await getCleanupSince();
         
-        // 立即重载页面，提供即时反馈
-        chrome.tabs.reload(tab.id, { bypassCache: true }); // bypassCache: true - 确保即使缓存还在，也会从服务器获取最新内容
-        showNotification(getMessage('cacheAndPageReloading'));
-        
-        // 异步清理缓存，不阻塞页面重载
-        setTimeout(() => {
-          chrome.browsingData.removeCache({
-            since: 0,
-            origins: [tab.url]
-          }).catch(error => {
-            // 缓存清理失败（静默处理，因为页面已经重载）
-            console.warn('Cache cleanup failed:', error);
-          });
-        }, 0);
+          // 立即重载页面，提供即时反馈
+          chrome.tabs.reload(tab.id, { bypassCache: true }); // bypassCache: true - 确保即使缓存还在，也会从服务器获取最新内容
+          showNotification(getMessage('cacheAndPageReloading'));
+          
+          // 异步清理缓存，不阻塞页面重载
+          setTimeout(() => {
+            chrome.browsingData.removeCache({
+              since,
+              origins: [tab.url]
+            }).catch(error => {
+              // 缓存清理失败（静默处理，因为页面已经重载）
+              console.warn('Cache cleanup failed:', error);
+            });
+          }, 0);
+        }
         break;
 
       case 'clearCurrentWebsiteCache':
@@ -268,11 +302,12 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         clearCurrentWebsiteCache(tab);
         break;
 
-      case 'clearCookies':
+      case 'clearCookies': {
         // 清空Cookies
         // 执行清空Cookies
+        const cookiesSince = await getCleanupSince();
         chrome.browsingData.removeCookies({
-          since: 0,
+          since: cookiesSince,
           origins: [tab.url]
         }).then(() => {
           showNotification(getMessage('cookiesCleared'));
@@ -281,6 +316,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
           showNotification(getMessage('cleaningFailed') + ': ' + error.message, 'error');
         });
         break;
+      }
 
       case 'clearLocalStorage':
         // 清空LocalStorage
@@ -313,30 +349,32 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 // 清空当前网站缓存
 function clearCurrentWebsiteCache(tab) {
   // 清理缓存
-  chrome.browsingData.removeCache({
-    since: 0,
-    origins: [tab.url]
-  }).then(() => {
-    // 清理Cookies
-    return chrome.browsingData.removeCookies({
-      since: 0,
+  getCleanupSince().then((since) => {
+    return chrome.browsingData.removeCache({
+      since,
       origins: [tab.url]
+    }).then(() => {
+      // 清理Cookies
+      return chrome.browsingData.removeCookies({
+        since,
+        origins: [tab.url]
+      });
+    }).then(() => {
+      // 清理IndexedDB
+      return chrome.browsingData.removeIndexedDB({
+        since,
+        origins: [tab.url]
+      });
+    }).then(() => {
+      // 清理LocalStorage
+      return clearLocalStorage(tab, false);
+    }).then(() => {
+      // 清理SessionStorage
+      return clearSessionStorage(tab, false);
+    }).then(() => {
+      // 显示成功通知
+      showNotification(getMessage('currentSiteCacheCleared'));
     });
-  }).then(() => {
-    // 清理IndexedDB
-    return chrome.browsingData.removeIndexedDB({
-      since: 0,
-      origins: [tab.url]
-    });
-  }).then(() => {
-    // 清理LocalStorage
-    return clearLocalStorage(tab, false);
-  }).then(() => {
-    // 清理SessionStorage
-    return clearSessionStorage(tab, false);
-  }).then(() => {
-    // 显示成功通知
-    showNotification(getMessage('currentSiteCacheCleared'));
   }).catch(error => {
     // 清理当前网站缓存失败
     showNotification(getMessage('cleaningFailed') + ': ' + error.message, 'error');
@@ -434,31 +472,33 @@ function clearSessionStorage(tab, showNotif = true) {
 // 清空所有数据并重新加载
 function clearAllAndReload(tab) {
   // 定义清理选项
-  const apiOptions = {
-    since: 0,
-    origins: [tab.url]
-  };
+  getCleanupSince().then((since) => {
+    const apiOptions = {
+      since,
+      origins: [tab.url]
+    };
 
-  // 清理所有数据
-  Promise.all([
-    // 清理缓存
-    chrome.browsingData.removeCache(apiOptions),
-    // 清理Cookies
-    chrome.browsingData.removeCookies(apiOptions),
-    // 清理IndexedDB
-    chrome.browsingData.removeIndexedDB(apiOptions)
-  ]).then(() => {
-    // 清理LocalStorage
-    return clearLocalStorage(tab, false);
-  }).then(() => {
-    // 清理SessionStorage
-    return clearSessionStorage(tab, false);
-  }).then(() => {
-    // 重新加载页面
-    return chrome.tabs.reload(tab.id, { bypassCache: true });
-  }).then(() => {
-    // 显示成功通知
-    showNotification(getMessage('allDataAndPageReloading'));
+    // 清理所有数据
+    return Promise.all([
+      // 清理缓存
+      chrome.browsingData.removeCache(apiOptions),
+      // 清理Cookies
+      chrome.browsingData.removeCookies(apiOptions),
+      // 清理IndexedDB
+      chrome.browsingData.removeIndexedDB(apiOptions)
+    ]).then(() => {
+      // 清理LocalStorage
+      return clearLocalStorage(tab, false);
+    }).then(() => {
+      // 清理SessionStorage
+      return clearSessionStorage(tab, false);
+    }).then(() => {
+      // 重新加载页面
+      return chrome.tabs.reload(tab.id, { bypassCache: true });
+    }).then(() => {
+      // 显示成功通知
+      showNotification(getMessage('allDataAndPageReloading'));
+    });
   }).catch(error => {
     // 全部清空重载失败
     showNotification(getMessage('cleaningFailed') + ': ' + error.message, 'error');

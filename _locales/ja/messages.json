@@ -1,275 +1,35 @@
 {
-  "extensionName": {
-    "message": "キャッシュクリーナーアシスタント",
-    "description": "拡張機能名"
+  "action": {
+    "message": "操作",
+    "description": "操作列ラベル"
   },
-  "extensionDescription": {
-    "message": "ブラウザキャッシュ、Cookie、localStorage、sessionStorageなどのデータをワンクリックでクリアする強力なツール",
-    "description": "拡張機能の説明"
+  "add": {
+    "message": "追加",
+    "description": "追加ボタン"
   },
-  "popupTitle": {
-    "message": "キャッシュクリーナーアシスタント - あなたのブラウザクリーニングエキスパート",
-    "description": "ポップアップタイトル"
+  "addDomain": {
+    "message": "ドメインを追加",
+    "description": "ドメイン追加モーダルタイトル"
   },
-  "currentSite": {
-    "message": "現在のサイト：",
-    "description": "現在のサイトラベル"
+  "addedDomains": {
+    "message": "追加済みドメイン",
+    "description": "追加済みドメインリストタイトル"
   },
-  "loading": {
-    "message": "読み込み中...",
-    "description": "読み込み状態"
-  },
-  "unknownSite": {
-    "message": "不明なサイト",
-    "description": "不明なサイト"
-  },
-  "tabCurrentSite": {
-    "message": "現在のサイト",
-    "description": "現在のサイトタブ"
-  },
-  "tabAllBrowser": {
-    "message": "ブラウザ全体",
-    "description": "ブラウザ全体タブ"
-  },
-  "tabSettings": {
-    "message": "詳細設定",
-    "description": "詳細設定タブ"
-  },
-  "normalReload": {
-    "message": "通常の再読み込み",
-    "description": "通常の再読み込みボタン"
-  },
-  "hardReload": {
-    "message": "ハード再読み込み",
-    "description": "ハード再読み込みボタン"
-  },
-  "clearCacheAndHardReload": {
-    "message": "キャッシュをクリアしてハード再読み込み",
-    "description": "キャッシュクリア＆ハード再読み込みボタン"
-  },
-  "clearCache": {
-    "message": "キャッシュをクリア",
-    "description": "キャッシュクリアボタン"
-  },
-  "clearAllAndReload": {
-    "message": "すべてクリア＆再読み込み",
-    "description": "すべてクリア＆再読み込みボタン"
-  },
-  "cookies": {
-    "message": "Cookie",
-    "description": "Cookieボタン"
-  },
-  "localStorage": {
-    "message": "LocalStorage",
-    "description": "LocalStorageボタン"
-  },
-  "sessionStorage": {
-    "message": "SessionStorage",
-    "description": "SessionStorageボタン"
-  },
-  "indexedDB": {
-    "message": "IndexedDB",
-    "description": "IndexedDBボタン"
-  },
-  "clearAllCache": {
-    "message": "すべてのキャッシュをクリア",
-    "description": "すべてのキャッシュクリアボタン"
-  },
-  "browserCache": {
-    "message": "ブラウザキャッシュ",
-    "description": "ブラウザキャッシュボタン"
-  },
-  "allCookies": {
-    "message": "すべてのCookie",
-    "description": "すべてのCookieボタン"
-  },
-  "allIndexedDB": {
-    "message": "すべてのIndexedDB",
-    "description": "すべてのIndexedDBボタン"
-  },
-  "clearHistory": {
-    "message": "履歴をクリア",
-    "description": "履歴クリアボタン"
-  },
-  "downloadHistory": {
-    "message": "ダウンロード履歴",
-    "description": "ダウンロード履歴ボタン"
-  },
-  "deleteDownloadFiles": {
-    "message": "ダウンロードファイルを削除",
-    "description": "ダウンロードファイル削除ボタン"
-  },
-  "themeSettings": {
-    "message": "外観テーマ",
-    "description": "外観テーマ設定"
-  },
-  "themeAuto": {
-    "message": "自動",
-    "description": "自動テーマ"
-  },
-  "themeDark": {
-    "message": "ダーク",
-    "description": "ダークテーマ"
-  },
-  "themeLight": {
-    "message": "ライト",
-    "description": "ライトテーマ"
-  },
-  "cleaningOptions": {
-    "message": "クリーニングオプション",
-    "description": "クリーニングオプション設定"
-  },
-  "keepPasswords": {
-    "message": "パスワードを保持",
-    "description": "パスワード保持オプション"
-  },
-  "keepFormData": {
-    "message": "フォームデータを保持",
-    "description": "フォームデータ保持オプション"
-  },
-  "includeProtectedData": {
-    "message": "保護されたデータを含む",
-    "description": "保護されたデータを含むオプション"
-  },
-  "notificationSettings": {
-    "message": "通知設定",
-    "description": "通知設定"
-  },
-  "enableNotifications": {
-    "message": "通知を有効にする",
-    "description": "通知有効化オプション"
-  },
-  "notificationSound": {
-    "message": "通知音",
-    "description": "通知音オプション"
-  },
-  "footerTip": {
-    "message": "💡 ヒント：削除機能は慎重に使用してください。削除されたデータは復元できません",
-    "description": "フッターのヒント"
-  },
-  "save": {
-    "message": "保存",
-    "description": "保存ボタン"
-  },
-  "settingsSaved": {
-    "message": "設定が保存されました",
-    "description": "設定保存成功メッセージ"
-  },
-  "settingsSaveFailed": {
-    "message": "設定の保存に失敗しました",
-    "description": "設定保存失敗メッセージ"
-  },
-  "saveFailed": {
-    "message": "保存に失敗しました",
-    "description": "保存失敗汎用メッセージ"
-  },
-  "currentSiteCacheCleared": {
-    "message": "🌐 現在のサイトのキャッシュがクリアされました",
-    "description": "現在のサイトキャッシュクリア成功メッセージ"
-  },
-  "currentSiteCacheClearFailed": {
-    "message": "❌ 現在のサイトのキャッシュクリアに失敗しました",
-    "description": "現在のサイトキャッシュクリア失敗メッセージ"
-  },
-  "allCacheCleared": {
-    "message": "🌐 すべてのキャッシュがクリアされました",
-    "description": "すべてのキャッシュクリア成功メッセージ"
+  "all": {
+    "message": "すべてのタイプ",
+    "description": "すべてのタイプラベル"
   },
   "allCacheClearFailed": {
     "message": "❌ すべてのキャッシュのクリアに失敗しました",
     "description": "すべてのキャッシュクリア失敗メッセージ"
   },
-  "cacheCleared": {
-    "message": "🗑️ キャッシュがクリアされました",
-    "description": "キャッシュクリア成功メッセージ"
+  "allCacheCleared": {
+    "message": "🌐 すべてのキャッシュがクリアされました",
+    "description": "すべてのキャッシュクリア成功メッセージ"
   },
-  "cacheClearFailed": {
-    "message": "❌ キャッシュのクリアに失敗しました",
-    "description": "キャッシュクリア失敗メッセージ"
-  },
-  "cookiesCleared": {
-    "message": "🍪 Cookieがクリアされました",
-    "description": "Cookieクリア成功メッセージ"
-  },
-  "cookiesClearFailed": {
-    "message": "❌ Cookieのクリアに失敗しました",
-    "description": "Cookieクリア失敗メッセージ"
-  },
-  "localStorageCleared": {
-    "message": "💾 LocalStorageがクリアされました",
-    "description": "LocalStorageクリア成功メッセージ"
-  },
-  "localStorageClearFailed": {
-    "message": "❌ LocalStorageのクリアに失敗しました",
-    "description": "LocalStorageクリア失敗メッセージ"
-  },
-  "sessionStorageCleared": {
-    "message": "📂 SessionStorageがクリアされました",
-    "description": "SessionStorageクリア成功メッセージ"
-  },
-  "sessionStorageClearFailed": {
-    "message": "❌ SessionStorageのクリアに失敗しました",
-    "description": "SessionStorageクリア失敗メッセージ"
-  },
-  "indexedDBCleared": {
-    "message": "📊 IndexedDBがクリアされました",
-    "description": "IndexedDBクリア成功メッセージ"
-  },
-  "indexedDBClearFailed": {
-    "message": "❌ IndexedDBのクリアに失敗しました",
-    "description": "IndexedDBクリア失敗メッセージ"
-  },
-  "allIndexedDBCleared": {
-    "message": "📊 すべてのIndexedDBがクリアされました",
-    "description": "すべてのIndexedDBクリア成功メッセージ"
-  },
-  "historyCleared": {
-    "message": "📜 履歴がクリアされました",
-    "description": "履歴クリア成功メッセージ"
-  },
-  "historyClearFailed": {
-    "message": "❌ 履歴のクリアに失敗しました",
-    "description": "履歴クリア失敗メッセージ"
-  },
-  "downloadsCleared": {
-    "message": "📥 ダウンロード履歴がクリアされました",
-    "description": "ダウンロード履歴クリア成功メッセージ"
-  },
-  "downloadsClearFailed": {
-    "message": "❌ ダウンロード履歴のクリアに失敗しました",
-    "description": "ダウンロード履歴クリア失敗メッセージ"
-  },
-  "downloadFilesCleared": {
-    "message": "📁 ダウンロードファイルが削除されました",
-    "description": "ダウンロードファイル削除成功メッセージ"
-  },
-  "downloadFilesClearFailed": {
-    "message": "❌ ダウンロードファイルの削除に失敗しました",
-    "description": "ダウンロードファイル削除失敗メッセージ"
-  },
-  "pageReloading": {
-    "message": "🔄 ページを再読み込み中",
-    "description": "ページ再読み込みメッセージ"
-  },
-  "reloadFailed": {
-    "message": "❌ 再読み込みに失敗しました",
-    "description": "再読み込み失敗メッセージ"
-  },
-  "pageHardReloading": {
-    "message": "🔄 ページをハード再読み込み中",
-    "description": "ページハード再読み込みメッセージ"
-  },
-  "hardReloadFailed": {
-    "message": "❌ ハード再読み込みに失敗しました",
-    "description": "ハード再読み込み失敗メッセージ"
-  },
-  "cacheAndPageReloading": {
-    "message": "🔄 キャッシュがクリアされ、ページを再読み込み中",
-    "description": "キャッシュクリア＆ページ再読み込みメッセージ"
-  },
-  "cacheAndReloadFailed": {
-    "message": "❌ キャッシュクリアと再読み込みに失敗しました",
-    "description": "キャッシュクリア＆再読み込み失敗メッセージ"
+  "allCookies": {
+    "message": "すべてのCookie",
+    "description": "すべてのCookieボタン"
   },
   "allDataAndPageReloading": {
     "message": "🔄 すべてのデータがクリアされ、ページを再読み込み中",
@@ -279,6 +39,298 @@
     "message": "❌ データクリアと再読み込みに失敗しました",
     "description": "データクリア＆再読み込み失敗メッセージ"
   },
+  "allIndexedDB": {
+    "message": "すべてのIndexedDB",
+    "description": "すべてのIndexedDBボタン"
+  },
+  "allIndexedDBCleared": {
+    "message": "📊 すべてのIndexedDBがクリアされました",
+    "description": "すべてのIndexedDBクリア成功メッセージ"
+  },
+  "analysisChartAvgItemSize": {
+    "message": "ストレージ種別別平均項目サイズ",
+    "description": "平均項目サイズグラフタイトル"
+  },
+  "analysisChartBoxPlot": {
+    "message": "ストレージ種別サイズ分布ボックスプロット",
+    "description": "ボックスプロットタイトル"
+  },
+  "analysisChartConcentration": {
+    "message": "ストレージ集中度分析（パレート図）",
+    "description": "集中度グラフタイトル"
+  },
+  "analysisChartCookiesExpiringSoon": {
+    "message": "7日以内に期限切れになる Cookies のトップドメイン",
+    "description": "まもなく期限切れ Cookies トップドメイン"
+  },
+  "analysisChartCookiesExpiry": {
+    "message": "Cookies 有効期限分布",
+    "description": "Cookies 有効期限バケットグラフ"
+  },
+  "analysisChartCookiesSecurity": {
+    "message": "Cookies セキュリティ属性",
+    "description": "Cookies Secure/HttpOnly/SameSite グラフ"
+  },
+  "analysisChartDomainLength": {
+    "message": "ドメイン長別グループ統計",
+    "description": "ドメイン長グラフタイトル"
+  },
+  "analysisChartDomainPreference": {
+    "message": "ドメインストレージ種別選好",
+    "description": "選好グラフタイトル"
+  },
+  "analysisChartDomainTypeCount": {
+    "message": "トップドメインのストレージ種別（項目数）",
+    "description": "ストレージ種別別項目数積み上げグラフ"
+  },
+  "analysisChartDomainTypeSize": {
+    "message": "トップドメインのストレージ種別（サイズ）",
+    "description": "ストレージ種別別サイズ積み上げグラフ"
+  },
+  "analysisChartExpiredCookies": {
+    "message": "期限切れ Cookies ドメイン分布",
+    "description": "期限切れCookiesグラフタイトル"
+  },
+  "analysisChartInsecureCookies": {
+    "message": "安全でない Cookies のトップドメイン",
+    "description": "安全でないCookiesグラフタイトル"
+  },
+  "analysisChartItemDistribution": {
+    "message": "ドメイン項目数分布ヒストグラム",
+    "description": "項目数分布グラフタイトル"
+  },
+  "analysisChartJsonFailRate": {
+    "message": "JSON 解析失敗率（ドメイン別）",
+    "description": "JSON失敗率グラフタイトル"
+  },
+  "analysisChartLargeKeys": {
+    "message": "超大キー分布（ドメイン別）",
+    "description": "超大キー分布グラフタイトル"
+  },
+  "analysisChartQuality": {
+    "message": "ストレージ品質 / リスク",
+    "description": "品質指標グラフタイトル"
+  },
+  "analysisChartQualityComparison": {
+    "message": "ストレージ種別品質比較",
+    "description": "品質比較グラフタイトル"
+  },
+  "analysisChartSecurityCombination": {
+    "message": "Cookies セキュリティ属性組み合わせ分析",
+    "description": "セキュリティ組み合わせグラフタイトル"
+  },
+  "analysisChartSizeBuckets": {
+    "message": "ストレージ項目サイズ分布",
+    "description": "サイズバケットグラフ"
+  },
+  "analysisChartSizeDistribution": {
+    "message": "ドメインサイズ分布ヒストグラム",
+    "description": "サイズ分布グラフタイトル"
+  },
+  "analysisChartSizeItemScatter": {
+    "message": "ドメインサイズと項目数散布図",
+    "description": "散布図タイトル"
+  },
+  "analysisChartStatistics": {
+    "message": "ストレージ統計サマリー",
+    "description": "統計サマリーグラフタイトル"
+  },
+  "analysisChartStorageCombination": {
+    "message": "ストレージ種別組み合わせ別グループ",
+    "description": "ストレージ組み合わせグラフタイトル"
+  },
+  "analysisChartStorageDensity": {
+    "message": "ドメインストレージ密度分布",
+    "description": "ストレージ密度グラフタイトル"
+  },
+  "analysisChartStorageUsage": {
+    "message": "ストレージ種別使用率",
+    "description": "使用率グラフタイトル"
+  },
+  "analysisChartTLDDistribution": {
+    "message": "トップレベルドメイン（TLD）別グループ統計",
+    "description": "TLD分布グラフタイトル"
+  },
+  "analysisChartTopCookies": {
+    "message": "トップドメイン（Cookies サイズ順）",
+    "description": "トップドメイン（Cookies サイズ順）グラフタイトル"
+  },
+  "analysisChartTopDomainRatio": {
+    "message": "トップドメイン比率分析",
+    "description": "比率分析グラフタイトル"
+  },
+  "analysisChartTopDomains": {
+    "message": "トップドメイン（サイズ順）",
+    "description": "トップドメイン（サイズ順）グラフタイトル"
+  },
+  "analysisChartTopDomainsCount": {
+    "message": "トップドメイン（項目数順）",
+    "description": "トップドメイン（項目数順）グラフタイトル"
+  },
+  "analysisChartTypeEfficiency": {
+    "message": "ストレージ種別効率比較",
+    "description": "効率比較グラフタイトル"
+  },
+  "analysisChartTypes": {
+    "message": "ストレージ種別別",
+    "description": "ストレージ種別の分布グラフタイトル"
+  },
+  "analysisChartTypesCount": {
+    "message": "ストレージ種別別（項目数）",
+    "description": "ストレージ種別の項目数分布グラフタイトル"
+  },
+  "analysisClearAll": {
+    "message": "全ドメインを削除",
+    "description": "全ドメイン削除ボタン"
+  },
+  "analysisClearDomain": {
+    "message": "このドメインを削除",
+    "description": "ドメイン削除ボタンテキスト"
+  },
+  "analysisDesc": {
+    "message": "ドメインごとに Local/Session/IndexedDB/Cache/Cookies を集計",
+    "description": "分析ページの説明"
+  },
+  "analysisDomainCount": {
+    "message": "ドメイン数",
+    "description": "ドメイン数ラベル"
+  },
+  "analysisEmpty": {
+    "message": "データなし",
+    "description": "空データのヒント"
+  },
+  "analysisExport": {
+    "message": "データをエクスポート",
+    "description": "データエクスポートボタン"
+  },
+  "analysisExportExcel": {
+    "message": "Excelをエクスポート",
+    "description": "Excelエクスポートボタン"
+  },
+  "analysisExportPDF": {
+    "message": "PDFをエクスポート",
+    "description": "PDFエクスポートボタン"
+  },
+  "analysisLoading": {
+    "message": "スキャン中...",
+    "description": "スキャン中のヒント"
+  },
+  "analysisRescan": {
+    "message": "再スキャン",
+    "description": "再スキャンボタン"
+  },
+  "analysisSearchPlaceholder": {
+    "message": "ドメインを検索...",
+    "description": "分析ページ検索プレースホルダー"
+  },
+  "analysisSectionComparison": {
+    "message": "比較ビュー",
+    "description": "比較グループ小見出し"
+  },
+  "analysisSectionConcentration": {
+    "message": "集中度ビュー",
+    "description": "集中度グループ小見出し"
+  },
+  "analysisSectionDistribution": {
+    "message": "分布ビュー",
+    "description": "分布グループ小見出し"
+  },
+  "analysisSectionDomains": {
+    "message": "ドメインビュー",
+    "description": "ドメインチャートのセクション見出し"
+  },
+  "analysisSectionEfficiency": {
+    "message": "効率と密度ビュー",
+    "description": "効率密度グループ小見出し"
+  },
+  "analysisSectionQuality": {
+    "message": "ストレージ品質とリスク",
+    "description": "品質リスクグループ小見出し"
+  },
+  "analysisSectionSecurity": {
+    "message": "セキュリティとリスクビュー",
+    "description": "セキュリティリスクグループ小見出し"
+  },
+  "analysisSectionSegmentation": {
+    "message": "セグメンテーションビュー",
+    "description": "セグメンテーショングループ小見出し"
+  },
+  "analysisSectionStacks": {
+    "message": "ドメインとストレージ種別ビュー",
+    "description": "積み上げチャートのセクション見出し"
+  },
+  "analysisSectionStatistics": {
+    "message": "統計サマリービュー",
+    "description": "統計サマリーグループ小見出し"
+  },
+  "analysisSectionTypes": {
+    "message": "ストレージ種別ビュー",
+    "description": "ストレージ種別チャートのセクション見出し"
+  },
+  "analysisTabCharts": {
+    "message": "グラフ",
+    "description": "タブラベル"
+  },
+  "analysisTabTable": {
+    "message": "テーブル",
+    "description": "タブラベル"
+  },
+  "analysisTitle": {
+    "message": "グローバルストレージ分析",
+    "description": "分析ページのタイトル"
+  },
+  "analysisTotalItems": {
+    "message": "項目合計",
+    "description": "項目合計ラベル"
+  },
+  "analysisTotalSize": {
+    "message": "推定サイズ",
+    "description": "合計サイズラベル"
+  },
+  "average": {
+    "message": "平均",
+    "description": "平均ラベル"
+  },
+  "avgItemSize": {
+    "message": "平均項目サイズ",
+    "description": "平均項目サイズラベル"
+  },
+  "avgSize": {
+    "message": "平均サイズ",
+    "description": "平均サイズラベル"
+  },
+  "blacklist": {
+    "message": "ブラックリスト",
+    "description": "ブラックリストタイトル"
+  },
+  "browserCache": {
+    "message": "ブラウザキャッシュ",
+    "description": "ブラウザキャッシュボタン"
+  },
+  "cacheAPI": {
+    "message": "Cache",
+    "description": "Cache API ラベル"
+  },
+  "cacheAndPageReloading": {
+    "message": "🔄 キャッシュがクリアされ、ページを再読み込み中",
+    "description": "キャッシュクリア＆ページ再読み込みメッセージ"
+  },
+  "cacheAndReloadFailed": {
+    "message": "❌ キャッシュクリアと再読み込みに失敗しました",
+    "description": "キャッシュクリア＆再読み込み失敗メッセージ"
+  },
+  "cacheClearFailed": {
+    "message": "❌ キャッシュのクリアに失敗しました",
+    "description": "キャッシュクリア失敗メッセージ"
+  },
+  "cacheCleared": {
+    "message": "🗑️ キャッシュがクリアされました",
+    "description": "キャッシュクリア成功メッセージ"
+  },
+  "cancel": {
+    "message": "キャンセル",
+    "description": "キャンセルボタンのテキスト"
+  },
   "cannotGetCurrentTab": {
     "message": "現在のタブを取得できません",
     "description": "現在のタブ取得不可エラーメッセージ"
@@ -287,61 +339,41 @@
     "message": "現在のタブ情報を取得できません",
     "description": "現在のタブ情報取得不可エラーメッセージ"
   },
-  "loadSettingsFailed": {
-    "message": "設定の読み込みに失敗しました",
-    "description": "設定読み込み失敗メッセージ"
-  },
-  "contextMenuTitle": {
-    "message": "キャッシュクリーナーアシスタント",
-    "description": "コンテキストメニュータイトル"
-  },
-  "operationFailed": {
-    "message": "操作に失敗しました",
-    "description": "操作失敗汎用メッセージ"
-  },
-  "unknownOperation": {
-    "message": "不明な操作",
-    "description": "不明な操作メッセージ"
+  "cleaning": {
+    "message": "削除中...",
+    "description": "削除進行中のヒント"
   },
   "cleaningFailed": {
     "message": "クリーニングに失敗しました",
     "description": "クリーニング失敗汎用メッセージ"
   },
-  "localStorageUnavailable": {
-    "message": "LocalStorageが利用できません",
-    "description": "LocalStorage利用不可エラー"
+  "cleaningOptions": {
+    "message": "クリーニングオプション",
+    "description": "クリーニングオプション設定"
   },
-  "sessionStorageUnavailable": {
-    "message": "SessionStorageが利用できません",
-    "description": "SessionStorage利用不可エラー"
+  "clearAllAndReload": {
+    "message": "すべてクリア＆再読み込み",
+    "description": "すべてクリア＆再読み込みボタン"
   },
-  "notificationDisabled": {
-    "message": "通知が無効になっています。表示されません",
-    "description": "通知無効メッセージ"
+  "clearAllAndReloadDesc": {
+    "message": "現在のサイトのすべてのデータをクリアしてページを再読み込みします",
+    "description": "すべてクリア＆再読み込みボタンのツールチップ"
   },
-  "languageSettings": {
-    "message": "言語設定",
-    "description": "言語設定タイトル"
+  "clearAllCache": {
+    "message": "すべてのキャッシュをクリア",
+    "description": "すべてのキャッシュクリアボタン"
   },
-  "languageAuto": {
-    "message": "システムに従う",
-    "description": "自動言語オプション"
+  "clearAllCacheDesc": {
+    "message": "ブラウザのすべてのキャッシュデータをワンクリックでクリアします",
+    "description": "すべてのキャッシュクリアボタンのツールチップ"
   },
-  "languageChanged": {
-    "message": "言語が変更されました",
-    "description": "言語変更成功メッセージ"
+  "clearCache": {
+    "message": "キャッシュをクリア",
+    "description": "キャッシュクリアボタン"
   },
-  "languageChangeFailed": {
-    "message": "言語の変更に失敗しました",
-    "description": "言語変更失敗メッセージ"
-  },
-  "normalReloadDesc": {
-    "message": "キャッシュデータを保持したまま現在のページを再読み込みします",
-    "description": "通常の再読み込みボタンのツールチップ"
-  },
-  "hardReloadDesc": {
-    "message": "キャッシュを無視してページを強制的に再読み込みします",
-    "description": "ハード再読み込みボタンのツールチップ"
+  "clearCacheAndHardReload": {
+    "message": "キャッシュをクリアしてハード再読み込み",
+    "description": "キャッシュクリア＆ハード再読み込みボタン"
   },
   "clearCacheAndHardReloadDesc": {
     "message": "現在のサイトのキャッシュデータをクリアして強制的に再読み込みします",
@@ -351,201 +383,29 @@
     "message": "現在のサイトのすべてのキャッシュデータをクリアします",
     "description": "キャッシュクリアボタンのツールチップ"
   },
-  "clearAllAndReloadDesc": {
-    "message": "現在のサイトのすべてのデータをクリアしてページを再読み込みします",
-    "description": "すべてクリア＆再読み込みボタンのツールチップ"
-  },
-  "cookiesDesc": {
-    "message": "現在のサイトのCookieデータをクリアします",
-    "description": "Cookiesボタンのツールチップ"
-  },
-  "localStorageDesc": {
-    "message": "現在のサイトのローカルストレージデータをクリアします",
-    "description": "LocalStorageボタンのツールチップ"
-  },
-  "sessionStorageDesc": {
-    "message": "現在のサイトのセッションストレージデータをクリアします",
-    "description": "SessionStorageボタンのツールチップ"
-  },
-  "indexedDBDesc": {
-    "message": "現在のサイトのIndexedDBデータベースをクリアします",
-    "description": "IndexedDBボタンのツールチップ"
-  },
-  "clearAllCacheDesc": {
-    "message": "ブラウザのすべてのキャッシュデータをワンクリックでクリアします",
-    "description": "すべてのキャッシュクリアボタンのツールチップ"
-  },
-  "storageUsage": {
-    "message": "ストレージ使用状況",
-    "description": "ストレージ使用状況タイトル"
-  },
-  "loadingStorage": {
-    "message": "ストレージ情報を読み込み中...",
-    "description": "ストレージ情報読み込み時のプロンプト"
-  },
-  "storageLoadFailed": {
-    "message": "ストレージ情報を読み込めません",
-    "description": "ストレージ情報読み込み失敗時のプロンプト"
-  },
-  "noStorageData": {
-    "message": "現在のウェブサイトにストレージデータがありません",
-    "description": "ストレージデータがない場合のプロンプト"
-  },
-  "totalStorage": {
-    "message": "合計ストレージ：",
-    "description": "合計ストレージラベル"
-  },
-  "items": {
-    "message": "項目",
-    "description": "ストレージ項目数の単位"
-  },
-  "restrictedPageStorage": {
-    "message": "このページはブラウザによって保護されており、ストレージ情報を取得できません",
-    "description": "制限されたページでストレージ情報を取得できない場合のプロンプト"
+  "clearHistory": {
+    "message": "履歴をクリア",
+    "description": "履歴クリアボタン"
   },
   "clickToViewDetail": {
     "message": "クリックして詳細を表示",
     "description": "詳細を表示するためのクリックプロンプト"
   },
-  "loadingDetail": {
-    "message": "詳細を読み込み中...",
-    "description": "詳細を読み込む際のプロンプト"
-  },
-  "detailLoadFailed": {
-    "message": "詳細の読み込みに失敗しました",
-    "description": "詳細の読み込み失敗時のプロンプト"
-  },
-  "noDetailData": {
-    "message": "データなし",
-    "description": "詳細データがない場合のプロンプト"
-  },
-  "totalItems": {
-    "message": "合計",
-    "description": "合計ラベル"
-  },
-  "key": {
-    "message": "キー",
-    "description": "キーラベル"
-  },
-  "value": {
-    "message": "値",
-    "description": "値ラベル"
-  },
-  "size": {
-    "message": "サイズ",
-    "description": "サイズラベル"
-  },
-  "name": {
-    "message": "名前",
-    "description": "名前ラベル"
-  },
-  "domain": {
-    "message": "ドメイン",
-    "description": "ドメインラベル"
-  },
-  "path": {
-    "message": "パス",
-    "description": "パスラベル"
-  },
-  "secure": {
-    "message": "セキュア",
-    "description": "セキュアラベル"
-  },
-  "httpOnly": {
-    "message": "HttpOnly",
-    "description": "HttpOnlyラベル"
-  },
-  "expiration": {
-    "message": "有効期限",
-    "description": "有効期限ラベル"
-  },
-  "version": {
-    "message": "バージョン",
-    "description": "バージョンラベル"
-  },
-  "count": {
-    "message": "数量",
-    "description": "数量ラベル"
-  },
-  "urls": {
-    "message": "URLs",
-    "description": "URLsラベル"
-  },
-  "moreUrls": {
-    "message": "さらに表示...",
-    "description": "さらにURLがある場合のプロンプト"
-  },
-  "expandAll": {
-    "message": "すべて展開",
-    "description": "すべて展開ボタン"
-  },
   "collapseAll": {
     "message": "すべて折りたたむ",
     "description": "すべて折りたたむボタン"
   },
-  "scrollToTop": {
-    "message": "トップにスクロール",
-    "description": "トップにスクロールボタン"
-  },
-  "searchPlaceholder": {
-    "message": "キーまたは値を検索...",
-    "description": "検索入力のプレースホルダー"
-  },
-  "doubleClickToCopy": {
-    "message": "ダブルクリックでコピー",
-    "description": "ダブルクリックでコピーのヒント"
-  },
-  "keyCopied": {
-    "message": "キーをコピーしました",
-    "description": "キーコピー成功メッセージ"
-  },
-  "valueCopied": {
-    "message": "値をコピーしました",
-    "description": "値コピー成功メッセージ"
-  },
-  "copy": {
-    "message": "コピー",
-    "description": "コピーボタンのテキスト"
-  },
-  "delete": {
-    "message": "削除",
-    "description": "削除ボタンのテキスト"
-  },
-  "confirmDeleteTitle": {
-    "message": "削除の確認",
-    "description": "削除確認ダイアログのタイトル"
-  },
-  "confirmDelete": {
-    "message": "この項目を削除してもよろしいですか？",
-    "description": "削除確認プロンプト"
-  },
-  "confirmDeleteDomain": {
-    "message": "ドメイン \"${domain}\" を削除してもよろしいですか？この操作は元に戻せません。",
-    "description": "ドメイン削除確認プロンプト"
+  "concentration": {
+    "message": "集中度",
+    "description": "集中度ラベル"
   },
   "confirm": {
     "message": "確認",
     "description": "確認ボタンのテキスト"
   },
-  "cancel": {
-    "message": "キャンセル",
-    "description": "キャンセルボタンのテキスト"
-  },
-  "itemDeleted": {
-    "message": "項目が削除されました",
-    "description": "削除成功メッセージ"
-  },
-  "deleteFailed": {
-    "message": "削除に失敗しました",
-    "description": "削除失敗メッセージ"
-  },
   "confirmDangerous": {
     "message": "危険な操作の再確認",
     "description": "危険操作の二重確認トグル"
-  },
-  "silentMode": {
-    "message": "サイレントモード（通知なし）",
-    "description": "サイレントモードトグル"
   },
   "confirmDangerousMessage": {
     "message": "この操作は元に戻せません。続行しますか？",
@@ -563,513 +423,245 @@
     "message": "現在の操作を実行しますか？",
     "description": "危険操作確認タイトル"
   },
-  "analysisTitle": {
-    "message": "グローバルストレージ分析",
-    "description": "分析ページのタイトル"
-  },
-  "analysisDesc": {
-    "message": "ドメインごとに Local/Session/IndexedDB/Cache/Cookies を集計",
-    "description": "分析ページの説明"
-  },
-  "analysisRescan": {
-    "message": "再スキャン",
-    "description": "再スキャンボタン"
-  },
-  "analysisClearAll": {
-    "message": "全ドメインを削除",
-    "description": "全ドメイン削除ボタン"
-  },
-  "analysisDomainCount": {
-    "message": "ドメイン数",
-    "description": "ドメイン数ラベル"
-  },
-  "analysisTotalItems": {
-    "message": "項目合計",
-    "description": "項目合計ラベル"
-  },
-  "analysisTotalSize": {
-    "message": "推定サイズ",
-    "description": "合計サイズラベル"
-  },
-  "analysisChartTypes": {
-    "message": "ストレージ種別別",
-    "description": "ストレージ種別の分布グラフタイトル"
-  },
-  "analysisChartTypesCount": {
-    "message": "ストレージ種別別（項目数）",
-    "description": "ストレージ種別の項目数分布グラフタイトル"
-  },
-  "analysisChartTopDomains": {
-    "message": "トップドメイン（サイズ順）",
-    "description": "トップドメイン（サイズ順）グラフタイトル"
-  },
-  "analysisChartTopDomainsCount": {
-    "message": "トップドメイン（項目数順）",
-    "description": "トップドメイン（項目数順）グラフタイトル"
-  },
-  "analysisChartTopCookies": {
-    "message": "トップドメイン（Cookies サイズ順）",
-    "description": "トップドメイン（Cookies サイズ順）グラフタイトル"
-  },
-  "analysisChartDomainTypeSize": {
-    "message": "トップドメインのストレージ種別（サイズ）",
-    "description": "ストレージ種別別サイズ積み上げグラフ"
-  },
-  "analysisChartDomainTypeCount": {
-    "message": "トップドメインのストレージ種別（項目数）",
-    "description": "ストレージ種別別項目数積み上げグラフ"
-  },
-  "analysisChartSizeBuckets": {
-    "message": "ストレージ項目サイズ分布",
-    "description": "サイズバケットグラフ"
-  },
-  "analysisChartCookiesSecurity": {
-    "message": "Cookies セキュリティ属性",
-    "description": "Cookies Secure/HttpOnly/SameSite グラフ"
-  },
-  "analysisChartCookiesExpiry": {
-    "message": "Cookies 有効期限分布",
-    "description": "Cookies 有効期限バケットグラフ"
-  },
-  "analysisChartCookiesExpiringSoon": {
-    "message": "7日以内に期限切れになる Cookies のトップドメイン",
-    "description": "まもなく期限切れ Cookies トップドメイン"
-  },
-  "analysisTabTable": {
-    "message": "テーブル",
-    "description": "タブラベル"
-  },
-  "analysisTabCharts": {
-    "message": "グラフ",
-    "description": "タブラベル"
-  },
-  "analysisChartQuality": {
-    "message": "ストレージ品質 / リスク",
-    "description": "品質指標グラフタイトル"
-  },
-  "qualityLocalJsonFail": {
-    "message": "LocalStorage JSON 解析失敗数",
-    "description": "指標ラベル"
-  },
-  "qualitySessionJsonFail": {
-    "message": "SessionStorage JSON 解析失敗数",
-    "description": "指標ラベル"
-  },
-  "qualityLocalLarge": {
-    "message": "LocalStorage 超大キー (>100KB)",
-    "description": "指標ラベル"
-  },
-  "qualitySessionLarge": {
-    "message": "SessionStorage 超大キー (>100KB)",
-    "description": "指標ラベル"
-  },
-  "analysisSectionStacks": {
-    "message": "ドメインとストレージ種別ビュー",
-    "description": "積み上げチャートのセクション見出し"
-  },
-  "analysisSectionQuality": {
-    "message": "ストレージ品質とリスク",
-    "description": "品質リスクグループ小見出し"
-  },
-  "analysisSectionEfficiency": {
-    "message": "効率と密度ビュー",
-    "description": "効率密度グループ小見出し"
-  },
-  "analysisSectionConcentration": {
-    "message": "集中度ビュー",
-    "description": "集中度グループ小見出し"
-  },
-  "analysisSectionDistribution": {
-    "message": "分布ビュー",
-    "description": "分布グループ小見出し"
-  },
-  "analysisSectionComparison": {
-    "message": "比較ビュー",
-    "description": "比較グループ小見出し"
-  },
-  "analysisSectionSecurity": {
-    "message": "セキュリティとリスクビュー",
-    "description": "セキュリティリスクグループ小見出し"
-  },
-  "analysisSectionSegmentation": {
-    "message": "セグメンテーションビュー",
-    "description": "セグメンテーショングループ小見出し"
-  },
-  "analysisSectionStatistics": {
-    "message": "統計サマリービュー",
-    "description": "統計サマリーグループ小見出し"
-  },
-  "analysisChartAvgItemSize": {
-    "message": "ストレージ種別別平均項目サイズ",
-    "description": "平均項目サイズグラフタイトル"
-  },
-  "analysisChartStorageDensity": {
-    "message": "ドメインストレージ密度分布",
-    "description": "ストレージ密度グラフタイトル"
-  },
-  "analysisChartSizeItemScatter": {
-    "message": "ドメインサイズと項目数散布図",
-    "description": "散布図タイトル"
-  },
-  "analysisChartConcentration": {
-    "message": "ストレージ集中度分析（パレート図）",
-    "description": "集中度グラフタイトル"
-  },
-  "analysisChartTopDomainRatio": {
-    "message": "トップドメイン比率分析",
-    "description": "比率分析グラフタイトル"
-  },
-  "analysisChartSizeDistribution": {
-    "message": "ドメインサイズ分布ヒストグラム",
-    "description": "サイズ分布グラフタイトル"
-  },
-  "analysisChartItemDistribution": {
-    "message": "ドメイン項目数分布ヒストグラム",
-    "description": "項目数分布グラフタイトル"
-  },
-  "analysisChartStorageUsage": {
-    "message": "ストレージ種別使用率",
-    "description": "使用率グラフタイトル"
-  },
-  "analysisChartTypeEfficiency": {
-    "message": "ストレージ種別効率比較",
-    "description": "効率比較グラフタイトル"
-  },
-  "analysisChartDomainPreference": {
-    "message": "ドメインストレージ種別選好",
-    "description": "選好グラフタイトル"
-  },
-  "analysisChartInsecureCookies": {
-    "message": "安全でない Cookies のトップドメイン",
-    "description": "安全でないCookiesグラフタイトル"
-  },
-  "analysisChartExpiredCookies": {
-    "message": "期限切れ Cookies ドメイン分布",
-    "description": "期限切れCookiesグラフタイトル"
-  },
-  "analysisChartSecurityCombination": {
-    "message": "Cookies セキュリティ属性組み合わせ分析",
-    "description": "セキュリティ組み合わせグラフタイトル"
-  },
-  "analysisChartTLDDistribution": {
-    "message": "トップレベルドメイン（TLD）別グループ統計",
-    "description": "TLD分布グラフタイトル"
-  },
-  "analysisChartDomainLength": {
-    "message": "ドメイン長別グループ統計",
-    "description": "ドメイン長グラフタイトル"
-  },
-  "analysisChartStorageCombination": {
-    "message": "ストレージ種別組み合わせ別グループ",
-    "description": "ストレージ組み合わせグラフタイトル"
-  },
-  "analysisChartJsonFailRate": {
-    "message": "JSON 解析失敗率（ドメイン別）",
-    "description": "JSON失敗率グラフタイトル"
-  },
-  "analysisChartLargeKeys": {
-    "message": "超大キー分布（ドメイン別）",
-    "description": "超大キー分布グラフタイトル"
-  },
-  "analysisChartQualityComparison": {
-    "message": "ストレージ種別品質比較",
-    "description": "品質比較グラフタイトル"
-  },
-  "analysisChartStatistics": {
-    "message": "ストレージ統計サマリー",
-    "description": "統計サマリーグラフタイトル"
-  },
-  "analysisChartBoxPlot": {
-    "message": "ストレージ種別サイズ分布ボックスプロット",
-    "description": "ボックスプロットタイトル"
-  },
-  "avgSize": {
-    "message": "平均サイズ",
-    "description": "平均サイズラベル"
-  },
-  "perItem": {
-    "message": "項目あたり",
-    "description": "項目あたりラベル"
-  },
-  "concentration": {
-    "message": "集中度",
-    "description": "集中度ラベル"
-  },
-  "cumulativeRatio": {
-    "message": "累積比率",
-    "description": "累積比率ラベル"
-  },
-  "domainCount": {
-    "message": "ドメイン数",
-    "description": "ドメイン数ラベル"
-  },
-  "sizeRange": {
-    "message": "サイズ範囲",
-    "description": "サイズ範囲ラベル"
-  },
-  "itemRange": {
-    "message": "項目数範囲",
-    "description": "項目数範囲ラベル"
-  },
-  "usageRate": {
-    "message": "使用率",
-    "description": "使用率ラベル"
-  },
-  "efficiency": {
-    "message": "効率",
-    "description": "効率ラベル"
-  },
-  "preference": {
-    "message": "選好",
-    "description": "選好ラベル"
-  },
-  "insecure": {
-    "message": "安全でない",
-    "description": "安全でないラベル"
-  },
-  "expired": {
-    "message": "期限切れ",
-    "description": "期限切れラベル"
-  },
-  "securityCombination": {
-    "message": "セキュリティ属性組み合わせ",
-    "description": "セキュリティ属性組み合わせラベル"
-  },
-  "topLevelDomain": {
-    "message": "トップレベルドメイン",
-    "description": "トップレベルドメインラベル"
-  },
-  "domainLength": {
-    "message": "ドメイン長",
-    "description": "ドメイン長ラベル"
-  },
-  "storageCombination": {
-    "message": "ストレージ種別組み合わせ",
-    "description": "ストレージ種別組み合わせラベル"
-  },
-  "jsonFailRate": {
-    "message": "JSON 失敗率",
-    "description": "JSON失敗率ラベル"
-  },
-  "largeKeys": {
-    "message": "超大キー",
-    "description": "超大キーラベル"
-  },
-  "qualityComparison": {
-    "message": "品質比較",
-    "description": "品質比較ラベル"
-  },
-  "statistics": {
-    "message": "統計",
-    "description": "統計ラベル"
-  },
-  "min": {
-    "message": "最小",
-    "description": "最小ラベル"
-  },
-  "max": {
-    "message": "最大",
-    "description": "最大ラベル"
-  },
-  "median": {
-    "message": "中央値",
-    "description": "中央値ラベル"
-  },
-  "average": {
-    "message": "平均",
-    "description": "平均ラベル"
-  },
-  "avgItemSize": {
-    "message": "平均項目サイズ",
-    "description": "平均項目サイズラベル"
-  },
-  "domains": {
-    "message": "ドメイン",
-    "description": "ドメイン単位"
-  },
-  "itemCount": {
-    "message": "項目数",
-    "description": "項目数ラベル"
-  },
-  "ratio": {
-    "message": "比率",
-    "description": "比率ラベル"
-  },
-  "localOnly": {
-    "message": "LocalStorage のみ",
-    "description": "LocalStorageのみラベル"
-  },
-  "cookiesOnly": {
-    "message": "Cookies のみ",
-    "description": "Cookiesのみラベル"
-  },
-  "mixed": {
-    "message": "混合使用",
-    "description": "混合使用ラベル"
-  },
-  "insecureCookies": {
-    "message": "安全でない Cookies",
-    "description": "安全でないCookiesラベル"
-  },
-  "expiredCookies": {
-    "message": "期限切れ Cookies",
-    "description": "期限切れCookiesラベル"
+  "confirmDelete": {
+    "message": "この項目を削除してもよろしいですか？",
+    "description": "削除確認プロンプト"
+  },
+  "confirmDeleteDomain": {
+    "message": "ドメイン \"${domain}\" を削除してもよろしいですか？この操作は元に戻せません。",
+    "description": "ドメイン削除確認プロンプト"
+  },
+  "confirmDeleteTitle": {
+    "message": "削除の確認",
+    "description": "削除確認ダイアログのタイトル"
+  },
+  "contextMenuTitle": {
+    "message": "キャッシュクリーナーアシスタント",
+    "description": "コンテキストメニュータイトル"
   },
   "cookieCount": {
     "message": "Cookies 数",
     "description": "Cookies数ラベル"
   },
-  "short": {
-    "message": "短い (<10)",
-    "description": "短いドメインラベル"
+  "cookies": {
+    "message": "Cookie",
+    "description": "Cookieボタン"
   },
-  "medium": {
-    "message": "中 (10-20)",
-    "description": "中程度ドメインラベル"
+  "cookiesClearFailed": {
+    "message": "❌ Cookieのクリアに失敗しました",
+    "description": "Cookieクリア失敗メッセージ"
   },
-  "long": {
-    "message": "長い (20-30)",
-    "description": "長いドメインラベル"
+  "cookiesCleared": {
+    "message": "🍪 Cookieがクリアされました",
+    "description": "Cookieクリア成功メッセージ"
   },
-  "veryLong": {
-    "message": "非常に長い (>30)",
-    "description": "非常に長いドメインラベル"
+  "cookiesDesc": {
+    "message": "現在のサイトのCookieデータをクリアします",
+    "description": "Cookiesボタンのツールチップ"
   },
-  "none": {
-    "message": "なし",
-    "description": "なしラベル"
-  },
-  "localAndCookies": {
-    "message": "LocalStorage + Cookies",
-    "description": "LocalStorageとCookies組み合わせラベル"
-  },
-  "all": {
-    "message": "すべてのタイプ",
-    "description": "すべてのタイプラベル"
-  },
-  "other": {
-    "message": "その他の組み合わせ",
-    "description": "その他の組み合わせラベル"
-  },
-  "minSize": {
-    "message": "最小サイズ",
-    "description": "最小サイズラベル"
-  },
-  "maxSize": {
-    "message": "最大サイズ",
-    "description": "最大サイズラベル"
-  },
-  "medianSize": {
-    "message": "中央値サイズ",
-    "description": "中央値サイズラベル"
-  },
-  "q1": {
-    "message": "Q1",
-    "description": "第一四分位数ラベル"
-  },
-  "q3": {
-    "message": "Q3",
-    "description": "第三四分位数ラベル"
-  },
-  "totalSize": {
-    "message": "合計サイズ",
-    "description": "合計サイズラベル"
-  },
-  "cookiesExpiryLt7d": {
-    "message": "≤7日",
-    "description": "Cookies 有効期限バケット"
-  },
-  "cookiesExpiryLt30d": {
-    "message": "≤30日",
-    "description": "Cookies 有効期限バケット"
-  },
-  "cookiesExpiryMid": {
-    "message": "30-180日",
+  "cookiesExpiryExpired": {
+    "message": "期限切れ",
     "description": "Cookies 有効期限バケット"
   },
   "cookiesExpiryGt180d": {
     "message": "≥180日",
     "description": "Cookies 有効期限バケット"
   },
+  "cookiesExpiryLt30d": {
+    "message": "≤30日",
+    "description": "Cookies 有効期限バケット"
+  },
+  "cookiesExpiryLt7d": {
+    "message": "≤7日",
+    "description": "Cookies 有効期限バケット"
+  },
+  "cookiesExpiryMid": {
+    "message": "30-180日",
+    "description": "Cookies 有効期限バケット"
+  },
   "cookiesExpiryNo": {
     "message": "有効期限なし",
     "description": "Cookies 有効期限バケット"
   },
-  "cookiesExpiryExpired": {
-    "message": "期限切れ",
-    "description": "Cookies 有効期限バケット"
+  "cookiesOnly": {
+    "message": "Cookies のみ",
+    "description": "Cookiesのみラベル"
   },
-  "analysisSectionTypes": {
-    "message": "ストレージ種別ビュー",
-    "description": "ストレージ種別チャートのセクション見出し"
+  "copy": {
+    "message": "コピー",
+    "description": "コピーボタンのテキスト"
   },
-  "analysisSectionDomains": {
-    "message": "ドメインビュー",
-    "description": "ドメインチャートのセクション見出し"
+  "count": {
+    "message": "数量",
+    "description": "数量ラベル"
   },
-  "analysisSectionStacks": {
-    "message": "ドメインとストレージ種別ビュー",
-    "description": "積み上げチャートのセクション見出し"
+  "cumulativeRatio": {
+    "message": "累積比率",
+    "description": "累積比率ラベル"
   },
-  "analysisClearDomain": {
-    "message": "このドメインを削除",
-    "description": "ドメイン削除ボタンテキスト"
+  "currentSite": {
+    "message": "現在のサイト：",
+    "description": "現在のサイトラベル"
   },
-  "analysisLoading": {
-    "message": "スキャン中...",
-    "description": "スキャン中のヒント"
+  "currentSiteCacheClearFailed": {
+    "message": "❌ 現在のサイトのキャッシュクリアに失敗しました",
+    "description": "現在のサイトキャッシュクリア失敗メッセージ"
   },
-  "analysisEmpty": {
-    "message": "データなし",
-    "description": "空データのヒント"
+  "currentSiteCacheCleared": {
+    "message": "🌐 現在のサイトのキャッシュがクリアされました",
+    "description": "現在のサイトキャッシュクリア成功メッセージ"
   },
-  "openAnalysis": {
-    "message": "グローバルストレージ分析",
-    "description": "分析ページを開くボタン"
+  "delete": {
+    "message": "削除",
+    "description": "削除ボタンのテキスト"
   },
-  "cacheAPI": {
-    "message": "Cache",
-    "description": "Cache API ラベル"
+  "deleteDownloadFiles": {
+    "message": "ダウンロードファイルを削除",
+    "description": "ダウンロードファイル削除ボタン"
   },
-  "action": {
-    "message": "操作",
-    "description": "操作列ラベル"
+  "deleteFailed": {
+    "message": "削除に失敗しました",
+    "description": "削除失敗メッセージ"
   },
-  "cleaning": {
-    "message": "削除中...",
-    "description": "削除進行中のヒント"
+  "detailLoadFailed": {
+    "message": "詳細の読み込みに失敗しました",
+    "description": "詳細の読み込み失敗時のプロンプト"
   },
-  "analysisSearchPlaceholder": {
-    "message": "ドメインを検索...",
-    "description": "分析ページ検索プレースホルダー"
+  "domain": {
+    "message": "ドメイン",
+    "description": "ドメインラベル"
   },
-  "exportJSON": {
-    "message": "JSON をエクスポート",
-    "description": "JSON 書き出しボタン"
+  "domainAdded": {
+    "message": "ドメインをリストに追加しました",
+    "description": "単一ドメイン追加成功メッセージ"
   },
-  "exportCSV": {
-    "message": "CSV をエクスポート",
-    "description": "CSV 書き出しボタン"
+  "domainBlocked": {
+    "message": "このドメインはフィルターされており、この操作を実行できません",
+    "description": "ドメインブロックメッセージ"
   },
-  "exportFilteredOnly": {
-    "message": "フィルター結果のみ",
-    "description": "フィルター書き出し切替"
+  "domainCount": {
+    "message": "ドメイン数",
+    "description": "ドメイン数ラベル"
   },
-  "exportSuccess": {
-    "message": "エクスポートしました",
-    "description": "書き出し成功ヒント"
-  },
-  "exportFailed": {
-    "message": "エクスポートに失敗しました",
-    "description": "書き出し失敗ヒント"
+  "domainExists": {
+    "message": "ドメインは既に存在します",
+    "description": "ドメイン存在メッセージ"
   },
   "domainFilter": {
     "message": "ドメインフィルター",
     "description": "ドメインフィルタータイトル"
   },
+  "domainFilterHint": {
+    "message": "ホワイトリストモード：リスト内のドメインのみクリーンアップ操作を許可；ブラックリストモード：リスト内のドメインのクリーンアップ操作をブロック",
+    "description": "ドメインフィルターヒント"
+  },
+  "domainInputPlaceholder": {
+    "message": "ドメインを入力（例：example.com または *.example.com）",
+    "description": "ドメイン入力プレースホルダー"
+  },
+  "domainLength": {
+    "message": "ドメイン長",
+    "description": "ドメイン長ラベル"
+  },
+  "domains": {
+    "message": "ドメイン",
+    "description": "ドメイン単位"
+  },
+  "domainsAddedFailed": {
+    "message": "すべてのドメインが既に存在するか、無効です",
+    "description": "ドメイン一括追加全失敗メッセージ"
+  },
+  "domainsAddedPartial": {
+    "message": "%d 個のドメインを正常に追加し、%d 個をスキップしました",
+    "description": "ドメイン一括追加部分成功メッセージ"
+  },
+  "domainsAddedSuccess": {
+    "message": "%d 個のドメインを正常に追加しました",
+    "description": "ドメイン一括追加成功メッセージ"
+  },
+  "doubleClickToCopy": {
+    "message": "ダブルクリックでコピー",
+    "description": "ダブルクリックでコピーのヒント"
+  },
+  "downloadFilesClearFailed": {
+    "message": "❌ ダウンロードファイルの削除に失敗しました",
+    "description": "ダウンロードファイル削除失敗メッセージ"
+  },
+  "downloadFilesCleared": {
+    "message": "📁 ダウンロードファイルが削除されました",
+    "description": "ダウンロードファイル削除成功メッセージ"
+  },
+  "downloadHistory": {
+    "message": "ダウンロード履歴",
+    "description": "ダウンロード履歴ボタン"
+  },
+  "downloadsClearFailed": {
+    "message": "❌ ダウンロード履歴のクリアに失敗しました",
+    "description": "ダウンロード履歴クリア失敗メッセージ"
+  },
+  "downloadsCleared": {
+    "message": "📥 ダウンロード履歴がクリアされました",
+    "description": "ダウンロード履歴クリア成功メッセージ"
+  },
+  "efficiency": {
+    "message": "効率",
+    "description": "効率ラベル"
+  },
+  "enableNotifications": {
+    "message": "通知を有効にする",
+    "description": "通知有効化オプション"
+  },
+  "expandAll": {
+    "message": "すべて展開",
+    "description": "すべて展開ボタン"
+  },
+  "expiration": {
+    "message": "有効期限",
+    "description": "有効期限ラベル"
+  },
+  "expired": {
+    "message": "期限切れ",
+    "description": "期限切れラベル"
+  },
+  "expiredCookies": {
+    "message": "期限切れ Cookies",
+    "description": "期限切れCookiesラベル"
+  },
+  "exportCSV": {
+    "message": "CSV をエクスポート",
+    "description": "CSV 書き出しボタン"
+  },
+  "exportFailed": {
+    "message": "エクスポートに失敗しました",
+    "description": "書き出し失敗ヒント"
+  },
+  "exportFilteredOnly": {
+    "message": "フィルター結果のみ",
+    "description": "フィルター書き出し切替"
+  },
+  "exportJSON": {
+    "message": "JSON をエクスポート",
+    "description": "JSON 書き出しボタン"
+  },
+  "exportSuccess": {
+    "message": "エクスポートしました",
+    "description": "書き出し成功ヒント"
+  },
+  "extensionDescription": {
+    "message": "ブラウザキャッシュ、Cookie、localStorage、sessionStorageなどのデータをワンクリックでクリアする強力なツール",
+    "description": "拡張機能の説明"
+  },
+  "extensionName": {
+    "message": "キャッシュクリーナーアシスタント",
+    "description": "拡張機能名"
+  },
   "filterMode": {
     "message": "フィルターモード：",
     "description": "フィルターモードラベル"
+  },
+  "filterModeBlacklist": {
+    "message": "ブラックリスト",
+    "description": "ブラックリストフィルターモード"
   },
   "filterModeDisabled": {
     "message": "無効",
@@ -1079,72 +671,512 @@
     "message": "ホワイトリスト",
     "description": "ホワイトリストフィルターモード"
   },
-  "filterModeBlacklist": {
-    "message": "ブラックリスト",
-    "description": "ブラックリストフィルターモード"
+  "footerTip": {
+    "message": "💡 ヒント：削除機能は慎重に使用してください。削除されたデータは復元できません",
+    "description": "フッターのヒント"
   },
-  "whitelist": {
-    "message": "ホワイトリスト",
-    "description": "ホワイトリストタイトル"
+  "hardReload": {
+    "message": "ハード再読み込み",
+    "description": "ハード再読み込みボタン"
   },
-  "blacklist": {
-    "message": "ブラックリスト",
-    "description": "ブラックリストタイトル"
+  "hardReloadDesc": {
+    "message": "キャッシュを無視してページを強制的に再読み込みします",
+    "description": "ハード再読み込みボタンのツールチップ"
   },
-  "add": {
-    "message": "追加",
-    "description": "追加ボタン"
+  "hardReloadFailed": {
+    "message": "❌ ハード再読み込みに失敗しました",
+    "description": "ハード再読み込み失敗メッセージ"
   },
-  "addDomain": {
-    "message": "ドメインを追加",
-    "description": "ドメイン追加モーダルタイトル"
+  "historyClearFailed": {
+    "message": "❌ 履歴のクリアに失敗しました",
+    "description": "履歴クリア失敗メッセージ"
   },
-  "addedDomains": {
-    "message": "追加済みドメイン",
-    "description": "追加済みドメインリストタイトル"
+  "historyCleared": {
+    "message": "📜 履歴がクリアされました",
+    "description": "履歴クリア成功メッセージ"
   },
-  "domainAdded": {
-    "message": "ドメインをリストに追加しました",
-    "description": "単一ドメイン追加成功メッセージ"
+  "httpOnly": {
+    "message": "HttpOnly",
+    "description": "HttpOnlyラベル"
   },
-  "domainsAddedSuccess": {
-    "message": "%d 個のドメインを正常に追加しました",
-    "description": "ドメイン一括追加成功メッセージ"
+  "includeProtectedData": {
+    "message": "保護されたデータを含む",
+    "description": "保護されたデータを含むオプション"
   },
-  "domainsAddedPartial": {
-    "message": "%d 個のドメインを正常に追加し、%d 個をスキップしました",
-    "description": "ドメイン一括追加部分成功メッセージ"
+  "indexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDBボタン"
   },
-  "domainsAddedFailed": {
-    "message": "すべてのドメインが既に存在するか、無効です",
-    "description": "ドメイン一括追加全失敗メッセージ"
+  "indexedDBClearFailed": {
+    "message": "❌ IndexedDBのクリアに失敗しました",
+    "description": "IndexedDBクリア失敗メッセージ"
   },
-  "remove": {
-    "message": "削除",
-    "description": "削除ボタン"
+  "indexedDBCleared": {
+    "message": "📊 IndexedDBがクリアされました",
+    "description": "IndexedDBクリア成功メッセージ"
   },
-  "domainInputPlaceholder": {
-    "message": "ドメインを入力（例：example.com または *.example.com）",
-    "description": "ドメイン入力プレースホルダー"
+  "indexedDBDesc": {
+    "message": "現在のサイトのIndexedDBデータベースをクリアします",
+    "description": "IndexedDBボタンのツールチップ"
   },
-  "domainFilterHint": {
-    "message": "ホワイトリストモード：リスト内のドメインのみクリーンアップ操作を許可；ブラックリストモード：リスト内のドメインのクリーンアップ操作をブロック",
-    "description": "ドメインフィルターヒント"
+  "insecure": {
+    "message": "安全でない",
+    "description": "安全でないラベル"
   },
-  "domainBlocked": {
-    "message": "このドメインはフィルターされており、この操作を実行できません",
-    "description": "ドメインブロックメッセージ"
+  "insecureCookies": {
+    "message": "安全でない Cookies",
+    "description": "安全でないCookiesラベル"
   },
   "invalidDomain": {
     "message": "無効なドメイン形式",
     "description": "無効なドメインメッセージ"
   },
-  "domainExists": {
-    "message": "ドメインは既に存在します",
-    "description": "ドメイン存在メッセージ"
+  "itemCount": {
+    "message": "項目数",
+    "description": "項目数ラベル"
+  },
+  "itemDeleted": {
+    "message": "項目が削除されました",
+    "description": "削除成功メッセージ"
+  },
+  "itemRange": {
+    "message": "項目数範囲",
+    "description": "項目数範囲ラベル"
+  },
+  "items": {
+    "message": "項目",
+    "description": "ストレージ項目数の単位"
+  },
+  "jsonFailRate": {
+    "message": "JSON 失敗率",
+    "description": "JSON失敗率ラベル"
+  },
+  "keepFormData": {
+    "message": "フォームデータを保持",
+    "description": "フォームデータ保持オプション"
+  },
+  "keepPasswords": {
+    "message": "パスワードを保持",
+    "description": "パスワード保持オプション"
+  },
+  "key": {
+    "message": "キー",
+    "description": "キーラベル"
+  },
+  "keyCopied": {
+    "message": "キーをコピーしました",
+    "description": "キーコピー成功メッセージ"
+  },
+  "languageAuto": {
+    "message": "システムに従う",
+    "description": "自動言語オプション"
+  },
+  "languageChangeFailed": {
+    "message": "言語の変更に失敗しました",
+    "description": "言語変更失敗メッセージ"
+  },
+  "languageChanged": {
+    "message": "言語が変更されました",
+    "description": "言語変更成功メッセージ"
+  },
+  "languageSettings": {
+    "message": "言語設定",
+    "description": "言語設定タイトル"
+  },
+  "largeKeys": {
+    "message": "超大キー",
+    "description": "超大キーラベル"
+  },
+  "loadSettingsFailed": {
+    "message": "設定の読み込みに失敗しました",
+    "description": "設定読み込み失敗メッセージ"
+  },
+  "loading": {
+    "message": "読み込み中...",
+    "description": "読み込み状態"
+  },
+  "loadingDetail": {
+    "message": "詳細を読み込み中...",
+    "description": "詳細を読み込む際のプロンプト"
+  },
+  "loadingStorage": {
+    "message": "ストレージ情報を読み込み中...",
+    "description": "ストレージ情報読み込み時のプロンプト"
+  },
+  "localAndCookies": {
+    "message": "LocalStorage + Cookies",
+    "description": "LocalStorageとCookies組み合わせラベル"
+  },
+  "localOnly": {
+    "message": "LocalStorage のみ",
+    "description": "LocalStorageのみラベル"
+  },
+  "localStorage": {
+    "message": "LocalStorage",
+    "description": "LocalStorageボタン"
+  },
+  "localStorageClearFailed": {
+    "message": "❌ LocalStorageのクリアに失敗しました",
+    "description": "LocalStorageクリア失敗メッセージ"
+  },
+  "localStorageCleared": {
+    "message": "💾 LocalStorageがクリアされました",
+    "description": "LocalStorageクリア成功メッセージ"
+  },
+  "localStorageDesc": {
+    "message": "現在のサイトのローカルストレージデータをクリアします",
+    "description": "LocalStorageボタンのツールチップ"
+  },
+  "localStorageUnavailable": {
+    "message": "LocalStorageが利用できません",
+    "description": "LocalStorage利用不可エラー"
+  },
+  "long": {
+    "message": "長い (20-30)",
+    "description": "長いドメインラベル"
+  },
+  "max": {
+    "message": "最大",
+    "description": "最大ラベル"
+  },
+  "maxSize": {
+    "message": "最大サイズ",
+    "description": "最大サイズラベル"
+  },
+  "median": {
+    "message": "中央値",
+    "description": "中央値ラベル"
+  },
+  "medianSize": {
+    "message": "中央値サイズ",
+    "description": "中央値サイズラベル"
+  },
+  "medium": {
+    "message": "中 (10-20)",
+    "description": "中程度ドメインラベル"
+  },
+  "min": {
+    "message": "最小",
+    "description": "最小ラベル"
+  },
+  "minSize": {
+    "message": "最小サイズ",
+    "description": "最小サイズラベル"
+  },
+  "mixed": {
+    "message": "混合使用",
+    "description": "混合使用ラベル"
+  },
+  "moreUrls": {
+    "message": "さらに表示...",
+    "description": "さらにURLがある場合のプロンプト"
+  },
+  "name": {
+    "message": "名前",
+    "description": "名前ラベル"
+  },
+  "noDetailData": {
+    "message": "データなし",
+    "description": "詳細データがない場合のプロンプト"
   },
   "noDomains": {
     "message": "ドメインなし",
     "description": "空リストメッセージ"
+  },
+  "noStorageData": {
+    "message": "現在のウェブサイトにストレージデータがありません",
+    "description": "ストレージデータがない場合のプロンプト"
+  },
+  "none": {
+    "message": "なし",
+    "description": "なしラベル"
+  },
+  "normalReload": {
+    "message": "通常の再読み込み",
+    "description": "通常の再読み込みボタン"
+  },
+  "normalReloadDesc": {
+    "message": "キャッシュデータを保持したまま現在のページを再読み込みします",
+    "description": "通常の再読み込みボタンのツールチップ"
+  },
+  "notificationDisabled": {
+    "message": "通知が無効になっています。表示されません",
+    "description": "通知無効メッセージ"
+  },
+  "notificationSettings": {
+    "message": "通知設定",
+    "description": "通知設定"
+  },
+  "notificationSound": {
+    "message": "通知音",
+    "description": "通知音オプション"
+  },
+  "openAnalysis": {
+    "message": "グローバルストレージ分析",
+    "description": "分析ページを開くボタン"
+  },
+  "operationFailed": {
+    "message": "操作に失敗しました",
+    "description": "操作失敗汎用メッセージ"
+  },
+  "other": {
+    "message": "その他の組み合わせ",
+    "description": "その他の組み合わせラベル"
+  },
+  "pageHardReloading": {
+    "message": "🔄 ページをハード再読み込み中",
+    "description": "ページハード再読み込みメッセージ"
+  },
+  "pageReloading": {
+    "message": "🔄 ページを再読み込み中",
+    "description": "ページ再読み込みメッセージ"
+  },
+  "path": {
+    "message": "パス",
+    "description": "パスラベル"
+  },
+  "perItem": {
+    "message": "項目あたり",
+    "description": "項目あたりラベル"
+  },
+  "popupTitle": {
+    "message": "キャッシュクリーナーアシスタント - あなたのブラウザクリーニングエキスパート",
+    "description": "ポップアップタイトル"
+  },
+  "preference": {
+    "message": "選好",
+    "description": "選好ラベル"
+  },
+  "q1": {
+    "message": "Q1",
+    "description": "第一四分位数ラベル"
+  },
+  "q3": {
+    "message": "Q3",
+    "description": "第三四分位数ラベル"
+  },
+  "qualityComparison": {
+    "message": "品質比較",
+    "description": "品質比較ラベル"
+  },
+  "qualityLocalJsonFail": {
+    "message": "LocalStorage JSON 解析失敗数",
+    "description": "指標ラベル"
+  },
+  "qualityLocalLarge": {
+    "message": "LocalStorage 超大キー (>100KB)",
+    "description": "指標ラベル"
+  },
+  "qualitySessionJsonFail": {
+    "message": "SessionStorage JSON 解析失敗数",
+    "description": "指標ラベル"
+  },
+  "qualitySessionLarge": {
+    "message": "SessionStorage 超大キー (>100KB)",
+    "description": "指標ラベル"
+  },
+  "ratio": {
+    "message": "比率",
+    "description": "比率ラベル"
+  },
+  "reloadFailed": {
+    "message": "❌ 再読み込みに失敗しました",
+    "description": "再読み込み失敗メッセージ"
+  },
+  "remove": {
+    "message": "削除",
+    "description": "削除ボタン"
+  },
+  "restrictedPageStorage": {
+    "message": "このページはブラウザによって保護されており、ストレージ情報を取得できません",
+    "description": "制限されたページでストレージ情報を取得できない場合のプロンプト"
+  },
+  "save": {
+    "message": "保存",
+    "description": "保存ボタン"
+  },
+  "saveFailed": {
+    "message": "保存に失敗しました",
+    "description": "保存失敗汎用メッセージ"
+  },
+  "scrollToTop": {
+    "message": "トップにスクロール",
+    "description": "トップにスクロールボタン"
+  },
+  "searchPlaceholder": {
+    "message": "キーまたは値を検索...",
+    "description": "検索入力のプレースホルダー"
+  },
+  "secure": {
+    "message": "セキュア",
+    "description": "セキュアラベル"
+  },
+  "securityCombination": {
+    "message": "セキュリティ属性組み合わせ",
+    "description": "セキュリティ属性組み合わせラベル"
+  },
+  "sessionStorage": {
+    "message": "SessionStorage",
+    "description": "SessionStorageボタン"
+  },
+  "sessionStorageClearFailed": {
+    "message": "❌ SessionStorageのクリアに失敗しました",
+    "description": "SessionStorageクリア失敗メッセージ"
+  },
+  "sessionStorageCleared": {
+    "message": "📂 SessionStorageがクリアされました",
+    "description": "SessionStorageクリア成功メッセージ"
+  },
+  "sessionStorageDesc": {
+    "message": "現在のサイトのセッションストレージデータをクリアします",
+    "description": "SessionStorageボタンのツールチップ"
+  },
+  "sessionStorageUnavailable": {
+    "message": "SessionStorageが利用できません",
+    "description": "SessionStorage利用不可エラー"
+  },
+  "settingsSaveFailed": {
+    "message": "設定の保存に失敗しました",
+    "description": "設定保存失敗メッセージ"
+  },
+  "settingsSaved": {
+    "message": "設定が保存されました",
+    "description": "設定保存成功メッセージ"
+  },
+  "short": {
+    "message": "短い (<10)",
+    "description": "短いドメインラベル"
+  },
+  "silentMode": {
+    "message": "サイレントモード（通知なし）",
+    "description": "サイレントモードトグル"
+  },
+  "size": {
+    "message": "サイズ",
+    "description": "サイズラベル"
+  },
+  "sizeRange": {
+    "message": "サイズ範囲",
+    "description": "サイズ範囲ラベル"
+  },
+  "statistics": {
+    "message": "統計",
+    "description": "統計ラベル"
+  },
+  "storageCombination": {
+    "message": "ストレージ種別組み合わせ",
+    "description": "ストレージ種別組み合わせラベル"
+  },
+  "storageLoadFailed": {
+    "message": "ストレージ情報を読み込めません",
+    "description": "ストレージ情報読み込み失敗時のプロンプト"
+  },
+  "storageUsage": {
+    "message": "ストレージ使用状況",
+    "description": "ストレージ使用状況タイトル"
+  },
+  "tabAllBrowser": {
+    "message": "ブラウザ全体",
+    "description": "ブラウザ全体タブ"
+  },
+  "tabCurrentSite": {
+    "message": "現在のサイト",
+    "description": "現在のサイトタブ"
+  },
+  "tabSettings": {
+    "message": "詳細設定",
+    "description": "詳細設定タブ"
+  },
+  "themeAuto": {
+    "message": "自動",
+    "description": "自動テーマ"
+  },
+  "themeDark": {
+    "message": "ダーク",
+    "description": "ダークテーマ"
+  },
+  "themeLight": {
+    "message": "ライト",
+    "description": "ライトテーマ"
+  },
+  "themeSettings": {
+    "message": "外観テーマ",
+    "description": "外観テーマ設定"
+  },
+  "timeRangeAll": {
+    "message": "全期間",
+    "description": "時間範囲オプション：全て"
+  },
+  "timeRangeLabel": {
+    "message": "削除範囲",
+    "description": "時間範囲タイトル"
+  },
+  "timeRangeLastDay": {
+    "message": "過去24時間",
+    "description": "時間範囲オプション：24時間"
+  },
+  "timeRangeLastHour": {
+    "message": "過去1時間",
+    "description": "時間範囲オプション：1時間"
+  },
+  "timeRangeLastMonth": {
+    "message": "過去4週間",
+    "description": "時間範囲オプション：4週間"
+  },
+  "timeRangeLastWeek": {
+    "message": "過去7日間",
+    "description": "時間範囲オプション：7日"
+  },
+  "timeRangeSaved": {
+    "message": "削除範囲を保存しました",
+    "description": "時間範囲保存成功メッセージ"
+  },
+  "topLevelDomain": {
+    "message": "トップレベルドメイン",
+    "description": "トップレベルドメインラベル"
+  },
+  "totalItems": {
+    "message": "合計",
+    "description": "合計ラベル"
+  },
+  "totalStorage": {
+    "message": "合計ストレージ：",
+    "description": "合計ストレージラベル"
+  },
+  "unknownOperation": {
+    "message": "不明な操作",
+    "description": "不明な操作メッセージ"
+  },
+  "unknownSite": {
+    "message": "不明なサイト",
+    "description": "不明なサイト"
+  },
+  "urls": {
+    "message": "URLs",
+    "description": "URLsラベル"
+  },
+  "usageRate": {
+    "message": "使用率",
+    "description": "使用率ラベル"
+  },
+  "value": {
+    "message": "値",
+    "description": "値ラベル"
+  },
+  "valueCopied": {
+    "message": "値をコピーしました",
+    "description": "値コピー成功メッセージ"
+  },
+  "version": {
+    "message": "バージョン",
+    "description": "バージョンラベル"
+  },
+  "veryLong": {
+    "message": "非常に長い (>30)",
+    "description": "非常に長いドメインラベル"
+  },
+  "whitelist": {
+    "message": "ホワイトリスト",
+    "description": "ホワイトリストタイトル"
   }
 }

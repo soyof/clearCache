@@ -8,6 +8,8 @@ import { updateStorageDetailViewI18n } from '../utils/storageDetailView.js';
 import { getCurrentTab } from './state.js';
 import { adjustTabTextSize, formatUrl } from './uiHelpers.js';
 
+const getSelectedTimeRange = (elements) => elements.timeRangeSelect?.value || 'all';
+
 /**
  * 绑定按钮事件
  * @param {HTMLElement} button - 按钮元素
@@ -298,7 +300,7 @@ export function bindEventListeners(elements, handlers) {
         }, delay);
     };
 
-    const bindDangerousAction = (button, handler, { labelKey, withRefresh = false } = {}) => {
+    const bindDangerousAction = (button, handler, { labelKey, withRefresh = false, useTimeRange = false } = {}) => {
         if (!button) return;
         button.addEventListener('click', async () => {
             try {
@@ -306,9 +308,11 @@ export function bindEventListeners(elements, handlers) {
                 const needConfirm = settings.confirmDangerous !== false;
                 const silentMode = settings.silentMode === true;
                 const actionText = getMessage(labelKey) || labelKey || '';
+                const timeRange = getSelectedTimeRange(elements);
 
                 const run = async () => {
-                    await handler({ silent: silentMode });
+                    const opts = useTimeRange ? { silent: silentMode, timeRange, applyTimeRange: true } : { silent: silentMode };
+                    await handler(opts);
                     if (withRefresh && !silentMode) {
                         reloadStorageUsage();
                     }
@@ -331,22 +335,26 @@ export function bindEventListeners(elements, handlers) {
         });
     };
 
-    bindDangerousAction(elements.clearCurrentAll, handlers.clearCurrentWebsiteData, { labelKey: 'clearCache', withRefresh: true });
-    bindButtonEvent(elements.hardReloadCacheOnly, handlers.hardReloadCacheOnly);
-    bindDangerousAction(elements.hardReload, handlers.hardReloadPage, { labelKey: 'clearAllAndReload' });
-    bindDangerousAction(elements.clearCurrentCookies, handlers.clearCookies, { labelKey: 'cookies', withRefresh: true });
-    bindDangerousAction(elements.clearLocalStorage, handlers.clearLocalStorage, { labelKey: 'localStorage', withRefresh: true });
-    bindDangerousAction(elements.clearSessionStorage, handlers.clearSessionStorage, { labelKey: 'sessionStorage', withRefresh: true });
-    bindDangerousAction(elements.clearCurrentIndexedDB, handlers.clearCurrentIndexedDB, { labelKey: 'indexedDB', withRefresh: true });
+    bindDangerousAction(elements.clearCurrentAll, handlers.clearCurrentWebsiteData, { labelKey: 'clearCache', withRefresh: true, useTimeRange: false });
+    if (elements.hardReloadCacheOnly) {
+        elements.hardReloadCacheOnly.addEventListener('click', async () => {
+            await handlers.hardReloadCacheOnly({});
+        });
+    }
+    bindDangerousAction(elements.hardReload, handlers.hardReloadPage, { labelKey: 'clearAllAndReload', useTimeRange: false });
+    bindDangerousAction(elements.clearCurrentCookies, handlers.clearCookies, { labelKey: 'cookies', withRefresh: true, useTimeRange: false });
+    bindDangerousAction(elements.clearLocalStorage, handlers.clearLocalStorage, { labelKey: 'localStorage', withRefresh: true, useTimeRange: false });
+    bindDangerousAction(elements.clearSessionStorage, handlers.clearSessionStorage, { labelKey: 'sessionStorage', withRefresh: true, useTimeRange: false });
+    bindDangerousAction(elements.clearCurrentIndexedDB, handlers.clearCurrentIndexedDB, { labelKey: 'indexedDB', withRefresh: true, useTimeRange: false });
 
     // 整个浏览器标签页按钮
-    bindDangerousAction(elements.clearAll, handlers.clearAllData, { labelKey: 'clearAllCache' });
-    bindDangerousAction(elements.clearCache, handlers.clearCache, { labelKey: 'browserCache' });
-    bindDangerousAction(elements.clearCookies, handlers.clearCookies, { labelKey: 'allCookies' });
-    bindDangerousAction(elements.clearIndexedDB, handlers.clearIndexedDB, { labelKey: 'allIndexedDB' });
-    bindDangerousAction(elements.clearHistory, handlers.clearHistory, { labelKey: 'clearHistory' });
-    bindDangerousAction(elements.clearDownloads, handlers.clearDownloads, { labelKey: 'downloadHistory' });
-    bindDangerousAction(elements.clearDownloadsFiles, handlers.clearDownloadFiles, { labelKey: 'deleteDownloadFiles' });
+    bindDangerousAction(elements.clearAll, handlers.clearAllData, { labelKey: 'clearAllCache', useTimeRange: true });
+    bindDangerousAction(elements.clearCache, handlers.clearCache, { labelKey: 'browserCache', useTimeRange: true });
+    bindDangerousAction(elements.clearCookies, handlers.clearCookies, { labelKey: 'allCookies', useTimeRange: true });
+    bindDangerousAction(elements.clearIndexedDB, handlers.clearIndexedDB, { labelKey: 'allIndexedDB', useTimeRange: true });
+    bindDangerousAction(elements.clearHistory, handlers.clearHistory, { labelKey: 'clearHistory', useTimeRange: true });
+    bindDangerousAction(elements.clearDownloads, handlers.clearDownloads, { labelKey: 'downloadHistory', useTimeRange: true });
+    bindDangerousAction(elements.clearDownloadsFiles, handlers.clearDownloadFiles, { labelKey: 'deleteDownloadFiles', useTimeRange: true });
 
     // 全局存储分析入口
     if (elements.openAnalysis) {
@@ -483,6 +491,19 @@ export function bindEventListeners(elements, handlers) {
                         elements.refreshStorageBtn.classList.remove('loading');
                     }, 300);
                 });
+            }
+        });
+    }
+
+    // 清理范围选择
+    if (elements.timeRangeSelect) {
+        elements.timeRangeSelect.addEventListener('change', async () => {
+            const timeRange = getSelectedTimeRange(elements);
+            try {
+                await chrome.storage.local.set({ timeRange });
+                StatusManager.show(elements.status, elements.statusContainer, getMessage('timeRangeSaved'), 'success');
+            } catch (error) {
+                StatusManager.show(elements.status, elements.statusContainer, getMessage('settingsSaveFailed'), 'error');
             }
         });
     }
